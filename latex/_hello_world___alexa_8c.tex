@@ -1,0 +1,416 @@
+\hypertarget{_hello_world___alexa_8c}{}\doxysection{Hello\+World\+\_\+\+Alexa.\+c File Reference}
+\label{_hello_world___alexa_8c}\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+{\ttfamily \#include \char`\"{}src/ack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}src/ack\+\_\+power\+\_\+controller.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}src/ack\+\_\+user\+\_\+device.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}src/ack\+\_\+brightness\+\_\+controller.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Hello\+World\+\_\+\+Alexa.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Hello\+World\+\_\+\+Hardware.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+Include dependency graph for Hello\+World\+\_\+\+Alexa.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_hello_world___alexa_8c_aacbb9e1f38be71e22df1584a37c56693}{\+\_\+\+\_\+\+STDC\+\_\+\+FORMAT\+\_\+\+MACROS}}
+\item 
+\#define \mbox{\hyperlink{_hello_world___alexa_8c_ae038f9ff67f3ee1e3464e0bb8f98eddf}{POWER\+\_\+\+STATE\+\_\+\+PROPERTY}}~1
+\item 
+\#define \mbox{\hyperlink{_hello_world___alexa_8c_a2ad5a2ce302a641008b1f7845362e814}{BRIGHTNESS\+\_\+\+PROPERTY}}~2
+\item 
+\#define \mbox{\hyperlink{_hello_world___alexa_8c_a9a3d7fbe056f818d2ad733ecde69753d}{USER\+\_\+\+INITIATED\+\_\+\+USER\+\_\+\+GUIDED\+\_\+\+SETUP}}~1
+\item 
+\#define \mbox{\hyperlink{_hello_world___alexa_8c_af8bc1ea298b18e56a176673e60c94fcc}{USER\+\_\+\+INITIATED\+\_\+\+FACTORY\+\_\+\+RESET}}~2
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{_hello_world___alexa_8c_ac48c9dc0e9132739ef2e3bdb90a7fd2d}{Add\+Power\+State\+Property}} (uint32\+\_\+t property\+Ordinal, unsigned property\+Flags)
+\item 
+static bool \mbox{\hyperlink{_hello_world___alexa_8c_ade627335dc81d495a7637d4e59d3afc3}{Add\+Brightness\+Property}} (uint32\+\_\+t property\+Ordinal, unsigned property\+Flags)
+\item 
+static bool \mbox{\hyperlink{_hello_world___alexa_8c_a97385192d02b13332b2386afc2e747a7}{Does\+User\+Want\+Lifecycle\+Action}} (unsigned user\+Initiated)
+\item 
+void \mbox{\hyperlink{_hello_world___alexa_8c_a9b745171d9c8e6482c11e9fc48cecb2b}{Alexa\+\_\+\+Setup}} (void)
+\item 
+void \mbox{\hyperlink{_hello_world___alexa_8c_ac658ad8f9b68d5c1d0c45b2b8bd27940}{Alexa\+\_\+\+Loop}} (void)
+\item 
+void \mbox{\hyperlink{_hello_world___alexa_8c_a3ff9e3977c9a7e40f19eabe79ed6843d}{Alexa\+\_\+\+Send\+Change\+Report\+Due\+To\+Local\+Control}} (void)
+\item 
+void \mbox{\hyperlink{_hello_world___alexa_8c_accaec091ede4d9e58ce8d60d5035f85d}{Alexa\+\_\+\+Initiate\+Factory\+Reset}} (void)
+\item 
+void \mbox{\hyperlink{_hello_world___alexa_8c_a01104b810150b396e84e8afbc4740250}{Alexa\+\_\+\+Initiate\+User\+Guided\+Setup}} (void)
+\item 
+bool \mbox{\hyperlink{_hello_world___alexa_8c_a03fbd6529f601d59e50c8b945a776c7c}{ACKUser\+\_\+\+Is\+Device\+In\+Use}} (void)
+\item 
+void \mbox{\hyperlink{_hello_world___alexa_8c_a0e90e7bb56bd07684a1d2a7ec4058f07}{ACKUser\+\_\+\+On\+Power\+Controller\+Directive}} (int32\+\_\+t correlation\+Id, bool power\+On)
+\item 
+void \mbox{\hyperlink{_hello_world___alexa_8c_ac631fec54487acdec8c37b0d7d38cca9}{ACKUser\+\_\+\+On\+Brightness\+Controller\+Directive}} (int32\+\_\+t correlation\+Id, bool is\+Delta, int32\+\_\+t value)
+\item 
+void \mbox{\hyperlink{_hello_world___alexa_8c_a4b2ad30555b360e7ae90e005f86e414e}{ACKUser\+\_\+\+On\+Report\+State\+Directive}} (int32\+\_\+t correlation\+Id)
+\item 
+bool \mbox{\hyperlink{_hello_world___alexa_8c_a862bb458ab8084b428f04cd6cf16c4ce}{ACKUser\+\_\+\+Does\+User\+Want\+Factory\+Reset}} (void)
+\item 
+bool \mbox{\hyperlink{_hello_world___alexa_8c_a82e39fcd6c006ea174513b8dc56ecfca}{ACKUser\+\_\+\+Does\+User\+Want\+User\+Guided\+Setup}} (void)
+\item 
+bool \mbox{\hyperlink{_hello_world___alexa_8c_a003c4d1793eb768581593d251d7d845a}{ACKUser\+\_\+\+Does\+User\+Want\+To\+Submit\+Logs}} (void)
+\item 
+void \mbox{\hyperlink{_hello_world___alexa_8c_a46ce38d62dc041abacaa7d82f06d8c30}{ACKUser\+\_\+\+On\+Lifecycle\+State\+Change}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ack_8h_ad222373de1c685d0c3efbbf8910a83f0}{ACKProperty\+Table\+Entry\+\_\+t}} \mbox{\hyperlink{_hello_world___alexa_8c_a4d0652b73a39ed6abae348e4e40398fd}{ACKUser\+\_\+\+Property\+Table}} \mbox{[}$\,$\mbox{]}
+\item 
+static uint8\+\_\+t \mbox{\hyperlink{_hello_world___alexa_8c_aad475bca6748744fdbadce3c3453c8ad}{sg\+\_\+lifecycle\+Pending}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_hello_world___alexa_8c_aacbb9e1f38be71e22df1584a37c56693}\label{_hello_world___alexa_8c_aacbb9e1f38be71e22df1584a37c56693}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!\_\_STDC\_FORMAT\_MACROS@{\_\_STDC\_FORMAT\_MACROS}}
+\index{\_\_STDC\_FORMAT\_MACROS@{\_\_STDC\_FORMAT\_MACROS}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{\_\_STDC\_FORMAT\_MACROS}{\_\_STDC\_FORMAT\_MACROS}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+STDC\+\_\+\+FORMAT\+\_\+\+MACROS}
+
+\mbox{\Hypertarget{_hello_world___alexa_8c_a2ad5a2ce302a641008b1f7845362e814}\label{_hello_world___alexa_8c_a2ad5a2ce302a641008b1f7845362e814}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!BRIGHTNESS\_PROPERTY@{BRIGHTNESS\_PROPERTY}}
+\index{BRIGHTNESS\_PROPERTY@{BRIGHTNESS\_PROPERTY}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{BRIGHTNESS\_PROPERTY}{BRIGHTNESS\_PROPERTY}}
+{\footnotesize\ttfamily \#define BRIGHTNESS\+\_\+\+PROPERTY~2}
+
+\mbox{\Hypertarget{_hello_world___alexa_8c_ae038f9ff67f3ee1e3464e0bb8f98eddf}\label{_hello_world___alexa_8c_ae038f9ff67f3ee1e3464e0bb8f98eddf}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!POWER\_STATE\_PROPERTY@{POWER\_STATE\_PROPERTY}}
+\index{POWER\_STATE\_PROPERTY@{POWER\_STATE\_PROPERTY}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{POWER\_STATE\_PROPERTY}{POWER\_STATE\_PROPERTY}}
+{\footnotesize\ttfamily \#define POWER\+\_\+\+STATE\+\_\+\+PROPERTY~1}
+
+\mbox{\Hypertarget{_hello_world___alexa_8c_af8bc1ea298b18e56a176673e60c94fcc}\label{_hello_world___alexa_8c_af8bc1ea298b18e56a176673e60c94fcc}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!USER\_INITIATED\_FACTORY\_RESET@{USER\_INITIATED\_FACTORY\_RESET}}
+\index{USER\_INITIATED\_FACTORY\_RESET@{USER\_INITIATED\_FACTORY\_RESET}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{USER\_INITIATED\_FACTORY\_RESET}{USER\_INITIATED\_FACTORY\_RESET}}
+{\footnotesize\ttfamily \#define USER\+\_\+\+INITIATED\+\_\+\+FACTORY\+\_\+\+RESET~2}
+
+\mbox{\Hypertarget{_hello_world___alexa_8c_a9a3d7fbe056f818d2ad733ecde69753d}\label{_hello_world___alexa_8c_a9a3d7fbe056f818d2ad733ecde69753d}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!USER\_INITIATED\_USER\_GUIDED\_SETUP@{USER\_INITIATED\_USER\_GUIDED\_SETUP}}
+\index{USER\_INITIATED\_USER\_GUIDED\_SETUP@{USER\_INITIATED\_USER\_GUIDED\_SETUP}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{USER\_INITIATED\_USER\_GUIDED\_SETUP}{USER\_INITIATED\_USER\_GUIDED\_SETUP}}
+{\footnotesize\ttfamily \#define USER\+\_\+\+INITIATED\+\_\+\+USER\+\_\+\+GUIDED\+\_\+\+SETUP~1}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_hello_world___alexa_8c_a862bb458ab8084b428f04cd6cf16c4ce}\label{_hello_world___alexa_8c_a862bb458ab8084b428f04cd6cf16c4ce}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!ACKUser\_DoesUserWantFactoryReset@{ACKUser\_DoesUserWantFactoryReset}}
+\index{ACKUser\_DoesUserWantFactoryReset@{ACKUser\_DoesUserWantFactoryReset}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{ACKUser\_DoesUserWantFactoryReset()}{ACKUser\_DoesUserWantFactoryReset()}}
+{\footnotesize\ttfamily bool ACKUser\+\_\+\+Does\+User\+Want\+Factory\+Reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_a862bb458ab8084b428f04cd6cf16c4ce_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_a862bb458ab8084b428f04cd6cf16c4ce_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___alexa_8c_a003c4d1793eb768581593d251d7d845a}\label{_hello_world___alexa_8c_a003c4d1793eb768581593d251d7d845a}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!ACKUser\_DoesUserWantToSubmitLogs@{ACKUser\_DoesUserWantToSubmitLogs}}
+\index{ACKUser\_DoesUserWantToSubmitLogs@{ACKUser\_DoesUserWantToSubmitLogs}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{ACKUser\_DoesUserWantToSubmitLogs()}{ACKUser\_DoesUserWantToSubmitLogs()}}
+{\footnotesize\ttfamily bool ACKUser\+\_\+\+Does\+User\+Want\+To\+Submit\+Logs (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_hello_world___alexa_8c_a82e39fcd6c006ea174513b8dc56ecfca}\label{_hello_world___alexa_8c_a82e39fcd6c006ea174513b8dc56ecfca}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!ACKUser\_DoesUserWantUserGuidedSetup@{ACKUser\_DoesUserWantUserGuidedSetup}}
+\index{ACKUser\_DoesUserWantUserGuidedSetup@{ACKUser\_DoesUserWantUserGuidedSetup}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{ACKUser\_DoesUserWantUserGuidedSetup()}{ACKUser\_DoesUserWantUserGuidedSetup()}}
+{\footnotesize\ttfamily bool ACKUser\+\_\+\+Does\+User\+Want\+User\+Guided\+Setup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_a82e39fcd6c006ea174513b8dc56ecfca_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_a82e39fcd6c006ea174513b8dc56ecfca_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___alexa_8c_a03fbd6529f601d59e50c8b945a776c7c}\label{_hello_world___alexa_8c_a03fbd6529f601d59e50c8b945a776c7c}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!ACKUser\_IsDeviceInUse@{ACKUser\_IsDeviceInUse}}
+\index{ACKUser\_IsDeviceInUse@{ACKUser\_IsDeviceInUse}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{ACKUser\_IsDeviceInUse()}{ACKUser\_IsDeviceInUse()}}
+{\footnotesize\ttfamily bool ACKUser\+\_\+\+Is\+Device\+In\+Use (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_a03fbd6529f601d59e50c8b945a776c7c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_a03fbd6529f601d59e50c8b945a776c7c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___alexa_8c_ac631fec54487acdec8c37b0d7d38cca9}\label{_hello_world___alexa_8c_ac631fec54487acdec8c37b0d7d38cca9}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!ACKUser\_OnBrightnessControllerDirective@{ACKUser\_OnBrightnessControllerDirective}}
+\index{ACKUser\_OnBrightnessControllerDirective@{ACKUser\_OnBrightnessControllerDirective}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{ACKUser\_OnBrightnessControllerDirective()}{ACKUser\_OnBrightnessControllerDirective()}}
+{\footnotesize\ttfamily void ACKUser\+\_\+\+On\+Brightness\+Controller\+Directive (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id,  }\item[{bool}]{is\+Delta,  }\item[{int32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_ac631fec54487acdec8c37b0d7d38cca9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_ac631fec54487acdec8c37b0d7d38cca9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___alexa_8c_a46ce38d62dc041abacaa7d82f06d8c30}\label{_hello_world___alexa_8c_a46ce38d62dc041abacaa7d82f06d8c30}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!ACKUser\_OnLifecycleStateChange@{ACKUser\_OnLifecycleStateChange}}
+\index{ACKUser\_OnLifecycleStateChange@{ACKUser\_OnLifecycleStateChange}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{ACKUser\_OnLifecycleStateChange()}{ACKUser\_OnLifecycleStateChange()}}
+{\footnotesize\ttfamily void ACKUser\+\_\+\+On\+Lifecycle\+State\+Change (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_a46ce38d62dc041abacaa7d82f06d8c30_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_a46ce38d62dc041abacaa7d82f06d8c30_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___alexa_8c_a0e90e7bb56bd07684a1d2a7ec4058f07}\label{_hello_world___alexa_8c_a0e90e7bb56bd07684a1d2a7ec4058f07}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!ACKUser\_OnPowerControllerDirective@{ACKUser\_OnPowerControllerDirective}}
+\index{ACKUser\_OnPowerControllerDirective@{ACKUser\_OnPowerControllerDirective}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{ACKUser\_OnPowerControllerDirective()}{ACKUser\_OnPowerControllerDirective()}}
+{\footnotesize\ttfamily void ACKUser\+\_\+\+On\+Power\+Controller\+Directive (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id,  }\item[{bool}]{power\+On }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_a0e90e7bb56bd07684a1d2a7ec4058f07_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_a0e90e7bb56bd07684a1d2a7ec4058f07_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___alexa_8c_a4b2ad30555b360e7ae90e005f86e414e}\label{_hello_world___alexa_8c_a4b2ad30555b360e7ae90e005f86e414e}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!ACKUser\_OnReportStateDirective@{ACKUser\_OnReportStateDirective}}
+\index{ACKUser\_OnReportStateDirective@{ACKUser\_OnReportStateDirective}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{ACKUser\_OnReportStateDirective()}{ACKUser\_OnReportStateDirective()}}
+{\footnotesize\ttfamily void ACKUser\+\_\+\+On\+Report\+State\+Directive (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_a4b2ad30555b360e7ae90e005f86e414e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_a4b2ad30555b360e7ae90e005f86e414e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___alexa_8c_ade627335dc81d495a7637d4e59d3afc3}\label{_hello_world___alexa_8c_ade627335dc81d495a7637d4e59d3afc3}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!AddBrightnessProperty@{AddBrightnessProperty}}
+\index{AddBrightnessProperty@{AddBrightnessProperty}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{AddBrightnessProperty()}{AddBrightnessProperty()}}
+{\footnotesize\ttfamily static bool Add\+Brightness\+Property (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{property\+Ordinal,  }\item[{unsigned}]{property\+Flags }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_ade627335dc81d495a7637d4e59d3afc3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___alexa_8c_ac48c9dc0e9132739ef2e3bdb90a7fd2d}\label{_hello_world___alexa_8c_ac48c9dc0e9132739ef2e3bdb90a7fd2d}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!AddPowerStateProperty@{AddPowerStateProperty}}
+\index{AddPowerStateProperty@{AddPowerStateProperty}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{AddPowerStateProperty()}{AddPowerStateProperty()}}
+{\footnotesize\ttfamily static bool Add\+Power\+State\+Property (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{property\+Ordinal,  }\item[{unsigned}]{property\+Flags }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_ac48c9dc0e9132739ef2e3bdb90a7fd2d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___alexa_8c_accaec091ede4d9e58ce8d60d5035f85d}\label{_hello_world___alexa_8c_accaec091ede4d9e58ce8d60d5035f85d}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!Alexa\_InitiateFactoryReset@{Alexa\_InitiateFactoryReset}}
+\index{Alexa\_InitiateFactoryReset@{Alexa\_InitiateFactoryReset}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{Alexa\_InitiateFactoryReset()}{Alexa\_InitiateFactoryReset()}}
+{\footnotesize\ttfamily void Alexa\+\_\+\+Initiate\+Factory\+Reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{_hello_world___alexa_8c_accaec091ede4d9e58ce8d60d5035f85d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___alexa_8c_a01104b810150b396e84e8afbc4740250}\label{_hello_world___alexa_8c_a01104b810150b396e84e8afbc4740250}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!Alexa\_InitiateUserGuidedSetup@{Alexa\_InitiateUserGuidedSetup}}
+\index{Alexa\_InitiateUserGuidedSetup@{Alexa\_InitiateUserGuidedSetup}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{Alexa\_InitiateUserGuidedSetup()}{Alexa\_InitiateUserGuidedSetup()}}
+{\footnotesize\ttfamily void Alexa\+\_\+\+Initiate\+User\+Guided\+Setup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{_hello_world___alexa_8c_a01104b810150b396e84e8afbc4740250_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___alexa_8c_ac658ad8f9b68d5c1d0c45b2b8bd27940}\label{_hello_world___alexa_8c_ac658ad8f9b68d5c1d0c45b2b8bd27940}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!Alexa\_Loop@{Alexa\_Loop}}
+\index{Alexa\_Loop@{Alexa\_Loop}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{Alexa\_Loop()}{Alexa\_Loop()}}
+{\footnotesize\ttfamily void Alexa\+\_\+\+Loop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_ac658ad8f9b68d5c1d0c45b2b8bd27940_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{_hello_world___alexa_8c_ac658ad8f9b68d5c1d0c45b2b8bd27940_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___alexa_8c_a3ff9e3977c9a7e40f19eabe79ed6843d}\label{_hello_world___alexa_8c_a3ff9e3977c9a7e40f19eabe79ed6843d}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!Alexa\_SendChangeReportDueToLocalControl@{Alexa\_SendChangeReportDueToLocalControl}}
+\index{Alexa\_SendChangeReportDueToLocalControl@{Alexa\_SendChangeReportDueToLocalControl}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{Alexa\_SendChangeReportDueToLocalControl()}{Alexa\_SendChangeReportDueToLocalControl()}}
+{\footnotesize\ttfamily void Alexa\+\_\+\+Send\+Change\+Report\+Due\+To\+Local\+Control (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_a3ff9e3977c9a7e40f19eabe79ed6843d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{_hello_world___alexa_8c_a3ff9e3977c9a7e40f19eabe79ed6843d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___alexa_8c_a9b745171d9c8e6482c11e9fc48cecb2b}\label{_hello_world___alexa_8c_a9b745171d9c8e6482c11e9fc48cecb2b}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!Alexa\_Setup@{Alexa\_Setup}}
+\index{Alexa\_Setup@{Alexa\_Setup}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{Alexa\_Setup()}{Alexa\_Setup()}}
+{\footnotesize\ttfamily void Alexa\+\_\+\+Setup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_a9b745171d9c8e6482c11e9fc48cecb2b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{_hello_world___alexa_8c_a9b745171d9c8e6482c11e9fc48cecb2b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___alexa_8c_a97385192d02b13332b2386afc2e747a7}\label{_hello_world___alexa_8c_a97385192d02b13332b2386afc2e747a7}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!DoesUserWantLifecycleAction@{DoesUserWantLifecycleAction}}
+\index{DoesUserWantLifecycleAction@{DoesUserWantLifecycleAction}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{DoesUserWantLifecycleAction()}{DoesUserWantLifecycleAction()}}
+{\footnotesize\ttfamily static bool Does\+User\+Want\+Lifecycle\+Action (\begin{DoxyParamCaption}\item[{unsigned}]{user\+Initiated }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___alexa_8c_a97385192d02b13332b2386afc2e747a7_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_hello_world___alexa_8c_a4d0652b73a39ed6abae348e4e40398fd}\label{_hello_world___alexa_8c_a4d0652b73a39ed6abae348e4e40398fd}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!ACKUser\_PropertyTable@{ACKUser\_PropertyTable}}
+\index{ACKUser\_PropertyTable@{ACKUser\_PropertyTable}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{ACKUser\_PropertyTable}{ACKUser\_PropertyTable}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack_8h_ad222373de1c685d0c3efbbf8910a83f0}{ACKProperty\+Table\+Entry\+\_\+t}} ACKUser\+\_\+\+Property\+Table\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= }
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \{ \mbox{\hyperlink{_hello_world___alexa_8c_ae038f9ff67f3ee1e3464e0bb8f98eddf}{POWER\_STATE\_PROPERTY}}, \mbox{\hyperlink{_hello_world___alexa_8c_ac48c9dc0e9132739ef2e3bdb90a7fd2d}{AddPowerStateProperty}} \},}
+\DoxyCodeLine{    \{ \mbox{\hyperlink{_hello_world___alexa_8c_a2ad5a2ce302a641008b1f7845362e814}{BRIGHTNESS\_PROPERTY}}, \mbox{\hyperlink{_hello_world___alexa_8c_ade627335dc81d495a7637d4e59d3afc3}{AddBrightnessProperty}} \},}
+\DoxyCodeLine{}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \{ 0, NULL \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_hello_world___alexa_8c_aad475bca6748744fdbadce3c3453c8ad}\label{_hello_world___alexa_8c_aad475bca6748744fdbadce3c3453c8ad}} 
+\index{HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}!sg\_lifecyclePending@{sg\_lifecyclePending}}
+\index{sg\_lifecyclePending@{sg\_lifecyclePending}!HelloWorld\_Alexa.c@{HelloWorld\_Alexa.c}}
+\doxysubsubsection{\texorpdfstring{sg\_lifecyclePending}{sg\_lifecyclePending}}
+{\footnotesize\ttfamily uint8\+\_\+t sg\+\_\+lifecycle\+Pending = 0\hspace{0.3cm}{\ttfamily [static]}}
+

@@ -1,0 +1,366 @@
+\hypertarget{ack__core__processevent_8c}{}\doxysection{src/ack\+\_\+core\+\_\+processevent.c File Reference}
+\label{ack__core__processevent_8c}\index{src/ack\_core\_processevent.c@{src/ack\_core\_processevent.c}}
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+communication.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+directives.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+document.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+document\+\_\+wrappers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+event\+\_\+builder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+fixed\+\_\+memory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+heaplet.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+lifecycle.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+processevent.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+protobuf\+\_\+utilities.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+validation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}acp.\+pb.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+logging.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+platform.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+module.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for ack\+\_\+core\+\_\+processevent.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__processevent_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_state_context}{State\+Context}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ack__core__processevent_8c_a055a97d9eb8f076dd724c0fa1f8958c8}{STATE}}(n)~\{ Process\+Event\+State\+\_\+\#\#n\#\#\+\_\+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205}{Process\+Event\+State}} \mbox{\hyperlink{ack__core__processevent_8c_ab34736d40cd2c5db7e195e21b2093bc7}{Process\+Event\+State\+\_\+t}}
+\item 
+typedef \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}}($\ast$ \mbox{\hyperlink{ack__core__processevent_8c_af0b410252e2b0f816db22aedcd4e5bba}{Process\+Event\+State\+Processor}}) (void)
+\item 
+typedef struct \mbox{\hyperlink{struct_state_context}{State\+Context}} \mbox{\hyperlink{ack__core__processevent_8c_a4a5580509920543647bb1f5f6e10a07f}{State\+Context\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205}{Process\+Event\+State}} \{ \newline
+\mbox{\hyperlink{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205a464606301bf8d8ba404e6fb7635fe252}{Process\+Event\+State\+\_\+\+Receive\+Next\+Event}}
+, \mbox{\hyperlink{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205a6324baf0a2d0e4d1e72d61b1ec22e84e}{Process\+Event\+State\+\_\+\+Directive\+Extract\+Binary\+Document}}
+, \mbox{\hyperlink{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205ab460ae8846d27bf44b3ce6f8c43b3363}{Process\+Event\+State\+\_\+\+Directive\+Process}}
+, \mbox{\hyperlink{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205aef3dbc42333286eaa73b5d5fec2b41e1}{Process\+Event\+State\+\_\+\+Received\+Booted\+Event}}
+, \newline
+\mbox{\hyperlink{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205abb598b24966d3e4ed1eeb4df228d2dd3}{Process\+Event\+State\+\_\+\+Module\+Reqesting\+Reboot\+Event}}
+, \mbox{\hyperlink{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205a3d157c385cba55a504aaf05d30203a2c}{Process\+Event\+State\+\_\+\+Received\+Factory\+Reset\+Event}}
+, \mbox{\hyperlink{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205ad46536a5cca5a90f487ef3d83c08b8db}{Process\+Event\+State\+\_\+\+Max}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__processevent_8c_a34398001b285295fa765fc0beb5d104c}{Process\+Next\+Event\+\_\+}} (void)
+\item 
+static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__processevent_8c_ae54e4e78430d7ac952a690d41741caa1}{Process\+Event\+State\+\_\+\+Receive\+Next\+Event\+\_\+}} (void)
+\item 
+static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__processevent_8c_ab8f76ffb9cdd2350bb126892ecde4967}{Process\+Event\+State\+\_\+\+Directive\+Extract\+Binary\+Document\+\_\+}} (void)
+\item 
+static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__processevent_8c_a93ac02f3e934a3510679758bf1f8754d}{Process\+Event\+State\+\_\+\+Directive\+Process\+\_\+}} (void)
+\item 
+static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__processevent_8c_aaf27f31d34d962bbca86abe3d5663a78}{Process\+Event\+State\+\_\+\+Received\+Booted\+Event\+\_\+}} (void)
+\item 
+static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__processevent_8c_aab3524afa7e12380c9003034e510313a}{Process\+Event\+State\+\_\+\+Module\+Requesting\+Reboot\+Event\+\_\+}} (void)
+\item 
+static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__processevent_8c_a0f2a6ecf61253e8260b18e83247427fc}{Process\+Event\+State\+\_\+\+Received\+Factory\+Reset\+Event\+\_\+}} (void)
+\item 
+static void \mbox{\hyperlink{ack__core__processevent_8c_a465739960658ac9cd50d190ac50b24d4}{Free\+Acp\+Response\+\_\+}} (void)
+\item 
+static void \mbox{\hyperlink{ack__core__processevent_8c_acfbebd274b0149ce6391fe76c4dcf176}{Free\+Directive\+Document\+\_\+}} (void)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__processevent_8c_a190f3183cf8b4e595d5acdab3f8bb027}{Process\+Event\+If\+Available}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{ack__core__processevent_8c_a4a5580509920543647bb1f5f6e10a07f}{State\+Context\+\_\+t}} \mbox{\hyperlink{ack__core__processevent_8c_a6096c2f6fe8d1e7da4423676e04b5567}{sg\+\_\+process\+Event\+State\+Processors}} \mbox{[}$\,$\mbox{]}
+\item 
+static \mbox{\hyperlink{ack__core__processevent_8c_ab34736d40cd2c5db7e195e21b2093bc7}{Process\+Event\+State\+\_\+t}} \mbox{\hyperlink{ack__core__processevent_8c_ae7ea554167ab06d99e16e29e915bb34d}{sg\+\_\+state}}
+\item 
+\mbox{\hyperlink{ack__core__processevent_8h_aa1c9b1dff3a4454cba32f1c89ffeac24}{ACKInbound\+Event\+Info\+\_\+t}} \mbox{\hyperlink{ack__core__processevent_8c_a001efeacf18851bc7e9dda9fe2c4e323}{g\+\_\+inbound\+Event\+Info}} = \{\{0\}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ack__core__processevent_8c_a055a97d9eb8f076dd724c0fa1f8958c8}\label{ack__core__processevent_8c_a055a97d9eb8f076dd724c0fa1f8958c8}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!STATE@{STATE}}
+\index{STATE@{STATE}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{STATE}{STATE}}
+{\footnotesize\ttfamily \#define STATE(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})~\{ Process\+Event\+State\+\_\+\#\#n\#\#\+\_\+ \}}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ack__core__processevent_8c_ab34736d40cd2c5db7e195e21b2093bc7}\label{ack__core__processevent_8c_ab34736d40cd2c5db7e195e21b2093bc7}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessEventState\_t@{ProcessEventState\_t}}
+\index{ProcessEventState\_t@{ProcessEventState\_t}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{ProcessEventState\_t}{ProcessEventState\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205}{Process\+Event\+State}} \mbox{\hyperlink{ack__core__processevent_8c_ab34736d40cd2c5db7e195e21b2093bc7}{Process\+Event\+State\+\_\+t}}}
+
+\mbox{\Hypertarget{ack__core__processevent_8c_af0b410252e2b0f816db22aedcd4e5bba}\label{ack__core__processevent_8c_af0b410252e2b0f816db22aedcd4e5bba}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessEventStateProcessor@{ProcessEventStateProcessor}}
+\index{ProcessEventStateProcessor@{ProcessEventStateProcessor}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{ProcessEventStateProcessor}{ProcessEventStateProcessor}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}}($\ast$ Process\+Event\+State\+Processor) (void)}
+
+\mbox{\Hypertarget{ack__core__processevent_8c_a4a5580509920543647bb1f5f6e10a07f}\label{ack__core__processevent_8c_a4a5580509920543647bb1f5f6e10a07f}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!StateContext\_t@{StateContext\_t}}
+\index{StateContext\_t@{StateContext\_t}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{StateContext\_t}{StateContext\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_state_context}{State\+Context}} \mbox{\hyperlink{ack__core__processevent_8c_a4a5580509920543647bb1f5f6e10a07f}{State\+Context\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205}\label{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessEventState@{ProcessEventState}}
+\index{ProcessEventState@{ProcessEventState}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{ProcessEventState}{ProcessEventState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205}{Process\+Event\+State}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ProcessEventState\_ReceiveNextEvent@{ProcessEventState\_ReceiveNextEvent}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessEventState\_ReceiveNextEvent@{ProcessEventState\_ReceiveNextEvent}}}\mbox{\Hypertarget{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205a464606301bf8d8ba404e6fb7635fe252}\label{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205a464606301bf8d8ba404e6fb7635fe252}} 
+Process\+Event\+State\+\_\+\+Receive\+Next\+Event&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ProcessEventState\_DirectiveExtractBinaryDocument@{ProcessEventState\_DirectiveExtractBinaryDocument}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessEventState\_DirectiveExtractBinaryDocument@{ProcessEventState\_DirectiveExtractBinaryDocument}}}\mbox{\Hypertarget{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205a6324baf0a2d0e4d1e72d61b1ec22e84e}\label{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205a6324baf0a2d0e4d1e72d61b1ec22e84e}} 
+Process\+Event\+State\+\_\+\+Directive\+Extract\+Binary\+Document&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ProcessEventState\_DirectiveProcess@{ProcessEventState\_DirectiveProcess}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessEventState\_DirectiveProcess@{ProcessEventState\_DirectiveProcess}}}\mbox{\Hypertarget{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205ab460ae8846d27bf44b3ce6f8c43b3363}\label{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205ab460ae8846d27bf44b3ce6f8c43b3363}} 
+Process\+Event\+State\+\_\+\+Directive\+Process&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ProcessEventState\_ReceivedBootedEvent@{ProcessEventState\_ReceivedBootedEvent}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessEventState\_ReceivedBootedEvent@{ProcessEventState\_ReceivedBootedEvent}}}\mbox{\Hypertarget{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205aef3dbc42333286eaa73b5d5fec2b41e1}\label{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205aef3dbc42333286eaa73b5d5fec2b41e1}} 
+Process\+Event\+State\+\_\+\+Received\+Booted\+Event&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ProcessEventState\_ModuleReqestingRebootEvent@{ProcessEventState\_ModuleReqestingRebootEvent}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessEventState\_ModuleReqestingRebootEvent@{ProcessEventState\_ModuleReqestingRebootEvent}}}\mbox{\Hypertarget{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205abb598b24966d3e4ed1eeb4df228d2dd3}\label{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205abb598b24966d3e4ed1eeb4df228d2dd3}} 
+Process\+Event\+State\+\_\+\+Module\+Reqesting\+Reboot\+Event&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ProcessEventState\_ReceivedFactoryResetEvent@{ProcessEventState\_ReceivedFactoryResetEvent}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessEventState\_ReceivedFactoryResetEvent@{ProcessEventState\_ReceivedFactoryResetEvent}}}\mbox{\Hypertarget{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205a3d157c385cba55a504aaf05d30203a2c}\label{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205a3d157c385cba55a504aaf05d30203a2c}} 
+Process\+Event\+State\+\_\+\+Received\+Factory\+Reset\+Event&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ProcessEventState\_Max@{ProcessEventState\_Max}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessEventState\_Max@{ProcessEventState\_Max}}}\mbox{\Hypertarget{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205ad46536a5cca5a90f487ef3d83c08b8db}\label{ack__core__processevent_8c_a7c34694928631ca8e99e8915fe9f0205ad46536a5cca5a90f487ef3d83c08b8db}} 
+Process\+Event\+State\+\_\+\+Max&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__processevent_8c_a465739960658ac9cd50d190ac50b24d4}\label{ack__core__processevent_8c_a465739960658ac9cd50d190ac50b24d4}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!FreeAcpResponse\_@{FreeAcpResponse\_}}
+\index{FreeAcpResponse\_@{FreeAcpResponse\_}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{FreeAcpResponse\_()}{FreeAcpResponse\_()}}
+{\footnotesize\ttfamily static void Free\+Acp\+Response\+\_\+ (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__processevent_8c_a465739960658ac9cd50d190ac50b24d4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__processevent_8c_a465739960658ac9cd50d190ac50b24d4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__processevent_8c_acfbebd274b0149ce6391fe76c4dcf176}\label{ack__core__processevent_8c_acfbebd274b0149ce6391fe76c4dcf176}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!FreeDirectiveDocument\_@{FreeDirectiveDocument\_}}
+\index{FreeDirectiveDocument\_@{FreeDirectiveDocument\_}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{FreeDirectiveDocument\_()}{FreeDirectiveDocument\_()}}
+{\footnotesize\ttfamily static void Free\+Directive\+Document\+\_\+ (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__processevent_8c_acfbebd274b0149ce6391fe76c4dcf176_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__processevent_8c_acfbebd274b0149ce6391fe76c4dcf176_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__processevent_8c_a190f3183cf8b4e595d5acdab3f8bb027}\label{ack__core__processevent_8c_a190f3183cf8b4e595d5acdab3f8bb027}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessEventIfAvailable@{ProcessEventIfAvailable}}
+\index{ProcessEventIfAvailable@{ProcessEventIfAvailable}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{ProcessEventIfAvailable()}{ProcessEventIfAvailable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Process\+Event\+If\+Available (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__processevent_8c_a190f3183cf8b4e595d5acdab3f8bb027_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__processevent_8c_a190f3183cf8b4e595d5acdab3f8bb027_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__processevent_8c_ab8f76ffb9cdd2350bb126892ecde4967}\label{ack__core__processevent_8c_ab8f76ffb9cdd2350bb126892ecde4967}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessEventState\_DirectiveExtractBinaryDocument\_@{ProcessEventState\_DirectiveExtractBinaryDocument\_}}
+\index{ProcessEventState\_DirectiveExtractBinaryDocument\_@{ProcessEventState\_DirectiveExtractBinaryDocument\_}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{ProcessEventState\_DirectiveExtractBinaryDocument\_()}{ProcessEventState\_DirectiveExtractBinaryDocument\_()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Process\+Event\+State\+\_\+\+Directive\+Extract\+Binary\+Document\+\_\+ (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__processevent_8c_ab8f76ffb9cdd2350bb126892ecde4967_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__processevent_8c_a93ac02f3e934a3510679758bf1f8754d}\label{ack__core__processevent_8c_a93ac02f3e934a3510679758bf1f8754d}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessEventState\_DirectiveProcess\_@{ProcessEventState\_DirectiveProcess\_}}
+\index{ProcessEventState\_DirectiveProcess\_@{ProcessEventState\_DirectiveProcess\_}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{ProcessEventState\_DirectiveProcess\_()}{ProcessEventState\_DirectiveProcess\_()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Process\+Event\+State\+\_\+\+Directive\+Process\+\_\+ (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__processevent_8c_a93ac02f3e934a3510679758bf1f8754d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__processevent_8c_aab3524afa7e12380c9003034e510313a}\label{ack__core__processevent_8c_aab3524afa7e12380c9003034e510313a}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessEventState\_ModuleRequestingRebootEvent\_@{ProcessEventState\_ModuleRequestingRebootEvent\_}}
+\index{ProcessEventState\_ModuleRequestingRebootEvent\_@{ProcessEventState\_ModuleRequestingRebootEvent\_}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{ProcessEventState\_ModuleRequestingRebootEvent\_()}{ProcessEventState\_ModuleRequestingRebootEvent\_()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Process\+Event\+State\+\_\+\+Module\+Requesting\+Reboot\+Event\+\_\+ (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__processevent_8c_aab3524afa7e12380c9003034e510313a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__processevent_8c_aaf27f31d34d962bbca86abe3d5663a78}\label{ack__core__processevent_8c_aaf27f31d34d962bbca86abe3d5663a78}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessEventState\_ReceivedBootedEvent\_@{ProcessEventState\_ReceivedBootedEvent\_}}
+\index{ProcessEventState\_ReceivedBootedEvent\_@{ProcessEventState\_ReceivedBootedEvent\_}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{ProcessEventState\_ReceivedBootedEvent\_()}{ProcessEventState\_ReceivedBootedEvent\_()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Process\+Event\+State\+\_\+\+Received\+Booted\+Event\+\_\+ (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__processevent_8c_aaf27f31d34d962bbca86abe3d5663a78_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__processevent_8c_a0f2a6ecf61253e8260b18e83247427fc}\label{ack__core__processevent_8c_a0f2a6ecf61253e8260b18e83247427fc}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessEventState\_ReceivedFactoryResetEvent\_@{ProcessEventState\_ReceivedFactoryResetEvent\_}}
+\index{ProcessEventState\_ReceivedFactoryResetEvent\_@{ProcessEventState\_ReceivedFactoryResetEvent\_}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{ProcessEventState\_ReceivedFactoryResetEvent\_()}{ProcessEventState\_ReceivedFactoryResetEvent\_()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Process\+Event\+State\+\_\+\+Received\+Factory\+Reset\+Event\+\_\+ (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__processevent_8c_a0f2a6ecf61253e8260b18e83247427fc_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__processevent_8c_ae54e4e78430d7ac952a690d41741caa1}\label{ack__core__processevent_8c_ae54e4e78430d7ac952a690d41741caa1}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessEventState\_ReceiveNextEvent\_@{ProcessEventState\_ReceiveNextEvent\_}}
+\index{ProcessEventState\_ReceiveNextEvent\_@{ProcessEventState\_ReceiveNextEvent\_}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{ProcessEventState\_ReceiveNextEvent\_()}{ProcessEventState\_ReceiveNextEvent\_()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Process\+Event\+State\+\_\+\+Receive\+Next\+Event\+\_\+ (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__processevent_8c_ae54e4e78430d7ac952a690d41741caa1_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__processevent_8c_a34398001b285295fa765fc0beb5d104c}\label{ack__core__processevent_8c_a34398001b285295fa765fc0beb5d104c}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!ProcessNextEvent\_@{ProcessNextEvent\_}}
+\index{ProcessNextEvent\_@{ProcessNextEvent\_}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{ProcessNextEvent\_()}{ProcessNextEvent\_()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Process\+Next\+Event\+\_\+ (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__processevent_8c_a34398001b285295fa765fc0beb5d104c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__processevent_8c_a34398001b285295fa765fc0beb5d104c_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ack__core__processevent_8c_a001efeacf18851bc7e9dda9fe2c4e323}\label{ack__core__processevent_8c_a001efeacf18851bc7e9dda9fe2c4e323}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!g\_inboundEventInfo@{g\_inboundEventInfo}}
+\index{g\_inboundEventInfo@{g\_inboundEventInfo}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{g\_inboundEventInfo}{g\_inboundEventInfo}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__core__processevent_8h_aa1c9b1dff3a4454cba32f1c89ffeac24}{ACKInbound\+Event\+Info\+\_\+t}} g\+\_\+inbound\+Event\+Info = \{\{0\}\}}
+
+\mbox{\Hypertarget{ack__core__processevent_8c_a6096c2f6fe8d1e7da4423676e04b5567}\label{ack__core__processevent_8c_a6096c2f6fe8d1e7da4423676e04b5567}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!sg\_processEventStateProcessors@{sg\_processEventStateProcessors}}
+\index{sg\_processEventStateProcessors@{sg\_processEventStateProcessors}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{sg\_processEventStateProcessors}{sg\_processEventStateProcessors}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{ack__core__processevent_8c_a4a5580509920543647bb1f5f6e10a07f}{State\+Context\+\_\+t}} sg\+\_\+process\+Event\+State\+Processors\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{ack__core__processevent_8c_a055a97d9eb8f076dd724c0fa1f8958c8}{STATE}}(ReceiveNextEvent),}
+\DoxyCodeLine{    \mbox{\hyperlink{ack__core__processevent_8c_a055a97d9eb8f076dd724c0fa1f8958c8}{STATE}}(DirectiveExtractBinaryDocument),}
+\DoxyCodeLine{    \mbox{\hyperlink{ack__core__processevent_8c_a055a97d9eb8f076dd724c0fa1f8958c8}{STATE}}(DirectiveProcess),}
+\DoxyCodeLine{    \mbox{\hyperlink{ack__core__processevent_8c_a055a97d9eb8f076dd724c0fa1f8958c8}{STATE}}(ReceivedBootedEvent),}
+\DoxyCodeLine{    \mbox{\hyperlink{ack__core__processevent_8c_a055a97d9eb8f076dd724c0fa1f8958c8}{STATE}}(ModuleRequestingRebootEvent),}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{ack__core__processevent_8c_ae7ea554167ab06d99e16e29e915bb34d}\label{ack__core__processevent_8c_ae7ea554167ab06d99e16e29e915bb34d}} 
+\index{ack\_core\_processevent.c@{ack\_core\_processevent.c}!sg\_state@{sg\_state}}
+\index{sg\_state@{sg\_state}!ack\_core\_processevent.c@{ack\_core\_processevent.c}}
+\doxysubsubsection{\texorpdfstring{sg\_state}{sg\_state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__core__processevent_8c_ab34736d40cd2c5db7e195e21b2093bc7}{Process\+Event\+State\+\_\+t}} sg\+\_\+state\hspace{0.3cm}{\ttfamily [static]}}
+

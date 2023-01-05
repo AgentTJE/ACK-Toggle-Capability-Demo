@@ -1,0 +1,236 @@
+\hypertarget{ack__core__document_8h}{}\doxysection{src/ack\+\_\+core\+\_\+document.h File Reference}
+\label{ack__core__document_8h}\index{src/ack\_core\_document.h@{src/ack\_core\_document.h}}
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+heaplet.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+document.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for ack\+\_\+core\+\_\+document.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_aef876385ed4d05c3ea5d9a491ae40426}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+NONE}}~0
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_a748d222ab77c45ed49e5ca5097b44e16}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+OBJECT}}~1
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_a262a748b6d5b3d5802f66b831b9f6723}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+ARRAY}}~2
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_ab674f22604b838aed4a86a1f7350ceba}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+STRING}}~3
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_ac27f07dfea44d7a75fd321063b84e4b1}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+INTEGER}}~4
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_a024aae2ef0ddecf18206507d44e8831f}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+FLOAT64}}~5
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_aa3e640e96eef6180b9704f31accbc08c}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+TRUE}}~6
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_aa112a5ed93c6dac417cc4459e2fcd125}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+FALSE}}~7
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_a89b13bb080ddcf31d6ca54c206ad78e6}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+NULL}}~8
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_aba5da5b7bf18c63288e16f5ff1d17b59}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+CONTAINER\+\_\+\+END}}~9
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_ac141e0571c2b7885d1182f336b0d16c9}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+NEGATIVE\+\_\+\+INTEGER}}~10
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_aee11e5e36ad37fa5ffab0fbb34d511d9}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+FLOAT32}}~11
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_a60ddac3e45887bbce402232afebe1036}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+RESERVED\+\_\+3}}~12
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_af2bedcec13320459f5dbbbc25d43c687}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+RESERVED\+\_\+4}}~13
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_a735207f46df0d8fa4c40608394891979}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+RESERVED\+\_\+5}}~14
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_a9d346965f0055603c684bfeb727a0514}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+ESCAPE}}~15
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_ace37c9477d670a8c181dc6eb3e8ee4ec}{CF\+\_\+\+HAS\+\_\+\+KEY}}~0x01
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8h_acc7f78c2111a10688e54e4709a9d66fe}{CF\+\_\+\+WRITEABLE}}~0x02
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ack__core__document_8h_a9b1c13462f910c361137713d0cbd6d80}{Document\+Address\+Root}} (\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}} document\+Tag, bool writeable, \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Root\+Object)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8h_a11b1cca014e77d2131212edec35ad379}{Document\+Initialize\+Writeable}} (\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}} document\+Tag, \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Root\+Object)
+\item 
+void \mbox{\hyperlink{ack__core__document_8h_a1ada2dd6ec186b271fc72f31b7145163}{Document\+Make\+Read\+Only}} (\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}} document\+Tag)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ack__core__document_8h_a262a748b6d5b3d5802f66b831b9f6723}\label{ack__core__document_8h_a262a748b6d5b3d5802f66b831b9f6723}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!ACKDOC\_ELEMENT\_ARRAY@{ACKDOC\_ELEMENT\_ARRAY}}
+\index{ACKDOC\_ELEMENT\_ARRAY@{ACKDOC\_ELEMENT\_ARRAY}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{ACKDOC\_ELEMENT\_ARRAY}{ACKDOC\_ELEMENT\_ARRAY}}
+{\footnotesize\ttfamily \#define ACKDOC\+\_\+\+ELEMENT\+\_\+\+ARRAY~2}
+
+\mbox{\Hypertarget{ack__core__document_8h_aba5da5b7bf18c63288e16f5ff1d17b59}\label{ack__core__document_8h_aba5da5b7bf18c63288e16f5ff1d17b59}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!ACKDOC\_ELEMENT\_CONTAINER\_END@{ACKDOC\_ELEMENT\_CONTAINER\_END}}
+\index{ACKDOC\_ELEMENT\_CONTAINER\_END@{ACKDOC\_ELEMENT\_CONTAINER\_END}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{ACKDOC\_ELEMENT\_CONTAINER\_END}{ACKDOC\_ELEMENT\_CONTAINER\_END}}
+{\footnotesize\ttfamily \#define ACKDOC\+\_\+\+ELEMENT\+\_\+\+CONTAINER\+\_\+\+END~9}
+
+\mbox{\Hypertarget{ack__core__document_8h_a9d346965f0055603c684bfeb727a0514}\label{ack__core__document_8h_a9d346965f0055603c684bfeb727a0514}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!ACKDOC\_ELEMENT\_ESCAPE@{ACKDOC\_ELEMENT\_ESCAPE}}
+\index{ACKDOC\_ELEMENT\_ESCAPE@{ACKDOC\_ELEMENT\_ESCAPE}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{ACKDOC\_ELEMENT\_ESCAPE}{ACKDOC\_ELEMENT\_ESCAPE}}
+{\footnotesize\ttfamily \#define ACKDOC\+\_\+\+ELEMENT\+\_\+\+ESCAPE~15}
+
+\mbox{\Hypertarget{ack__core__document_8h_aa112a5ed93c6dac417cc4459e2fcd125}\label{ack__core__document_8h_aa112a5ed93c6dac417cc4459e2fcd125}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!ACKDOC\_ELEMENT\_FALSE@{ACKDOC\_ELEMENT\_FALSE}}
+\index{ACKDOC\_ELEMENT\_FALSE@{ACKDOC\_ELEMENT\_FALSE}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{ACKDOC\_ELEMENT\_FALSE}{ACKDOC\_ELEMENT\_FALSE}}
+{\footnotesize\ttfamily \#define ACKDOC\+\_\+\+ELEMENT\+\_\+\+FALSE~7}
+
+\mbox{\Hypertarget{ack__core__document_8h_aee11e5e36ad37fa5ffab0fbb34d511d9}\label{ack__core__document_8h_aee11e5e36ad37fa5ffab0fbb34d511d9}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!ACKDOC\_ELEMENT\_FLOAT32@{ACKDOC\_ELEMENT\_FLOAT32}}
+\index{ACKDOC\_ELEMENT\_FLOAT32@{ACKDOC\_ELEMENT\_FLOAT32}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{ACKDOC\_ELEMENT\_FLOAT32}{ACKDOC\_ELEMENT\_FLOAT32}}
+{\footnotesize\ttfamily \#define ACKDOC\+\_\+\+ELEMENT\+\_\+\+FLOAT32~11}
+
+\mbox{\Hypertarget{ack__core__document_8h_a024aae2ef0ddecf18206507d44e8831f}\label{ack__core__document_8h_a024aae2ef0ddecf18206507d44e8831f}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!ACKDOC\_ELEMENT\_FLOAT64@{ACKDOC\_ELEMENT\_FLOAT64}}
+\index{ACKDOC\_ELEMENT\_FLOAT64@{ACKDOC\_ELEMENT\_FLOAT64}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{ACKDOC\_ELEMENT\_FLOAT64}{ACKDOC\_ELEMENT\_FLOAT64}}
+{\footnotesize\ttfamily \#define ACKDOC\+\_\+\+ELEMENT\+\_\+\+FLOAT64~5}
+
+\mbox{\Hypertarget{ack__core__document_8h_ac27f07dfea44d7a75fd321063b84e4b1}\label{ack__core__document_8h_ac27f07dfea44d7a75fd321063b84e4b1}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!ACKDOC\_ELEMENT\_INTEGER@{ACKDOC\_ELEMENT\_INTEGER}}
+\index{ACKDOC\_ELEMENT\_INTEGER@{ACKDOC\_ELEMENT\_INTEGER}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{ACKDOC\_ELEMENT\_INTEGER}{ACKDOC\_ELEMENT\_INTEGER}}
+{\footnotesize\ttfamily \#define ACKDOC\+\_\+\+ELEMENT\+\_\+\+INTEGER~4}
+
+\mbox{\Hypertarget{ack__core__document_8h_ac141e0571c2b7885d1182f336b0d16c9}\label{ack__core__document_8h_ac141e0571c2b7885d1182f336b0d16c9}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!ACKDOC\_ELEMENT\_NEGATIVE\_INTEGER@{ACKDOC\_ELEMENT\_NEGATIVE\_INTEGER}}
+\index{ACKDOC\_ELEMENT\_NEGATIVE\_INTEGER@{ACKDOC\_ELEMENT\_NEGATIVE\_INTEGER}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{ACKDOC\_ELEMENT\_NEGATIVE\_INTEGER}{ACKDOC\_ELEMENT\_NEGATIVE\_INTEGER}}
+{\footnotesize\ttfamily \#define ACKDOC\+\_\+\+ELEMENT\+\_\+\+NEGATIVE\+\_\+\+INTEGER~10}
+
+\mbox{\Hypertarget{ack__core__document_8h_aef876385ed4d05c3ea5d9a491ae40426}\label{ack__core__document_8h_aef876385ed4d05c3ea5d9a491ae40426}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!ACKDOC\_ELEMENT\_NONE@{ACKDOC\_ELEMENT\_NONE}}
+\index{ACKDOC\_ELEMENT\_NONE@{ACKDOC\_ELEMENT\_NONE}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{ACKDOC\_ELEMENT\_NONE}{ACKDOC\_ELEMENT\_NONE}}
+{\footnotesize\ttfamily \#define ACKDOC\+\_\+\+ELEMENT\+\_\+\+NONE~0}
+
+\mbox{\Hypertarget{ack__core__document_8h_a89b13bb080ddcf31d6ca54c206ad78e6}\label{ack__core__document_8h_a89b13bb080ddcf31d6ca54c206ad78e6}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!ACKDOC\_ELEMENT\_NULL@{ACKDOC\_ELEMENT\_NULL}}
+\index{ACKDOC\_ELEMENT\_NULL@{ACKDOC\_ELEMENT\_NULL}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{ACKDOC\_ELEMENT\_NULL}{ACKDOC\_ELEMENT\_NULL}}
+{\footnotesize\ttfamily \#define ACKDOC\+\_\+\+ELEMENT\+\_\+\+NULL~8}
+
+\mbox{\Hypertarget{ack__core__document_8h_a748d222ab77c45ed49e5ca5097b44e16}\label{ack__core__document_8h_a748d222ab77c45ed49e5ca5097b44e16}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!ACKDOC\_ELEMENT\_OBJECT@{ACKDOC\_ELEMENT\_OBJECT}}
+\index{ACKDOC\_ELEMENT\_OBJECT@{ACKDOC\_ELEMENT\_OBJECT}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{ACKDOC\_ELEMENT\_OBJECT}{ACKDOC\_ELEMENT\_OBJECT}}
+{\footnotesize\ttfamily \#define ACKDOC\+\_\+\+ELEMENT\+\_\+\+OBJECT~1}
+
+\mbox{\Hypertarget{ack__core__document_8h_a60ddac3e45887bbce402232afebe1036}\label{ack__core__document_8h_a60ddac3e45887bbce402232afebe1036}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!ACKDOC\_ELEMENT\_RESERVED\_3@{ACKDOC\_ELEMENT\_RESERVED\_3}}
+\index{ACKDOC\_ELEMENT\_RESERVED\_3@{ACKDOC\_ELEMENT\_RESERVED\_3}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{ACKDOC\_ELEMENT\_RESERVED\_3}{ACKDOC\_ELEMENT\_RESERVED\_3}}
+{\footnotesize\ttfamily \#define ACKDOC\+\_\+\+ELEMENT\+\_\+\+RESERVED\+\_\+3~12}
+
+\mbox{\Hypertarget{ack__core__document_8h_af2bedcec13320459f5dbbbc25d43c687}\label{ack__core__document_8h_af2bedcec13320459f5dbbbc25d43c687}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!ACKDOC\_ELEMENT\_RESERVED\_4@{ACKDOC\_ELEMENT\_RESERVED\_4}}
+\index{ACKDOC\_ELEMENT\_RESERVED\_4@{ACKDOC\_ELEMENT\_RESERVED\_4}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{ACKDOC\_ELEMENT\_RESERVED\_4}{ACKDOC\_ELEMENT\_RESERVED\_4}}
+{\footnotesize\ttfamily \#define ACKDOC\+\_\+\+ELEMENT\+\_\+\+RESERVED\+\_\+4~13}
+
+\mbox{\Hypertarget{ack__core__document_8h_a735207f46df0d8fa4c40608394891979}\label{ack__core__document_8h_a735207f46df0d8fa4c40608394891979}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!ACKDOC\_ELEMENT\_RESERVED\_5@{ACKDOC\_ELEMENT\_RESERVED\_5}}
+\index{ACKDOC\_ELEMENT\_RESERVED\_5@{ACKDOC\_ELEMENT\_RESERVED\_5}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{ACKDOC\_ELEMENT\_RESERVED\_5}{ACKDOC\_ELEMENT\_RESERVED\_5}}
+{\footnotesize\ttfamily \#define ACKDOC\+\_\+\+ELEMENT\+\_\+\+RESERVED\+\_\+5~14}
+
+\mbox{\Hypertarget{ack__core__document_8h_ab674f22604b838aed4a86a1f7350ceba}\label{ack__core__document_8h_ab674f22604b838aed4a86a1f7350ceba}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!ACKDOC\_ELEMENT\_STRING@{ACKDOC\_ELEMENT\_STRING}}
+\index{ACKDOC\_ELEMENT\_STRING@{ACKDOC\_ELEMENT\_STRING}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{ACKDOC\_ELEMENT\_STRING}{ACKDOC\_ELEMENT\_STRING}}
+{\footnotesize\ttfamily \#define ACKDOC\+\_\+\+ELEMENT\+\_\+\+STRING~3}
+
+\mbox{\Hypertarget{ack__core__document_8h_aa3e640e96eef6180b9704f31accbc08c}\label{ack__core__document_8h_aa3e640e96eef6180b9704f31accbc08c}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!ACKDOC\_ELEMENT\_TRUE@{ACKDOC\_ELEMENT\_TRUE}}
+\index{ACKDOC\_ELEMENT\_TRUE@{ACKDOC\_ELEMENT\_TRUE}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{ACKDOC\_ELEMENT\_TRUE}{ACKDOC\_ELEMENT\_TRUE}}
+{\footnotesize\ttfamily \#define ACKDOC\+\_\+\+ELEMENT\+\_\+\+TRUE~6}
+
+\mbox{\Hypertarget{ack__core__document_8h_ace37c9477d670a8c181dc6eb3e8ee4ec}\label{ack__core__document_8h_ace37c9477d670a8c181dc6eb3e8ee4ec}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!CF\_HAS\_KEY@{CF\_HAS\_KEY}}
+\index{CF\_HAS\_KEY@{CF\_HAS\_KEY}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{CF\_HAS\_KEY}{CF\_HAS\_KEY}}
+{\footnotesize\ttfamily \#define CF\+\_\+\+HAS\+\_\+\+KEY~0x01}
+
+\mbox{\Hypertarget{ack__core__document_8h_acc7f78c2111a10688e54e4709a9d66fe}\label{ack__core__document_8h_acc7f78c2111a10688e54e4709a9d66fe}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!CF\_WRITEABLE@{CF\_WRITEABLE}}
+\index{CF\_WRITEABLE@{CF\_WRITEABLE}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{CF\_WRITEABLE}{CF\_WRITEABLE}}
+{\footnotesize\ttfamily \#define CF\+\_\+\+WRITEABLE~0x02}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__document_8h_a9b1c13462f910c361137713d0cbd6d80}\label{ack__core__document_8h_a9b1c13462f910c361137713d0cbd6d80}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!DocumentAddressRoot@{DocumentAddressRoot}}
+\index{DocumentAddressRoot@{DocumentAddressRoot}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{DocumentAddressRoot()}{DocumentAddressRoot()}}
+{\footnotesize\ttfamily void Document\+Address\+Root (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}}}]{document\+Tag,  }\item[{bool}]{writeable,  }\item[{\mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Root\+Object }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8h_a9b1c13462f910c361137713d0cbd6d80_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8h_a11b1cca014e77d2131212edec35ad379}\label{ack__core__document_8h_a11b1cca014e77d2131212edec35ad379}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!DocumentInitializeWriteable@{DocumentInitializeWriteable}}
+\index{DocumentInitializeWriteable@{DocumentInitializeWriteable}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{DocumentInitializeWriteable()}{DocumentInitializeWriteable()}}
+{\footnotesize\ttfamily bool Document\+Initialize\+Writeable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}}}]{document\+Tag,  }\item[{\mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Root\+Object }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8h_a11b1cca014e77d2131212edec35ad379_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8h_a11b1cca014e77d2131212edec35ad379_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8h_a1ada2dd6ec186b271fc72f31b7145163}\label{ack__core__document_8h_a1ada2dd6ec186b271fc72f31b7145163}} 
+\index{ack\_core\_document.h@{ack\_core\_document.h}!DocumentMakeReadOnly@{DocumentMakeReadOnly}}
+\index{DocumentMakeReadOnly@{DocumentMakeReadOnly}!ack\_core\_document.h@{ack\_core\_document.h}}
+\doxysubsubsection{\texorpdfstring{DocumentMakeReadOnly()}{DocumentMakeReadOnly()}}
+{\footnotesize\ttfamily void Document\+Make\+Read\+Only (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}}}]{document\+Tag }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8h_a1ada2dd6ec186b271fc72f31b7145163_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8h_a1ada2dd6ec186b271fc72f31b7145163_icgraph}
+\end{center}
+\end{figure}

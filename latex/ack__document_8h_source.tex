@@ -1,0 +1,87 @@
+\hypertarget{ack__document_8h_source}{}\doxysection{ack\+\_\+document.\+h}
+\label{ack__document_8h_source}\index{src/ack\_document.h@{src/ack\_document.h}}
+\mbox{\hyperlink{ack__document_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_DOCUMENT\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_DOCUMENT\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__types_8h}{ack\_types.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{18 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{comment}{// Opaque struct.}}
+\DoxyCodeLine{23 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct___a_c_k_doc_container__t}{\_ACKDocContainer\_t}}}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{struct___a_c_k_doc_container__t_a8685ea9627e84542150daba4e3b5ff8b}{Value}};}
+\DoxyCodeLine{26     uint8\_t \mbox{\hyperlink{struct___a_c_k_doc_container__t_abb936196a99d84a47b167d45c5a9e62a}{Id}};}
+\DoxyCodeLine{27     uint8\_t \mbox{\hyperlink{struct___a_c_k_doc_container__t_a398c2a14b5658acd78fd6553f5d54eff}{Flags}};}
+\DoxyCodeLine{28 \}}
+\DoxyCodeLine{29 \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDocContainer\_t}};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{comment}{// For these:}}
+\DoxyCodeLine{32 \textcolor{comment}{//  If pObjectOrArray designates an object, nameOrIndex is an enumerated value representing}}
+\DoxyCodeLine{33 \textcolor{comment}{//      the name of the desired object member.}}
+\DoxyCodeLine{34 \textcolor{comment}{//  If pObjectOrArray designates an array, nameOrIndex is the index of the desired array member.}}
+\DoxyCodeLine{35 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_ad570b57db81f76486eb813fe32feab54}{ACKDoc\_GetIsNull}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray, \textcolor{keywordtype}{unsigned} nameOrIndex, \textcolor{keywordtype}{bool}* pIsNull);}
+\DoxyCodeLine{36 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_ac095b0b8c79dd3e09828575a02a56f71}{ACKDoc\_GetInt}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray, \textcolor{keywordtype}{unsigned} nameOrIndex, \textcolor{keywordtype}{int}* pValue);}
+\DoxyCodeLine{37 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_a729816784bc696ea9799bbe0971e33b5}{ACKDoc\_GetInt64}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray, \textcolor{keywordtype}{unsigned} nameOrIndex, int64\_t* pValue);}
+\DoxyCodeLine{38 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_a65c961adabf87e6b55d5c182eca3b95a}{ACKDoc\_GetDouble}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray, \textcolor{keywordtype}{unsigned} nameOrIndex, \textcolor{keywordtype}{double}* pValue);}
+\DoxyCodeLine{39 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_a76b6af83b32ad035939c7f2bb9dfe720}{ACKDoc\_GetFloat}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray, \textcolor{keywordtype}{unsigned} nameOrIndex, \textcolor{keywordtype}{float}* pValue);}
+\DoxyCodeLine{40 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_a64f577835b5d26111b30ffcb6264b468}{ACKDoc\_GetBoolean}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray, \textcolor{keywordtype}{unsigned} nameOrIndex, \textcolor{keywordtype}{bool}* pValue);}
+\DoxyCodeLine{41 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_ae3672264f15279a7d308f7bed4514d8a}{ACKDoc\_GetString}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray, \textcolor{keywordtype}{unsigned} nameOrIndex, \textcolor{keyword}{const} \textcolor{keywordtype}{char}** ppString);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_a29571eabae41567b414da4f2da038412}{ACKDoc\_GetArray}}(}
+\DoxyCodeLine{44     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray,}
+\DoxyCodeLine{45     \textcolor{keywordtype}{unsigned} nameOrIndex,}
+\DoxyCodeLine{46     \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pFoundArray);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_ab8f349b8e4757a95c00b6bffda0f56e7}{ACKDoc\_GetObject}}(}
+\DoxyCodeLine{49     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray,}
+\DoxyCodeLine{50     \textcolor{keywordtype}{unsigned} nameOrIndex,}
+\DoxyCodeLine{51     \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pFoundObject);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_a1cdf6fab553d6bb9bc4dd3b9c9a28256}{ACKDoc\_GetArrayMemberCount}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pArray, \textcolor{keywordtype}{unsigned}* pCount);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{comment}{// For these:}}
+\DoxyCodeLine{56 \textcolor{comment}{//  If pObjectOrArray designates an object, nameIfObject is an enumerated value representing the name of}}
+\DoxyCodeLine{57 \textcolor{comment}{//      the new object member to append to the object.}}
+\DoxyCodeLine{58 \textcolor{comment}{//  If pObjectOrArray designates an array, nameIfObject is unused and must be 0.}}
+\DoxyCodeLine{59 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_a2a5c329111d25679b86bf6ebb24a939c}{ACKDoc\_AppendNull}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray, \textcolor{keywordtype}{unsigned} nameIfObject);}
+\DoxyCodeLine{60 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_add7bf2031d05e1d74bd90d651cab5486}{ACKDoc\_AppendInt}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray, \textcolor{keywordtype}{unsigned} nameIfObject, \textcolor{keywordtype}{int} value);}
+\DoxyCodeLine{61 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_ac36779530fe97ef562c6b322209c6a19}{ACKDoc\_AppendInt64}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray, \textcolor{keywordtype}{unsigned} nameIfObject, int64\_t value);}
+\DoxyCodeLine{62 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_ac94ff8ba7abe99f3185351692e1e383b}{ACKDoc\_AppendDouble}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray, \textcolor{keywordtype}{unsigned} nameIfObject, \textcolor{keywordtype}{double} value);}
+\DoxyCodeLine{63 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_a9a999a04f352027a1490062066690d62}{ACKDoc\_AppendFloat}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray, \textcolor{keywordtype}{unsigned} nameIfObject, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{64 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_aa93c5cefdbbcce7dd4d176a1319e3cfb}{ACKDoc\_AppendBoolean}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray, \textcolor{keywordtype}{unsigned} nameIfObject, \textcolor{keywordtype}{bool} value);}
+\DoxyCodeLine{65 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_aa7a20d3b646d955ca791431d380f10e2}{ACKDoc\_AppendString}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray, \textcolor{keywordtype}{unsigned} nameIfObject, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* pValue);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_a0c0946920bc2a073d0c1a235d2658954}{ACKDoc\_AppendArray}}(}
+\DoxyCodeLine{68     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray,}
+\DoxyCodeLine{69     \textcolor{keywordtype}{unsigned} nameIfObject,}
+\DoxyCodeLine{70     \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pNewArray);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__document_8h_ac69efb494baeceb19999221a15362523}{ACKDoc\_AppendObject}}(}
+\DoxyCodeLine{73     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObjectOrArray,}
+\DoxyCodeLine{74     \textcolor{keywordtype}{unsigned} nameIfObject,}
+\DoxyCodeLine{75     \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pNewObject);}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{78 \}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ndef \_\_ACK\_DOCUMENT\_H\_\_}}
+
+\end{DoxyCode}

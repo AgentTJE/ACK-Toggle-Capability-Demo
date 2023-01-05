@@ -1,0 +1,617 @@
+\hypertarget{acp_8pb_8c}{}\doxysection{src/acp.pb.\+c File Reference}
+\label{acp_8pb_8c}\index{src/acp.pb.c@{src/acp.pb.c}}
+{\ttfamily \#include \char`\"{}acp.\+pb.\+h\char`\"{}}\newline
+Include dependency graph for acp.\+pb.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{acp_8pb_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_aa7f0464718deedd88227de6be012a002}{acp\+\_\+metric\+\_\+datapoint\+\_\+fields}} \mbox{[}6\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_ade04238a184388d2191a47a0501a110e}{acp\+\_\+time\+\_\+fields}} \mbox{[}4\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_ae48bc5c98410056d07ba698cfde3930f}{acp\+\_\+property\+\_\+fields}} \mbox{[}3\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a4dbe4d4e87c62b36afd3ef78d970af03}{acp\+\_\+cmd\+\_\+fields}} \mbox{[}14\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a20a067caaf51414cbecd6d3c07a2193f}{acp\+\_\+cmd\+\_\+send\+\_\+alexa\+\_\+event\+\_\+fields}} \mbox{[}2\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a6d19f24bb35fa9d8ce64a7eaef5a9aef}{acp\+\_\+cmd\+\_\+get\+\_\+next\+\_\+event\+\_\+fields}} \mbox{[}1\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_af6092e6e4dac343623d8c58ba28d06e3}{acp\+\_\+cmd\+\_\+read\+\_\+host\+\_\+fw\+\_\+update\+\_\+bytes\+\_\+fields}} \mbox{[}3\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a2c15501c5b59ef689eaeb42e5b6ba749}{acp\+\_\+cmd\+\_\+get\+\_\+firmware\+\_\+version\+\_\+fields}} \mbox{[}1\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a8bea6b70d10ca1fbee0150755cb80bc5}{acp\+\_\+cmd\+\_\+trigger\+\_\+factory\+\_\+reset\+\_\+fields}} \mbox{[}1\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a4908481a4188c6fed89ac6e36f963af0}{acp\+\_\+cmd\+\_\+enter\+\_\+setup\+\_\+mode\+\_\+fields}} \mbox{[}3\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a97f1d98d5810e2bb97121b101b2fb63e}{acp\+\_\+cmd\+\_\+write\+\_\+log\+\_\+fields}} \mbox{[}4\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_aa478394fab547dd4c6c2c2bf33eceb9a}{acp\+\_\+cmd\+\_\+submit\+\_\+logs\+\_\+fields}} \mbox{[}1\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_aebc304784a29055539dfd262bbef2c82}{acp\+\_\+cmd\+\_\+record\+\_\+dem\+\_\+metric\+\_\+fields}} \mbox{[}3\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a0be7c4c8d982411d92a9390b909df01b}{acp\+\_\+cmd\+\_\+write\+\_\+host\+\_\+config\+\_\+fields}} \mbox{[}3\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_aa2c68e5db85a77e5d0c636c71efe5f51}{acp\+\_\+cmd\+\_\+get\+\_\+ack\+\_\+hardware\+\_\+info\+\_\+fields}} \mbox{[}1\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_accf158efc9b8dd82fac3a7a00a99d88d}{acp\+\_\+cmd\+\_\+get\+\_\+ack\+\_\+status\+\_\+fields}} \mbox{[}1\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a0168f3949a66705e819ed58cd44561df}{acp\+\_\+cmd\+\_\+provisioning\+\_\+fields}} \mbox{[}3\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a6b11fcfbbb9db766384407d384d3cbc9}{acp\+\_\+cmd\+\_\+provisioning\+\_\+get\+\_\+provisioning\+\_\+state\+\_\+fields}} \mbox{[}1\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_aedc59c10c349398778f5da53b9a2e8e0}{acp\+\_\+cmd\+\_\+provisioning\+\_\+get\+\_\+device\+\_\+type\+\_\+fields}} \mbox{[}1\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_ac734fdc96af25fe78859d50516a0c67a}{acp\+\_\+response\+\_\+fields}} \mbox{[}13\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a2bd34e0dfbac03c67ae2ed83a8c0f1ba}{acp\+\_\+response\+\_\+generic\+\_\+fields}} \mbox{[}3\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a7605ccbcfbfa53c38be49d617b52cc4d}{acp\+\_\+response\+\_\+read\+\_\+host\+\_\+fw\+\_\+update\+\_\+bytes\+\_\+fields}} \mbox{[}2\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a2dfacfeb52de2cc336ab5888484bd0be}{acp\+\_\+response\+\_\+get\+\_\+firmware\+\_\+version\+\_\+fields}} \mbox{[}4\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a533c8c9705d4e2361fd535261a55bdf4}{acp\+\_\+response\+\_\+get\+\_\+ack\+\_\+hardware\+\_\+info\+\_\+fields}} \mbox{[}2\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a975555712e6b6dc219cb190a27cc56d7}{acp\+\_\+response\+\_\+get\+\_\+ack\+\_\+status\+\_\+fields}} \mbox{[}10\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_ac31baf4969d852fbbdcf753884196066}{acp\+\_\+response\+\_\+provisioning\+\_\+fields}} \mbox{[}3\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a27b937f4dddd897eea43705483a1913d}{acp\+\_\+response\+\_\+provisioning\+\_\+provisioning\+\_\+info\+\_\+fields}} \mbox{[}2\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a618010a929baf4c9e5db2c1e9104ef98}{acp\+\_\+response\+\_\+provisioning\+\_\+device\+\_\+type\+\_\+fields}} \mbox{[}2\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a02fad4ce9834db7006bb49244d46a337}{acp\+\_\+event\+\_\+fields}} \mbox{[}1\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a184577bfd4efe7a3112c0f041d804f7b}{acp\+\_\+event\+\_\+reboot\+\_\+requested\+\_\+fields}} \mbox{[}2\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a5850fa986aa2ded8e8161f33ca1f4664}{acp\+\_\+event\+\_\+host\+\_\+fw\+\_\+update\+\_\+received\+\_\+fields}} \mbox{[}5\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_af3fa85a504824d0d4eda4cd19987ac37}{acp\+\_\+event\+\_\+alexa\+\_\+directive\+\_\+received\+\_\+fields}} \mbox{[}2\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a2768176edd64ab161f64e42e465e09f0}{acp\+\_\+event\+\_\+log\+\_\+level\+\_\+changed\+\_\+fields}} \mbox{[}2\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a52f5ab57d7fc26a1e97ca8ded0627fd0}{acp\+\_\+event\+\_\+ack\+\_\+booted\+\_\+fields}} \mbox{[}1\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{acp_8pb_8c_a7046fabdae839ca0e02a590c6eb6eea1}{acp\+\_\+event\+\_\+factory\+\_\+reset\+\_\+requested\+\_\+fields}} \mbox{[}1\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{acp_8pb_8c_a4908481a4188c6fed89ac6e36f963af0}\label{acp_8pb_8c_a4908481a4188c6fed89ac6e36f963af0}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_cmd\_enter\_setup\_mode\_fields@{acp\_cmd\_enter\_setup\_mode\_fields}}
+\index{acp\_cmd\_enter\_setup\_mode\_fields@{acp\_cmd\_enter\_setup\_mode\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_cmd\_enter\_setup\_mode\_fields}{acp\_cmd\_enter\_setup\_mode\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+cmd\+\_\+enter\+\_\+setup\+\_\+mode\+\_\+fields\mbox{[}3\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, UENUM   , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__cmd__enter__setup__mode}{acp\_cmd\_enter\_setup\_mode}}, mode, mode, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  2, UENUM   , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__cmd__enter__setup__mode}{acp\_cmd\_enter\_setup\_mode}}, security, mode, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a4dbe4d4e87c62b36afd3ef78d970af03}\label{acp_8pb_8c_a4dbe4d4e87c62b36afd3ef78d970af03}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_cmd\_fields@{acp\_cmd\_fields}}
+\index{acp\_cmd\_fields@{acp\_cmd\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_cmd\_fields}{acp\_cmd\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+cmd\+\_\+fields\mbox{[}14\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  12, MESSAGE , ONEOF, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__cmd}{acp\_cmd}}, get\_next\_event\_obj, get\_next\_event\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a6d19f24bb35fa9d8ce64a7eaef5a9aef}{acp\_cmd\_get\_next\_event\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  13, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__cmd}{acp\_cmd}}, read\_host\_fw\_update\_bytes\_obj, read\_host\_fw\_update\_bytes\_obj, \&\mbox{\hyperlink{acp_8pb_8c_af6092e6e4dac343623d8c58ba28d06e3}{acp\_cmd\_read\_host\_fw\_update\_bytes\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  14, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__cmd}{acp\_cmd}}, get\_firmware\_version\_obj, get\_firmware\_version\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a2c15501c5b59ef689eaeb42e5b6ba749}{acp\_cmd\_get\_firmware\_version\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  15, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__cmd}{acp\_cmd}}, trigger\_factory\_reset\_obj, trigger\_factory\_reset\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a8bea6b70d10ca1fbee0150755cb80bc5}{acp\_cmd\_trigger\_factory\_reset\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  16, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__cmd}{acp\_cmd}}, enter\_setup\_mode\_obj, enter\_setup\_mode\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a4908481a4188c6fed89ac6e36f963af0}{acp\_cmd\_enter\_setup\_mode\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  21, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__cmd}{acp\_cmd}}, write\_host\_config\_obj, write\_host\_config\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a0be7c4c8d982411d92a9390b909df01b}{acp\_cmd\_write\_host\_config\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  22, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__cmd}{acp\_cmd}}, get\_ack\_hardware\_info\_obj, get\_ack\_hardware\_info\_obj, \&\mbox{\hyperlink{acp_8pb_8c_aa2c68e5db85a77e5d0c636c71efe5f51}{acp\_cmd\_get\_ack\_hardware\_info\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  23, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__cmd}{acp\_cmd}}, get\_ack\_status\_obj, get\_ack\_status\_obj, \&\mbox{\hyperlink{acp_8pb_8c_accf158efc9b8dd82fac3a7a00a99d88d}{acp\_cmd\_get\_ack\_status\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  51, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__cmd}{acp\_cmd}}, write\_log\_obj, write\_log\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a97f1d98d5810e2bb97121b101b2fb63e}{acp\_cmd\_write\_log\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  53, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__cmd}{acp\_cmd}}, submit\_logs\_obj, submit\_logs\_obj, \&\mbox{\hyperlink{acp_8pb_8c_aa478394fab547dd4c6c2c2bf33eceb9a}{acp\_cmd\_submit\_logs\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  64, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__cmd}{acp\_cmd}}, record\_dem\_metric\_obj, record\_dem\_metric\_obj, \&\mbox{\hyperlink{acp_8pb_8c_aebc304784a29055539dfd262bbef2c82}{acp\_cmd\_record\_dem\_metric\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  81, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__cmd}{acp\_cmd}}, send\_alexa\_event\_obj, send\_alexa\_event\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a20a067caaf51414cbecd6d3c07a2193f}{acp\_cmd\_send\_alexa\_event\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  92, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__cmd}{acp\_cmd}}, provisioning\_obj, provisioning\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a0168f3949a66705e819ed58cd44561df}{acp\_cmd\_provisioning\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_aa2c68e5db85a77e5d0c636c71efe5f51}\label{acp_8pb_8c_aa2c68e5db85a77e5d0c636c71efe5f51}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_cmd\_get\_ack\_hardware\_info\_fields@{acp\_cmd\_get\_ack\_hardware\_info\_fields}}
+\index{acp\_cmd\_get\_ack\_hardware\_info\_fields@{acp\_cmd\_get\_ack\_hardware\_info\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_cmd\_get\_ack\_hardware\_info\_fields}{acp\_cmd\_get\_ack\_hardware\_info\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+cmd\+\_\+get\+\_\+ack\+\_\+hardware\+\_\+info\+\_\+fields\mbox{[}1\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_accf158efc9b8dd82fac3a7a00a99d88d}\label{acp_8pb_8c_accf158efc9b8dd82fac3a7a00a99d88d}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_cmd\_get\_ack\_status\_fields@{acp\_cmd\_get\_ack\_status\_fields}}
+\index{acp\_cmd\_get\_ack\_status\_fields@{acp\_cmd\_get\_ack\_status\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_cmd\_get\_ack\_status\_fields}{acp\_cmd\_get\_ack\_status\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+cmd\+\_\+get\+\_\+ack\+\_\+status\+\_\+fields\mbox{[}1\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a2c15501c5b59ef689eaeb42e5b6ba749}\label{acp_8pb_8c_a2c15501c5b59ef689eaeb42e5b6ba749}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_cmd\_get\_firmware\_version\_fields@{acp\_cmd\_get\_firmware\_version\_fields}}
+\index{acp\_cmd\_get\_firmware\_version\_fields@{acp\_cmd\_get\_firmware\_version\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_cmd\_get\_firmware\_version\_fields}{acp\_cmd\_get\_firmware\_version\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+cmd\+\_\+get\+\_\+firmware\+\_\+version\+\_\+fields\mbox{[}1\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a6d19f24bb35fa9d8ce64a7eaef5a9aef}\label{acp_8pb_8c_a6d19f24bb35fa9d8ce64a7eaef5a9aef}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_cmd\_get\_next\_event\_fields@{acp\_cmd\_get\_next\_event\_fields}}
+\index{acp\_cmd\_get\_next\_event\_fields@{acp\_cmd\_get\_next\_event\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_cmd\_get\_next\_event\_fields}{acp\_cmd\_get\_next\_event\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+cmd\+\_\+get\+\_\+next\+\_\+event\+\_\+fields\mbox{[}1\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a0168f3949a66705e819ed58cd44561df}\label{acp_8pb_8c_a0168f3949a66705e819ed58cd44561df}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_cmd\_provisioning\_fields@{acp\_cmd\_provisioning\_fields}}
+\index{acp\_cmd\_provisioning\_fields@{acp\_cmd\_provisioning\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_cmd\_provisioning\_fields}{acp\_cmd\_provisioning\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+cmd\+\_\+provisioning\+\_\+fields\mbox{[}3\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(command,  10, MESSAGE , ONEOF, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__cmd__provisioning}{acp\_cmd\_provisioning}}, get\_provisioning\_state\_obj, get\_provisioning\_state\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a6b11fcfbbb9db766384407d384d3cbc9}{acp\_cmd\_provisioning\_get\_provisioning\_state\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(command,  11, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__cmd__provisioning}{acp\_cmd\_provisioning}}, get\_device\_type\_obj, get\_device\_type\_obj, \&\mbox{\hyperlink{acp_8pb_8c_aedc59c10c349398778f5da53b9a2e8e0}{acp\_cmd\_provisioning\_get\_device\_type\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_aedc59c10c349398778f5da53b9a2e8e0}\label{acp_8pb_8c_aedc59c10c349398778f5da53b9a2e8e0}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_cmd\_provisioning\_get\_device\_type\_fields@{acp\_cmd\_provisioning\_get\_device\_type\_fields}}
+\index{acp\_cmd\_provisioning\_get\_device\_type\_fields@{acp\_cmd\_provisioning\_get\_device\_type\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_cmd\_provisioning\_get\_device\_type\_fields}{acp\_cmd\_provisioning\_get\_device\_type\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+cmd\+\_\+provisioning\+\_\+get\+\_\+device\+\_\+type\+\_\+fields\mbox{[}1\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a6b11fcfbbb9db766384407d384d3cbc9}\label{acp_8pb_8c_a6b11fcfbbb9db766384407d384d3cbc9}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_cmd\_provisioning\_get\_provisioning\_state\_fields@{acp\_cmd\_provisioning\_get\_provisioning\_state\_fields}}
+\index{acp\_cmd\_provisioning\_get\_provisioning\_state\_fields@{acp\_cmd\_provisioning\_get\_provisioning\_state\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_cmd\_provisioning\_get\_provisioning\_state\_fields}{acp\_cmd\_provisioning\_get\_provisioning\_state\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+cmd\+\_\+provisioning\+\_\+get\+\_\+provisioning\+\_\+state\+\_\+fields\mbox{[}1\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_af6092e6e4dac343623d8c58ba28d06e3}\label{acp_8pb_8c_af6092e6e4dac343623d8c58ba28d06e3}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_cmd\_read\_host\_fw\_update\_bytes\_fields@{acp\_cmd\_read\_host\_fw\_update\_bytes\_fields}}
+\index{acp\_cmd\_read\_host\_fw\_update\_bytes\_fields@{acp\_cmd\_read\_host\_fw\_update\_bytes\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_cmd\_read\_host\_fw\_update\_bytes\_fields}{acp\_cmd\_read\_host\_fw\_update\_bytes\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+cmd\+\_\+read\+\_\+host\+\_\+fw\+\_\+update\+\_\+bytes\+\_\+fields\mbox{[}3\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, UINT32  , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__cmd__read__host__fw__update__bytes}{acp\_cmd\_read\_host\_fw\_update\_bytes}}, offset, offset, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  2, UINT32  , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__cmd__read__host__fw__update__bytes}{acp\_cmd\_read\_host\_fw\_update\_bytes}}, length, offset, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_aebc304784a29055539dfd262bbef2c82}\label{acp_8pb_8c_aebc304784a29055539dfd262bbef2c82}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_cmd\_record\_dem\_metric\_fields@{acp\_cmd\_record\_dem\_metric\_fields}}
+\index{acp\_cmd\_record\_dem\_metric\_fields@{acp\_cmd\_record\_dem\_metric\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_cmd\_record\_dem\_metric\_fields}{acp\_cmd\_record\_dem\_metric\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+cmd\+\_\+record\+\_\+dem\+\_\+metric\+\_\+fields\mbox{[}3\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, UENUM   , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__cmd__record__dem__metric}{acp\_cmd\_record\_dem\_metric}}, metric\_type, metric\_type, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  2, MESSAGE , REPEATED, CALLBACK, OTHER, \mbox{\hyperlink{struct__acp__cmd__record__dem__metric}{acp\_cmd\_record\_dem\_metric}}, datapoints, metric\_type, \&\mbox{\hyperlink{acp_8pb_8c_aa7f0464718deedd88227de6be012a002}{acp\_metric\_datapoint\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a20a067caaf51414cbecd6d3c07a2193f}\label{acp_8pb_8c_a20a067caaf51414cbecd6d3c07a2193f}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_cmd\_send\_alexa\_event\_fields@{acp\_cmd\_send\_alexa\_event\_fields}}
+\index{acp\_cmd\_send\_alexa\_event\_fields@{acp\_cmd\_send\_alexa\_event\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_cmd\_send\_alexa\_event\_fields}{acp\_cmd\_send\_alexa\_event\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+cmd\+\_\+send\+\_\+alexa\+\_\+event\+\_\+fields\mbox{[}2\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, MESSAGE , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__cmd__send__alexa__event}{acp\_cmd\_send\_alexa\_event}}, event, event, \&\mbox{\hyperlink{_v3_a_v_s_8pb_8c_ad06b3d44f8ba4af6921702dab3af3768}{V3AVS\_AvsEvent\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_aa478394fab547dd4c6c2c2bf33eceb9a}\label{acp_8pb_8c_aa478394fab547dd4c6c2c2bf33eceb9a}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_cmd\_submit\_logs\_fields@{acp\_cmd\_submit\_logs\_fields}}
+\index{acp\_cmd\_submit\_logs\_fields@{acp\_cmd\_submit\_logs\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_cmd\_submit\_logs\_fields}{acp\_cmd\_submit\_logs\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+cmd\+\_\+submit\+\_\+logs\+\_\+fields\mbox{[}1\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a8bea6b70d10ca1fbee0150755cb80bc5}\label{acp_8pb_8c_a8bea6b70d10ca1fbee0150755cb80bc5}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_cmd\_trigger\_factory\_reset\_fields@{acp\_cmd\_trigger\_factory\_reset\_fields}}
+\index{acp\_cmd\_trigger\_factory\_reset\_fields@{acp\_cmd\_trigger\_factory\_reset\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_cmd\_trigger\_factory\_reset\_fields}{acp\_cmd\_trigger\_factory\_reset\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+cmd\+\_\+trigger\+\_\+factory\+\_\+reset\+\_\+fields\mbox{[}1\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a0be7c4c8d982411d92a9390b909df01b}\label{acp_8pb_8c_a0be7c4c8d982411d92a9390b909df01b}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_cmd\_write\_host\_config\_fields@{acp\_cmd\_write\_host\_config\_fields}}
+\index{acp\_cmd\_write\_host\_config\_fields@{acp\_cmd\_write\_host\_config\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_cmd\_write\_host\_config\_fields}{acp\_cmd\_write\_host\_config\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+cmd\+\_\+write\+\_\+host\+\_\+config\+\_\+fields\mbox{[}3\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, UINT64  , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__cmd__write__host__config}{acp\_cmd\_write\_host\_config}}, firmware\_version, firmware\_version, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  4, MESSAGE , REPEATED, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__cmd__write__host__config}{acp\_cmd\_write\_host\_config}}, host\_info, firmware\_version, \&\mbox{\hyperlink{acp_8pb_8c_ae48bc5c98410056d07ba698cfde3930f}{acp\_property\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a97f1d98d5810e2bb97121b101b2fb63e}\label{acp_8pb_8c_a97f1d98d5810e2bb97121b101b2fb63e}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_cmd\_write\_log\_fields@{acp\_cmd\_write\_log\_fields}}
+\index{acp\_cmd\_write\_log\_fields@{acp\_cmd\_write\_log\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_cmd\_write\_log\_fields}{acp\_cmd\_write\_log\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+cmd\+\_\+write\+\_\+log\+\_\+fields\mbox{[}4\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, STRING  , SINGULAR, CALLBACK, FIRST, \mbox{\hyperlink{struct__acp__cmd__write__log}{acp\_cmd\_write\_log}}, component, component, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  2, UENUM   , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__cmd__write__log}{acp\_cmd\_write\_log}}, log\_level, component, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  5, STRING  , SINGULAR, CALLBACK, OTHER, \mbox{\hyperlink{struct__acp__cmd__write__log}{acp\_cmd\_write\_log}}, message, log\_level, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a52f5ab57d7fc26a1e97ca8ded0627fd0}\label{acp_8pb_8c_a52f5ab57d7fc26a1e97ca8ded0627fd0}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_event\_ack\_booted\_fields@{acp\_event\_ack\_booted\_fields}}
+\index{acp\_event\_ack\_booted\_fields@{acp\_event\_ack\_booted\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_event\_ack\_booted\_fields}{acp\_event\_ack\_booted\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+event\+\_\+ack\+\_\+booted\+\_\+fields\mbox{[}1\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_af3fa85a504824d0d4eda4cd19987ac37}\label{acp_8pb_8c_af3fa85a504824d0d4eda4cd19987ac37}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_event\_alexa\_directive\_received\_fields@{acp\_event\_alexa\_directive\_received\_fields}}
+\index{acp\_event\_alexa\_directive\_received\_fields@{acp\_event\_alexa\_directive\_received\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_event\_alexa\_directive\_received\_fields}{acp\_event\_alexa\_directive\_received\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+event\+\_\+alexa\+\_\+directive\+\_\+received\+\_\+fields\mbox{[}2\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, MESSAGE , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__event__alexa__directive__received}{acp\_event\_alexa\_directive\_received}}, directive, directive, \&\mbox{\hyperlink{_v3_a_v_s_8pb_8c_a433765e82e076e1f0d3c864f16aa0338}{V3AVS\_AvsDirective\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a7046fabdae839ca0e02a590c6eb6eea1}\label{acp_8pb_8c_a7046fabdae839ca0e02a590c6eb6eea1}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_event\_factory\_reset\_requested\_fields@{acp\_event\_factory\_reset\_requested\_fields}}
+\index{acp\_event\_factory\_reset\_requested\_fields@{acp\_event\_factory\_reset\_requested\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_event\_factory\_reset\_requested\_fields}{acp\_event\_factory\_reset\_requested\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+event\+\_\+factory\+\_\+reset\+\_\+requested\+\_\+fields\mbox{[}1\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a02fad4ce9834db7006bb49244d46a337}\label{acp_8pb_8c_a02fad4ce9834db7006bb49244d46a337}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_event\_fields@{acp\_event\_fields}}
+\index{acp\_event\_fields@{acp\_event\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_event\_fields}{acp\_event\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+event\+\_\+fields\mbox{[}1\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a5850fa986aa2ded8e8161f33ca1f4664}\label{acp_8pb_8c_a5850fa986aa2ded8e8161f33ca1f4664}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_event\_host\_fw\_update\_received\_fields@{acp\_event\_host\_fw\_update\_received\_fields}}
+\index{acp\_event\_host\_fw\_update\_received\_fields@{acp\_event\_host\_fw\_update\_received\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_event\_host\_fw\_update\_received\_fields}{acp\_event\_host\_fw\_update\_received\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+event\+\_\+host\+\_\+fw\+\_\+update\+\_\+received\+\_\+fields\mbox{[}5\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, STRING  , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__event__host__fw__update__received}{acp\_event\_host\_fw\_update\_received}}, version, version, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  2, UINT32  , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__event__host__fw__update__received}{acp\_event\_host\_fw\_update\_received}}, size, version, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  3, STRING  , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__event__host__fw__update__received}{acp\_event\_host\_fw\_update\_received}}, signature, size, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  4, BOOL    , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__event__host__fw__update__received}{acp\_event\_host\_fw\_update\_received}}, force, signature, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a2768176edd64ab161f64e42e465e09f0}\label{acp_8pb_8c_a2768176edd64ab161f64e42e465e09f0}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_event\_log\_level\_changed\_fields@{acp\_event\_log\_level\_changed\_fields}}
+\index{acp\_event\_log\_level\_changed\_fields@{acp\_event\_log\_level\_changed\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_event\_log\_level\_changed\_fields}{acp\_event\_log\_level\_changed\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+event\+\_\+log\+\_\+level\+\_\+changed\+\_\+fields\mbox{[}2\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, UENUM   , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__event__log__level__changed}{acp\_event\_log\_level\_changed}}, log\_level, log\_level, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a184577bfd4efe7a3112c0f041d804f7b}\label{acp_8pb_8c_a184577bfd4efe7a3112c0f041d804f7b}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_event\_reboot\_requested\_fields@{acp\_event\_reboot\_requested\_fields}}
+\index{acp\_event\_reboot\_requested\_fields@{acp\_event\_reboot\_requested\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_event\_reboot\_requested\_fields}{acp\_event\_reboot\_requested\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+event\+\_\+reboot\+\_\+requested\+\_\+fields\mbox{[}2\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, BOOL    , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__event__reboot__requested}{acp\_event\_reboot\_requested}}, force, force, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_aa7f0464718deedd88227de6be012a002}\label{acp_8pb_8c_aa7f0464718deedd88227de6be012a002}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_metric\_datapoint\_fields@{acp\_metric\_datapoint\_fields}}
+\index{acp\_metric\_datapoint\_fields@{acp\_metric\_datapoint\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_metric\_datapoint\_fields}{acp\_metric\_datapoint\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+metric\+\_\+datapoint\+\_\+fields\mbox{[}6\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, UENUM   , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__metric__datapoint}{acp\_metric\_datapoint}}, data\_type, data\_type, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  2, STRING  , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__metric__datapoint}{acp\_metric\_datapoint}}, name, data\_type, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  6, UINT32  , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__metric__datapoint}{acp\_metric\_datapoint}}, counter, name, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  8, STRING  , SINGULAR, CALLBACK, OTHER, \mbox{\hyperlink{struct__acp__metric__datapoint}{acp\_metric\_datapoint}}, text, counter, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  9, FLOAT   , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__metric__datapoint}{acp\_metric\_datapoint}}, number, text, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_ae48bc5c98410056d07ba698cfde3930f}\label{acp_8pb_8c_ae48bc5c98410056d07ba698cfde3930f}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_property\_fields@{acp\_property\_fields}}
+\index{acp\_property\_fields@{acp\_property\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_property\_fields}{acp\_property\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+property\+\_\+fields\mbox{[}3\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, STRING  , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__property}{acp\_property}}, name, name, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  2, STRING  , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__property}{acp\_property}}, value, name, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_ac734fdc96af25fe78859d50516a0c67a}\label{acp_8pb_8c_ac734fdc96af25fe78859d50516a0c67a}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_response\_fields@{acp\_response\_fields}}
+\index{acp\_response\_fields@{acp\_response\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_response\_fields}{acp\_response\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+response\+\_\+fields\mbox{[}13\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,   1, MESSAGE , ONEOF, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__response}{acp\_response}}, generic\_obj, generic\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a2bd34e0dfbac03c67ae2ed83a8c0f1ba}{acp\_response\_generic\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,   2, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__response}{acp\_response}}, read\_host\_fw\_update\_bytes\_obj, read\_host\_fw\_update\_bytes\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a7605ccbcfbfa53c38be49d617b52cc4d}{acp\_response\_read\_host\_fw\_update\_bytes\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,   3, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__response}{acp\_response}}, get\_firmware\_version\_obj, get\_firmware\_version\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a2dfacfeb52de2cc336ab5888484bd0be}{acp\_response\_get\_firmware\_version\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,   5, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__response}{acp\_response}}, get\_ack\_hardware\_info\_obj, get\_ack\_hardware\_info\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a533c8c9705d4e2361fd535261a55bdf4}{acp\_response\_get\_ack\_hardware\_info\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,   6, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__response}{acp\_response}}, get\_ack\_status\_obj, get\_ack\_status\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a975555712e6b6dc219cb190a27cc56d7}{acp\_response\_get\_ack\_status\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  41, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__response}{acp\_response}}, reboot\_requested\_obj, reboot\_requested\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a184577bfd4efe7a3112c0f041d804f7b}{acp\_event\_reboot\_requested\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  42, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__response}{acp\_response}}, host\_fw\_update\_received\_obj, host\_fw\_update\_received\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a5850fa986aa2ded8e8161f33ca1f4664}{acp\_event\_host\_fw\_update\_received\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  43, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__response}{acp\_response}}, log\_level\_changed\_obj, log\_level\_changed\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a2768176edd64ab161f64e42e465e09f0}{acp\_event\_log\_level\_changed\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  45, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__response}{acp\_response}}, ack\_booted\_obj, ack\_booted\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a52f5ab57d7fc26a1e97ca8ded0627fd0}{acp\_event\_ack\_booted\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  47, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__response}{acp\_response}}, factory\_reset\_requested\_obj, factory\_reset\_requested\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a7046fabdae839ca0e02a590c6eb6eea1}{acp\_event\_factory\_reset\_requested\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  61, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__response}{acp\_response}}, alexa\_directive\_received\_obj, alexa\_directive\_received\_obj, \&\mbox{\hyperlink{acp_8pb_8c_af3fa85a504824d0d4eda4cd19987ac37}{acp\_event\_alexa\_directive\_received\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(type,  92, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__response}{acp\_response}}, provisioning\_obj, provisioning\_obj, \&\mbox{\hyperlink{acp_8pb_8c_ac31baf4969d852fbbdcf753884196066}{acp\_response\_provisioning\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a2bd34e0dfbac03c67ae2ed83a8c0f1ba}\label{acp_8pb_8c_a2bd34e0dfbac03c67ae2ed83a8c0f1ba}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_response\_generic\_fields@{acp\_response\_generic\_fields}}
+\index{acp\_response\_generic\_fields@{acp\_response\_generic\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_response\_generic\_fields}{acp\_response\_generic\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+response\+\_\+generic\+\_\+fields\mbox{[}3\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, UENUM   , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__response__generic}{acp\_response\_generic}}, code, code, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  2, STRING  , SINGULAR, CALLBACK, OTHER, \mbox{\hyperlink{struct__acp__response__generic}{acp\_response\_generic}}, description, code, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a533c8c9705d4e2361fd535261a55bdf4}\label{acp_8pb_8c_a533c8c9705d4e2361fd535261a55bdf4}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_response\_get\_ack\_hardware\_info\_fields@{acp\_response\_get\_ack\_hardware\_info\_fields}}
+\index{acp\_response\_get\_ack\_hardware\_info\_fields@{acp\_response\_get\_ack\_hardware\_info\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_response\_get\_ack\_hardware\_info\_fields}{acp\_response\_get\_ack\_hardware\_info\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+response\+\_\+get\+\_\+ack\+\_\+hardware\+\_\+info\+\_\+fields\mbox{[}2\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, STRING  , SINGULAR, CALLBACK, FIRST, \mbox{\hyperlink{struct__acp__response__get__ack__hardware__info}{acp\_response\_get\_ack\_hardware\_info}}, dsn, dsn, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a975555712e6b6dc219cb190a27cc56d7}\label{acp_8pb_8c_a975555712e6b6dc219cb190a27cc56d7}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_response\_get\_ack\_status\_fields@{acp\_response\_get\_ack\_status\_fields}}
+\index{acp\_response\_get\_ack\_status\_fields@{acp\_response\_get\_ack\_status\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_response\_get\_ack\_status\_fields}{acp\_response\_get\_ack\_status\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+response\+\_\+get\+\_\+ack\+\_\+status\+\_\+fields\mbox{[}10\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, MESSAGE , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__response__get__ack__status}{acp\_response\_get\_ack\_status}}, current\_time, current\_time, \&\mbox{\hyperlink{acp_8pb_8c_ade04238a184388d2191a47a0501a110e}{acp\_time\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  2, UENUM   , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__response__get__ack__status}{acp\_response\_get\_ack\_status}}, wifi\_mode, current\_time, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  3, BOOL    , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__response__get__ack__status}{acp\_response\_get\_ack\_status}}, setup\_mode, wifi\_mode, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  4, UENUM   , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__response__get__ack__status}{acp\_response\_get\_ack\_status}}, error\_code, setup\_mode, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  5, UINT32  , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__response__get__ack__status}{acp\_response\_get\_ack\_status}}, setup\_types, error\_code, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  6, UENUM   , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__response__get__ack__status}{acp\_response\_get\_ack\_status}}, setup\_stage, setup\_types, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  7, UINT32  , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__response__get__ack__status}{acp\_response\_get\_ack\_status}}, epoch\_seconds, setup\_stage, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  8, UENUM   , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__response__get__ack__status}{acp\_response\_get\_ack\_status}}, wifi\_disconnection\_reason, epoch\_seconds, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  9, BOOL    , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__response__get__ack__status}{acp\_response\_get\_ack\_status}}, is\_distress\_beaconing, wifi\_disconnection\_reason, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a2dfacfeb52de2cc336ab5888484bd0be}\label{acp_8pb_8c_a2dfacfeb52de2cc336ab5888484bd0be}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_response\_get\_firmware\_version\_fields@{acp\_response\_get\_firmware\_version\_fields}}
+\index{acp\_response\_get\_firmware\_version\_fields@{acp\_response\_get\_firmware\_version\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_response\_get\_firmware\_version\_fields}{acp\_response\_get\_firmware\_version\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+response\+\_\+get\+\_\+firmware\+\_\+version\+\_\+fields\mbox{[}4\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  3, UINT32  , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__response__get__firmware__version}{acp\_response\_get\_firmware\_version}}, protocol\_number, protocol\_number, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  4, UINT32  , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__response__get__firmware__version}{acp\_response\_get\_firmware\_version}}, build\_number, protocol\_number, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  5, STRING  , SINGULAR, CALLBACK, OTHER, \mbox{\hyperlink{struct__acp__response__get__firmware__version}{acp\_response\_get\_firmware\_version}}, incremental\_version, build\_number, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a618010a929baf4c9e5db2c1e9104ef98}\label{acp_8pb_8c_a618010a929baf4c9e5db2c1e9104ef98}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_response\_provisioning\_device\_type\_fields@{acp\_response\_provisioning\_device\_type\_fields}}
+\index{acp\_response\_provisioning\_device\_type\_fields@{acp\_response\_provisioning\_device\_type\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_response\_provisioning\_device\_type\_fields}{acp\_response\_provisioning\_device\_type\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+response\+\_\+provisioning\+\_\+device\+\_\+type\+\_\+fields\mbox{[}2\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}( 11, STRING  , SINGULAR, CALLBACK, FIRST, \mbox{\hyperlink{struct__acp__response__provisioning__device__type}{acp\_response\_provisioning\_device\_type}}, device\_type, device\_type, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_ac31baf4969d852fbbdcf753884196066}\label{acp_8pb_8c_ac31baf4969d852fbbdcf753884196066}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_response\_provisioning\_fields@{acp\_response\_provisioning\_fields}}
+\index{acp\_response\_provisioning\_fields@{acp\_response\_provisioning\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_response\_provisioning\_fields}{acp\_response\_provisioning\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+response\+\_\+provisioning\+\_\+fields\mbox{[}3\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(response, 100, MESSAGE , ONEOF, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__response__provisioning}{acp\_response\_provisioning}}, provisioning\_info\_obj, provisioning\_info\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a27b937f4dddd897eea43705483a1913d}{acp\_response\_provisioning\_provisioning\_info\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_aa9777dc8f56877fc7a3395e0e77bc534}{PB\_ONEOF\_FIELD}}(response, 101, MESSAGE , ONEOF, STATIC  , UNION, \mbox{\hyperlink{struct__acp__response__provisioning}{acp\_response\_provisioning}}, device\_type\_obj, device\_type\_obj, \&\mbox{\hyperlink{acp_8pb_8c_a618010a929baf4c9e5db2c1e9104ef98}{acp\_response\_provisioning\_device\_type\_fields}}),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a27b937f4dddd897eea43705483a1913d}\label{acp_8pb_8c_a27b937f4dddd897eea43705483a1913d}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_response\_provisioning\_provisioning\_info\_fields@{acp\_response\_provisioning\_provisioning\_info\_fields}}
+\index{acp\_response\_provisioning\_provisioning\_info\_fields@{acp\_response\_provisioning\_provisioning\_info\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_response\_provisioning\_provisioning\_info\_fields}{acp\_response\_provisioning\_provisioning\_info\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+response\+\_\+provisioning\+\_\+provisioning\+\_\+info\+\_\+fields\mbox{[}2\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}( 10, UENUM   , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__response__provisioning__provisioning__info}{acp\_response\_provisioning\_provisioning\_info}}, state, state, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_a7605ccbcfbfa53c38be49d617b52cc4d}\label{acp_8pb_8c_a7605ccbcfbfa53c38be49d617b52cc4d}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_response\_read\_host\_fw\_update\_bytes\_fields@{acp\_response\_read\_host\_fw\_update\_bytes\_fields}}
+\index{acp\_response\_read\_host\_fw\_update\_bytes\_fields@{acp\_response\_read\_host\_fw\_update\_bytes\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_response\_read\_host\_fw\_update\_bytes\_fields}{acp\_response\_read\_host\_fw\_update\_bytes\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+response\+\_\+read\+\_\+host\+\_\+fw\+\_\+update\+\_\+bytes\+\_\+fields\mbox{[}2\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, BYTES   , SINGULAR, CALLBACK, FIRST, \mbox{\hyperlink{struct__acp__response__read__host__fw__update__bytes}{acp\_response\_read\_host\_fw\_update\_bytes}}, bytes, bytes, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{acp_8pb_8c_ade04238a184388d2191a47a0501a110e}\label{acp_8pb_8c_ade04238a184388d2191a47a0501a110e}} 
+\index{acp.pb.c@{acp.pb.c}!acp\_time\_fields@{acp\_time\_fields}}
+\index{acp\_time\_fields@{acp\_time\_fields}!acp.pb.c@{acp.pb.c}}
+\doxysubsubsection{\texorpdfstring{acp\_time\_fields}{acp\_time\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} acp\+\_\+time\+\_\+fields\mbox{[}4\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, INT32   , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct__acp__time}{acp\_time}}, hh, hh, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  2, INT32   , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__time}{acp\_time}}, mm, hh, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  3, INT32   , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct__acp__time}{acp\_time}}, ss, mm, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

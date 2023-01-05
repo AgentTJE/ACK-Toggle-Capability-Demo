@@ -1,0 +1,16 @@
+<map id="ACK_Initialize" name="ACK_Initialize">
+<area shape="rect" id="node1" title=" " alt="" coords="5,157,111,184"/>
+<area shape="rect" id="node2" href="$ack__core__module__pins_8c.html#af325dfcae84f6e90ae8167177aa177a0" title=" " alt="" coords="159,31,365,57"/>
+<area shape="rect" id="node5" href="$ack__arduino__platform_8cpp.html#a91dfdefb64d8d19218883c6fd34340d6" title=" " alt="" coords="185,81,339,108"/>
+<area shape="rect" id="node6" href="$ack__user__device_8c.html#a83a9cfef940c660907194694d93ee871" title=" " alt="" coords="160,132,364,159"/>
+<area shape="rect" id="node7" href="$ack__core__event__builder_8c.html#a673a280ae959291b76d817aed824f707" title=" " alt="" coords="203,183,321,209"/>
+<area shape="rect" id="node10" href="$ack__core__heaplet_8c.html#abf737e83acbcfe011f683e8889ec5e12" title=" " alt="" coords="219,233,305,260"/>
+<area shape="rect" id="node11" href="$ack__core__lifecycle_8c.html#aebc163851f54cd3d46c3fe01a3a030d6" title=" " alt="" coords="199,284,325,311"/>
+<area shape="rect" id="node3" href="$ack__arduino__platform_8cpp.html#a714fe817d5ed149d8ff3b9c78253af58" title=" " alt="" coords="439,5,579,32"/>
+<area shape="rect" id="node4" href="$ack__arduino__platform_8cpp.html#a9cd2eba9eb604d27bef1dae91cb80ee7" title=" " alt="" coords="413,56,605,83"/>
+<area shape="rect" id="node8" href="$ack__core__heaplet_8c.html#a249ef4b78b976c6a6e8e598d50797525" title=" " alt="" coords="463,183,556,209"/>
+<area shape="rect" id="node9" href="$ack__core__heaplet_8c.html#a769a3d7a3cf5cab9082db30abec15ec4" title=" " alt="" coords="703,183,789,209"/>
+<area shape="rect" id="node12" href="$ack__core__lifecycle_8c.html#a9e915204f5176ede086aaa8d80b51b26" title=" " alt="" coords="422,277,597,318"/>
+<area shape="rect" id="node13" href="$_hello_world___alexa_8c.html#a46ce38d62dc041abacaa7d82f06d8c30" title=" " alt="" coords="653,277,839,318"/>
+<area shape="rect" id="node14" href="$_hello_world___hardware_8c.html#a2fbe91fc50c1e4da8c739bf5c01ff578" title=" " alt="" coords="887,277,1065,318"/>
+</map>

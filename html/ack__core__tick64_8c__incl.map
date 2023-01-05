@@ -1,0 +1,11 @@
+<map id="src/ack_core_tick64.c" name="src/ack_core_tick64.c">
+<area shape="rect" id="node1" title=" " alt="" coords="181,5,331,32"/>
+<area shape="rect" id="node2" href="$ack__core__tick64_8h.html" title=" " alt="" coords="5,80,133,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="155,155,221,181"/>
+<area shape="rect" id="node4" href="$ack__tick64_8h.html" title=" " alt="" coords="208,80,304,107"/>
+<area shape="rect" id="node5" href="$src_2ack__user__config_8h.html" title=" " alt="" coords="263,155,391,181"/>
+<area shape="rect" id="node7" href="$ack__user__platform_8h.html" title=" " alt="" coords="379,80,519,107"/>
+<area shape="rect" id="node6" href="$ack__user__config_8h.html" title="Configuration file for Alexa Connect Kit. Contains #defines to control its behavior,..." alt="" coords="257,229,397,256"/>
+<area shape="rect" id="node8" title=" " alt="" coords="415,155,484,181"/>
+<area shape="rect" id="node9" title=" " alt="" coords="508,155,583,181"/>
+</map>

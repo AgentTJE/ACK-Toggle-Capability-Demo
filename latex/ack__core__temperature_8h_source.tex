@@ -1,0 +1,44 @@
+\hypertarget{ack__core__temperature_8h_source}{}\doxysection{ack\+\_\+core\+\_\+temperature.\+h}
+\label{ack__core__temperature_8h_source}\index{src/ack\_core\_temperature.h@{src/ack\_core\_temperature.h}}
+\mbox{\hyperlink{ack__core__temperature_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_CORE\_TEMPERATURE\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_CORE\_TEMPERATURE\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack_8h}{ack.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{17 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{comment}{// Populates a temperature object with values.}}
+\DoxyCodeLine{22 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__temperature_8h_aa58cacb731d016f215b98263580d3ca6}{TemperatureSave}}(}
+\DoxyCodeLine{23     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObject,}
+\DoxyCodeLine{24     \textcolor{keywordtype}{unsigned} member,}
+\DoxyCodeLine{25     \mbox{\hyperlink{ack__generated__temperature_8h_ad0d517afea334399e7384fa8a2aa0f5a}{ack\_temperature\_scale}} scale,}
+\DoxyCodeLine{26     \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__temperature_8h_a1e3525eb302961c3b11df96d831a8385}{TemperatureLoad}}(}
+\DoxyCodeLine{29     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObject,}
+\DoxyCodeLine{30     \textcolor{keywordtype}{unsigned} member,}
+\DoxyCodeLine{31     \mbox{\hyperlink{ack__generated__temperature_8h_ad0d517afea334399e7384fa8a2aa0f5a}{ack\_temperature\_scale}}* pScale,}
+\DoxyCodeLine{32     \textcolor{keywordtype}{float}* pValue);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{35 \}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ndef \_\_ACK\_CORE\_TEMPERATURE\_H\_\_}}
+
+\end{DoxyCode}

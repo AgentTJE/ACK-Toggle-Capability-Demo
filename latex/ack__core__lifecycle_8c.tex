@@ -1,0 +1,392 @@
+\hypertarget{ack__core__lifecycle_8c}{}\doxysection{src/ack\+\_\+core\+\_\+lifecycle.c File Reference}
+\label{ack__core__lifecycle_8c}\index{src/ack\_core\_lifecycle.c@{src/ack\_core\_lifecycle.c}}
+{\ttfamily \#include \char`\"{}ack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+event\+\_\+builder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+heaplet.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+lifecycle.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+logging.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+outbound\+\_\+events.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+power\+\_\+saving.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+processevent.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+status.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+tick64.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+validation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+device.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+logging.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+module\+\_\+diagnostics.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+module.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for ack\+\_\+core\+\_\+lifecycle.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{ack__core__lifecycle_8c_a0628af12474230f3b8c0aa5ec24184be}{\+\_\+\+Reboot\+Pending\+\_\+t}} \mbox{\hyperlink{ack__core__lifecycle_8c_a33748309f190f09da303b97c973acffa}{Reboot\+Pending\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{ack__core__lifecycle_8c_a0628af12474230f3b8c0aa5ec24184be}{\+\_\+\+Reboot\+Pending\+\_\+t}} \{ \mbox{\hyperlink{ack__core__lifecycle_8c_a0628af12474230f3b8c0aa5ec24184beacdd19c27ccbe69b0a5fcf18863af68b1}{ACK\+\_\+\+PENDING\+\_\+\+REBOOT\+\_\+\+NONE}}
+, \mbox{\hyperlink{ack__core__lifecycle_8c_a0628af12474230f3b8c0aa5ec24184beafa955ff385698a965e36a4d32ccf180b}{ACK\+\_\+\+PENDING\+\_\+\+REBOOT\+\_\+\+DEFERRABLE}}
+, \mbox{\hyperlink{ack__core__lifecycle_8c_a0628af12474230f3b8c0aa5ec24184beaa7b28e448d62c140cf741b12d856915c}{ACK\+\_\+\+PENDING\+\_\+\+REBOOT\+\_\+\+PENDING}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{ack__core__lifecycle_8c_a95bd8df35e23e6a389bf79bed089b16f}{Satisfy\+Pending\+User\+Guided\+Setup\+Request}} (bool device\+In\+Use)
+\item 
+static bool \mbox{\hyperlink{ack__core__lifecycle_8c_a4338fc660a5e99034468df869487f104}{Satisfy\+Pending\+Module\+Reboot}} (bool device\+In\+Use)
+\item 
+static bool \mbox{\hyperlink{ack__core__lifecycle_8c_a610a3f1443291cfb74f27838ac9c716b}{Satisfy\+Pending\+Factory\+Reset}} (bool device\+In\+Use)
+\item 
+static bool \mbox{\hyperlink{ack__core__lifecycle_8c_a9798ec32d63adb844bc4b4fb2b0ccffc}{Satisfy\+Send\+Host\+Config}} (void)
+\item 
+static void \mbox{\hyperlink{ack__core__lifecycle_8c_a73452f10fef4405034a7f1223a2c3ff7}{Check\+And\+Update\+Connectivity\+State}} (void)
+\item 
+static void \mbox{\hyperlink{ack__core__lifecycle_8c_aebc163851f54cd3d46c3fe01a3a030d6}{Set\+Lifecycle\+State}} (\mbox{\hyperlink{ack_8h_a9f5494ec59175fccf803f24959dc24c9}{ACKLifecycle\+State\+\_\+t}} new\+State)
+\item 
+static void \mbox{\hyperlink{ack__core__lifecycle_8c_a9e915204f5176ede086aaa8d80b51b26}{Set\+Lifecycle\+State\+With\+Sub\+State\+Check}} (\mbox{\hyperlink{ack_8h_a9f5494ec59175fccf803f24959dc24c9}{ACKLifecycle\+State\+\_\+t}} new\+State, bool sub\+State\+Changed)
+\item 
+void \mbox{\hyperlink{ack__core__lifecycle_8c_aae9040db2c96c06eb4285664e3c30289}{ACK\+\_\+\+Initialize}} (void)
+\item 
+void \mbox{\hyperlink{ack__core__lifecycle_8c_afebeb26e5578a11c69ac95823631cf34}{ACK\+\_\+\+Process}} ()
+\item 
+void \mbox{\hyperlink{ack__core__lifecycle_8c_a15a21aee4efe1d5b4a7bf50462798402}{Lifecycle\+Module\+Requesting\+Reboot}} (bool force)
+\item 
+void \mbox{\hyperlink{ack__core__lifecycle_8c_aeb5525925e8c45a0c33d07391b0bb4dd}{Lifecycle\+Module\+Booted}} (void)
+\item 
+void \mbox{\hyperlink{ack__core__lifecycle_8c_ae59669a65cb146a008a3dcf69f1e7a0b}{Lifecycle\+Factory\+Reset\+Requested}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ack_8h_a9f5494ec59175fccf803f24959dc24c9}{ACKLifecycle\+State\+\_\+t}} \mbox{\hyperlink{ack__core__lifecycle_8c_a8270e26b9717f45b4002c22eb24af775}{ACK\+\_\+\+Lifecycle\+State}} = \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92a0eca8bf1be7be1b53e3897ef38e13661}{ACK\+\_\+\+LIFECYCLE\+\_\+\+INITIAL}}
+\item 
+\mbox{\hyperlink{ack_8h_acb7ecc4a4672b3caec9e11369747985c}{ACKLifecycle\+Sub\+State\+Info\+\_\+t}} \mbox{\hyperlink{ack__core__lifecycle_8c_a82d8f8e81bb18b989753d4fa9a207879}{ACK\+\_\+\+Lifecycle\+Sub\+State\+Info}}
+\item 
+static \mbox{\hyperlink{ack__core__lifecycle_8c_a33748309f190f09da303b97c973acffa}{Reboot\+Pending\+\_\+t}} \mbox{\hyperlink{ack__core__lifecycle_8c_a61a4d12c870b95cac68948c9e04064b6}{sg\+\_\+ack\+Module\+Reboot\+Pending}} = \mbox{\hyperlink{ack__core__lifecycle_8c_a0628af12474230f3b8c0aa5ec24184beacdd19c27ccbe69b0a5fcf18863af68b1}{ACK\+\_\+\+PENDING\+\_\+\+REBOOT\+\_\+\+NONE}}
+\item 
+static bool \mbox{\hyperlink{ack__core__lifecycle_8c_ad3afe4c4ffc25142ff63d069b4bb717d}{sg\+\_\+need\+To\+Send\+Host\+Config}} = false
+\item 
+static bool \mbox{\hyperlink{ack__core__lifecycle_8c_abcad509ea0e3d31058c287140d6f5c08}{sg\+\_\+ack\+Module\+Initiated\+Factory\+Reset}} = false
+\item 
+static uint32\+\_\+t \mbox{\hyperlink{ack__core__lifecycle_8c_a99f0058e0538ef73978beb3b4704741e}{sg\+\_\+connectivity\+Last\+Tick}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ack__core__lifecycle_8c_a33748309f190f09da303b97c973acffa}\label{ack__core__lifecycle_8c_a33748309f190f09da303b97c973acffa}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!RebootPending\_t@{RebootPending\_t}}
+\index{RebootPending\_t@{RebootPending\_t}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{RebootPending\_t}{RebootPending\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{ack__core__lifecycle_8c_a0628af12474230f3b8c0aa5ec24184be}{\+\_\+\+Reboot\+Pending\+\_\+t}} \mbox{\hyperlink{ack__core__lifecycle_8c_a33748309f190f09da303b97c973acffa}{Reboot\+Pending\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{ack__core__lifecycle_8c_a0628af12474230f3b8c0aa5ec24184be}\label{ack__core__lifecycle_8c_a0628af12474230f3b8c0aa5ec24184be}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!\_RebootPending\_t@{\_RebootPending\_t}}
+\index{\_RebootPending\_t@{\_RebootPending\_t}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{\_RebootPending\_t}{\_RebootPending\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ack__core__lifecycle_8c_a0628af12474230f3b8c0aa5ec24184be}{\+\_\+\+Reboot\+Pending\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_PENDING\_REBOOT\_NONE@{ACK\_PENDING\_REBOOT\_NONE}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!ACK\_PENDING\_REBOOT\_NONE@{ACK\_PENDING\_REBOOT\_NONE}}}\mbox{\Hypertarget{ack__core__lifecycle_8c_a0628af12474230f3b8c0aa5ec24184beacdd19c27ccbe69b0a5fcf18863af68b1}\label{ack__core__lifecycle_8c_a0628af12474230f3b8c0aa5ec24184beacdd19c27ccbe69b0a5fcf18863af68b1}} 
+ACK\+\_\+\+PENDING\+\_\+\+REBOOT\+\_\+\+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_PENDING\_REBOOT\_DEFERRABLE@{ACK\_PENDING\_REBOOT\_DEFERRABLE}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!ACK\_PENDING\_REBOOT\_DEFERRABLE@{ACK\_PENDING\_REBOOT\_DEFERRABLE}}}\mbox{\Hypertarget{ack__core__lifecycle_8c_a0628af12474230f3b8c0aa5ec24184beafa955ff385698a965e36a4d32ccf180b}\label{ack__core__lifecycle_8c_a0628af12474230f3b8c0aa5ec24184beafa955ff385698a965e36a4d32ccf180b}} 
+ACK\+\_\+\+PENDING\+\_\+\+REBOOT\+\_\+\+DEFERRABLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_PENDING\_REBOOT\_PENDING@{ACK\_PENDING\_REBOOT\_PENDING}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!ACK\_PENDING\_REBOOT\_PENDING@{ACK\_PENDING\_REBOOT\_PENDING}}}\mbox{\Hypertarget{ack__core__lifecycle_8c_a0628af12474230f3b8c0aa5ec24184beaa7b28e448d62c140cf741b12d856915c}\label{ack__core__lifecycle_8c_a0628af12474230f3b8c0aa5ec24184beaa7b28e448d62c140cf741b12d856915c}} 
+ACK\+\_\+\+PENDING\+\_\+\+REBOOT\+\_\+\+PENDING&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__lifecycle_8c_aae9040db2c96c06eb4285664e3c30289}\label{ack__core__lifecycle_8c_aae9040db2c96c06eb4285664e3c30289}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!ACK\_Initialize@{ACK\_Initialize}}
+\index{ACK\_Initialize@{ACK\_Initialize}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_Initialize()}{ACK\_Initialize()}}
+{\footnotesize\ttfamily void ACK\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_aae9040db2c96c06eb4285664e3c30289_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{ack__core__lifecycle_8c_aae9040db2c96c06eb4285664e3c30289_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__lifecycle_8c_afebeb26e5578a11c69ac95823631cf34}\label{ack__core__lifecycle_8c_afebeb26e5578a11c69ac95823631cf34}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!ACK\_Process@{ACK\_Process}}
+\index{ACK\_Process@{ACK\_Process}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_Process()}{ACK\_Process()}}
+{\footnotesize\ttfamily void ACK\+\_\+\+Process (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_afebeb26e5578a11c69ac95823631cf34_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{ack__core__lifecycle_8c_afebeb26e5578a11c69ac95823631cf34_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__lifecycle_8c_a73452f10fef4405034a7f1223a2c3ff7}\label{ack__core__lifecycle_8c_a73452f10fef4405034a7f1223a2c3ff7}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!CheckAndUpdateConnectivityState@{CheckAndUpdateConnectivityState}}
+\index{CheckAndUpdateConnectivityState@{CheckAndUpdateConnectivityState}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{CheckAndUpdateConnectivityState()}{CheckAndUpdateConnectivityState()}}
+{\footnotesize\ttfamily void Check\+And\+Update\+Connectivity\+State (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_a73452f10fef4405034a7f1223a2c3ff7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_a73452f10fef4405034a7f1223a2c3ff7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__lifecycle_8c_ae59669a65cb146a008a3dcf69f1e7a0b}\label{ack__core__lifecycle_8c_ae59669a65cb146a008a3dcf69f1e7a0b}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!LifecycleFactoryResetRequested@{LifecycleFactoryResetRequested}}
+\index{LifecycleFactoryResetRequested@{LifecycleFactoryResetRequested}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{LifecycleFactoryResetRequested()}{LifecycleFactoryResetRequested()}}
+{\footnotesize\ttfamily void Lifecycle\+Factory\+Reset\+Requested (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_ae59669a65cb146a008a3dcf69f1e7a0b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__lifecycle_8c_aeb5525925e8c45a0c33d07391b0bb4dd}\label{ack__core__lifecycle_8c_aeb5525925e8c45a0c33d07391b0bb4dd}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!LifecycleModuleBooted@{LifecycleModuleBooted}}
+\index{LifecycleModuleBooted@{LifecycleModuleBooted}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{LifecycleModuleBooted()}{LifecycleModuleBooted()}}
+{\footnotesize\ttfamily void Lifecycle\+Module\+Booted (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_aeb5525925e8c45a0c33d07391b0bb4dd_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_aeb5525925e8c45a0c33d07391b0bb4dd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__lifecycle_8c_a15a21aee4efe1d5b4a7bf50462798402}\label{ack__core__lifecycle_8c_a15a21aee4efe1d5b4a7bf50462798402}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!LifecycleModuleRequestingReboot@{LifecycleModuleRequestingReboot}}
+\index{LifecycleModuleRequestingReboot@{LifecycleModuleRequestingReboot}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{LifecycleModuleRequestingReboot()}{LifecycleModuleRequestingReboot()}}
+{\footnotesize\ttfamily void Lifecycle\+Module\+Requesting\+Reboot (\begin{DoxyParamCaption}\item[{bool}]{force }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_a15a21aee4efe1d5b4a7bf50462798402_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__lifecycle_8c_a610a3f1443291cfb74f27838ac9c716b}\label{ack__core__lifecycle_8c_a610a3f1443291cfb74f27838ac9c716b}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!SatisfyPendingFactoryReset@{SatisfyPendingFactoryReset}}
+\index{SatisfyPendingFactoryReset@{SatisfyPendingFactoryReset}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{SatisfyPendingFactoryReset()}{SatisfyPendingFactoryReset()}}
+{\footnotesize\ttfamily bool Satisfy\+Pending\+Factory\+Reset (\begin{DoxyParamCaption}\item[{bool}]{device\+In\+Use }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_a610a3f1443291cfb74f27838ac9c716b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_a610a3f1443291cfb74f27838ac9c716b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__lifecycle_8c_a4338fc660a5e99034468df869487f104}\label{ack__core__lifecycle_8c_a4338fc660a5e99034468df869487f104}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!SatisfyPendingModuleReboot@{SatisfyPendingModuleReboot}}
+\index{SatisfyPendingModuleReboot@{SatisfyPendingModuleReboot}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{SatisfyPendingModuleReboot()}{SatisfyPendingModuleReboot()}}
+{\footnotesize\ttfamily bool Satisfy\+Pending\+Module\+Reboot (\begin{DoxyParamCaption}\item[{bool}]{device\+In\+Use }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_a4338fc660a5e99034468df869487f104_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_a4338fc660a5e99034468df869487f104_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__lifecycle_8c_a95bd8df35e23e6a389bf79bed089b16f}\label{ack__core__lifecycle_8c_a95bd8df35e23e6a389bf79bed089b16f}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!SatisfyPendingUserGuidedSetupRequest@{SatisfyPendingUserGuidedSetupRequest}}
+\index{SatisfyPendingUserGuidedSetupRequest@{SatisfyPendingUserGuidedSetupRequest}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{SatisfyPendingUserGuidedSetupRequest()}{SatisfyPendingUserGuidedSetupRequest()}}
+{\footnotesize\ttfamily bool Satisfy\+Pending\+User\+Guided\+Setup\+Request (\begin{DoxyParamCaption}\item[{bool}]{device\+In\+Use }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_a95bd8df35e23e6a389bf79bed089b16f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_a95bd8df35e23e6a389bf79bed089b16f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__lifecycle_8c_a9798ec32d63adb844bc4b4fb2b0ccffc}\label{ack__core__lifecycle_8c_a9798ec32d63adb844bc4b4fb2b0ccffc}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!SatisfySendHostConfig@{SatisfySendHostConfig}}
+\index{SatisfySendHostConfig@{SatisfySendHostConfig}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{SatisfySendHostConfig()}{SatisfySendHostConfig()}}
+{\footnotesize\ttfamily bool Satisfy\+Send\+Host\+Config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_a9798ec32d63adb844bc4b4fb2b0ccffc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_a9798ec32d63adb844bc4b4fb2b0ccffc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__lifecycle_8c_aebc163851f54cd3d46c3fe01a3a030d6}\label{ack__core__lifecycle_8c_aebc163851f54cd3d46c3fe01a3a030d6}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!SetLifecycleState@{SetLifecycleState}}
+\index{SetLifecycleState@{SetLifecycleState}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{SetLifecycleState()}{SetLifecycleState()}}
+{\footnotesize\ttfamily static void Set\+Lifecycle\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack_8h_a9f5494ec59175fccf803f24959dc24c9}{ACKLifecycle\+State\+\_\+t}}}]{new\+State }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_aebc163851f54cd3d46c3fe01a3a030d6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_aebc163851f54cd3d46c3fe01a3a030d6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__lifecycle_8c_a9e915204f5176ede086aaa8d80b51b26}\label{ack__core__lifecycle_8c_a9e915204f5176ede086aaa8d80b51b26}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!SetLifecycleStateWithSubStateCheck@{SetLifecycleStateWithSubStateCheck}}
+\index{SetLifecycleStateWithSubStateCheck@{SetLifecycleStateWithSubStateCheck}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{SetLifecycleStateWithSubStateCheck()}{SetLifecycleStateWithSubStateCheck()}}
+{\footnotesize\ttfamily static void Set\+Lifecycle\+State\+With\+Sub\+State\+Check (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack_8h_a9f5494ec59175fccf803f24959dc24c9}{ACKLifecycle\+State\+\_\+t}}}]{new\+State,  }\item[{bool}]{sub\+State\+Changed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_a9e915204f5176ede086aaa8d80b51b26_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__lifecycle_8c_a9e915204f5176ede086aaa8d80b51b26_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ack__core__lifecycle_8c_a8270e26b9717f45b4002c22eb24af775}\label{ack__core__lifecycle_8c_a8270e26b9717f45b4002c22eb24af775}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!ACK\_LifecycleState@{ACK\_LifecycleState}}
+\index{ACK\_LifecycleState@{ACK\_LifecycleState}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_LifecycleState}{ACK\_LifecycleState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack_8h_a9f5494ec59175fccf803f24959dc24c9}{ACKLifecycle\+State\+\_\+t}} ACK\+\_\+\+Lifecycle\+State = \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92a0eca8bf1be7be1b53e3897ef38e13661}{ACK\+\_\+\+LIFECYCLE\+\_\+\+INITIAL}}}
+
+\mbox{\Hypertarget{ack__core__lifecycle_8c_a82d8f8e81bb18b989753d4fa9a207879}\label{ack__core__lifecycle_8c_a82d8f8e81bb18b989753d4fa9a207879}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!ACK\_LifecycleSubStateInfo@{ACK\_LifecycleSubStateInfo}}
+\index{ACK\_LifecycleSubStateInfo@{ACK\_LifecycleSubStateInfo}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_LifecycleSubStateInfo}{ACK\_LifecycleSubStateInfo}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack_8h_acb7ecc4a4672b3caec9e11369747985c}{ACKLifecycle\+Sub\+State\+Info\+\_\+t}} ACK\+\_\+\+Lifecycle\+Sub\+State\+Info}
+
+\mbox{\Hypertarget{ack__core__lifecycle_8c_abcad509ea0e3d31058c287140d6f5c08}\label{ack__core__lifecycle_8c_abcad509ea0e3d31058c287140d6f5c08}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!sg\_ackModuleInitiatedFactoryReset@{sg\_ackModuleInitiatedFactoryReset}}
+\index{sg\_ackModuleInitiatedFactoryReset@{sg\_ackModuleInitiatedFactoryReset}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{sg\_ackModuleInitiatedFactoryReset}{sg\_ackModuleInitiatedFactoryReset}}
+{\footnotesize\ttfamily bool sg\+\_\+ack\+Module\+Initiated\+Factory\+Reset = false\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{ack__core__lifecycle_8c_a61a4d12c870b95cac68948c9e04064b6}\label{ack__core__lifecycle_8c_a61a4d12c870b95cac68948c9e04064b6}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!sg\_ackModuleRebootPending@{sg\_ackModuleRebootPending}}
+\index{sg\_ackModuleRebootPending@{sg\_ackModuleRebootPending}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{sg\_ackModuleRebootPending}{sg\_ackModuleRebootPending}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__core__lifecycle_8c_a33748309f190f09da303b97c973acffa}{Reboot\+Pending\+\_\+t}} sg\+\_\+ack\+Module\+Reboot\+Pending = \mbox{\hyperlink{ack__core__lifecycle_8c_a0628af12474230f3b8c0aa5ec24184beacdd19c27ccbe69b0a5fcf18863af68b1}{ACK\+\_\+\+PENDING\+\_\+\+REBOOT\+\_\+\+NONE}}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{ack__core__lifecycle_8c_a99f0058e0538ef73978beb3b4704741e}\label{ack__core__lifecycle_8c_a99f0058e0538ef73978beb3b4704741e}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!sg\_connectivityLastTick@{sg\_connectivityLastTick}}
+\index{sg\_connectivityLastTick@{sg\_connectivityLastTick}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{sg\_connectivityLastTick}{sg\_connectivityLastTick}}
+{\footnotesize\ttfamily uint32\+\_\+t sg\+\_\+connectivity\+Last\+Tick = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{ack__core__lifecycle_8c_ad3afe4c4ffc25142ff63d069b4bb717d}\label{ack__core__lifecycle_8c_ad3afe4c4ffc25142ff63d069b4bb717d}} 
+\index{ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}!sg\_needToSendHostConfig@{sg\_needToSendHostConfig}}
+\index{sg\_needToSendHostConfig@{sg\_needToSendHostConfig}!ack\_core\_lifecycle.c@{ack\_core\_lifecycle.c}}
+\doxysubsubsection{\texorpdfstring{sg\_needToSendHostConfig}{sg\_needToSendHostConfig}}
+{\footnotesize\ttfamily bool sg\+\_\+need\+To\+Send\+Host\+Config = false\hspace{0.3cm}{\ttfamily [static]}}
+

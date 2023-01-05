@@ -1,0 +1,11 @@
+<map id="HelloWorld.ino" name="HelloWorld.ino">
+<area shape="rect" id="node1" title="this file contains the setup entrypoint and the loop logic for the hello world ack example." alt="" coords="389,5,495,32"/>
+<area shape="rect" id="node2" href="$ack__user__platform_8h.html" title=" " alt="" coords="117,80,279,107"/>
+<area shape="rect" id="node7" title=" " alt="" coords="356,155,421,181"/>
+<area shape="rect" id="node8" href="$_hello_world___alexa_8h.html" title="hello world alexa." alt="" coords="538,80,674,107"/>
+<area shape="rect" id="node9" href="$_hello_world___hardware_8h.html" title="hello world hardware." alt="" coords="304,80,463,107"/>
+<area shape="rect" id="node3" href="$src_2ack__user__config_8h.html" title=" " alt="" coords="11,155,139,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="163,155,233,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="257,155,331,181"/>
+<area shape="rect" id="node4" href="$ack__user__config_8h.html" title="Configuration file for Alexa Connect Kit. Contains #defines to control its behavior,..." alt="" coords="5,229,145,256"/>
+</map>

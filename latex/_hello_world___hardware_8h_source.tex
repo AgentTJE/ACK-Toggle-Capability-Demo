@@ -1,0 +1,57 @@
+\hypertarget{_hello_world___hardware_8h_source}{}\doxysection{Hello\+World\+\_\+\+Hardware.\+h}
+\mbox{\hyperlink{_hello_world___hardware_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{7 \textcolor{comment}{/*}}
+\DoxyCodeLine{8 \textcolor{comment}{ * Copyright 2018-\/2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * }}
+\DoxyCodeLine{10 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{11 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{12 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{13 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{comment}{/*}}
+\DoxyCodeLine{17 \textcolor{comment}{    Note: this application is a sample only. It may omit functionality that would be required in a}}
+\DoxyCodeLine{18 \textcolor{comment}{    real device. The application's source code is structured to maximize illustrative utility, and not}}
+\DoxyCodeLine{19 \textcolor{comment}{    to suggest a reference design for any category of device or to provide a definitive framework for}}
+\DoxyCodeLine{20 \textcolor{comment}{    a device's firmware.}}
+\DoxyCodeLine{21 \textcolor{comment}{*/}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#ifndef \_\_HELLO\_WORLD\_HARDWARE\_H\_\_}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define \_\_HELLO\_WORLD\_HARDWARE\_H\_\_}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{30 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{comment}{// State of connectivity LED.}}
+\DoxyCodeLine{35 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \mbox{\hyperlink{_hello_world___hardware_8h_adf42ac1322d6d3c3af8cff02c8a570b7}{\_HardwareConnectivityLedState}}}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37     \mbox{\hyperlink{_hello_world___hardware_8h_adf42ac1322d6d3c3af8cff02c8a570b7a6ccae40b2baeca3d91f7660b5b62dd35}{HARDWARE\_CONNECTIVITY\_LED\_OFF}},}
+\DoxyCodeLine{38     \mbox{\hyperlink{_hello_world___hardware_8h_adf42ac1322d6d3c3af8cff02c8a570b7a94947a5ee61f9c1eaa4feabb355ce529}{HARDWARE\_CONNECTIVITY\_LED\_BLINKING}},}
+\DoxyCodeLine{39     \mbox{\hyperlink{_hello_world___hardware_8h_adf42ac1322d6d3c3af8cff02c8a570b7ade0d0c0ae71d3b086975afc45d4b792b}{HARDWARE\_CONNECTIVITY\_LED\_SOLID}}}
+\DoxyCodeLine{40 \}}
+\DoxyCodeLine{41 \mbox{\hyperlink{_hello_world___hardware_8h_a95897941ae9ef94f9c0ff9702b73d201}{HardwareConnectivityLedState}};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{keywordtype}{void} \mbox{\hyperlink{_hello_world___hardware_8h_af073f10d55513def62ddb6af68598d24}{Hardware\_SetPowerState}}(\textcolor{keywordtype}{bool} powerOn);}
+\DoxyCodeLine{44 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_hello_world___hardware_8h_a43cd7636e88ea9b4916106facea5a7b2}{Hardware\_IsPowerOn}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{45 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_hello_world___hardware_8h_a987016ce2b85a2cae4becf4434adcacf}{Hardware\_IsPowerToggleButtonDown}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{comment}{// Added for ACK.}}
+\DoxyCodeLine{48 \textcolor{keywordtype}{void} \mbox{\hyperlink{_hello_world___hardware_8h_a2fbe91fc50c1e4da8c739bf5c01ff578}{Hardware\_SetConnectivityLedState}}(\mbox{\hyperlink{_hello_world___hardware_8h_a95897941ae9ef94f9c0ff9702b73d201}{HardwareConnectivityLedState}} state);}
+\DoxyCodeLine{49 \textcolor{keywordtype}{bool} \mbox{\hyperlink{_hello_world___hardware_8h_a3f6f5dff967666bed9dd18d3995c7ec1}{Hardware\_IsLifecycleButtonDown}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{50 \textcolor{keywordtype}{void} \mbox{\hyperlink{_hello_world___hardware_8h_ab3edb167992c05876016190441dc209a}{Hardware\_SetBrightnessState}}(int32\_t value);}
+\DoxyCodeLine{51 int32\_t \mbox{\hyperlink{_hello_world___hardware_8h_acaa4413463849a502b5291ce7c80cbc3}{Hardware\_GetBrightnessState}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{54 \}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ndef \_\_HELLO\_WORLD\_HARDWARE\_H\_\_}}
+
+\end{DoxyCode}

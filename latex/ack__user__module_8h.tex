@@ -1,0 +1,208 @@
+\hypertarget{ack__user__module_8h}{}\doxysection{src/ack\+\_\+user\+\_\+module.h File Reference}
+\label{ack__user__module_8h}\index{src/ack\_user\_module.h@{src/ack\_user\_module.h}}
+{\ttfamily \#include \char`\"{}ack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+metrics.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}acp.\+pb.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pb.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}V3\+AVS.\+pb.\+h\char`\"{}}\newline
+Include dependency graph for ack\+\_\+user\+\_\+module.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__user__module_8h_a987878042c70da8161ac11a4c5f4ca7f}{ACKModule\+\_\+\+User\+Guided\+Setup\+Initiate}} (void)
+\item 
+void \mbox{\hyperlink{ack__user__module_8h_a12895c290577dcb3f65169a7ef74fb57}{ACKModule\+\_\+\+Get\+Status}} (\mbox{\hyperlink{ack_8h_acf23a6b191b92fcf2a1408217e622d1d}{ACKStatus\+\_\+t}} $\ast$p\+Status)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__user__module_8h_aa8682f5c1b6f82245abf6691db22a291}{ACKModule\+\_\+\+Get\+Response}} (\mbox{\hyperlink{acp_8pb_8h_a57fb9887d8bdeaa4f969e8f00cd82e1b}{acp\+\_\+response}} $\ast$p\+Response)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__user__module_8h_a925eec6148b3be205c7fb82bfe03c855}{ACKModule\+\_\+\+Get\+Encoded\+Directive}} (\mbox{\hyperlink{acp_8pb_8h_abbf24a74efc0c64e567adb9e8340f3c3}{acp\+\_\+event\+\_\+alexa\+\_\+directive\+\_\+received}} $\ast$p\+Directive, uint8\+\_\+t const $\ast$$\ast$pp\+Data, size\+\_\+t $\ast$p\+Data\+Len)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__user__module_8h_a8c0e7d5e3505712dbc981d6e64c01501}{ACKModule\+\_\+\+Get\+Device\+Type}} (char $\ast$p\+Device\+Type, size\+\_\+t device\+Type\+Buffer\+Size)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__user__module_8h_a3ced59f273774a62f35b4f7ae351f81d}{ACKModule\+\_\+\+Host\+Config\+Write}} (uint64\+\_\+t firmware\+Version)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__user__module_8h_a8a667fc43c65abd7d1334262c699cdb9}{ACKModule\+\_\+\+Factory\+Reset\+Initiate}} (void)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__user__module_8h_af0e50dc216ead029bb534483aa063c56}{ACKModule\+\_\+\+Send\+Event}} (\mbox{\hyperlink{_v3_a_v_s_8pb_8h_aed0e684b7bd8ab5e6dbaf9b0fd4e9f50}{V3\+AVS\+\_\+\+Avs\+Event}} $\ast$p\+Event)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__user__module_8h_a8a667fc43c65abd7d1334262c699cdb9}\label{ack__user__module_8h_a8a667fc43c65abd7d1334262c699cdb9}} 
+\index{ack\_user\_module.h@{ack\_user\_module.h}!ACKModule\_FactoryResetInitiate@{ACKModule\_FactoryResetInitiate}}
+\index{ACKModule\_FactoryResetInitiate@{ACKModule\_FactoryResetInitiate}!ack\_user\_module.h@{ack\_user\_module.h}}
+\doxysubsubsection{\texorpdfstring{ACKModule\_FactoryResetInitiate()}{ACKModule\_FactoryResetInitiate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACKModule\+\_\+\+Factory\+Reset\+Initiate (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h_a8a667fc43c65abd7d1334262c699cdb9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h_a8a667fc43c65abd7d1334262c699cdb9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__user__module_8h_a8c0e7d5e3505712dbc981d6e64c01501}\label{ack__user__module_8h_a8c0e7d5e3505712dbc981d6e64c01501}} 
+\index{ack\_user\_module.h@{ack\_user\_module.h}!ACKModule\_GetDeviceType@{ACKModule\_GetDeviceType}}
+\index{ACKModule\_GetDeviceType@{ACKModule\_GetDeviceType}!ack\_user\_module.h@{ack\_user\_module.h}}
+\doxysubsubsection{\texorpdfstring{ACKModule\_GetDeviceType()}{ACKModule\_GetDeviceType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACKModule\+\_\+\+Get\+Device\+Type (\begin{DoxyParamCaption}\item[{char $\ast$}]{p\+Device\+Type,  }\item[{size\+\_\+t}]{device\+Type\+Buffer\+Size }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h_a8c0e7d5e3505712dbc981d6e64c01501_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h_a8c0e7d5e3505712dbc981d6e64c01501_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__user__module_8h_a925eec6148b3be205c7fb82bfe03c855}\label{ack__user__module_8h_a925eec6148b3be205c7fb82bfe03c855}} 
+\index{ack\_user\_module.h@{ack\_user\_module.h}!ACKModule\_GetEncodedDirective@{ACKModule\_GetEncodedDirective}}
+\index{ACKModule\_GetEncodedDirective@{ACKModule\_GetEncodedDirective}!ack\_user\_module.h@{ack\_user\_module.h}}
+\doxysubsubsection{\texorpdfstring{ACKModule\_GetEncodedDirective()}{ACKModule\_GetEncodedDirective()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACKModule\+\_\+\+Get\+Encoded\+Directive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{acp_8pb_8h_abbf24a74efc0c64e567adb9e8340f3c3}{acp\+\_\+event\+\_\+alexa\+\_\+directive\+\_\+received}} $\ast$}]{p\+Directive,  }\item[{uint8\+\_\+t const $\ast$$\ast$}]{pp\+Data,  }\item[{size\+\_\+t $\ast$}]{p\+Data\+Len }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h_a925eec6148b3be205c7fb82bfe03c855_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h_a925eec6148b3be205c7fb82bfe03c855_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__user__module_8h_aa8682f5c1b6f82245abf6691db22a291}\label{ack__user__module_8h_aa8682f5c1b6f82245abf6691db22a291}} 
+\index{ack\_user\_module.h@{ack\_user\_module.h}!ACKModule\_GetResponse@{ACKModule\_GetResponse}}
+\index{ACKModule\_GetResponse@{ACKModule\_GetResponse}!ack\_user\_module.h@{ack\_user\_module.h}}
+\doxysubsubsection{\texorpdfstring{ACKModule\_GetResponse()}{ACKModule\_GetResponse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACKModule\+\_\+\+Get\+Response (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{acp_8pb_8h_a57fb9887d8bdeaa4f969e8f00cd82e1b}{acp\+\_\+response}} $\ast$}]{p\+Response }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h_aa8682f5c1b6f82245abf6691db22a291_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h_aa8682f5c1b6f82245abf6691db22a291_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__user__module_8h_a12895c290577dcb3f65169a7ef74fb57}\label{ack__user__module_8h_a12895c290577dcb3f65169a7ef74fb57}} 
+\index{ack\_user\_module.h@{ack\_user\_module.h}!ACKModule\_GetStatus@{ACKModule\_GetStatus}}
+\index{ACKModule\_GetStatus@{ACKModule\_GetStatus}!ack\_user\_module.h@{ack\_user\_module.h}}
+\doxysubsubsection{\texorpdfstring{ACKModule\_GetStatus()}{ACKModule\_GetStatus()}}
+{\footnotesize\ttfamily void ACKModule\+\_\+\+Get\+Status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack_8h_acf23a6b191b92fcf2a1408217e622d1d}{ACKStatus\+\_\+t}} $\ast$}]{p\+Status }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h_a12895c290577dcb3f65169a7ef74fb57_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h_a12895c290577dcb3f65169a7ef74fb57_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__user__module_8h_a3ced59f273774a62f35b4f7ae351f81d}\label{ack__user__module_8h_a3ced59f273774a62f35b4f7ae351f81d}} 
+\index{ack\_user\_module.h@{ack\_user\_module.h}!ACKModule\_HostConfigWrite@{ACKModule\_HostConfigWrite}}
+\index{ACKModule\_HostConfigWrite@{ACKModule\_HostConfigWrite}!ack\_user\_module.h@{ack\_user\_module.h}}
+\doxysubsubsection{\texorpdfstring{ACKModule\_HostConfigWrite()}{ACKModule\_HostConfigWrite()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACKModule\+\_\+\+Host\+Config\+Write (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{firmware\+Version }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h_a3ced59f273774a62f35b4f7ae351f81d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h_a3ced59f273774a62f35b4f7ae351f81d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__user__module_8h_af0e50dc216ead029bb534483aa063c56}\label{ack__user__module_8h_af0e50dc216ead029bb534483aa063c56}} 
+\index{ack\_user\_module.h@{ack\_user\_module.h}!ACKModule\_SendEvent@{ACKModule\_SendEvent}}
+\index{ACKModule\_SendEvent@{ACKModule\_SendEvent}!ack\_user\_module.h@{ack\_user\_module.h}}
+\doxysubsubsection{\texorpdfstring{ACKModule\_SendEvent()}{ACKModule\_SendEvent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACKModule\+\_\+\+Send\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_v3_a_v_s_8pb_8h_aed0e684b7bd8ab5e6dbaf9b0fd4e9f50}{V3\+AVS\+\_\+\+Avs\+Event}} $\ast$}]{p\+Event }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h_af0e50dc216ead029bb534483aa063c56_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h_af0e50dc216ead029bb534483aa063c56_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__user__module_8h_a987878042c70da8161ac11a4c5f4ca7f}\label{ack__user__module_8h_a987878042c70da8161ac11a4c5f4ca7f}} 
+\index{ack\_user\_module.h@{ack\_user\_module.h}!ACKModule\_UserGuidedSetupInitiate@{ACKModule\_UserGuidedSetupInitiate}}
+\index{ACKModule\_UserGuidedSetupInitiate@{ACKModule\_UserGuidedSetupInitiate}!ack\_user\_module.h@{ack\_user\_module.h}}
+\doxysubsubsection{\texorpdfstring{ACKModule\_UserGuidedSetupInitiate()}{ACKModule\_UserGuidedSetupInitiate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACKModule\+\_\+\+User\+Guided\+Setup\+Initiate (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h_a987878042c70da8161ac11a4c5f4ca7f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__user__module_8h_a987878042c70da8161ac11a4c5f4ca7f_icgraph}
+\end{center}
+\end{figure}

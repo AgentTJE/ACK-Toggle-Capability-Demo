@@ -1,0 +1,553 @@
+\hypertarget{ack_8h}{}\doxysection{src/ack.h File Reference}
+\label{ack_8h}\index{src/ack.h@{src/ack.h}}
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+platform.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}acp.\+pb.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+debug\+\_\+print.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+document.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+generated\+\_\+ack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+generated\+\_\+alexa.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+generated\+\_\+temperature.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for ack.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct___a_c_k_setup_mode_info__t}{\+\_\+\+ACKSetup\+Mode\+Info\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct___a_c_k_not_connected_to_alexa_info__t}{\+\_\+\+ACKNot\+Connected\+To\+Alexa\+Info\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct___a_c_k_status__t}{\+\_\+\+ACKStatus\+\_\+t}}
+\item 
+union \mbox{\hyperlink{union___a_c_k_lifecycle_sub_state_info__t}{\+\_\+\+ACKLifecycle\+Sub\+State\+Info\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct___a_c_k_property_table_entry__t}{\+\_\+\+ACKProperty\+Table\+Entry\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct___a_c_k_directive_params__t}{\+\_\+\+ACKDirective\+Params\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ack_8h_abd9cb63be4473fa637861f21a1ab554e}{ACK\+\_\+\+PROPERTY\+\_\+\+BIT}}(x)~(1 $<$$<$ (x))
+\item 
+\#define \mbox{\hyperlink{ack_8h_a4242ac5d641cf68cc88ac995ed5d4957}{ACK\+\_\+\+EVENT\+\_\+\+ALL\+\_\+\+PROPERTIES}}~((\mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}})(-\/1))
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{ack_8h_ab37848c9b974ad0e6a86230bb47a8fca}{\+\_\+\+ACKAlexa\+Connectivity\+State\+\_\+t}} \mbox{\hyperlink{ack_8h_a7e7a7b4857df9bbe8b45a9db9704a8a1}{ACKAlexa\+Connectivity\+State\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{struct___a_c_k_setup_mode_info__t}{\+\_\+\+ACKSetup\+Mode\+Info\+\_\+t}} \mbox{\hyperlink{ack_8h_a32c99df822a1cac035a8c8a89424e461}{ACKSetup\+Mode\+Info\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{struct___a_c_k_not_connected_to_alexa_info__t}{\+\_\+\+ACKNot\+Connected\+To\+Alexa\+Info\+\_\+t}} \mbox{\hyperlink{ack_8h_af347b7b81c831f5c61e397373aade386}{ACKNot\+Connected\+To\+Alexa\+Info\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{struct___a_c_k_status__t}{\+\_\+\+ACKStatus\+\_\+t}} \mbox{\hyperlink{ack_8h_acf23a6b191b92fcf2a1408217e622d1d}{ACKStatus\+\_\+t}}
+\item 
+typedef enum \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92}{\+\_\+\+ACKLifecycle\+State\+\_\+t}} \mbox{\hyperlink{ack_8h_a9f5494ec59175fccf803f24959dc24c9}{ACKLifecycle\+State\+\_\+t}}
+\item 
+typedef union \mbox{\hyperlink{union___a_c_k_lifecycle_sub_state_info__t}{\+\_\+\+ACKLifecycle\+Sub\+State\+Info\+\_\+t}} \mbox{\hyperlink{ack_8h_acb7ecc4a4672b3caec9e11369747985c}{ACKLifecycle\+Sub\+State\+Info\+\_\+t}}
+\item 
+typedef uint32\+\_\+t \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{struct___a_c_k_property_table_entry__t}{\+\_\+\+ACKProperty\+Table\+Entry\+\_\+t}} \mbox{\hyperlink{ack_8h_ad222373de1c685d0c3efbbf8910a83f0}{ACKProperty\+Table\+Entry\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{struct___a_c_k_directive_params__t}{\+\_\+\+ACKDirective\+Params\+\_\+t}} \mbox{\hyperlink{ack_8h_a2d6b333100bb548196c3088556ac22ff}{ACKDirective\+Params\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{ack_8h_ab37848c9b974ad0e6a86230bb47a8fca}{\+\_\+\+ACKAlexa\+Connectivity\+State\+\_\+t}} \{ \newline
+\mbox{\hyperlink{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaa80de767930f6782212b9102deeaa101b}{ACK\+\_\+\+CONNECTIVITY\+\_\+\+UNKNOWN}}
+, \mbox{\hyperlink{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaa2223b6ff208f561ee928737fbe5073a2}{ACK\+\_\+\+NOT\+\_\+\+REGISTERED}}
+, \mbox{\hyperlink{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaa23c0937120c9560cb3a0042bf7e56d91}{ACK\+\_\+\+IN\+\_\+\+SETUP\+\_\+\+MODE}}
+, \mbox{\hyperlink{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaa25264f0576a5d6055b1de10218f1f231}{ACK\+\_\+\+NOT\+\_\+\+CONNECTED\+\_\+\+TO\+\_\+\+ALEXA}}
+, \newline
+\mbox{\hyperlink{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaab254fb992fd6d6540a0fbcf69aa39c35}{ACK\+\_\+\+CONNECTED\+\_\+\+TO\+\_\+\+ALEXA}}
+ \}
+\item 
+enum \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92}{\+\_\+\+ACKLifecycle\+State\+\_\+t}} \{ \newline
+\mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92a0eca8bf1be7be1b53e3897ef38e13661}{ACK\+\_\+\+LIFECYCLE\+\_\+\+INITIAL}}
+, \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92a29675884f8c4bb272e2f0b41b87d03fd}{ACK\+\_\+\+LIFECYCLE\+\_\+\+UNAVAILABLE}}
+, \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92a1b1a03cb9e269236c522b3890887ee12}{ACK\+\_\+\+LIFECYCLE\+\_\+\+BOOTED}}
+, \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92abfebab6d1a3a73ea544467217bf71c89}{ACK\+\_\+\+LIFECYCLE\+\_\+\+FACTORY\+\_\+\+RESET\+\_\+\+IN\+\_\+\+PROGRESS}}
+, \newline
+\mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92a6fbd669158e520f0a15dc6fb1ef1dd82}{ACK\+\_\+\+LIFECYCLE\+\_\+\+NOT\+\_\+\+REGISTERED}}
+, \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92a0e8c100ac5d96c62a9758873d9fd89a3}{ACK\+\_\+\+LIFECYCLE\+\_\+\+IN\+\_\+\+SETUP\+\_\+\+MODE}}
+, \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92a8807f97b84cb3652e9b212ac638578a6}{ACK\+\_\+\+LIFECYCLE\+\_\+\+NOT\+\_\+\+CONNECTED\+\_\+\+TO\+\_\+\+ALEXA}}
+, \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92a41760468e3503fa74e5d69f28a31ee3e}{ACK\+\_\+\+LIFECYCLE\+\_\+\+CONNECTED\+\_\+\+TO\+\_\+\+ALEXA}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ack_8h_aae9040db2c96c06eb4285664e3c30289}{ACK\+\_\+\+Initialize}} (void)
+\item 
+void \mbox{\hyperlink{ack_8h_a400ff4fa8977361c07eeddfa7e893eaa}{ACK\+\_\+\+Get\+Status}} (\mbox{\hyperlink{ack_8h_acf23a6b191b92fcf2a1408217e622d1d}{ACKStatus\+\_\+t}} $\ast$p\+Status)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{ack_8h_a95bf27bc180b29b72829ccad635581bc}{ACK\+\_\+\+Get\+Approximate\+Time}} (void)
+\item 
+void \mbox{\hyperlink{ack_8h_a4b2ad30555b360e7ae90e005f86e414e}{ACKUser\+\_\+\+On\+Report\+State\+Directive}} (int32\+\_\+t correlation\+Id)
+\item 
+bool \mbox{\hyperlink{ack_8h_ace81d75482296a1f2e4e8599384457f1}{ACK\+\_\+\+Is\+Host\+Interrupt\+Asserted}} (void)
+\item 
+void \mbox{\hyperlink{ack_8h_af325dfcae84f6e90ae8167177aa177a0}{ACK\+\_\+\+Reset\+Connectivity\+Module}} (void)
+\item 
+void \mbox{\hyperlink{ack_8h_afed6bbe3d50accf45341fc1317be07b6}{ACK\+\_\+\+Process}} (void)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack_8h_a70b1229eb62b4786993f087bcdd11742}{ACK\+\_\+\+Complete\+Directive\+With\+Success}} (int32\+\_\+t correlation\+Id, \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}} response\+Properties\+Bits, \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}} change\+Report\+Properties\+Bits)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack_8h_a7faf09765377b7b9c4df757954d4bfd1}{ACK\+\_\+\+Complete\+Directive\+With\+Simple\+Error}} (int32\+\_\+t correlation\+Id, \mbox{\hyperlink{ack__generated__alexa_8h_a960daf9ec3a0306117891417dea624a5}{ack\+\_\+alexa\+\_\+error\+\_\+type}} error, const char $\ast$p\+Optional\+Message)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack_8h_a74d46c74841230909fd4035aec451300}{ACK\+\_\+\+Complete\+Directive\+With\+Out\+Of\+Range\+Error}} (int32\+\_\+t correlation\+Id, float minimum, float maximum, const char $\ast$p\+Optional\+Message)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack_8h_a7064de8838156d25443855f48ab0b524}{ACK\+\_\+\+Complete\+Directive\+With\+Temperature\+Out\+Of\+Range\+Error}} (int32\+\_\+t correlation\+Id, \mbox{\hyperlink{ack__generated__temperature_8h_ad0d517afea334399e7384fa8a2aa0f5a}{ack\+\_\+temperature\+\_\+scale}} scale, float minimum, float maximum, const char $\ast$p\+Optional\+Message)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack_8h_acc0268aa9ea53f98006fdaa5711c2c77}{ACK\+\_\+\+Complete\+Directive\+With\+Not\+Supported\+In\+Current\+Mode\+Error}} (int32\+\_\+t correlation\+Id, \mbox{\hyperlink{ack__generated__alexa_8h_a999a6c37da63149958949d11e629c88d}{ack\+\_\+alexa\+\_\+device\+\_\+mode}} mode, const char $\ast$p\+Optional\+Message)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack_8h_a036c1fc7a4008c350a8210d9a015329d}{ACK\+\_\+\+Complete\+State\+Report\+With\+Success}} (int32\+\_\+t correlation\+Id)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack_8h_aa4ff3e98ff4c415ab6984c9b7a8099a0}{ACK\+\_\+\+Send\+Change\+Report}} (\mbox{\hyperlink{ack__generated__alexa_8h_a860c0b4dd21471dc0b640e8b54580719}{ack\+\_\+alexa\+\_\+change\+\_\+report\+\_\+cause\+\_\+type}} cause, \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}} changed\+Properies\+Bits, \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}} other\+Properties\+Bits)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ack_8h_a9f5494ec59175fccf803f24959dc24c9}{ACKLifecycle\+State\+\_\+t}} \mbox{\hyperlink{ack_8h_a8270e26b9717f45b4002c22eb24af775}{ACK\+\_\+\+Lifecycle\+State}}
+\item 
+\mbox{\hyperlink{ack_8h_acb7ecc4a4672b3caec9e11369747985c}{ACKLifecycle\+Sub\+State\+Info\+\_\+t}} \mbox{\hyperlink{ack_8h_a82d8f8e81bb18b989753d4fa9a207879}{ACK\+\_\+\+Lifecycle\+Sub\+State\+Info}}
+\item 
+\mbox{\hyperlink{ack_8h_ad222373de1c685d0c3efbbf8910a83f0}{ACKProperty\+Table\+Entry\+\_\+t}} \mbox{\hyperlink{ack_8h_a4d0652b73a39ed6abae348e4e40398fd}{ACKUser\+\_\+\+Property\+Table}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ack_8h_a4242ac5d641cf68cc88ac995ed5d4957}\label{ack_8h_a4242ac5d641cf68cc88ac995ed5d4957}} 
+\index{ack.h@{ack.h}!ACK\_EVENT\_ALL\_PROPERTIES@{ACK\_EVENT\_ALL\_PROPERTIES}}
+\index{ACK\_EVENT\_ALL\_PROPERTIES@{ACK\_EVENT\_ALL\_PROPERTIES}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_EVENT\_ALL\_PROPERTIES}{ACK\_EVENT\_ALL\_PROPERTIES}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+EVENT\+\_\+\+ALL\+\_\+\+PROPERTIES~((\mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}})(-\/1))}
+
+\mbox{\Hypertarget{ack_8h_abd9cb63be4473fa637861f21a1ab554e}\label{ack_8h_abd9cb63be4473fa637861f21a1ab554e}} 
+\index{ack.h@{ack.h}!ACK\_PROPERTY\_BIT@{ACK\_PROPERTY\_BIT}}
+\index{ACK\_PROPERTY\_BIT@{ACK\_PROPERTY\_BIT}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_PROPERTY\_BIT}{ACK\_PROPERTY\_BIT}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+PROPERTY\+\_\+\+BIT(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(1 $<$$<$ (x))}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ack_8h_a7e7a7b4857df9bbe8b45a9db9704a8a1}\label{ack_8h_a7e7a7b4857df9bbe8b45a9db9704a8a1}} 
+\index{ack.h@{ack.h}!ACKAlexaConnectivityState\_t@{ACKAlexaConnectivityState\_t}}
+\index{ACKAlexaConnectivityState\_t@{ACKAlexaConnectivityState\_t}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACKAlexaConnectivityState\_t}{ACKAlexaConnectivityState\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{ack_8h_ab37848c9b974ad0e6a86230bb47a8fca}{\+\_\+\+ACKAlexa\+Connectivity\+State\+\_\+t}} \mbox{\hyperlink{ack_8h_a7e7a7b4857df9bbe8b45a9db9704a8a1}{ACKAlexa\+Connectivity\+State\+\_\+t}}}
+
+\mbox{\Hypertarget{ack_8h_a2d6b333100bb548196c3088556ac22ff}\label{ack_8h_a2d6b333100bb548196c3088556ac22ff}} 
+\index{ack.h@{ack.h}!ACKDirectiveParams\_t@{ACKDirectiveParams\_t}}
+\index{ACKDirectiveParams\_t@{ACKDirectiveParams\_t}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACKDirectiveParams\_t}{ACKDirectiveParams\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___a_c_k_directive_params__t}{\+\_\+\+ACKDirective\+Params\+\_\+t}} \mbox{\hyperlink{ack_8h_a2d6b333100bb548196c3088556ac22ff}{ACKDirective\+Params\+\_\+t}}}
+
+\mbox{\Hypertarget{ack_8h_a9f5494ec59175fccf803f24959dc24c9}\label{ack_8h_a9f5494ec59175fccf803f24959dc24c9}} 
+\index{ack.h@{ack.h}!ACKLifecycleState\_t@{ACKLifecycleState\_t}}
+\index{ACKLifecycleState\_t@{ACKLifecycleState\_t}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACKLifecycleState\_t}{ACKLifecycleState\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92}{\+\_\+\+ACKLifecycle\+State\+\_\+t}} \mbox{\hyperlink{ack_8h_a9f5494ec59175fccf803f24959dc24c9}{ACKLifecycle\+State\+\_\+t}}}
+
+\mbox{\Hypertarget{ack_8h_acb7ecc4a4672b3caec9e11369747985c}\label{ack_8h_acb7ecc4a4672b3caec9e11369747985c}} 
+\index{ack.h@{ack.h}!ACKLifecycleSubStateInfo\_t@{ACKLifecycleSubStateInfo\_t}}
+\index{ACKLifecycleSubStateInfo\_t@{ACKLifecycleSubStateInfo\_t}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACKLifecycleSubStateInfo\_t}{ACKLifecycleSubStateInfo\_t}}
+{\footnotesize\ttfamily typedef union \mbox{\hyperlink{union___a_c_k_lifecycle_sub_state_info__t}{\+\_\+\+ACKLifecycle\+Sub\+State\+Info\+\_\+t}} \mbox{\hyperlink{ack_8h_acb7ecc4a4672b3caec9e11369747985c}{ACKLifecycle\+Sub\+State\+Info\+\_\+t}}}
+
+\mbox{\Hypertarget{ack_8h_af347b7b81c831f5c61e397373aade386}\label{ack_8h_af347b7b81c831f5c61e397373aade386}} 
+\index{ack.h@{ack.h}!ACKNotConnectedToAlexaInfo\_t@{ACKNotConnectedToAlexaInfo\_t}}
+\index{ACKNotConnectedToAlexaInfo\_t@{ACKNotConnectedToAlexaInfo\_t}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACKNotConnectedToAlexaInfo\_t}{ACKNotConnectedToAlexaInfo\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___a_c_k_not_connected_to_alexa_info__t}{\+\_\+\+ACKNot\+Connected\+To\+Alexa\+Info\+\_\+t}} \mbox{\hyperlink{ack_8h_af347b7b81c831f5c61e397373aade386}{ACKNot\+Connected\+To\+Alexa\+Info\+\_\+t}}}
+
+\mbox{\Hypertarget{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}\label{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}} 
+\index{ack.h@{ack.h}!ACKPropertiesBits\_t@{ACKPropertiesBits\_t}}
+\index{ACKPropertiesBits\_t@{ACKPropertiesBits\_t}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACKPropertiesBits\_t}{ACKPropertiesBits\_t}}
+{\footnotesize\ttfamily typedef uint32\+\_\+t \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}}}
+
+\mbox{\Hypertarget{ack_8h_ad222373de1c685d0c3efbbf8910a83f0}\label{ack_8h_ad222373de1c685d0c3efbbf8910a83f0}} 
+\index{ack.h@{ack.h}!ACKPropertyTableEntry\_t@{ACKPropertyTableEntry\_t}}
+\index{ACKPropertyTableEntry\_t@{ACKPropertyTableEntry\_t}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACKPropertyTableEntry\_t}{ACKPropertyTableEntry\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___a_c_k_property_table_entry__t}{\+\_\+\+ACKProperty\+Table\+Entry\+\_\+t}} \mbox{\hyperlink{ack_8h_ad222373de1c685d0c3efbbf8910a83f0}{ACKProperty\+Table\+Entry\+\_\+t}}}
+
+\mbox{\Hypertarget{ack_8h_a32c99df822a1cac035a8c8a89424e461}\label{ack_8h_a32c99df822a1cac035a8c8a89424e461}} 
+\index{ack.h@{ack.h}!ACKSetupModeInfo\_t@{ACKSetupModeInfo\_t}}
+\index{ACKSetupModeInfo\_t@{ACKSetupModeInfo\_t}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACKSetupModeInfo\_t}{ACKSetupModeInfo\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___a_c_k_setup_mode_info__t}{\+\_\+\+ACKSetup\+Mode\+Info\+\_\+t}} \mbox{\hyperlink{ack_8h_a32c99df822a1cac035a8c8a89424e461}{ACKSetup\+Mode\+Info\+\_\+t}}}
+
+\mbox{\Hypertarget{ack_8h_acf23a6b191b92fcf2a1408217e622d1d}\label{ack_8h_acf23a6b191b92fcf2a1408217e622d1d}} 
+\index{ack.h@{ack.h}!ACKStatus\_t@{ACKStatus\_t}}
+\index{ACKStatus\_t@{ACKStatus\_t}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACKStatus\_t}{ACKStatus\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___a_c_k_status__t}{\+\_\+\+ACKStatus\+\_\+t}} \mbox{\hyperlink{ack_8h_acf23a6b191b92fcf2a1408217e622d1d}{ACKStatus\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{ack_8h_ab37848c9b974ad0e6a86230bb47a8fca}\label{ack_8h_ab37848c9b974ad0e6a86230bb47a8fca}} 
+\index{ack.h@{ack.h}!\_ACKAlexaConnectivityState\_t@{\_ACKAlexaConnectivityState\_t}}
+\index{\_ACKAlexaConnectivityState\_t@{\_ACKAlexaConnectivityState\_t}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{\_ACKAlexaConnectivityState\_t}{\_ACKAlexaConnectivityState\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ack_8h_ab37848c9b974ad0e6a86230bb47a8fca}{\+\_\+\+ACKAlexa\+Connectivity\+State\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_CONNECTIVITY\_UNKNOWN@{ACK\_CONNECTIVITY\_UNKNOWN}!ack.h@{ack.h}}\index{ack.h@{ack.h}!ACK\_CONNECTIVITY\_UNKNOWN@{ACK\_CONNECTIVITY\_UNKNOWN}}}\mbox{\Hypertarget{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaa80de767930f6782212b9102deeaa101b}\label{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaa80de767930f6782212b9102deeaa101b}} 
+ACK\+\_\+\+CONNECTIVITY\+\_\+\+UNKNOWN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_NOT\_REGISTERED@{ACK\_NOT\_REGISTERED}!ack.h@{ack.h}}\index{ack.h@{ack.h}!ACK\_NOT\_REGISTERED@{ACK\_NOT\_REGISTERED}}}\mbox{\Hypertarget{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaa2223b6ff208f561ee928737fbe5073a2}\label{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaa2223b6ff208f561ee928737fbe5073a2}} 
+ACK\+\_\+\+NOT\+\_\+\+REGISTERED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_IN\_SETUP\_MODE@{ACK\_IN\_SETUP\_MODE}!ack.h@{ack.h}}\index{ack.h@{ack.h}!ACK\_IN\_SETUP\_MODE@{ACK\_IN\_SETUP\_MODE}}}\mbox{\Hypertarget{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaa23c0937120c9560cb3a0042bf7e56d91}\label{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaa23c0937120c9560cb3a0042bf7e56d91}} 
+ACK\+\_\+\+IN\+\_\+\+SETUP\+\_\+\+MODE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_NOT\_CONNECTED\_TO\_ALEXA@{ACK\_NOT\_CONNECTED\_TO\_ALEXA}!ack.h@{ack.h}}\index{ack.h@{ack.h}!ACK\_NOT\_CONNECTED\_TO\_ALEXA@{ACK\_NOT\_CONNECTED\_TO\_ALEXA}}}\mbox{\Hypertarget{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaa25264f0576a5d6055b1de10218f1f231}\label{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaa25264f0576a5d6055b1de10218f1f231}} 
+ACK\+\_\+\+NOT\+\_\+\+CONNECTED\+\_\+\+TO\+\_\+\+ALEXA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_CONNECTED\_TO\_ALEXA@{ACK\_CONNECTED\_TO\_ALEXA}!ack.h@{ack.h}}\index{ack.h@{ack.h}!ACK\_CONNECTED\_TO\_ALEXA@{ACK\_CONNECTED\_TO\_ALEXA}}}\mbox{\Hypertarget{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaab254fb992fd6d6540a0fbcf69aa39c35}\label{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaab254fb992fd6d6540a0fbcf69aa39c35}} 
+ACK\+\_\+\+CONNECTED\+\_\+\+TO\+\_\+\+ALEXA&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{ack_8h_a2eac8804f47440778e378022d31b9c92}\label{ack_8h_a2eac8804f47440778e378022d31b9c92}} 
+\index{ack.h@{ack.h}!\_ACKLifecycleState\_t@{\_ACKLifecycleState\_t}}
+\index{\_ACKLifecycleState\_t@{\_ACKLifecycleState\_t}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{\_ACKLifecycleState\_t}{\_ACKLifecycleState\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92}{\+\_\+\+ACKLifecycle\+State\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_LIFECYCLE\_INITIAL@{ACK\_LIFECYCLE\_INITIAL}!ack.h@{ack.h}}\index{ack.h@{ack.h}!ACK\_LIFECYCLE\_INITIAL@{ACK\_LIFECYCLE\_INITIAL}}}\mbox{\Hypertarget{ack_8h_a2eac8804f47440778e378022d31b9c92a0eca8bf1be7be1b53e3897ef38e13661}\label{ack_8h_a2eac8804f47440778e378022d31b9c92a0eca8bf1be7be1b53e3897ef38e13661}} 
+ACK\+\_\+\+LIFECYCLE\+\_\+\+INITIAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_LIFECYCLE\_UNAVAILABLE@{ACK\_LIFECYCLE\_UNAVAILABLE}!ack.h@{ack.h}}\index{ack.h@{ack.h}!ACK\_LIFECYCLE\_UNAVAILABLE@{ACK\_LIFECYCLE\_UNAVAILABLE}}}\mbox{\Hypertarget{ack_8h_a2eac8804f47440778e378022d31b9c92a29675884f8c4bb272e2f0b41b87d03fd}\label{ack_8h_a2eac8804f47440778e378022d31b9c92a29675884f8c4bb272e2f0b41b87d03fd}} 
+ACK\+\_\+\+LIFECYCLE\+\_\+\+UNAVAILABLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_LIFECYCLE\_BOOTED@{ACK\_LIFECYCLE\_BOOTED}!ack.h@{ack.h}}\index{ack.h@{ack.h}!ACK\_LIFECYCLE\_BOOTED@{ACK\_LIFECYCLE\_BOOTED}}}\mbox{\Hypertarget{ack_8h_a2eac8804f47440778e378022d31b9c92a1b1a03cb9e269236c522b3890887ee12}\label{ack_8h_a2eac8804f47440778e378022d31b9c92a1b1a03cb9e269236c522b3890887ee12}} 
+ACK\+\_\+\+LIFECYCLE\+\_\+\+BOOTED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_LIFECYCLE\_FACTORY\_RESET\_IN\_PROGRESS@{ACK\_LIFECYCLE\_FACTORY\_RESET\_IN\_PROGRESS}!ack.h@{ack.h}}\index{ack.h@{ack.h}!ACK\_LIFECYCLE\_FACTORY\_RESET\_IN\_PROGRESS@{ACK\_LIFECYCLE\_FACTORY\_RESET\_IN\_PROGRESS}}}\mbox{\Hypertarget{ack_8h_a2eac8804f47440778e378022d31b9c92abfebab6d1a3a73ea544467217bf71c89}\label{ack_8h_a2eac8804f47440778e378022d31b9c92abfebab6d1a3a73ea544467217bf71c89}} 
+ACK\+\_\+\+LIFECYCLE\+\_\+\+FACTORY\+\_\+\+RESET\+\_\+\+IN\+\_\+\+PROGRESS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_LIFECYCLE\_NOT\_REGISTERED@{ACK\_LIFECYCLE\_NOT\_REGISTERED}!ack.h@{ack.h}}\index{ack.h@{ack.h}!ACK\_LIFECYCLE\_NOT\_REGISTERED@{ACK\_LIFECYCLE\_NOT\_REGISTERED}}}\mbox{\Hypertarget{ack_8h_a2eac8804f47440778e378022d31b9c92a6fbd669158e520f0a15dc6fb1ef1dd82}\label{ack_8h_a2eac8804f47440778e378022d31b9c92a6fbd669158e520f0a15dc6fb1ef1dd82}} 
+ACK\+\_\+\+LIFECYCLE\+\_\+\+NOT\+\_\+\+REGISTERED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_LIFECYCLE\_IN\_SETUP\_MODE@{ACK\_LIFECYCLE\_IN\_SETUP\_MODE}!ack.h@{ack.h}}\index{ack.h@{ack.h}!ACK\_LIFECYCLE\_IN\_SETUP\_MODE@{ACK\_LIFECYCLE\_IN\_SETUP\_MODE}}}\mbox{\Hypertarget{ack_8h_a2eac8804f47440778e378022d31b9c92a0e8c100ac5d96c62a9758873d9fd89a3}\label{ack_8h_a2eac8804f47440778e378022d31b9c92a0e8c100ac5d96c62a9758873d9fd89a3}} 
+ACK\+\_\+\+LIFECYCLE\+\_\+\+IN\+\_\+\+SETUP\+\_\+\+MODE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_LIFECYCLE\_NOT\_CONNECTED\_TO\_ALEXA@{ACK\_LIFECYCLE\_NOT\_CONNECTED\_TO\_ALEXA}!ack.h@{ack.h}}\index{ack.h@{ack.h}!ACK\_LIFECYCLE\_NOT\_CONNECTED\_TO\_ALEXA@{ACK\_LIFECYCLE\_NOT\_CONNECTED\_TO\_ALEXA}}}\mbox{\Hypertarget{ack_8h_a2eac8804f47440778e378022d31b9c92a8807f97b84cb3652e9b212ac638578a6}\label{ack_8h_a2eac8804f47440778e378022d31b9c92a8807f97b84cb3652e9b212ac638578a6}} 
+ACK\+\_\+\+LIFECYCLE\+\_\+\+NOT\+\_\+\+CONNECTED\+\_\+\+TO\+\_\+\+ALEXA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_LIFECYCLE\_CONNECTED\_TO\_ALEXA@{ACK\_LIFECYCLE\_CONNECTED\_TO\_ALEXA}!ack.h@{ack.h}}\index{ack.h@{ack.h}!ACK\_LIFECYCLE\_CONNECTED\_TO\_ALEXA@{ACK\_LIFECYCLE\_CONNECTED\_TO\_ALEXA}}}\mbox{\Hypertarget{ack_8h_a2eac8804f47440778e378022d31b9c92a41760468e3503fa74e5d69f28a31ee3e}\label{ack_8h_a2eac8804f47440778e378022d31b9c92a41760468e3503fa74e5d69f28a31ee3e}} 
+ACK\+\_\+\+LIFECYCLE\+\_\+\+CONNECTED\+\_\+\+TO\+\_\+\+ALEXA&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack_8h_acc0268aa9ea53f98006fdaa5711c2c77}\label{ack_8h_acc0268aa9ea53f98006fdaa5711c2c77}} 
+\index{ack.h@{ack.h}!ACK\_CompleteDirectiveWithNotSupportedInCurrentModeError@{ACK\_CompleteDirectiveWithNotSupportedInCurrentModeError}}
+\index{ACK\_CompleteDirectiveWithNotSupportedInCurrentModeError@{ACK\_CompleteDirectiveWithNotSupportedInCurrentModeError}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_CompleteDirectiveWithNotSupportedInCurrentModeError()}{ACK\_CompleteDirectiveWithNotSupportedInCurrentModeError()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACK\+\_\+\+Complete\+Directive\+With\+Not\+Supported\+In\+Current\+Mode\+Error (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id,  }\item[{\mbox{\hyperlink{ack__generated__alexa_8h_a999a6c37da63149958949d11e629c88d}{ack\+\_\+alexa\+\_\+device\+\_\+mode}}}]{mode,  }\item[{const char $\ast$}]{p\+Optional\+Message }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_acc0268aa9ea53f98006fdaa5711c2c77_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack_8h_a74d46c74841230909fd4035aec451300}\label{ack_8h_a74d46c74841230909fd4035aec451300}} 
+\index{ack.h@{ack.h}!ACK\_CompleteDirectiveWithOutOfRangeError@{ACK\_CompleteDirectiveWithOutOfRangeError}}
+\index{ACK\_CompleteDirectiveWithOutOfRangeError@{ACK\_CompleteDirectiveWithOutOfRangeError}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_CompleteDirectiveWithOutOfRangeError()}{ACK\_CompleteDirectiveWithOutOfRangeError()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACK\+\_\+\+Complete\+Directive\+With\+Out\+Of\+Range\+Error (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id,  }\item[{float}]{minimum,  }\item[{float}]{maximum,  }\item[{const char $\ast$}]{p\+Optional\+Message }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_a74d46c74841230909fd4035aec451300_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack_8h_a7faf09765377b7b9c4df757954d4bfd1}\label{ack_8h_a7faf09765377b7b9c4df757954d4bfd1}} 
+\index{ack.h@{ack.h}!ACK\_CompleteDirectiveWithSimpleError@{ACK\_CompleteDirectiveWithSimpleError}}
+\index{ACK\_CompleteDirectiveWithSimpleError@{ACK\_CompleteDirectiveWithSimpleError}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_CompleteDirectiveWithSimpleError()}{ACK\_CompleteDirectiveWithSimpleError()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACK\+\_\+\+Complete\+Directive\+With\+Simple\+Error (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id,  }\item[{\mbox{\hyperlink{ack__generated__alexa_8h_a960daf9ec3a0306117891417dea624a5}{ack\+\_\+alexa\+\_\+error\+\_\+type}}}]{error,  }\item[{const char $\ast$}]{p\+Optional\+Message }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_a7faf09765377b7b9c4df757954d4bfd1_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack_8h_a70b1229eb62b4786993f087bcdd11742}\label{ack_8h_a70b1229eb62b4786993f087bcdd11742}} 
+\index{ack.h@{ack.h}!ACK\_CompleteDirectiveWithSuccess@{ACK\_CompleteDirectiveWithSuccess}}
+\index{ACK\_CompleteDirectiveWithSuccess@{ACK\_CompleteDirectiveWithSuccess}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_CompleteDirectiveWithSuccess()}{ACK\_CompleteDirectiveWithSuccess()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACK\+\_\+\+Complete\+Directive\+With\+Success (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id,  }\item[{\mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}}}]{response\+Properties\+Bits,  }\item[{\mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}}}]{change\+Report\+Properties\+Bits }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_a70b1229eb62b4786993f087bcdd11742_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_a70b1229eb62b4786993f087bcdd11742_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack_8h_a7064de8838156d25443855f48ab0b524}\label{ack_8h_a7064de8838156d25443855f48ab0b524}} 
+\index{ack.h@{ack.h}!ACK\_CompleteDirectiveWithTemperatureOutOfRangeError@{ACK\_CompleteDirectiveWithTemperatureOutOfRangeError}}
+\index{ACK\_CompleteDirectiveWithTemperatureOutOfRangeError@{ACK\_CompleteDirectiveWithTemperatureOutOfRangeError}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_CompleteDirectiveWithTemperatureOutOfRangeError()}{ACK\_CompleteDirectiveWithTemperatureOutOfRangeError()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACK\+\_\+\+Complete\+Directive\+With\+Temperature\+Out\+Of\+Range\+Error (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id,  }\item[{\mbox{\hyperlink{ack__generated__temperature_8h_ad0d517afea334399e7384fa8a2aa0f5a}{ack\+\_\+temperature\+\_\+scale}}}]{scale,  }\item[{float}]{minimum,  }\item[{float}]{maximum,  }\item[{const char $\ast$}]{p\+Optional\+Message }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_a7064de8838156d25443855f48ab0b524_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack_8h_a036c1fc7a4008c350a8210d9a015329d}\label{ack_8h_a036c1fc7a4008c350a8210d9a015329d}} 
+\index{ack.h@{ack.h}!ACK\_CompleteStateReportWithSuccess@{ACK\_CompleteStateReportWithSuccess}}
+\index{ACK\_CompleteStateReportWithSuccess@{ACK\_CompleteStateReportWithSuccess}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_CompleteStateReportWithSuccess()}{ACK\_CompleteStateReportWithSuccess()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACK\+\_\+\+Complete\+State\+Report\+With\+Success (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_a036c1fc7a4008c350a8210d9a015329d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_a036c1fc7a4008c350a8210d9a015329d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack_8h_a95bf27bc180b29b72829ccad635581bc}\label{ack_8h_a95bf27bc180b29b72829ccad635581bc}} 
+\index{ack.h@{ack.h}!ACK\_GetApproximateTime@{ACK\_GetApproximateTime}}
+\index{ACK\_GetApproximateTime@{ACK\_GetApproximateTime}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_GetApproximateTime()}{ACK\_GetApproximateTime()}}
+{\footnotesize\ttfamily uint64\+\_\+t ACK\+\_\+\+Get\+Approximate\+Time (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_a95bf27bc180b29b72829ccad635581bc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_a95bf27bc180b29b72829ccad635581bc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack_8h_a400ff4fa8977361c07eeddfa7e893eaa}\label{ack_8h_a400ff4fa8977361c07eeddfa7e893eaa}} 
+\index{ack.h@{ack.h}!ACK\_GetStatus@{ACK\_GetStatus}}
+\index{ACK\_GetStatus@{ACK\_GetStatus}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_GetStatus()}{ACK\_GetStatus()}}
+{\footnotesize\ttfamily void ACK\+\_\+\+Get\+Status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack_8h_acf23a6b191b92fcf2a1408217e622d1d}{ACKStatus\+\_\+t}} $\ast$}]{p\+Status }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_a400ff4fa8977361c07eeddfa7e893eaa_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_a400ff4fa8977361c07eeddfa7e893eaa_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack_8h_aae9040db2c96c06eb4285664e3c30289}\label{ack_8h_aae9040db2c96c06eb4285664e3c30289}} 
+\index{ack.h@{ack.h}!ACK\_Initialize@{ACK\_Initialize}}
+\index{ACK\_Initialize@{ACK\_Initialize}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_Initialize()}{ACK\_Initialize()}}
+{\footnotesize\ttfamily void ACK\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_aae9040db2c96c06eb4285664e3c30289_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{ack_8h_aae9040db2c96c06eb4285664e3c30289_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack_8h_ace81d75482296a1f2e4e8599384457f1}\label{ack_8h_ace81d75482296a1f2e4e8599384457f1}} 
+\index{ack.h@{ack.h}!ACK\_IsHostInterruptAsserted@{ACK\_IsHostInterruptAsserted}}
+\index{ACK\_IsHostInterruptAsserted@{ACK\_IsHostInterruptAsserted}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_IsHostInterruptAsserted()}{ACK\_IsHostInterruptAsserted()}}
+{\footnotesize\ttfamily bool ACK\+\_\+\+Is\+Host\+Interrupt\+Asserted (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_ace81d75482296a1f2e4e8599384457f1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_ace81d75482296a1f2e4e8599384457f1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack_8h_afed6bbe3d50accf45341fc1317be07b6}\label{ack_8h_afed6bbe3d50accf45341fc1317be07b6}} 
+\index{ack.h@{ack.h}!ACK\_Process@{ACK\_Process}}
+\index{ACK\_Process@{ACK\_Process}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_Process()}{ACK\_Process()}}
+{\footnotesize\ttfamily void ACK\+\_\+\+Process (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_afed6bbe3d50accf45341fc1317be07b6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{ack_8h_afed6bbe3d50accf45341fc1317be07b6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack_8h_af325dfcae84f6e90ae8167177aa177a0}\label{ack_8h_af325dfcae84f6e90ae8167177aa177a0}} 
+\index{ack.h@{ack.h}!ACK\_ResetConnectivityModule@{ACK\_ResetConnectivityModule}}
+\index{ACK\_ResetConnectivityModule@{ACK\_ResetConnectivityModule}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_ResetConnectivityModule()}{ACK\_ResetConnectivityModule()}}
+{\footnotesize\ttfamily void ACK\+\_\+\+Reset\+Connectivity\+Module (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_af325dfcae84f6e90ae8167177aa177a0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_af325dfcae84f6e90ae8167177aa177a0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack_8h_aa4ff3e98ff4c415ab6984c9b7a8099a0}\label{ack_8h_aa4ff3e98ff4c415ab6984c9b7a8099a0}} 
+\index{ack.h@{ack.h}!ACK\_SendChangeReport@{ACK\_SendChangeReport}}
+\index{ACK\_SendChangeReport@{ACK\_SendChangeReport}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_SendChangeReport()}{ACK\_SendChangeReport()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACK\+\_\+\+Send\+Change\+Report (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__generated__alexa_8h_a860c0b4dd21471dc0b640e8b54580719}{ack\+\_\+alexa\+\_\+change\+\_\+report\+\_\+cause\+\_\+type}}}]{cause,  }\item[{\mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}}}]{changed\+Properies\+Bits,  }\item[{\mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}}}]{other\+Properties\+Bits }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_aa4ff3e98ff4c415ab6984c9b7a8099a0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_aa4ff3e98ff4c415ab6984c9b7a8099a0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack_8h_a4b2ad30555b360e7ae90e005f86e414e}\label{ack_8h_a4b2ad30555b360e7ae90e005f86e414e}} 
+\index{ack.h@{ack.h}!ACKUser\_OnReportStateDirective@{ACKUser\_OnReportStateDirective}}
+\index{ACKUser\_OnReportStateDirective@{ACKUser\_OnReportStateDirective}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACKUser\_OnReportStateDirective()}{ACKUser\_OnReportStateDirective()}}
+{\footnotesize\ttfamily void ACKUser\+\_\+\+On\+Report\+State\+Directive (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_a4b2ad30555b360e7ae90e005f86e414e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack_8h_a4b2ad30555b360e7ae90e005f86e414e_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ack_8h_a8270e26b9717f45b4002c22eb24af775}\label{ack_8h_a8270e26b9717f45b4002c22eb24af775}} 
+\index{ack.h@{ack.h}!ACK\_LifecycleState@{ACK\_LifecycleState}}
+\index{ACK\_LifecycleState@{ACK\_LifecycleState}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_LifecycleState}{ACK\_LifecycleState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack_8h_a9f5494ec59175fccf803f24959dc24c9}{ACKLifecycle\+State\+\_\+t}} ACK\+\_\+\+Lifecycle\+State\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{ack_8h_a82d8f8e81bb18b989753d4fa9a207879}\label{ack_8h_a82d8f8e81bb18b989753d4fa9a207879}} 
+\index{ack.h@{ack.h}!ACK\_LifecycleSubStateInfo@{ACK\_LifecycleSubStateInfo}}
+\index{ACK\_LifecycleSubStateInfo@{ACK\_LifecycleSubStateInfo}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_LifecycleSubStateInfo}{ACK\_LifecycleSubStateInfo}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack_8h_acb7ecc4a4672b3caec9e11369747985c}{ACKLifecycle\+Sub\+State\+Info\+\_\+t}} ACK\+\_\+\+Lifecycle\+Sub\+State\+Info\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{ack_8h_a4d0652b73a39ed6abae348e4e40398fd}\label{ack_8h_a4d0652b73a39ed6abae348e4e40398fd}} 
+\index{ack.h@{ack.h}!ACKUser\_PropertyTable@{ACKUser\_PropertyTable}}
+\index{ACKUser\_PropertyTable@{ACKUser\_PropertyTable}!ack.h@{ack.h}}
+\doxysubsubsection{\texorpdfstring{ACKUser\_PropertyTable}{ACKUser\_PropertyTable}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack_8h_ad222373de1c685d0c3efbbf8910a83f0}{ACKProperty\+Table\+Entry\+\_\+t}} ACKUser\+\_\+\+Property\+Table\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+

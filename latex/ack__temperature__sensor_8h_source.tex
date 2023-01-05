@@ -1,0 +1,42 @@
+\hypertarget{ack__temperature__sensor_8h_source}{}\doxysection{ack\+\_\+temperature\+\_\+sensor.\+h}
+\label{ack__temperature__sensor_8h_source}\index{src/ack\_temperature\_sensor.h@{src/ack\_temperature\_sensor.h}}
+\mbox{\hyperlink{ack__temperature__sensor_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_TEMPERATURE\_SENSOR\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_TEMPERATURE\_SENSOR\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__types_8h}{ack\_types.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{18 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#ifdef ACK\_TEMPERATURE\_SENSOR}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{comment}{// Call this to add a property representing the state of a temperature sensor to an outbound event.}}
+\DoxyCodeLine{25 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACK\_AddTemperatureProperty(}
+\DoxyCodeLine{26     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_state_common__t}{ACKStateCommon\_t}}* pCommon, }
+\DoxyCodeLine{27     \mbox{\hyperlink{ack__generated__temperature_8h_ad0d517afea334399e7384fa8a2aa0f5a}{ack\_temperature\_scale}} scale, }
+\DoxyCodeLine{28     \textcolor{keywordtype}{float} temperature);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def ACK\_TEMPERATURE\_SENSOR}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{33 \}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_TEMPERATURE\_SENSOR\_H\_\_}}
+
+\end{DoxyCode}

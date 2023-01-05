@@ -1,0 +1,72 @@
+\hypertarget{_v3_a_v_s_8pb_8c}{}\doxysection{src/\+V3\+AVS.pb.\+c File Reference}
+\label{_v3_a_v_s_8pb_8c}\index{src/V3AVS.pb.c@{src/V3AVS.pb.c}}
+{\ttfamily \#include \char`\"{}V3\+AVS.\+pb.\+h\char`\"{}}\newline
+Include dependency graph for V3\+AVS.\+pb.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{_v3_a_v_s_8pb_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{_v3_a_v_s_8pb_8c_afe95f9a2230b3552578beb57801d3680}{V3\+AVS\+\_\+fields}} \mbox{[}1\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{_v3_a_v_s_8pb_8c_a433765e82e076e1f0d3c864f16aa0338}{V3\+AVS\+\_\+\+Avs\+Directive\+\_\+fields}} \mbox{[}7\mbox{]}
+\item 
+const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} \mbox{\hyperlink{_v3_a_v_s_8pb_8c_ad06b3d44f8ba4af6921702dab3af3768}{V3\+AVS\+\_\+\+Avs\+Event\+\_\+fields}} \mbox{[}6\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_v3_a_v_s_8pb_8c_a433765e82e076e1f0d3c864f16aa0338}\label{_v3_a_v_s_8pb_8c_a433765e82e076e1f0d3c864f16aa0338}} 
+\index{V3AVS.pb.c@{V3AVS.pb.c}!V3AVS\_AvsDirective\_fields@{V3AVS\_AvsDirective\_fields}}
+\index{V3AVS\_AvsDirective\_fields@{V3AVS\_AvsDirective\_fields}!V3AVS.pb.c@{V3AVS.pb.c}}
+\doxysubsubsection{\texorpdfstring{V3AVS\_AvsDirective\_fields}{V3AVS\_AvsDirective\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} V3\+AVS\+\_\+\+Avs\+Directive\+\_\+fields\mbox{[}7\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, UENUM   , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct___v3_a_v_s___avs_directive}{V3AVS\_AvsDirective}}, v3\_namespace, v3\_namespace, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  2, INT32   , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct___v3_a_v_s___avs_directive}{V3AVS\_AvsDirective}}, correlation\_id, v3\_namespace, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  3, BYTES   , SINGULAR, CALLBACK, OTHER, \mbox{\hyperlink{struct___v3_a_v_s___avs_directive}{V3AVS\_AvsDirective}}, payload, correlation\_id, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  4, UINT64  , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct___v3_a_v_s___avs_directive}{V3AVS\_AvsDirective}}, timestamp, payload, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  5, UINT64  , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct___v3_a_v_s___avs_directive}{V3AVS\_AvsDirective}}, expires\_at, timestamp, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  6, UINT32  , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct___v3_a_v_s___avs_directive}{V3AVS\_AvsDirective}}, instance, expires\_at, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_v3_a_v_s_8pb_8c_ad06b3d44f8ba4af6921702dab3af3768}\label{_v3_a_v_s_8pb_8c_ad06b3d44f8ba4af6921702dab3af3768}} 
+\index{V3AVS.pb.c@{V3AVS.pb.c}!V3AVS\_AvsEvent\_fields@{V3AVS\_AvsEvent\_fields}}
+\index{V3AVS\_AvsEvent\_fields@{V3AVS\_AvsEvent\_fields}!V3AVS.pb.c@{V3AVS.pb.c}}
+\doxysubsubsection{\texorpdfstring{V3AVS\_AvsEvent\_fields}{V3AVS\_AvsEvent\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} V3\+AVS\+\_\+\+Avs\+Event\+\_\+fields\mbox{[}6\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  1, UENUM   , SINGULAR, STATIC  , FIRST, \mbox{\hyperlink{struct___v3_a_v_s___avs_event}{V3AVS\_AvsEvent}}, v3\_namespace, v3\_namespace, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  2, INT32   , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct___v3_a_v_s___avs_event}{V3AVS\_AvsEvent}}, correlation\_id, v3\_namespace, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  3, BYTES   , SINGULAR, CALLBACK, OTHER, \mbox{\hyperlink{struct___v3_a_v_s___avs_event}{V3AVS\_AvsEvent}}, payload, correlation\_id, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  5, UINT64  , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct___v3_a_v_s___avs_event}{V3AVS\_AvsEvent}}, timestamp, payload, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a8dcc92bb1b4dde51bbdbc8efb3dc39ce}{PB\_FIELD}}(  6, UINT32  , SINGULAR, STATIC  , OTHER, \mbox{\hyperlink{struct___v3_a_v_s___avs_event}{V3AVS\_AvsEvent}}, instance, timestamp, 0),}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{_v3_a_v_s_8pb_8c_afe95f9a2230b3552578beb57801d3680}\label{_v3_a_v_s_8pb_8c_afe95f9a2230b3552578beb57801d3680}} 
+\index{V3AVS.pb.c@{V3AVS.pb.c}!V3AVS\_fields@{V3AVS\_fields}}
+\index{V3AVS\_fields@{V3AVS\_fields}!V3AVS.pb.c@{V3AVS.pb.c}}
+\doxysubsubsection{\texorpdfstring{V3AVS\_fields}{V3AVS\_fields}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} V3\+AVS\+\_\+fields\mbox{[}1\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \mbox{\hyperlink{pb_8h_a605c728e9539a47fabdec96745b92a39}{PB\_LAST\_FIELD}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

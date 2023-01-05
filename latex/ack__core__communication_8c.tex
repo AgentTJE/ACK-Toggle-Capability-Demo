@@ -1,0 +1,142 @@
+\hypertarget{ack__core__communication_8c}{}\doxysection{src/ack\+\_\+core\+\_\+communication.c File Reference}
+\label{ack__core__communication_8c}\index{src/ack\_core\_communication.c@{src/ack\_core\_communication.c}}
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+communication.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+communication\+\_\+protocol.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+heaplet.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+power\+\_\+saving.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+protobuf\+\_\+utilities.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+validation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+platform.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}acp.\+pb.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for ack\+\_\+core\+\_\+communication.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__communication_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__communication_8c_a323631a95c11cea29ed08223b70cfd9e}{Read\+Ack\+\_\+}} (void)
+\item 
+static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__communication_8c_afdb2d6b0be6fa025b78696ddaa2a01f5}{Send\+Request\+Packet\+\_\+}} (uint8\+\_\+t type, uint32\+\_\+t crc32, size\+\_\+t data\+Length)
+\item 
+static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__communication_8c_abe59d96aa26d389fdb8394b26630a8e8}{Send\+Protobuf\+Packet\+\_\+}} (const void $\ast$p\+Buffer, size\+\_\+t length)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__communication_8c_abd554bf8258eb04864a95e0fd757af74}{Comms\+Send\+Acp\+Protobuf\+Cmd}} (const void $\ast$p\+Buffer, size\+\_\+t length)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__communication_8c_a7eff37c56faf03173c2172274d64f130}{Comms\+Get\+Acp\+Response}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__communication_8c_a7eff37c56faf03173c2172274d64f130}\label{ack__core__communication_8c_a7eff37c56faf03173c2172274d64f130}} 
+\index{ack\_core\_communication.c@{ack\_core\_communication.c}!CommsGetAcpResponse@{CommsGetAcpResponse}}
+\index{CommsGetAcpResponse@{CommsGetAcpResponse}!ack\_core\_communication.c@{ack\_core\_communication.c}}
+\doxysubsubsection{\texorpdfstring{CommsGetAcpResponse()}{CommsGetAcpResponse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Comms\+Get\+Acp\+Response (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__communication_8c_a7eff37c56faf03173c2172274d64f130_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__communication_8c_a7eff37c56faf03173c2172274d64f130_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__communication_8c_abd554bf8258eb04864a95e0fd757af74}\label{ack__core__communication_8c_abd554bf8258eb04864a95e0fd757af74}} 
+\index{ack\_core\_communication.c@{ack\_core\_communication.c}!CommsSendAcpProtobufCmd@{CommsSendAcpProtobufCmd}}
+\index{CommsSendAcpProtobufCmd@{CommsSendAcpProtobufCmd}!ack\_core\_communication.c@{ack\_core\_communication.c}}
+\doxysubsubsection{\texorpdfstring{CommsSendAcpProtobufCmd()}{CommsSendAcpProtobufCmd()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Comms\+Send\+Acp\+Protobuf\+Cmd (\begin{DoxyParamCaption}\item[{const void $\ast$}]{p\+Buffer,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__communication_8c_abd554bf8258eb04864a95e0fd757af74_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__communication_8c_abd554bf8258eb04864a95e0fd757af74_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__communication_8c_a323631a95c11cea29ed08223b70cfd9e}\label{ack__core__communication_8c_a323631a95c11cea29ed08223b70cfd9e}} 
+\index{ack\_core\_communication.c@{ack\_core\_communication.c}!ReadAck\_@{ReadAck\_}}
+\index{ReadAck\_@{ReadAck\_}!ack\_core\_communication.c@{ack\_core\_communication.c}}
+\doxysubsubsection{\texorpdfstring{ReadAck\_()}{ReadAck\_()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Read\+Ack\+\_\+ (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{ack__core__communication_8c_a323631a95c11cea29ed08223b70cfd9e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__communication_8c_a323631a95c11cea29ed08223b70cfd9e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__communication_8c_abe59d96aa26d389fdb8394b26630a8e8}\label{ack__core__communication_8c_abe59d96aa26d389fdb8394b26630a8e8}} 
+\index{ack\_core\_communication.c@{ack\_core\_communication.c}!SendProtobufPacket\_@{SendProtobufPacket\_}}
+\index{SendProtobufPacket\_@{SendProtobufPacket\_}!ack\_core\_communication.c@{ack\_core\_communication.c}}
+\doxysubsubsection{\texorpdfstring{SendProtobufPacket\_()}{SendProtobufPacket\_()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Send\+Protobuf\+Packet\+\_\+ (\begin{DoxyParamCaption}\item[{const void $\ast$}]{p\+Buffer,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__communication_8c_abe59d96aa26d389fdb8394b26630a8e8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__communication_8c_abe59d96aa26d389fdb8394b26630a8e8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__communication_8c_afdb2d6b0be6fa025b78696ddaa2a01f5}\label{ack__core__communication_8c_afdb2d6b0be6fa025b78696ddaa2a01f5}} 
+\index{ack\_core\_communication.c@{ack\_core\_communication.c}!SendRequestPacket\_@{SendRequestPacket\_}}
+\index{SendRequestPacket\_@{SendRequestPacket\_}!ack\_core\_communication.c@{ack\_core\_communication.c}}
+\doxysubsubsection{\texorpdfstring{SendRequestPacket\_()}{SendRequestPacket\_()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Send\+Request\+Packet\+\_\+ (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{type,  }\item[{uint32\+\_\+t}]{crc32,  }\item[{size\+\_\+t}]{data\+Length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__communication_8c_afdb2d6b0be6fa025b78696ddaa2a01f5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__communication_8c_afdb2d6b0be6fa025b78696ddaa2a01f5_icgraph}
+\end{center}
+\end{figure}

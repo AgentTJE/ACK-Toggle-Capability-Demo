@@ -1,0 +1,81 @@
+\hypertarget{ack__core__debug__print_8c}{}\doxysection{src/ack\+\_\+core\+\_\+debug\+\_\+print.c File Reference}
+\label{ack__core__debug__print_8c}\index{src/ack\_core\_debug\_print.c@{src/ack\_core\_debug\_print.c}}
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+platform.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+debug\+\_\+print.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for ack\+\_\+core\+\_\+debug\+\_\+print.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__debug__print_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ack__core__debug__print_8c_aa7af780b39c8fe68aa25a156f61d4fea}{ACK\+\_\+\+Debug\+Print}} (const char $\ast$p\+Level, const char $\ast$p\+Function, const char $\ast$p\+Format,...)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$const \mbox{\hyperlink{ack__core__debug__print_8c_a84ecf9691176defe3fcdc615914e554f}{c\+\_\+p\+Debug\+Level\+String}} = \char`\"{}DBG\char`\"{}
+\item 
+const char $\ast$const \mbox{\hyperlink{ack__core__debug__print_8c_a0831952335d7cd76e7ebde4fce72b1bf}{c\+\_\+p\+Info\+Level\+String}} = \char`\"{}INF\char`\"{}
+\item 
+const char $\ast$const \mbox{\hyperlink{ack__core__debug__print_8c_a32bd8fe176685a7d1022a8db859164b7}{c\+\_\+p\+Warning\+Level\+String}} = \char`\"{}WRN\char`\"{}
+\item 
+const char $\ast$const \mbox{\hyperlink{ack__core__debug__print_8c_a6bbacac527d681e8bb4db90ed11d9d5a}{c\+\_\+p\+Error\+Level\+String}} = \char`\"{}ERR\char`\"{}
+\item 
+const char $\ast$const \mbox{\hyperlink{ack__core__debug__print_8c_aa57757a35983f237a1e7bfbe3f33e601}{c\+\_\+p\+Critical\+Level\+String}} = \char`\"{}CRT\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__debug__print_8c_aa7af780b39c8fe68aa25a156f61d4fea}\label{ack__core__debug__print_8c_aa7af780b39c8fe68aa25a156f61d4fea}} 
+\index{ack\_core\_debug\_print.c@{ack\_core\_debug\_print.c}!ACK\_DebugPrint@{ACK\_DebugPrint}}
+\index{ACK\_DebugPrint@{ACK\_DebugPrint}!ack\_core\_debug\_print.c@{ack\_core\_debug\_print.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_DebugPrint()}{ACK\_DebugPrint()}}
+{\footnotesize\ttfamily void ACK\+\_\+\+Debug\+Print (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p\+Level,  }\item[{const char $\ast$}]{p\+Function,  }\item[{const char $\ast$}]{p\+Format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{ack__core__debug__print_8c_aa7af780b39c8fe68aa25a156f61d4fea_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ack__core__debug__print_8c_aa57757a35983f237a1e7bfbe3f33e601}\label{ack__core__debug__print_8c_aa57757a35983f237a1e7bfbe3f33e601}} 
+\index{ack\_core\_debug\_print.c@{ack\_core\_debug\_print.c}!c\_pCriticalLevelString@{c\_pCriticalLevelString}}
+\index{c\_pCriticalLevelString@{c\_pCriticalLevelString}!ack\_core\_debug\_print.c@{ack\_core\_debug\_print.c}}
+\doxysubsubsection{\texorpdfstring{c\_pCriticalLevelString}{c\_pCriticalLevelString}}
+{\footnotesize\ttfamily const char$\ast$ const c\+\_\+p\+Critical\+Level\+String = \char`\"{}CRT\char`\"{}}
+
+\mbox{\Hypertarget{ack__core__debug__print_8c_a84ecf9691176defe3fcdc615914e554f}\label{ack__core__debug__print_8c_a84ecf9691176defe3fcdc615914e554f}} 
+\index{ack\_core\_debug\_print.c@{ack\_core\_debug\_print.c}!c\_pDebugLevelString@{c\_pDebugLevelString}}
+\index{c\_pDebugLevelString@{c\_pDebugLevelString}!ack\_core\_debug\_print.c@{ack\_core\_debug\_print.c}}
+\doxysubsubsection{\texorpdfstring{c\_pDebugLevelString}{c\_pDebugLevelString}}
+{\footnotesize\ttfamily const char$\ast$ const c\+\_\+p\+Debug\+Level\+String = \char`\"{}DBG\char`\"{}}
+
+\mbox{\Hypertarget{ack__core__debug__print_8c_a6bbacac527d681e8bb4db90ed11d9d5a}\label{ack__core__debug__print_8c_a6bbacac527d681e8bb4db90ed11d9d5a}} 
+\index{ack\_core\_debug\_print.c@{ack\_core\_debug\_print.c}!c\_pErrorLevelString@{c\_pErrorLevelString}}
+\index{c\_pErrorLevelString@{c\_pErrorLevelString}!ack\_core\_debug\_print.c@{ack\_core\_debug\_print.c}}
+\doxysubsubsection{\texorpdfstring{c\_pErrorLevelString}{c\_pErrorLevelString}}
+{\footnotesize\ttfamily const char$\ast$ const c\+\_\+p\+Error\+Level\+String = \char`\"{}ERR\char`\"{}}
+
+\mbox{\Hypertarget{ack__core__debug__print_8c_a0831952335d7cd76e7ebde4fce72b1bf}\label{ack__core__debug__print_8c_a0831952335d7cd76e7ebde4fce72b1bf}} 
+\index{ack\_core\_debug\_print.c@{ack\_core\_debug\_print.c}!c\_pInfoLevelString@{c\_pInfoLevelString}}
+\index{c\_pInfoLevelString@{c\_pInfoLevelString}!ack\_core\_debug\_print.c@{ack\_core\_debug\_print.c}}
+\doxysubsubsection{\texorpdfstring{c\_pInfoLevelString}{c\_pInfoLevelString}}
+{\footnotesize\ttfamily const char$\ast$ const c\+\_\+p\+Info\+Level\+String = \char`\"{}INF\char`\"{}}
+
+\mbox{\Hypertarget{ack__core__debug__print_8c_a32bd8fe176685a7d1022a8db859164b7}\label{ack__core__debug__print_8c_a32bd8fe176685a7d1022a8db859164b7}} 
+\index{ack\_core\_debug\_print.c@{ack\_core\_debug\_print.c}!c\_pWarningLevelString@{c\_pWarningLevelString}}
+\index{c\_pWarningLevelString@{c\_pWarningLevelString}!ack\_core\_debug\_print.c@{ack\_core\_debug\_print.c}}
+\doxysubsubsection{\texorpdfstring{c\_pWarningLevelString}{c\_pWarningLevelString}}
+{\footnotesize\ttfamily const char$\ast$ const c\+\_\+p\+Warning\+Level\+String = \char`\"{}WRN\char`\"{}}
+

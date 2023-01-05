@@ -1,0 +1,82 @@
+\hypertarget{ack__core__lifecycle_8h_source}{}\doxysection{ack\+\_\+core\+\_\+lifecycle.\+h}
+\label{ack__core__lifecycle_8h_source}\index{src/ack\_core\_lifecycle.h@{src/ack\_core\_lifecycle.h}}
+\mbox{\hyperlink{ack__core__lifecycle_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_LIFECYCLE\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_LIFECYCLE\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{16 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{comment}{// Advance lifecycle when the ACK Connectivity Module booted, or completed rebooting.}}
+\DoxyCodeLine{21 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__core__lifecycle_8h_aeb5525925e8c45a0c33d07391b0bb4dd}{LifecycleModuleBooted}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{comment}{// Advance lifecycle when the ACK Connectivity Module is requesting to be rebooted. If force is set,}}
+\DoxyCodeLine{24 \textcolor{comment}{// the reboot will occur immediately regardless of whether the device is in use. Otherwise, the reboot}}
+\DoxyCodeLine{25 \textcolor{comment}{// will occur at a point in the future when the device is not in use.}}
+\DoxyCodeLine{26 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__core__lifecycle_8h_a15a21aee4efe1d5b4a7bf50462798402}{LifecycleModuleRequestingReboot}}(\textcolor{keywordtype}{bool} force);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{comment}{// Advance lifecycle when a factory reset is being requested.}}
+\DoxyCodeLine{29 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__core__lifecycle_8h_ae59669a65cb146a008a3dcf69f1e7a0b}{LifecycleFactoryResetRequested}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{comment}{// Minimum milliseconds between calls to ACK\_GetStatus when checking connectivity state.}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#ifdef ACK\_MODULE\_POWER\_SAVING}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define ACK\_CONNECTIVITY\_STATE\_SAMPLE\_INTERVAL\_MS 5000}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define ACK\_CONNECTIVITY\_STATE\_SAMPLE\_INTERVAL\_MS 2500}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define ACK\_USER\_GUIDED\_SETUP\_FAILURE\_CHECK\_COUNT 8}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define ACK\_USER\_GUIDED\_SETUP\_FAILURE\_CHECK\_INTERVAL\_MS 500}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#ifdef ACK\_HOST\_FIRMWARE\_UPDATE}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{comment}{// The size of the (statically allocated) update chunk retrieval buffer.}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define ACK\_HOST\_FIRMWARE\_UPDATE\_CHUNK\_SIZE ((size\_t)256U)}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{comment}{// The maximum amount of attempts that will be performed for retrieving a single update chunk before the}}
+\DoxyCodeLine{47 \textcolor{comment}{// update process is aborted.}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define ACK\_HOST\_FIRMWARE\_UPDATE\_MAX\_RETRIEVE\_ATTEMPT\_COUNT 10}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_OtaState\_t}
+\DoxyCodeLine{51 \{}
+\DoxyCodeLine{52     uint32\_t ImageSize;}
+\DoxyCodeLine{53     uint32\_t RetrieveRemaining;}
+\DoxyCodeLine{54     \textcolor{keywordtype}{unsigned} ChunkReadFailureCount;}
+\DoxyCodeLine{55     \textcolor{keywordtype}{unsigned} Force : 1;}
+\DoxyCodeLine{56     \textcolor{keywordtype}{unsigned} ApplicationPending : 1;}
+\DoxyCodeLine{57     \textcolor{keywordtype}{unsigned} StartedPlatform : 1; \textcolor{comment}{// non-\/0 if we called ACKPlatform\_StartHostFirmwareUpdate.}}
+\DoxyCodeLine{58 \}}
+\DoxyCodeLine{59 OtaState\_t;}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{keyword}{extern} OtaState\_t g\_otaState;}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{comment}{// Advance lifecycle when an Over-\/the-\/Air update is available.}}
+\DoxyCodeLine{64 \textcolor{keywordtype}{void} LifecycleHostFirmwareUpdateReceived(}
+\DoxyCodeLine{65     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* pVersion,}
+\DoxyCodeLine{66     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* pSignature,}
+\DoxyCodeLine{67     uint32\_t size,}
+\DoxyCodeLine{68     \textcolor{keywordtype}{bool} force);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{73 \}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ndef \_\_ACK\_LIFECYCLE\_H\_\_}}
+
+\end{DoxyCode}

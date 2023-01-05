@@ -1,0 +1,176 @@
+\hypertarget{pb__encode_8h_source}{}\doxysection{pb\+\_\+encode.\+h}
+\label{pb__encode_8h_source}\index{src/pb\_encode.h@{src/pb\_encode.h}}
+\mbox{\hyperlink{pb__encode_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* pb\_encode.h: Functions to encode protocol buffers. Depends on pb\_encode.c.}}
+\DoxyCodeLine{2 \textcolor{comment}{ * The main function is pb\_encode. You also need an output stream, and the}}
+\DoxyCodeLine{3 \textcolor{comment}{ * field descriptions created by nanopb\_generator.py.}}
+\DoxyCodeLine{4 \textcolor{comment}{ */}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifndef PB\_ENCODE\_H\_INCLUDED}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define PB\_ENCODE\_H\_INCLUDED}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{pb_8h}{pb.h}}"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{12 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{comment}{/* Structure for defining custom output streams. You will need to provide}}
+\DoxyCodeLine{16 \textcolor{comment}{ * a callback function to write the bytes to your storage, which can be}}
+\DoxyCodeLine{17 \textcolor{comment}{ * for example a file or a network socket.}}
+\DoxyCodeLine{18 \textcolor{comment}{ *}}
+\DoxyCodeLine{19 \textcolor{comment}{ * The callback must conform to these rules:}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * 1) Return false on IO errors. This will cause encoding to abort.}}
+\DoxyCodeLine{22 \textcolor{comment}{ * 2) You can use state to store your own data (e.g. buffer pointer).}}
+\DoxyCodeLine{23 \textcolor{comment}{ * 3) pb\_write will update bytes\_written after your callback runs.}}
+\DoxyCodeLine{24 \textcolor{comment}{ * 4) Substreams will modify max\_size and bytes\_written. Don't use them}}
+\DoxyCodeLine{25 \textcolor{comment}{ *    to calculate any pointers.}}
+\DoxyCodeLine{26 \textcolor{comment}{ */}}
+\DoxyCodeLine{27 \textcolor{keyword}{struct }\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_s}}}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#ifdef PB\_BUFFER\_ONLY}}
+\DoxyCodeLine{30     \textcolor{comment}{/* Callback pointer is not used in buffer-\/only configuration.}}
+\DoxyCodeLine{31 \textcolor{comment}{     * Having an int pointer here allows binary compatibility but}}
+\DoxyCodeLine{32 \textcolor{comment}{     * gives an error if someone tries to assign callback function.}}
+\DoxyCodeLine{33 \textcolor{comment}{     * Also, NULL pointer marks a 'sizing stream' that does not}}
+\DoxyCodeLine{34 \textcolor{comment}{     * write anything.}}
+\DoxyCodeLine{35 \textcolor{comment}{     */}}
+\DoxyCodeLine{36     \textcolor{keywordtype}{int} *\mbox{\hyperlink{structpb__ostream__s_a34a54868356bcec08413c3667a87b448}{callback}};}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{38     bool (*\mbox{\hyperlink{structpb__ostream__s_a34a54868356bcec08413c3667a87b448}{callback}})(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_a25ed6987f3543891dbf205fadc10ba2c}{pb\_byte\_t}} *buf, \textcolor{keywordtype}{size\_t} count);}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} *\mbox{\hyperlink{structpb__ostream__s_a57f678ee862fe6efdc5493c3c7717c2f}{state}};          \textcolor{comment}{/* Free field for use by callback implementation. */}}
+\DoxyCodeLine{41     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structpb__ostream__s_aaaa7ad79a00a0f89e9e26220995733d0}{max\_size}};      \textcolor{comment}{/* Limit number of output bytes written (or use SIZE\_MAX). */}}
+\DoxyCodeLine{42     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structpb__ostream__s_a1791584091aa6f089ab71238c5f5e50f}{bytes\_written}}; \textcolor{comment}{/* Number of bytes written so far. */}}
+\DoxyCodeLine{43     }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#ifndef PB\_NO\_ERRMSG}}
+\DoxyCodeLine{45     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{structpb__ostream__s_a36dc8b35b6dcb9de24d14f384d4c7095}{errmsg}};}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{47 \};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{comment}{/***************************}}
+\DoxyCodeLine{50 \textcolor{comment}{ * Main encoding functions *}}
+\DoxyCodeLine{51 \textcolor{comment}{ ***************************/}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{comment}{/* Encode a single protocol buffers message from C structure into a stream.}}
+\DoxyCodeLine{54 \textcolor{comment}{ * Returns true on success, false on any failure.}}
+\DoxyCodeLine{55 \textcolor{comment}{ * The actual struct pointed to by src\_struct must match the description in fields.}}
+\DoxyCodeLine{56 \textcolor{comment}{ * All required fields in the struct are assumed to have been filled in.}}
+\DoxyCodeLine{57 \textcolor{comment}{ *}}
+\DoxyCodeLine{58 \textcolor{comment}{ * Example usage:}}
+\DoxyCodeLine{59 \textcolor{comment}{ *    MyMessage msg = \{\};}}
+\DoxyCodeLine{60 \textcolor{comment}{ *    uint8\_t buffer[64];}}
+\DoxyCodeLine{61 \textcolor{comment}{ *    pb\_ostream\_t stream;}}
+\DoxyCodeLine{62 \textcolor{comment}{ *}}
+\DoxyCodeLine{63 \textcolor{comment}{ *    msg.field1 = 42;}}
+\DoxyCodeLine{64 \textcolor{comment}{ *    stream = pb\_ostream\_from\_buffer(buffer, sizeof(buffer));}}
+\DoxyCodeLine{65 \textcolor{comment}{ *    pb\_encode(\&stream, MyMessage\_fields, \&msg);}}
+\DoxyCodeLine{66 \textcolor{comment}{ */}}
+\DoxyCodeLine{67 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__encode_8h_a37547c3e4cf18f05e4a50c4fba4b9fa6}{pb\_encode}}(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}} fields[], \textcolor{keyword}{const} \textcolor{keywordtype}{void} *src\_struct);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{comment}{/* Same as pb\_encode, but prepends the length of the message as a varint.}}
+\DoxyCodeLine{70 \textcolor{comment}{ * Corresponds to writeDelimitedTo() in Google's protobuf API.}}
+\DoxyCodeLine{71 \textcolor{comment}{ */}}
+\DoxyCodeLine{72 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__encode_8h_ada25a45ba2ec5aa0baa8c692b0f30361}{pb\_encode\_delimited}}(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}} fields[], \textcolor{keyword}{const} \textcolor{keywordtype}{void} *src\_struct);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{comment}{/* Same as pb\_encode, but appends a null byte to the message for termination.}}
+\DoxyCodeLine{75 \textcolor{comment}{ * NOTE: This behaviour is not supported in most other protobuf implementations, so pb\_encode\_delimited()}}
+\DoxyCodeLine{76 \textcolor{comment}{ * is a better option for compatibility.}}
+\DoxyCodeLine{77 \textcolor{comment}{ */}}
+\DoxyCodeLine{78 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__encode_8h_af628f9c5bd5f1f2ab3f7352a3ca039d3}{pb\_encode\_nullterminated}}(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}} fields[], \textcolor{keyword}{const} \textcolor{keywordtype}{void} *src\_struct);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{comment}{/* Encode the message to get the size of the encoded data, but do not store}}
+\DoxyCodeLine{81 \textcolor{comment}{ * the data. */}}
+\DoxyCodeLine{82 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__encode_8h_a7d0d58fcd08d5020b12133c31bbe57f1}{pb\_get\_encoded\_size}}(\textcolor{keywordtype}{size\_t} *size, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}} fields[], \textcolor{keyword}{const} \textcolor{keywordtype}{void} *src\_struct);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{comment}{/**************************************}}
+\DoxyCodeLine{85 \textcolor{comment}{ * Functions for manipulating streams *}}
+\DoxyCodeLine{86 \textcolor{comment}{ **************************************/}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{comment}{/* Create an output stream for writing into a memory buffer.}}
+\DoxyCodeLine{89 \textcolor{comment}{ * The number of bytes written can be found in stream.bytes\_written after}}
+\DoxyCodeLine{90 \textcolor{comment}{ * encoding the message.}}
+\DoxyCodeLine{91 \textcolor{comment}{ *}}
+\DoxyCodeLine{92 \textcolor{comment}{ * Alternatively, you can use a custom stream that writes directly to e.g.}}
+\DoxyCodeLine{93 \textcolor{comment}{ * a file or a network socket.}}
+\DoxyCodeLine{94 \textcolor{comment}{ */}}
+\DoxyCodeLine{95 \mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} \mbox{\hyperlink{pb__encode_8h_a8f9802386928400861c1ce20c4812f53}{pb\_ostream\_from\_buffer}}(\mbox{\hyperlink{pb_8h_a25ed6987f3543891dbf205fadc10ba2c}{pb\_byte\_t}} *buf, \textcolor{keywordtype}{size\_t} bufsize);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{comment}{/* Pseudo-\/stream for measuring the size of a message without actually storing}}
+\DoxyCodeLine{98 \textcolor{comment}{ * the encoded data.}}
+\DoxyCodeLine{99 \textcolor{comment}{ * }}
+\DoxyCodeLine{100 \textcolor{comment}{ * Example usage:}}
+\DoxyCodeLine{101 \textcolor{comment}{ *    MyMessage msg = \{\};}}
+\DoxyCodeLine{102 \textcolor{comment}{ *    pb\_ostream\_t stream = PB\_OSTREAM\_SIZING;}}
+\DoxyCodeLine{103 \textcolor{comment}{ *    pb\_encode(\&stream, MyMessage\_fields, \&msg);}}
+\DoxyCodeLine{104 \textcolor{comment}{ *    printf("{}Message size is \%d\(\backslash\)n"{}, stream.bytes\_written);}}
+\DoxyCodeLine{105 \textcolor{comment}{ */}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#ifndef PB\_NO\_ERRMSG}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define PB\_OSTREAM\_SIZING \{0,0,0,0,0\}}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define PB\_OSTREAM\_SIZING \{0,0,0,0\}}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{comment}{/* Function to write into a pb\_ostream\_t stream. You can use this if you need}}
+\DoxyCodeLine{113 \textcolor{comment}{ * to append or prepend some custom headers to the message.}}
+\DoxyCodeLine{114 \textcolor{comment}{ */}}
+\DoxyCodeLine{115 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__encode_8h_a700e033310d3a291f0b2824c118a3fb8}{pb\_write}}(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_a25ed6987f3543891dbf205fadc10ba2c}{pb\_byte\_t}} *buf, \textcolor{keywordtype}{size\_t} count);}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \textcolor{comment}{/************************************************}}
+\DoxyCodeLine{119 \textcolor{comment}{ * Helper functions for writing field callbacks *}}
+\DoxyCodeLine{120 \textcolor{comment}{ ************************************************/}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{comment}{/* Encode field header based on type and field number defined in the field}}
+\DoxyCodeLine{123 \textcolor{comment}{ * structure. Call this from the callback before writing out field contents. */}}
+\DoxyCodeLine{124 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__encode_8h_a7b2fffb131fc831e7a555ccc79d6bc3d}{pb\_encode\_tag\_for\_field}}(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}} *field);}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 \textcolor{comment}{/* Encode field header by manually specifing wire type. You need to use this}}
+\DoxyCodeLine{127 \textcolor{comment}{ * if you want to write out packed arrays from a callback field. */}}
+\DoxyCodeLine{128 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__encode_8h_ac8f890fe7cacc4471567a802011f8331}{pb\_encode\_tag}}(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, \mbox{\hyperlink{pb_8h_ac815846d88d0f550fe93ea99096430bf}{pb\_wire\_type\_t}} wiretype, uint32\_t field\_number);}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \textcolor{comment}{/* Encode an integer in the varint format.}}
+\DoxyCodeLine{131 \textcolor{comment}{ * This works for bool, enum, int32, int64, uint32 and uint64 field types. */}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#ifndef PB\_WITHOUT\_64BIT}}
+\DoxyCodeLine{133 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__encode_8h_a35b91ad13c5152a67170f1ab414a7e36}{pb\_encode\_varint}}(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, uint64\_t value);}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{135 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__encode_8h_a35b91ad13c5152a67170f1ab414a7e36}{pb\_encode\_varint}}(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, uint32\_t value);}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{comment}{/* Encode an integer in the zig-\/zagged svarint format.}}
+\DoxyCodeLine{139 \textcolor{comment}{ * This works for sint32 and sint64. */}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#ifndef PB\_WITHOUT\_64BIT}}
+\DoxyCodeLine{141 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__encode_8h_ae498d7e25daa6cc75ad5ca2cf5534a27}{pb\_encode\_svarint}}(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, int64\_t value);}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{143 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__encode_8h_ae498d7e25daa6cc75ad5ca2cf5534a27}{pb\_encode\_svarint}}(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, int32\_t value);}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146 \textcolor{comment}{/* Encode a string or bytes type field. For strings, pass strlen(s) as size. */}}
+\DoxyCodeLine{147 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__encode_8h_af3536cd38e28a8b56d88ca09159a2b03}{pb\_encode\_string}}(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_a25ed6987f3543891dbf205fadc10ba2c}{pb\_byte\_t}} *buffer, \textcolor{keywordtype}{size\_t} size);}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 \textcolor{comment}{/* Encode a fixed32, sfixed32 or float value.}}
+\DoxyCodeLine{150 \textcolor{comment}{ * You need to pass a pointer to a 4-\/byte wide C variable. */}}
+\DoxyCodeLine{151 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__encode_8h_aceb01f227cee6dbb6f36d133d672f076}{pb\_encode\_fixed32}}(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *value);}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#ifndef PB\_WITHOUT\_64BIT}}
+\DoxyCodeLine{154 \textcolor{comment}{/* Encode a fixed64, sfixed64 or double value.}}
+\DoxyCodeLine{155 \textcolor{comment}{ * You need to pass a pointer to a 8-\/byte wide C variable. */}}
+\DoxyCodeLine{156 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__encode_8h_aa1987a95a7f64803e25a54c016da9385}{pb\_encode\_fixed64}}(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *value);}
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \textcolor{comment}{/* Encode a submessage field.}}
+\DoxyCodeLine{160 \textcolor{comment}{ * You need to pass the pb\_field\_t array and pointer to struct, just like}}
+\DoxyCodeLine{161 \textcolor{comment}{ * with pb\_encode(). This internally encodes the submessage twice, first to}}
+\DoxyCodeLine{162 \textcolor{comment}{ * calculate message size and then to actually write it out.}}
+\DoxyCodeLine{163 \textcolor{comment}{ */}}
+\DoxyCodeLine{164 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__encode_8h_ab8471ba1df57aa12f971e32229db25bd}{pb\_encode\_submessage}}(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}} fields[], \textcolor{keyword}{const} \textcolor{keywordtype}{void} *src\_struct);}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{167 \} \textcolor{comment}{/* extern "{}C"{} */}}
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

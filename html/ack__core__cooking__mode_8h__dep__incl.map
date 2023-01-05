@@ -1,0 +1,10 @@
+<map id="src/ack_core_cooking_mode.h" name="src/ack_core_cooking_mode.h">
+<area shape="rect" id="node1" title=" " alt="" coords="668,5,817,47"/>
+<area shape="rect" id="node2" href="$ack__core__cooking__common_8c.html" title=" " alt="" coords="5,95,155,136"/>
+<area shape="rect" id="node3" href="$ack__core__cooking__mode_8c.html" title=" " alt="" coords="179,95,328,136"/>
+<area shape="rect" id="node4" href="$ack__core__cookingcontroller_8c.html" title=" " alt="" coords="353,102,565,129"/>
+<area shape="rect" id="node5" href="$ack__core__cookingfoodtemperaturecontroller_8c.html" title=" " alt="" coords="589,102,896,129"/>
+<area shape="rect" id="node6" href="$ack__core__cookingpresetcontroller_8c.html" title=" " alt="" coords="920,102,1168,129"/>
+<area shape="rect" id="node7" href="$ack__core__cookingtemperaturecontroller_8c.html" title=" " alt="" coords="1193,102,1474,129"/>
+<area shape="rect" id="node8" href="$ack__core__cookingtimecontroller_8c.html" title=" " alt="" coords="1499,102,1736,129"/>
+</map>

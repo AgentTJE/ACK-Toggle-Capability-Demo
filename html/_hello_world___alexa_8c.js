@@ -1,0 +1,26 @@
+var _hello_world___alexa_8c =
+[
+    [ "__STDC_FORMAT_MACROS", "_hello_world___alexa_8c.html#aacbb9e1f38be71e22df1584a37c56693", null ],
+    [ "BRIGHTNESS_PROPERTY", "_hello_world___alexa_8c.html#a2ad5a2ce302a641008b1f7845362e814", null ],
+    [ "POWER_STATE_PROPERTY", "_hello_world___alexa_8c.html#ae038f9ff67f3ee1e3464e0bb8f98eddf", null ],
+    [ "USER_INITIATED_FACTORY_RESET", "_hello_world___alexa_8c.html#af8bc1ea298b18e56a176673e60c94fcc", null ],
+    [ "USER_INITIATED_USER_GUIDED_SETUP", "_hello_world___alexa_8c.html#a9a3d7fbe056f818d2ad733ecde69753d", null ],
+    [ "ACKUser_DoesUserWantFactoryReset", "_hello_world___alexa_8c.html#a862bb458ab8084b428f04cd6cf16c4ce", null ],
+    [ "ACKUser_DoesUserWantToSubmitLogs", "_hello_world___alexa_8c.html#a003c4d1793eb768581593d251d7d845a", null ],
+    [ "ACKUser_DoesUserWantUserGuidedSetup", "_hello_world___alexa_8c.html#a82e39fcd6c006ea174513b8dc56ecfca", null ],
+    [ "ACKUser_IsDeviceInUse", "_hello_world___alexa_8c.html#a03fbd6529f601d59e50c8b945a776c7c", null ],
+    [ "ACKUser_OnBrightnessControllerDirective", "_hello_world___alexa_8c.html#ac631fec54487acdec8c37b0d7d38cca9", null ],
+    [ "ACKUser_OnLifecycleStateChange", "_hello_world___alexa_8c.html#a46ce38d62dc041abacaa7d82f06d8c30", null ],
+    [ "ACKUser_OnPowerControllerDirective", "_hello_world___alexa_8c.html#a0e90e7bb56bd07684a1d2a7ec4058f07", null ],
+    [ "ACKUser_OnReportStateDirective", "_hello_world___alexa_8c.html#a4b2ad30555b360e7ae90e005f86e414e", null ],
+    [ "AddBrightnessProperty", "_hello_world___alexa_8c.html#ade627335dc81d495a7637d4e59d3afc3", null ],
+    [ "AddPowerStateProperty", "_hello_world___alexa_8c.html#ac48c9dc0e9132739ef2e3bdb90a7fd2d", null ],
+    [ "Alexa_InitiateFactoryReset", "_hello_world___alexa_8c.html#accaec091ede4d9e58ce8d60d5035f85d", null ],
+    [ "Alexa_InitiateUserGuidedSetup", "_hello_world___alexa_8c.html#a01104b810150b396e84e8afbc4740250", null ],
+    [ "Alexa_Loop", "_hello_world___alexa_8c.html#ac658ad8f9b68d5c1d0c45b2b8bd27940", null ],
+    [ "Alexa_SendChangeReportDueToLocalControl", "_hello_world___alexa_8c.html#a3ff9e3977c9a7e40f19eabe79ed6843d", null ],
+    [ "Alexa_Setup", "_hello_world___alexa_8c.html#a9b745171d9c8e6482c11e9fc48cecb2b", null ],
+    [ "DoesUserWantLifecycleAction", "_hello_world___alexa_8c.html#a97385192d02b13332b2386afc2e747a7", null ],
+    [ "ACKUser_PropertyTable", "_hello_world___alexa_8c.html#a4d0652b73a39ed6abae348e4e40398fd", null ],
+    [ "sg_lifecyclePending", "_hello_world___alexa_8c.html#aad475bca6748744fdbadce3c3453c8ad", null ]
+];

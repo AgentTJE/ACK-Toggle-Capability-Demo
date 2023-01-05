@@ -1,0 +1,91 @@
+\hypertarget{ack__core__status_8c}{}\doxysection{src/ack\+\_\+core\+\_\+status.c File Reference}
+\label{ack__core__status_8c}\index{src/ack\_core\_status.c@{src/ack\_core\_status.c}}
+{\ttfamily \#include \char`\"{}acp.\+pb.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+heaplet.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+platform.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+module.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for ack\+\_\+core\+\_\+status.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__status_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ack__core__status_8c_a400ff4fa8977361c07eeddfa7e893eaa}{ACK\+\_\+\+Get\+Status}} (\mbox{\hyperlink{ack_8h_acf23a6b191b92fcf2a1408217e622d1d}{ACKStatus\+\_\+t}} $\ast$p\+Status)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{ack__core__status_8c_a95bf27bc180b29b72829ccad635581bc}{ACK\+\_\+\+Get\+Approximate\+Time}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{ack__core__status_8c_a9be1c986440ad4c27c54fab8ec2fd076}{g\+\_\+real\+Time\+Epoch\+Base\+Seconds}} = 0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{ack__core__status_8c_a9259925ecd87437ed399f70a20870857}{g\+\_\+real\+Time\+Tick\+Base}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__status_8c_a95bf27bc180b29b72829ccad635581bc}\label{ack__core__status_8c_a95bf27bc180b29b72829ccad635581bc}} 
+\index{ack\_core\_status.c@{ack\_core\_status.c}!ACK\_GetApproximateTime@{ACK\_GetApproximateTime}}
+\index{ACK\_GetApproximateTime@{ACK\_GetApproximateTime}!ack\_core\_status.c@{ack\_core\_status.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_GetApproximateTime()}{ACK\_GetApproximateTime()}}
+{\footnotesize\ttfamily uint64\+\_\+t ACK\+\_\+\+Get\+Approximate\+Time (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__status_8c_a95bf27bc180b29b72829ccad635581bc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__status_8c_a95bf27bc180b29b72829ccad635581bc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__status_8c_a400ff4fa8977361c07eeddfa7e893eaa}\label{ack__core__status_8c_a400ff4fa8977361c07eeddfa7e893eaa}} 
+\index{ack\_core\_status.c@{ack\_core\_status.c}!ACK\_GetStatus@{ACK\_GetStatus}}
+\index{ACK\_GetStatus@{ACK\_GetStatus}!ack\_core\_status.c@{ack\_core\_status.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_GetStatus()}{ACK\_GetStatus()}}
+{\footnotesize\ttfamily void ACK\+\_\+\+Get\+Status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack_8h_acf23a6b191b92fcf2a1408217e622d1d}{ACKStatus\+\_\+t}} $\ast$}]{p\+Status }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__status_8c_a400ff4fa8977361c07eeddfa7e893eaa_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__status_8c_a400ff4fa8977361c07eeddfa7e893eaa_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ack__core__status_8c_a9be1c986440ad4c27c54fab8ec2fd076}\label{ack__core__status_8c_a9be1c986440ad4c27c54fab8ec2fd076}} 
+\index{ack\_core\_status.c@{ack\_core\_status.c}!g\_realTimeEpochBaseSeconds@{g\_realTimeEpochBaseSeconds}}
+\index{g\_realTimeEpochBaseSeconds@{g\_realTimeEpochBaseSeconds}!ack\_core\_status.c@{ack\_core\_status.c}}
+\doxysubsubsection{\texorpdfstring{g\_realTimeEpochBaseSeconds}{g\_realTimeEpochBaseSeconds}}
+{\footnotesize\ttfamily uint32\+\_\+t g\+\_\+real\+Time\+Epoch\+Base\+Seconds = 0}
+
+\mbox{\Hypertarget{ack__core__status_8c_a9259925ecd87437ed399f70a20870857}\label{ack__core__status_8c_a9259925ecd87437ed399f70a20870857}} 
+\index{ack\_core\_status.c@{ack\_core\_status.c}!g\_realTimeTickBase@{g\_realTimeTickBase}}
+\index{g\_realTimeTickBase@{g\_realTimeTickBase}!ack\_core\_status.c@{ack\_core\_status.c}}
+\doxysubsubsection{\texorpdfstring{g\_realTimeTickBase}{g\_realTimeTickBase}}
+{\footnotesize\ttfamily uint32\+\_\+t g\+\_\+real\+Time\+Tick\+Base = 0}
+

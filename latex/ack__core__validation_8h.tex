@@ -1,0 +1,79 @@
+\hypertarget{ack__core__validation_8h}{}\doxysection{src/ack\+\_\+core\+\_\+validation.h File Reference}
+\label{ack__core__validation_8h}\index{src/ack\_core\_validation.h@{src/ack\_core\_validation.h}}
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+config.\+h\char`\"{}}\newline
+Include dependency graph for ack\+\_\+core\+\_\+validation.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{ack__core__validation_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__validation_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ack__core__validation_8h_ac6f6e219f1af86edda69de54a5445d83}{ACK\+\_\+\+MARKER\+\_\+\+LIFECYCLE\+\_\+\+STATE}}~\char`\"{}LIFECYCLE-\/\mbox{\hyperlink{ack__core__processevent_8c_a055a97d9eb8f076dd724c0fa1f8958c8}{STATE}}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ack__core__validation_8h_a3c5ceef6f5b2c3a42406a49eefa7e82e}{ACK\+\_\+\+MARKER\+\_\+\+PROTOCOL\+\_\+\+ERROR}}~\char`\"{}PROTOCOL-\/ERROR\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ack__core__validation_8h_ae1c79c98ecc08db19dacf3f045e29d81}{ACK\+\_\+\+MARKER\+\_\+\+READ\+\_\+\+OTA\+\_\+\+CHUNK\+\_\+\+ERROR}}~\char`\"{}OTA-\/CHUNK-\/ERROR\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ack__core__validation_8h_a6e06f84ef2ac086da6bce25e62aa9679}{ACK\+\_\+\+MARKER\+\_\+\+READ\+\_\+\+OTA\+\_\+\+CHUNK\+\_\+\+SUCCESS}}~\char`\"{}OTA-\/CHUNK-\/DOWNLOADED\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ack__core__validation_8h_a8d2bca3be9b83e827a1be6c6cae5f483}{ACK\+\_\+\+MARKER\+\_\+\+OTA\+\_\+\+COMPLETE}}~\char`\"{}OTA-\/COMPLETE\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ack__core__validation_8h_a1da9f824520e28fdc5762c133490b025}{ACK\+\_\+\+MARKER\+\_\+\+OTA\+\_\+\+RESTART\+\_\+\+DEVICE}}~\char`\"{}OTA-\/RESTART\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ack__core__validation_8h_a43f9178a3761a6323aff18b740dcb9e5}{VALIDATION\+\_\+\+SEND\+\_\+\+MARKER}}(name, ...)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ack__core__validation_8h_ac6f6e219f1af86edda69de54a5445d83}\label{ack__core__validation_8h_ac6f6e219f1af86edda69de54a5445d83}} 
+\index{ack\_core\_validation.h@{ack\_core\_validation.h}!ACK\_MARKER\_LIFECYCLE\_STATE@{ACK\_MARKER\_LIFECYCLE\_STATE}}
+\index{ACK\_MARKER\_LIFECYCLE\_STATE@{ACK\_MARKER\_LIFECYCLE\_STATE}!ack\_core\_validation.h@{ack\_core\_validation.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_MARKER\_LIFECYCLE\_STATE}{ACK\_MARKER\_LIFECYCLE\_STATE}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+MARKER\+\_\+\+LIFECYCLE\+\_\+\+STATE~\char`\"{}LIFECYCLE-\/\mbox{\hyperlink{ack__core__processevent_8c_a055a97d9eb8f076dd724c0fa1f8958c8}{STATE}}\char`\"{}}
+
+\mbox{\Hypertarget{ack__core__validation_8h_a8d2bca3be9b83e827a1be6c6cae5f483}\label{ack__core__validation_8h_a8d2bca3be9b83e827a1be6c6cae5f483}} 
+\index{ack\_core\_validation.h@{ack\_core\_validation.h}!ACK\_MARKER\_OTA\_COMPLETE@{ACK\_MARKER\_OTA\_COMPLETE}}
+\index{ACK\_MARKER\_OTA\_COMPLETE@{ACK\_MARKER\_OTA\_COMPLETE}!ack\_core\_validation.h@{ack\_core\_validation.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_MARKER\_OTA\_COMPLETE}{ACK\_MARKER\_OTA\_COMPLETE}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+MARKER\+\_\+\+OTA\+\_\+\+COMPLETE~\char`\"{}OTA-\/COMPLETE\char`\"{}}
+
+\mbox{\Hypertarget{ack__core__validation_8h_a1da9f824520e28fdc5762c133490b025}\label{ack__core__validation_8h_a1da9f824520e28fdc5762c133490b025}} 
+\index{ack\_core\_validation.h@{ack\_core\_validation.h}!ACK\_MARKER\_OTA\_RESTART\_DEVICE@{ACK\_MARKER\_OTA\_RESTART\_DEVICE}}
+\index{ACK\_MARKER\_OTA\_RESTART\_DEVICE@{ACK\_MARKER\_OTA\_RESTART\_DEVICE}!ack\_core\_validation.h@{ack\_core\_validation.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_MARKER\_OTA\_RESTART\_DEVICE}{ACK\_MARKER\_OTA\_RESTART\_DEVICE}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+MARKER\+\_\+\+OTA\+\_\+\+RESTART\+\_\+\+DEVICE~\char`\"{}OTA-\/RESTART\char`\"{}}
+
+\mbox{\Hypertarget{ack__core__validation_8h_a3c5ceef6f5b2c3a42406a49eefa7e82e}\label{ack__core__validation_8h_a3c5ceef6f5b2c3a42406a49eefa7e82e}} 
+\index{ack\_core\_validation.h@{ack\_core\_validation.h}!ACK\_MARKER\_PROTOCOL\_ERROR@{ACK\_MARKER\_PROTOCOL\_ERROR}}
+\index{ACK\_MARKER\_PROTOCOL\_ERROR@{ACK\_MARKER\_PROTOCOL\_ERROR}!ack\_core\_validation.h@{ack\_core\_validation.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_MARKER\_PROTOCOL\_ERROR}{ACK\_MARKER\_PROTOCOL\_ERROR}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+MARKER\+\_\+\+PROTOCOL\+\_\+\+ERROR~\char`\"{}PROTOCOL-\/ERROR\char`\"{}}
+
+\mbox{\Hypertarget{ack__core__validation_8h_ae1c79c98ecc08db19dacf3f045e29d81}\label{ack__core__validation_8h_ae1c79c98ecc08db19dacf3f045e29d81}} 
+\index{ack\_core\_validation.h@{ack\_core\_validation.h}!ACK\_MARKER\_READ\_OTA\_CHUNK\_ERROR@{ACK\_MARKER\_READ\_OTA\_CHUNK\_ERROR}}
+\index{ACK\_MARKER\_READ\_OTA\_CHUNK\_ERROR@{ACK\_MARKER\_READ\_OTA\_CHUNK\_ERROR}!ack\_core\_validation.h@{ack\_core\_validation.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_MARKER\_READ\_OTA\_CHUNK\_ERROR}{ACK\_MARKER\_READ\_OTA\_CHUNK\_ERROR}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+MARKER\+\_\+\+READ\+\_\+\+OTA\+\_\+\+CHUNK\+\_\+\+ERROR~\char`\"{}OTA-\/CHUNK-\/ERROR\char`\"{}}
+
+\mbox{\Hypertarget{ack__core__validation_8h_a6e06f84ef2ac086da6bce25e62aa9679}\label{ack__core__validation_8h_a6e06f84ef2ac086da6bce25e62aa9679}} 
+\index{ack\_core\_validation.h@{ack\_core\_validation.h}!ACK\_MARKER\_READ\_OTA\_CHUNK\_SUCCESS@{ACK\_MARKER\_READ\_OTA\_CHUNK\_SUCCESS}}
+\index{ACK\_MARKER\_READ\_OTA\_CHUNK\_SUCCESS@{ACK\_MARKER\_READ\_OTA\_CHUNK\_SUCCESS}!ack\_core\_validation.h@{ack\_core\_validation.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_MARKER\_READ\_OTA\_CHUNK\_SUCCESS}{ACK\_MARKER\_READ\_OTA\_CHUNK\_SUCCESS}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+MARKER\+\_\+\+READ\+\_\+\+OTA\+\_\+\+CHUNK\+\_\+\+SUCCESS~\char`\"{}OTA-\/CHUNK-\/DOWNLOADED\char`\"{}}
+
+\mbox{\Hypertarget{ack__core__validation_8h_a43f9178a3761a6323aff18b740dcb9e5}\label{ack__core__validation_8h_a43f9178a3761a6323aff18b740dcb9e5}} 
+\index{ack\_core\_validation.h@{ack\_core\_validation.h}!VALIDATION\_SEND\_MARKER@{VALIDATION\_SEND\_MARKER}}
+\index{VALIDATION\_SEND\_MARKER@{VALIDATION\_SEND\_MARKER}!ack\_core\_validation.h@{ack\_core\_validation.h}}
+\doxysubsubsection{\texorpdfstring{VALIDATION\_SEND\_MARKER}{VALIDATION\_SEND\_MARKER}}
+{\footnotesize\ttfamily \#define VALIDATION\+\_\+\+SEND\+\_\+\+MARKER(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{... }\end{DoxyParamCaption})}
+

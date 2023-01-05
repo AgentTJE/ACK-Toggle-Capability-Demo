@@ -1,0 +1,94 @@
+\hypertarget{ack__user__module_8h_source}{}\doxysection{ack\+\_\+user\+\_\+module.\+h}
+\label{ack__user__module_8h_source}\index{src/ack\_user\_module.h@{src/ack\_user\_module.h}}
+\mbox{\hyperlink{ack__user__module_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_USER\_MODULE\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_USER\_MODULE\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack_8h}{ack.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__metrics_8h}{ack\_metrics.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{acp_8pb_8h}{acp.pb.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{pb_8h}{pb.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_v3_a_v_s_8pb_8h}{V3AVS.pb.h}}"{}}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{20 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#ifdef ACK\_HOST\_FIRMWARE\_UPDATE}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACKModule\_OtaDownload(}
+\DoxyCodeLine{27     uint32\_t readOffset,}
+\DoxyCodeLine{28     uint32\_t maxReadLength,}
+\DoxyCodeLine{29     uint8\_t* pBytes,}
+\DoxyCodeLine{30     uint32\_t* pActualLength);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def ACK\_HOST\_FIRMWARE\_UPDATE}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__user__module_8h_a987878042c70da8161ac11a4c5f4ca7f}{ACKModule\_UserGuidedSetupInitiate}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__user__module_8h_a12895c290577dcb3f65169a7ef74fb57}{ACKModule\_GetStatus}}(\mbox{\hyperlink{struct___a_c_k_status__t}{ACKStatus\_t}}* pStatus);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__user__module_8h_aa8682f5c1b6f82245abf6691db22a291}{ACKModule\_GetResponse}}(\mbox{\hyperlink{struct__acp__response}{acp\_response}}* pResponse);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__user__module_8h_a925eec6148b3be205c7fb82bfe03c855}{ACKModule\_GetEncodedDirective}}(}
+\DoxyCodeLine{41     \mbox{\hyperlink{struct__acp__event__alexa__directive__received}{acp\_event\_alexa\_directive\_received}}* pDirective,}
+\DoxyCodeLine{42     uint8\_t \textcolor{keyword}{const}** ppData,}
+\DoxyCodeLine{43     \textcolor{keywordtype}{size\_t}* pDataLen);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__user__module_8h_a8c0e7d5e3505712dbc981d6e64c01501}{ACKModule\_GetDeviceType}}(\textcolor{keywordtype}{char}* pDeviceType, \textcolor{keywordtype}{size\_t} deviceTypeBufferSize);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#ifdef ACK\_MODULE\_DIAGNOSTICS}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACKModule\_GetProvisioningInfo(\mbox{\hyperlink{acp_8pb_8h_a6cf116b18aaba444869d99fd87a6dd6a}{acp\_response\_provisioning\_provisioning\_state}}* pState);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACKModule\_GetHardwareInfo(\textcolor{keywordtype}{char}* pDsn, \textcolor{keywordtype}{size\_t} dsnBufferSize);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACKModule\_GetFirmwareVersion(}
+\DoxyCodeLine{54     uint32\_t* pProtocolNumber,}
+\DoxyCodeLine{55     uint32\_t* pBuildNumber,}
+\DoxyCodeLine{56     \textcolor{keywordtype}{char}* pIncrementalVersion,}
+\DoxyCodeLine{57     \textcolor{keywordtype}{size\_t} incrementalVersionBufferSize);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif  }\textcolor{comment}{/* ACK\_MODULE\_DIAGNOSTICS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#ifdef ACK\_LOGGING}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACKModule\_WriteLog(\mbox{\hyperlink{acp_8pb_8h_ad2969cdb844e1698da2c84a41437316e}{acp\_log\_level}} logLevel, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* pComponent, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* pMessage);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACKModule\_SubmitLogs(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ACK\_LOGGING */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__user__module_8h_a3ced59f273774a62f35b4f7ae351f81d}{ACKModule\_HostConfigWrite}}(uint64\_t firmwareVersion);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__user__module_8h_a8a667fc43c65abd7d1334262c699cdb9}{ACKModule\_FactoryResetInitiate}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__user__module_8h_af0e50dc216ead029bb534483aa063c56}{ACKModule\_SendEvent}}(\mbox{\hyperlink{struct___v3_a_v_s___avs_event}{V3AVS\_AvsEvent}}* pEvent);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#ifdef ACK\_METRICS}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACKModule\_SendMetric(}
+\DoxyCodeLine{78     \mbox{\hyperlink{acp_8pb_8h_a39c9f6a281a54bfb1cca1fd018e831b1}{acp\_cmd\_record\_dem\_metric\_Type}} type,}
+\DoxyCodeLine{79     \textcolor{keywordtype}{size\_t} datapointCount,}
+\DoxyCodeLine{80     \textcolor{keyword}{const} ACKMetricDatapoint\_t* pDatapoints);}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ACK\_METRICS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{85 \}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_USER\_MODULE\_H\_\_}}
+
+\end{DoxyCode}

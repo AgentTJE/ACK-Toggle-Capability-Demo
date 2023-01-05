@@ -1,0 +1,95 @@
+\hypertarget{ack__core__protobuf__utilities_8h_source}{}\doxysection{ack\+\_\+core\+\_\+protobuf\+\_\+utilities.\+h}
+\label{ack__core__protobuf__utilities_8h_source}\index{src/ack\_core\_protobuf\_utilities.h@{src/ack\_core\_protobuf\_utilities.h}}
+\mbox{\hyperlink{ack__core__protobuf__utilities_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_PROTOBUF\_UTILITIES\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_PROTOBUF\_UTILITIES\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{pb_8h}{pb.h}}"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{19 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct___protobuf_callback_field__t}{\_ProtobufCallbackField\_t}}}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     \textcolor{keyword}{const} uint8\_t* \mbox{\hyperlink{struct___protobuf_callback_field__t_adc080593690f39968142d4a55031af32}{Value}};}
+\DoxyCodeLine{26     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{struct___protobuf_callback_field__t_a0625b0edbe8fa4f916cc106b6f9342a0}{Length}};}
+\DoxyCodeLine{27 \}}
+\DoxyCodeLine{28 \mbox{\hyperlink{ack__core__protobuf__utilities_8h_a60b5fb20ff48c5ac34990ded57c3718c}{ProtobufCallbackField\_t}};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct___protobuf_encode_array_callback_data__t}{\_ProtobufEncodeArrayCallbackData\_t}}}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32     \textcolor{comment}{// Points to the base of the array.}}
+\DoxyCodeLine{33     \textcolor{keyword}{const} \textcolor{keywordtype}{void}* \mbox{\hyperlink{struct___protobuf_encode_array_callback_data__t_a7f78fd1dd637dd6e2823ac4f107e2fcf}{Data}};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{comment}{// Count of elements in the array.}}
+\DoxyCodeLine{36     \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{struct___protobuf_encode_array_callback_data__t_a5bfa9fe5804a08fc45180ac5bb8438f7}{ElementCount}};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{comment}{// Size in bytes of each element in the array.}}
+\DoxyCodeLine{39     \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{struct___protobuf_encode_array_callback_data__t_abb3bfc87d6dd2c1e31f38bdbd8c4f4d9}{ElementSize}};}
+\DoxyCodeLine{40 \}}
+\DoxyCodeLine{41 \mbox{\hyperlink{ack__core__protobuf__utilities_8h_a5078aefec2b9629f9504fc590398232a}{ProtobufEncodeArrayCallbackData\_t}};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__protobuf__utilities_8h_a83e2046cba8dc38ae0f0ef2994b69862}{ProtobufDecodeCallbackField}}(}
+\DoxyCodeLine{44     \mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}}* pStream,}
+\DoxyCodeLine{45     \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}}* pField,}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void}** ppArg);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__protobuf__utilities_8h_a43e60ec92dd99fe35fe3cd91af4591fe}{ProtobufEncodeCallbackField}}(}
+\DoxyCodeLine{49     \mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}}* pStream,}
+\DoxyCodeLine{50     \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}}* pField,}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void}* \textcolor{keyword}{const}* pArg);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__protobuf__utilities_8h_aa8b39340a734085a7c1ed435331a2b1f}{ProtobufEncodeArrayCallback}}(}
+\DoxyCodeLine{54     \mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}}* pStream,}
+\DoxyCodeLine{55     \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}}* pField,}
+\DoxyCodeLine{56     \textcolor{keywordtype}{void}* \textcolor{keyword}{const}* ppArg);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__protobuf__utilities_8h_ac86df2e9a33e772299910901faeff746}{ProtobufDecode}}(}
+\DoxyCodeLine{59     \textcolor{keyword}{const} uint8\_t* pInput,}
+\DoxyCodeLine{60     \textcolor{keywordtype}{size\_t} inputLength,}
+\DoxyCodeLine{61     \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}}* pFields,}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void}* pDestinationStruct);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__protobuf__utilities_8h_a7da654af54899b69a0b3e9613a066f9d}{ProtobufDecodeSubmessage}}(}
+\DoxyCodeLine{65     \textcolor{keyword}{const} uint8\_t* pInput,}
+\DoxyCodeLine{66     \textcolor{keywordtype}{size\_t} inputLength,}
+\DoxyCodeLine{67     uint32\_t submessageTag,}
+\DoxyCodeLine{68     \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}}* pSubmessageFields,}
+\DoxyCodeLine{69     \textcolor{keywordtype}{void}* pDestinationStruct);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__protobuf__utilities_8h_ae209dc4abdca5e73cb9040d44a38b38c}{ProtobufSkipToEncodedSubmessagePayload}}(}
+\DoxyCodeLine{72     \mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}}* pStream,}
+\DoxyCodeLine{73     uint32\_t tag);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{ack__core__protobuf__utilities_8h_ac2cfc5fe4f2d3ec77c7be2e4cff436ba}{ProtobufGetEncodedSize}}(}
+\DoxyCodeLine{76     \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}}* pFields,}
+\DoxyCodeLine{77     \textcolor{keyword}{const} \textcolor{keywordtype}{void}* pSourceStruct);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__protobuf__utilities_8h_a2c5002322c12977fb949790fffc79c9e}{ProtobufEncode}}(}
+\DoxyCodeLine{80     uint8\_t* pOutput,}
+\DoxyCodeLine{81     \textcolor{keywordtype}{size\_t} outputLength,}
+\DoxyCodeLine{82     \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}}* pFields,}
+\DoxyCodeLine{83     \textcolor{keyword}{const} \textcolor{keywordtype}{void}* pSourceStruct);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{86 \}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \_\_ACK\_PROTOBUF\_UTILITIES\_H\_\_}}
+
+\end{DoxyCode}

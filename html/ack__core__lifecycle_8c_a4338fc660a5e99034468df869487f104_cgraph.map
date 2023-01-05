@@ -1,0 +1,10 @@
+<map id="SatisfyPendingModuleReboot" name="SatisfyPendingModuleReboot">
+<area shape="rect" id="node1" title=" " alt="" coords="5,85,200,112"/>
+<area shape="rect" id="node2" href="$ack__core__module__pins_8c.html#af325dfcae84f6e90ae8167177aa177a0" title=" " alt="" coords="248,56,455,83"/>
+<area shape="rect" id="node5" href="$ack__core__lifecycle_8c.html#aebc163851f54cd3d46c3fe01a3a030d6" title=" " alt="" coords="289,111,414,137"/>
+<area shape="rect" id="node3" href="$ack__arduino__platform_8cpp.html#a714fe817d5ed149d8ff3b9c78253af58" title=" " alt="" coords="529,5,669,32"/>
+<area shape="rect" id="node4" href="$ack__arduino__platform_8cpp.html#a9cd2eba9eb604d27bef1dae91cb80ee7" title=" " alt="" coords="503,56,695,83"/>
+<area shape="rect" id="node6" href="$ack__core__lifecycle_8c.html#a9e915204f5176ede086aaa8d80b51b26" title=" " alt="" coords="511,107,686,149"/>
+<area shape="rect" id="node7" href="$_hello_world___alexa_8c.html#a46ce38d62dc041abacaa7d82f06d8c30" title=" " alt="" coords="743,107,928,149"/>
+<area shape="rect" id="node8" href="$_hello_world___hardware_8c.html#a2fbe91fc50c1e4da8c739bf5c01ff578" title=" " alt="" coords="976,107,1155,149"/>
+</map>

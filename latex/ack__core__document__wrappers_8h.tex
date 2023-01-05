@@ -1,0 +1,126 @@
+\hypertarget{ack__core__document__wrappers_8h}{}\doxysection{src/ack\+\_\+core\+\_\+document\+\_\+wrappers.h File Reference}
+\label{ack__core__document__wrappers_8h}\index{src/ack\_core\_document\_wrappers.h@{src/ack\_core\_document\_wrappers.h}}
+{\ttfamily \#include \char`\"{}ack\+\_\+document.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+generated\+\_\+ack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}V3\+AVS.\+pb.\+h\char`\"{}}\newline
+Include dependency graph for ack\+\_\+core\+\_\+document\+\_\+wrappers.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document__wrappers_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document__wrappers_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct___a_c_k_event_document__t}{\+\_\+\+ACKEvent\+Document\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ack__core__document__wrappers_8h_a4ee781855d8f225349a2512f402e6caa}{ACK\+\_\+\+DOM\+\_\+\+BINARY\+\_\+\+FORM\+\_\+\+ENVELOPE\+\_\+\+NAMESPACE}}~\mbox{\hyperlink{_v3_a_v_s_8pb_8h_a7d6f24d90027fccf2dc12a5707534affa28b1d11eb2e23d1b165bb37432c38564}{V3\+AVS\+\_\+\+Namespace\+\_\+\+ACK\+\_\+\+DOM\+\_\+\+BINARY\+\_\+\+FORM}}
+\item 
+\#define \mbox{\hyperlink{ack__core__document__wrappers_8h_a22f404583c47696df42621ffd9166f95}{CEDF\+\_\+\+OMIT\+\_\+\+CONTEXT}}~0x0001
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct___a_c_k_event_document__t}{\+\_\+\+ACKEvent\+Document\+\_\+t}} \mbox{\hyperlink{ack__core__document__wrappers_8h_a4f71d25b0d23beaaf7ce8b0724f9a1fd}{ACKEvent\+Document\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{ack__core__document__wrappers_8h_a9330b30e5cd7ad5962450a82ac56ec89}{Create\+Event\+Document}} (\mbox{\hyperlink{ack__generated__ack_8h_a61c4574433cc1a7fb91919f1257d2992}{ack\+\_\+namespace}} event\+Namespace, unsigned event\+Name, unsigned flags)
+\item 
+bool \mbox{\hyperlink{ack__core__document__wrappers_8h_aa34a213a4299d47a0884dccdd67f03b5}{Add\+Property\+To\+Event\+Document}} (const \mbox{\hyperlink{ack__types_8h_a3f2f70bfb119cc34ec2c8894bc55f049}{ACKState\+Common\+\_\+t}} $\ast$p\+Common, \mbox{\hyperlink{ack__generated__ack_8h_a61c4574433cc1a7fb91919f1257d2992}{ack\+\_\+namespace}} v3\+Namespace, const uint32\+\_\+t $\ast$p\+Instance, unsigned name, \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Property\+Object)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ack__core__document__wrappers_8h_a4f71d25b0d23beaaf7ce8b0724f9a1fd}{ACKEvent\+Document\+\_\+t}} \mbox{\hyperlink{ack__core__document__wrappers_8h_a374b548c9480f4436d78db9b18a639a6}{g\+\_\+event\+Document}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ack__core__document__wrappers_8h_a4ee781855d8f225349a2512f402e6caa}\label{ack__core__document__wrappers_8h_a4ee781855d8f225349a2512f402e6caa}} 
+\index{ack\_core\_document\_wrappers.h@{ack\_core\_document\_wrappers.h}!ACK\_DOM\_BINARY\_FORM\_ENVELOPE\_NAMESPACE@{ACK\_DOM\_BINARY\_FORM\_ENVELOPE\_NAMESPACE}}
+\index{ACK\_DOM\_BINARY\_FORM\_ENVELOPE\_NAMESPACE@{ACK\_DOM\_BINARY\_FORM\_ENVELOPE\_NAMESPACE}!ack\_core\_document\_wrappers.h@{ack\_core\_document\_wrappers.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_DOM\_BINARY\_FORM\_ENVELOPE\_NAMESPACE}{ACK\_DOM\_BINARY\_FORM\_ENVELOPE\_NAMESPACE}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+DOM\+\_\+\+BINARY\+\_\+\+FORM\+\_\+\+ENVELOPE\+\_\+\+NAMESPACE~\mbox{\hyperlink{_v3_a_v_s_8pb_8h_a7d6f24d90027fccf2dc12a5707534affa28b1d11eb2e23d1b165bb37432c38564}{V3\+AVS\+\_\+\+Namespace\+\_\+\+ACK\+\_\+\+DOM\+\_\+\+BINARY\+\_\+\+FORM}}}
+
+\mbox{\Hypertarget{ack__core__document__wrappers_8h_a22f404583c47696df42621ffd9166f95}\label{ack__core__document__wrappers_8h_a22f404583c47696df42621ffd9166f95}} 
+\index{ack\_core\_document\_wrappers.h@{ack\_core\_document\_wrappers.h}!CEDF\_OMIT\_CONTEXT@{CEDF\_OMIT\_CONTEXT}}
+\index{CEDF\_OMIT\_CONTEXT@{CEDF\_OMIT\_CONTEXT}!ack\_core\_document\_wrappers.h@{ack\_core\_document\_wrappers.h}}
+\doxysubsubsection{\texorpdfstring{CEDF\_OMIT\_CONTEXT}{CEDF\_OMIT\_CONTEXT}}
+{\footnotesize\ttfamily \#define CEDF\+\_\+\+OMIT\+\_\+\+CONTEXT~0x0001}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ack__core__document__wrappers_8h_a4f71d25b0d23beaaf7ce8b0724f9a1fd}\label{ack__core__document__wrappers_8h_a4f71d25b0d23beaaf7ce8b0724f9a1fd}} 
+\index{ack\_core\_document\_wrappers.h@{ack\_core\_document\_wrappers.h}!ACKEventDocument\_t@{ACKEventDocument\_t}}
+\index{ACKEventDocument\_t@{ACKEventDocument\_t}!ack\_core\_document\_wrappers.h@{ack\_core\_document\_wrappers.h}}
+\doxysubsubsection{\texorpdfstring{ACKEventDocument\_t}{ACKEventDocument\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___a_c_k_event_document__t}{\+\_\+\+ACKEvent\+Document\+\_\+t}} \mbox{\hyperlink{ack__core__document__wrappers_8h_a4f71d25b0d23beaaf7ce8b0724f9a1fd}{ACKEvent\+Document\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__document__wrappers_8h_aa34a213a4299d47a0884dccdd67f03b5}\label{ack__core__document__wrappers_8h_aa34a213a4299d47a0884dccdd67f03b5}} 
+\index{ack\_core\_document\_wrappers.h@{ack\_core\_document\_wrappers.h}!AddPropertyToEventDocument@{AddPropertyToEventDocument}}
+\index{AddPropertyToEventDocument@{AddPropertyToEventDocument}!ack\_core\_document\_wrappers.h@{ack\_core\_document\_wrappers.h}}
+\doxysubsubsection{\texorpdfstring{AddPropertyToEventDocument()}{AddPropertyToEventDocument()}}
+{\footnotesize\ttfamily bool Add\+Property\+To\+Event\+Document (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__types_8h_a3f2f70bfb119cc34ec2c8894bc55f049}{ACKState\+Common\+\_\+t}} $\ast$}]{p\+Common,  }\item[{\mbox{\hyperlink{ack__generated__ack_8h_a61c4574433cc1a7fb91919f1257d2992}{ack\+\_\+namespace}}}]{v3\+Namespace,  }\item[{const uint32\+\_\+t $\ast$}]{p\+Instance,  }\item[{unsigned}]{name,  }\item[{\mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Property\+Object }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document__wrappers_8h_aa34a213a4299d47a0884dccdd67f03b5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document__wrappers_8h_aa34a213a4299d47a0884dccdd67f03b5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document__wrappers_8h_a9330b30e5cd7ad5962450a82ac56ec89}\label{ack__core__document__wrappers_8h_a9330b30e5cd7ad5962450a82ac56ec89}} 
+\index{ack\_core\_document\_wrappers.h@{ack\_core\_document\_wrappers.h}!CreateEventDocument@{CreateEventDocument}}
+\index{CreateEventDocument@{CreateEventDocument}!ack\_core\_document\_wrappers.h@{ack\_core\_document\_wrappers.h}}
+\doxysubsubsection{\texorpdfstring{CreateEventDocument()}{CreateEventDocument()}}
+{\footnotesize\ttfamily bool Create\+Event\+Document (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__generated__ack_8h_a61c4574433cc1a7fb91919f1257d2992}{ack\+\_\+namespace}}}]{event\+Namespace,  }\item[{unsigned}]{event\+Name,  }\item[{unsigned}]{flags }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document__wrappers_8h_a9330b30e5cd7ad5962450a82ac56ec89_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document__wrappers_8h_a9330b30e5cd7ad5962450a82ac56ec89_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ack__core__document__wrappers_8h_a374b548c9480f4436d78db9b18a639a6}\label{ack__core__document__wrappers_8h_a374b548c9480f4436d78db9b18a639a6}} 
+\index{ack\_core\_document\_wrappers.h@{ack\_core\_document\_wrappers.h}!g\_eventDocument@{g\_eventDocument}}
+\index{g\_eventDocument@{g\_eventDocument}!ack\_core\_document\_wrappers.h@{ack\_core\_document\_wrappers.h}}
+\doxysubsubsection{\texorpdfstring{g\_eventDocument}{g\_eventDocument}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__core__document__wrappers_8h_a4f71d25b0d23beaaf7ce8b0724f9a1fd}{ACKEvent\+Document\+\_\+t}} g\+\_\+event\+Document\hspace{0.3cm}{\ttfamily [extern]}}
+

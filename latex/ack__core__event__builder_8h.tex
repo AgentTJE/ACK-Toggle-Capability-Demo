@@ -1,0 +1,172 @@
+\hypertarget{ack__core__event__builder_8h}{}\doxysection{src/ack\+\_\+core\+\_\+event\+\_\+builder.h File Reference}
+\label{ack__core__event__builder_8h}\index{src/ack\_core\_event\_builder.h@{src/ack\_core\_event\_builder.h}}
+{\ttfamily \#include \char`\"{}ack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+generated\+\_\+ack.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for ack\+\_\+core\+\_\+event\+\_\+builder.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__event__builder_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__event__builder_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ack__core__event__builder_8h_a8c262e11eef22e03cc73db2f7bfeb0b4}{ACK\+\_\+\+EVENT\+\_\+\+BUILDER\+\_\+\+DIAG}}
+\item 
+\#define \mbox{\hyperlink{ack__core__event__builder_8h_a8467c1e1ba893f141f547ecf966694ef}{EVENT\+\_\+\+FLAGS\+\_\+\+NONE}}~0
+\item 
+\#define \mbox{\hyperlink{ack__core__event__builder_8h_abf7c28885448fcdf16eda85fbe91cf6d}{EVENT\+\_\+\+FLAG\+\_\+\+CAN\+\_\+\+HAVE\+\_\+\+PROPERTIES}}~0x01
+\item 
+\#define \mbox{\hyperlink{ack__core__event__builder_8h_a3bd4155d9312b8267a0240b0693117fd}{EVENT\+\_\+\+FLAG\+\_\+\+CAN\+\_\+\+HAVE\+\_\+\+CHANGE\+\_\+\+REPORT\+\_\+\+PAYLOAD\+\_\+\+PROPERTIES}}~0x02
+\item 
+\#define \mbox{\hyperlink{ack__core__event__builder_8h_a83f75052d9ae01f265c51e11ac8eba07}{EVENT\+\_\+\+FLAG\+\_\+\+NO\+\_\+\+CONTEXT}}~0x04
+\item 
+\#define \mbox{\hyperlink{ack__core__event__builder_8h_a755c3fac610fb662f113c3114a756984}{ACK\+\_\+\+CHECK\+\_\+\+CAN\+\_\+\+ADD\+\_\+\+PROPERTY\+\_\+\+TO\+\_\+\+EVENT}}(b)~\mbox{\hyperlink{ack__core__event__builder_8h_ac714110d30a33e480615c5d3ce3a4c94}{Event\+Builder\+Check\+Can\+Add\+Property}}(b)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{ack__core__event__builder_8h_a1a527884abc1659164b1c2cf231bbc40}{Event\+Builder\+Start}} (int32\+\_\+t correlation\+Id, \mbox{\hyperlink{ack__generated__ack_8h_a61c4574433cc1a7fb91919f1257d2992}{ack\+\_\+namespace}} event\+Namespace, unsigned event\+Name, uint32\+\_\+t instance, unsigned flags)
+\item 
+void \mbox{\hyperlink{ack__core__event__builder_8h_a673a280ae959291b76d817aed824f707}{Event\+Builder\+End}} (void)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__event__builder_8h_a3222f1fb0e26fcd488c2d2d61aeaf816}{Event\+Builder\+Send}} (void)
+\item 
+void \mbox{\hyperlink{ack__core__event__builder_8h_ac714110d30a33e480615c5d3ce3a4c94}{Event\+Builder\+Check\+Can\+Add\+Property}} (bool change\+Report\+Payload\+Property)
+\item 
+bool \mbox{\hyperlink{ack__core__event__builder_8h_ab1061645c39f82af656a30c877b6fd61}{Event\+Builder\+Is\+Event\+Being\+Built}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ack__core__event__builder_8h_a755c3fac610fb662f113c3114a756984}\label{ack__core__event__builder_8h_a755c3fac610fb662f113c3114a756984}} 
+\index{ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}!ACK\_CHECK\_CAN\_ADD\_PROPERTY\_TO\_EVENT@{ACK\_CHECK\_CAN\_ADD\_PROPERTY\_TO\_EVENT}}
+\index{ACK\_CHECK\_CAN\_ADD\_PROPERTY\_TO\_EVENT@{ACK\_CHECK\_CAN\_ADD\_PROPERTY\_TO\_EVENT}!ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_CHECK\_CAN\_ADD\_PROPERTY\_TO\_EVENT}{ACK\_CHECK\_CAN\_ADD\_PROPERTY\_TO\_EVENT}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+CHECK\+\_\+\+CAN\+\_\+\+ADD\+\_\+\+PROPERTY\+\_\+\+TO\+\_\+\+EVENT(\begin{DoxyParamCaption}\item[{}]{b }\end{DoxyParamCaption})~\mbox{\hyperlink{ack__core__event__builder_8h_ac714110d30a33e480615c5d3ce3a4c94}{Event\+Builder\+Check\+Can\+Add\+Property}}(b)}
+
+\mbox{\Hypertarget{ack__core__event__builder_8h_a8c262e11eef22e03cc73db2f7bfeb0b4}\label{ack__core__event__builder_8h_a8c262e11eef22e03cc73db2f7bfeb0b4}} 
+\index{ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}!ACK\_EVENT\_BUILDER\_DIAG@{ACK\_EVENT\_BUILDER\_DIAG}}
+\index{ACK\_EVENT\_BUILDER\_DIAG@{ACK\_EVENT\_BUILDER\_DIAG}!ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_EVENT\_BUILDER\_DIAG}{ACK\_EVENT\_BUILDER\_DIAG}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+EVENT\+\_\+\+BUILDER\+\_\+\+DIAG}
+
+\mbox{\Hypertarget{ack__core__event__builder_8h_a3bd4155d9312b8267a0240b0693117fd}\label{ack__core__event__builder_8h_a3bd4155d9312b8267a0240b0693117fd}} 
+\index{ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}!EVENT\_FLAG\_CAN\_HAVE\_CHANGE\_REPORT\_PAYLOAD\_PROPERTIES@{EVENT\_FLAG\_CAN\_HAVE\_CHANGE\_REPORT\_PAYLOAD\_PROPERTIES}}
+\index{EVENT\_FLAG\_CAN\_HAVE\_CHANGE\_REPORT\_PAYLOAD\_PROPERTIES@{EVENT\_FLAG\_CAN\_HAVE\_CHANGE\_REPORT\_PAYLOAD\_PROPERTIES}!ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}}
+\doxysubsubsection{\texorpdfstring{EVENT\_FLAG\_CAN\_HAVE\_CHANGE\_REPORT\_PAYLOAD\_PROPERTIES}{EVENT\_FLAG\_CAN\_HAVE\_CHANGE\_REPORT\_PAYLOAD\_PROPERTIES}}
+{\footnotesize\ttfamily \#define EVENT\+\_\+\+FLAG\+\_\+\+CAN\+\_\+\+HAVE\+\_\+\+CHANGE\+\_\+\+REPORT\+\_\+\+PAYLOAD\+\_\+\+PROPERTIES~0x02}
+
+\mbox{\Hypertarget{ack__core__event__builder_8h_abf7c28885448fcdf16eda85fbe91cf6d}\label{ack__core__event__builder_8h_abf7c28885448fcdf16eda85fbe91cf6d}} 
+\index{ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}!EVENT\_FLAG\_CAN\_HAVE\_PROPERTIES@{EVENT\_FLAG\_CAN\_HAVE\_PROPERTIES}}
+\index{EVENT\_FLAG\_CAN\_HAVE\_PROPERTIES@{EVENT\_FLAG\_CAN\_HAVE\_PROPERTIES}!ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}}
+\doxysubsubsection{\texorpdfstring{EVENT\_FLAG\_CAN\_HAVE\_PROPERTIES}{EVENT\_FLAG\_CAN\_HAVE\_PROPERTIES}}
+{\footnotesize\ttfamily \#define EVENT\+\_\+\+FLAG\+\_\+\+CAN\+\_\+\+HAVE\+\_\+\+PROPERTIES~0x01}
+
+\mbox{\Hypertarget{ack__core__event__builder_8h_a83f75052d9ae01f265c51e11ac8eba07}\label{ack__core__event__builder_8h_a83f75052d9ae01f265c51e11ac8eba07}} 
+\index{ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}!EVENT\_FLAG\_NO\_CONTEXT@{EVENT\_FLAG\_NO\_CONTEXT}}
+\index{EVENT\_FLAG\_NO\_CONTEXT@{EVENT\_FLAG\_NO\_CONTEXT}!ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}}
+\doxysubsubsection{\texorpdfstring{EVENT\_FLAG\_NO\_CONTEXT}{EVENT\_FLAG\_NO\_CONTEXT}}
+{\footnotesize\ttfamily \#define EVENT\+\_\+\+FLAG\+\_\+\+NO\+\_\+\+CONTEXT~0x04}
+
+\mbox{\Hypertarget{ack__core__event__builder_8h_a8467c1e1ba893f141f547ecf966694ef}\label{ack__core__event__builder_8h_a8467c1e1ba893f141f547ecf966694ef}} 
+\index{ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}!EVENT\_FLAGS\_NONE@{EVENT\_FLAGS\_NONE}}
+\index{EVENT\_FLAGS\_NONE@{EVENT\_FLAGS\_NONE}!ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}}
+\doxysubsubsection{\texorpdfstring{EVENT\_FLAGS\_NONE}{EVENT\_FLAGS\_NONE}}
+{\footnotesize\ttfamily \#define EVENT\+\_\+\+FLAGS\+\_\+\+NONE~0}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__event__builder_8h_ac714110d30a33e480615c5d3ce3a4c94}\label{ack__core__event__builder_8h_ac714110d30a33e480615c5d3ce3a4c94}} 
+\index{ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}!EventBuilderCheckCanAddProperty@{EventBuilderCheckCanAddProperty}}
+\index{EventBuilderCheckCanAddProperty@{EventBuilderCheckCanAddProperty}!ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}}
+\doxysubsubsection{\texorpdfstring{EventBuilderCheckCanAddProperty()}{EventBuilderCheckCanAddProperty()}}
+{\footnotesize\ttfamily void Event\+Builder\+Check\+Can\+Add\+Property (\begin{DoxyParamCaption}\item[{bool}]{change\+Report\+Payload\+Property }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ack__core__event__builder_8h_a673a280ae959291b76d817aed824f707}\label{ack__core__event__builder_8h_a673a280ae959291b76d817aed824f707}} 
+\index{ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}!EventBuilderEnd@{EventBuilderEnd}}
+\index{EventBuilderEnd@{EventBuilderEnd}!ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}}
+\doxysubsubsection{\texorpdfstring{EventBuilderEnd()}{EventBuilderEnd()}}
+{\footnotesize\ttfamily void Event\+Builder\+End (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__event__builder_8h_a673a280ae959291b76d817aed824f707_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__event__builder_8h_a673a280ae959291b76d817aed824f707_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__event__builder_8h_ab1061645c39f82af656a30c877b6fd61}\label{ack__core__event__builder_8h_ab1061645c39f82af656a30c877b6fd61}} 
+\index{ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}!EventBuilderIsEventBeingBuilt@{EventBuilderIsEventBeingBuilt}}
+\index{EventBuilderIsEventBeingBuilt@{EventBuilderIsEventBeingBuilt}!ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}}
+\doxysubsubsection{\texorpdfstring{EventBuilderIsEventBeingBuilt()}{EventBuilderIsEventBeingBuilt()}}
+{\footnotesize\ttfamily bool Event\+Builder\+Is\+Event\+Being\+Built (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__event__builder_8h_ab1061645c39f82af656a30c877b6fd61_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__event__builder_8h_a3222f1fb0e26fcd488c2d2d61aeaf816}\label{ack__core__event__builder_8h_a3222f1fb0e26fcd488c2d2d61aeaf816}} 
+\index{ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}!EventBuilderSend@{EventBuilderSend}}
+\index{EventBuilderSend@{EventBuilderSend}!ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}}
+\doxysubsubsection{\texorpdfstring{EventBuilderSend()}{EventBuilderSend()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Event\+Builder\+Send (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__event__builder_8h_a3222f1fb0e26fcd488c2d2d61aeaf816_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__event__builder_8h_a3222f1fb0e26fcd488c2d2d61aeaf816_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__event__builder_8h_a1a527884abc1659164b1c2cf231bbc40}\label{ack__core__event__builder_8h_a1a527884abc1659164b1c2cf231bbc40}} 
+\index{ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}!EventBuilderStart@{EventBuilderStart}}
+\index{EventBuilderStart@{EventBuilderStart}!ack\_core\_event\_builder.h@{ack\_core\_event\_builder.h}}
+\doxysubsubsection{\texorpdfstring{EventBuilderStart()}{EventBuilderStart()}}
+{\footnotesize\ttfamily bool Event\+Builder\+Start (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id,  }\item[{\mbox{\hyperlink{ack__generated__ack_8h_a61c4574433cc1a7fb91919f1257d2992}{ack\+\_\+namespace}}}]{event\+Namespace,  }\item[{unsigned}]{event\+Name,  }\item[{uint32\+\_\+t}]{instance,  }\item[{unsigned}]{flags }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__event__builder_8h_a1a527884abc1659164b1c2cf231bbc40_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__event__builder_8h_a1a527884abc1659164b1c2cf231bbc40_icgraph}
+\end{center}
+\end{figure}

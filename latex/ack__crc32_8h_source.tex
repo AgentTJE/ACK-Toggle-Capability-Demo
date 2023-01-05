@@ -1,0 +1,42 @@
+\hypertarget{ack__crc32_8h_source}{}\doxysection{ack\+\_\+crc32.\+h}
+\label{ack__crc32_8h_source}\index{src/ack\_crc32.h@{src/ack\_crc32.h}}
+\mbox{\hyperlink{ack__crc32_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ *}}
+\DoxyCodeLine{9 \textcolor{comment}{ * Adapted from code with original copyright notice:}}
+\DoxyCodeLine{10 \textcolor{comment}{ *  Copyright (c) 2013 Christopher Baker <https://christopherbaker.net>}}
+\DoxyCodeLine{11 \textcolor{comment}{ *  SPDX-\/License-\/Identifier: MIT}}
+\DoxyCodeLine{12 \textcolor{comment}{ */}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{comment}{/*}}
+\DoxyCodeLine{15 \textcolor{comment}{    Reference implementation of CRC32 algorithm that matches the one in the Alexa Connect Kit}}
+\DoxyCodeLine{16 \textcolor{comment}{    connectivity module.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef \_\_ACK\_CRC32\_H\_\_}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define \_\_ACK\_CRC32\_H\_\_}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{26 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{31 uint32\_t \mbox{\hyperlink{ack__crc32_8h_a47cfd19f90134298ba2426ab819e7055}{ACK\_CalculateCrc32}}(\textcolor{keyword}{const} \textcolor{keywordtype}{void}* pData, \textcolor{keywordtype}{size\_t} length);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{34 \}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_CRC32\_H\_\_}}
+
+\end{DoxyCode}

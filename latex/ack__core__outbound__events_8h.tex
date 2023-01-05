@@ -1,0 +1,119 @@
+\hypertarget{ack__core__outbound__events_8h}{}\doxysection{src/ack\+\_\+core\+\_\+outbound\+\_\+events.h File Reference}
+\label{ack__core__outbound__events_8h}\index{src/ack\_core\_outbound\_events.h@{src/ack\_core\_outbound\_events.h}}
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for ack\+\_\+core\+\_\+outbound\+\_\+events.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__outbound__events_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__outbound__events_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t}{\+\_\+\+ACKOutbound\+Event\+Info\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t}{\+\_\+\+ACKOutbound\+Event\+Info\+\_\+t}} \mbox{\hyperlink{ack__core__outbound__events_8h_a27dcaa653a74005988ff6e8c94b7c630}{ACKOutbound\+Event\+Info\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__outbound__events_8h_aa66a72c34a94cb641e98c2b300875f93}{Outbound\+Event\+Send}} (void)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__outbound__events_8h_a6b061193ae56ac24834eaab60f7cd3a0}{Outbound\+Event\+Send\+If\+Not\+Processing\+Inbound\+Event}} (void)
+\item 
+void \mbox{\hyperlink{ack__core__outbound__events_8h_af4bed6dd7bc5e5cee87d47c99ccdb27b}{Outbound\+Event\+Reset}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ack__core__outbound__events_8h_a27dcaa653a74005988ff6e8c94b7c630}{ACKOutbound\+Event\+Info\+\_\+t}} \mbox{\hyperlink{ack__core__outbound__events_8h_a2fdeeedccb95f0fc6c7ba371f6e413a8}{g\+\_\+pending\+Outbound\+Event}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ack__core__outbound__events_8h_a27dcaa653a74005988ff6e8c94b7c630}\label{ack__core__outbound__events_8h_a27dcaa653a74005988ff6e8c94b7c630}} 
+\index{ack\_core\_outbound\_events.h@{ack\_core\_outbound\_events.h}!ACKOutboundEventInfo\_t@{ACKOutboundEventInfo\_t}}
+\index{ACKOutboundEventInfo\_t@{ACKOutboundEventInfo\_t}!ack\_core\_outbound\_events.h@{ack\_core\_outbound\_events.h}}
+\doxysubsubsection{\texorpdfstring{ACKOutboundEventInfo\_t}{ACKOutboundEventInfo\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t}{\+\_\+\+ACKOutbound\+Event\+Info\+\_\+t}} \mbox{\hyperlink{ack__core__outbound__events_8h_a27dcaa653a74005988ff6e8c94b7c630}{ACKOutbound\+Event\+Info\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__outbound__events_8h_af4bed6dd7bc5e5cee87d47c99ccdb27b}\label{ack__core__outbound__events_8h_af4bed6dd7bc5e5cee87d47c99ccdb27b}} 
+\index{ack\_core\_outbound\_events.h@{ack\_core\_outbound\_events.h}!OutboundEventReset@{OutboundEventReset}}
+\index{OutboundEventReset@{OutboundEventReset}!ack\_core\_outbound\_events.h@{ack\_core\_outbound\_events.h}}
+\doxysubsubsection{\texorpdfstring{OutboundEventReset()}{OutboundEventReset()}}
+{\footnotesize\ttfamily void Outbound\+Event\+Reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__outbound__events_8h_af4bed6dd7bc5e5cee87d47c99ccdb27b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__outbound__events_8h_aa66a72c34a94cb641e98c2b300875f93}\label{ack__core__outbound__events_8h_aa66a72c34a94cb641e98c2b300875f93}} 
+\index{ack\_core\_outbound\_events.h@{ack\_core\_outbound\_events.h}!OutboundEventSend@{OutboundEventSend}}
+\index{OutboundEventSend@{OutboundEventSend}!ack\_core\_outbound\_events.h@{ack\_core\_outbound\_events.h}}
+\doxysubsubsection{\texorpdfstring{OutboundEventSend()}{OutboundEventSend()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Outbound\+Event\+Send (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__outbound__events_8h_aa66a72c34a94cb641e98c2b300875f93_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__outbound__events_8h_aa66a72c34a94cb641e98c2b300875f93_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__outbound__events_8h_a6b061193ae56ac24834eaab60f7cd3a0}\label{ack__core__outbound__events_8h_a6b061193ae56ac24834eaab60f7cd3a0}} 
+\index{ack\_core\_outbound\_events.h@{ack\_core\_outbound\_events.h}!OutboundEventSendIfNotProcessingInboundEvent@{OutboundEventSendIfNotProcessingInboundEvent}}
+\index{OutboundEventSendIfNotProcessingInboundEvent@{OutboundEventSendIfNotProcessingInboundEvent}!ack\_core\_outbound\_events.h@{ack\_core\_outbound\_events.h}}
+\doxysubsubsection{\texorpdfstring{OutboundEventSendIfNotProcessingInboundEvent()}{OutboundEventSendIfNotProcessingInboundEvent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Outbound\+Event\+Send\+If\+Not\+Processing\+Inbound\+Event (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__outbound__events_8h_a6b061193ae56ac24834eaab60f7cd3a0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__outbound__events_8h_a6b061193ae56ac24834eaab60f7cd3a0_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ack__core__outbound__events_8h_a2fdeeedccb95f0fc6c7ba371f6e413a8}\label{ack__core__outbound__events_8h_a2fdeeedccb95f0fc6c7ba371f6e413a8}} 
+\index{ack\_core\_outbound\_events.h@{ack\_core\_outbound\_events.h}!g\_pendingOutboundEvent@{g\_pendingOutboundEvent}}
+\index{g\_pendingOutboundEvent@{g\_pendingOutboundEvent}!ack\_core\_outbound\_events.h@{ack\_core\_outbound\_events.h}}
+\doxysubsubsection{\texorpdfstring{g\_pendingOutboundEvent}{g\_pendingOutboundEvent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__core__outbound__events_8h_a27dcaa653a74005988ff6e8c94b7c630}{ACKOutbound\+Event\+Info\+\_\+t}} g\+\_\+pending\+Outbound\+Event\hspace{0.3cm}{\ttfamily [extern]}}
+

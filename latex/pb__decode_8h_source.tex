@@ -1,0 +1,181 @@
+\hypertarget{pb__decode_8h_source}{}\doxysection{pb\+\_\+decode.\+h}
+\label{pb__decode_8h_source}\index{src/pb\_decode.h@{src/pb\_decode.h}}
+\mbox{\hyperlink{pb__decode_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* pb\_decode.h: Functions to decode protocol buffers. Depends on pb\_decode.c.}}
+\DoxyCodeLine{2 \textcolor{comment}{ * The main function is pb\_decode. You also need an input stream, and the}}
+\DoxyCodeLine{3 \textcolor{comment}{ * field descriptions created by nanopb\_generator.py.}}
+\DoxyCodeLine{4 \textcolor{comment}{ */}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifndef PB\_DECODE\_H\_INCLUDED}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define PB\_DECODE\_H\_INCLUDED}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{pb_8h}{pb.h}}"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{12 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{comment}{/* Structure for defining custom input streams. You will need to provide}}
+\DoxyCodeLine{16 \textcolor{comment}{ * a callback function to read the bytes from your storage, which can be}}
+\DoxyCodeLine{17 \textcolor{comment}{ * for example a file or a network socket.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * }}
+\DoxyCodeLine{19 \textcolor{comment}{ * The callback must conform to these rules:}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * 1) Return false on IO errors. This will cause decoding to abort.}}
+\DoxyCodeLine{22 \textcolor{comment}{ * 2) You can use state to store your own data (e.g. buffer pointer),}}
+\DoxyCodeLine{23 \textcolor{comment}{ *    and rely on pb\_read to verify that no-\/body reads past bytes\_left.}}
+\DoxyCodeLine{24 \textcolor{comment}{ * 3) Your callback may be used with substreams, in which case bytes\_left}}
+\DoxyCodeLine{25 \textcolor{comment}{ *    is different than from the main stream. Don't use bytes\_left to compute}}
+\DoxyCodeLine{26 \textcolor{comment}{ *    any pointers.}}
+\DoxyCodeLine{27 \textcolor{comment}{ */}}
+\DoxyCodeLine{28 \textcolor{keyword}{struct }\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_s}}}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#ifdef PB\_BUFFER\_ONLY}}
+\DoxyCodeLine{31     \textcolor{comment}{/* Callback pointer is not used in buffer-\/only configuration.}}
+\DoxyCodeLine{32 \textcolor{comment}{     * Having an int pointer here allows binary compatibility but}}
+\DoxyCodeLine{33 \textcolor{comment}{     * gives an error if someone tries to assign callback function.}}
+\DoxyCodeLine{34 \textcolor{comment}{     */}}
+\DoxyCodeLine{35     \textcolor{keywordtype}{int} *\mbox{\hyperlink{structpb__istream__s_a32c77508131426d0a2d19b78952fb685}{callback}};}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{37     bool (*\mbox{\hyperlink{structpb__istream__s_a32c77508131426d0a2d19b78952fb685}{callback}})(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, \mbox{\hyperlink{pb_8h_a25ed6987f3543891dbf205fadc10ba2c}{pb\_byte\_t}} *buf, \textcolor{keywordtype}{size\_t} count);}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} *\mbox{\hyperlink{structpb__istream__s_ac9e2181ccbca361887765f7406c08940}{state}}; \textcolor{comment}{/* Free field for use by callback implementation */}}
+\DoxyCodeLine{41     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{structpb__istream__s_acdb9134fbabfa10f4517beaff2837890}{bytes\_left}};}
+\DoxyCodeLine{42     }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#ifndef PB\_NO\_ERRMSG}}
+\DoxyCodeLine{44     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{structpb__istream__s_a9d5f07edcc07cffa2dd8574368a176af}{errmsg}};}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{46 \};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{comment}{/***************************}}
+\DoxyCodeLine{49 \textcolor{comment}{ * Main decoding functions *}}
+\DoxyCodeLine{50 \textcolor{comment}{ ***************************/}}
+\DoxyCodeLine{51  }
+\DoxyCodeLine{52 \textcolor{comment}{/* Decode a single protocol buffers message from input stream into a C structure.}}
+\DoxyCodeLine{53 \textcolor{comment}{ * Returns true on success, false on any failure.}}
+\DoxyCodeLine{54 \textcolor{comment}{ * The actual struct pointed to by dest must match the description in fields.}}
+\DoxyCodeLine{55 \textcolor{comment}{ * Callback fields of the destination structure must be initialized by caller.}}
+\DoxyCodeLine{56 \textcolor{comment}{ * All other fields will be initialized by this function.}}
+\DoxyCodeLine{57 \textcolor{comment}{ *}}
+\DoxyCodeLine{58 \textcolor{comment}{ * Example usage:}}
+\DoxyCodeLine{59 \textcolor{comment}{ *    MyMessage msg = \{\};}}
+\DoxyCodeLine{60 \textcolor{comment}{ *    uint8\_t buffer[64];}}
+\DoxyCodeLine{61 \textcolor{comment}{ *    pb\_istream\_t stream;}}
+\DoxyCodeLine{62 \textcolor{comment}{ *    }}
+\DoxyCodeLine{63 \textcolor{comment}{ *    // ... read some data into buffer ...}}
+\DoxyCodeLine{64 \textcolor{comment}{ *}}
+\DoxyCodeLine{65 \textcolor{comment}{ *    stream = pb\_istream\_from\_buffer(buffer, count);}}
+\DoxyCodeLine{66 \textcolor{comment}{ *    pb\_decode(\&stream, MyMessage\_fields, \&msg);}}
+\DoxyCodeLine{67 \textcolor{comment}{ */}}
+\DoxyCodeLine{68 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__decode_8h_a1c12cc60dcb3f54e92aa5da711c1bf1f}{pb\_decode}}(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}} fields[], \textcolor{keywordtype}{void} *dest\_struct);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{comment}{/* Same as pb\_decode, except does not initialize the destination structure}}
+\DoxyCodeLine{71 \textcolor{comment}{ * to default values. This is slightly faster if you need no default values}}
+\DoxyCodeLine{72 \textcolor{comment}{ * and just do memset(struct, 0, sizeof(struct)) yourself.}}
+\DoxyCodeLine{73 \textcolor{comment}{ *}}
+\DoxyCodeLine{74 \textcolor{comment}{ * This can also be used for 'merging' two messages, i.e. update only the}}
+\DoxyCodeLine{75 \textcolor{comment}{ * fields that exist in the new message.}}
+\DoxyCodeLine{76 \textcolor{comment}{ *}}
+\DoxyCodeLine{77 \textcolor{comment}{ * Note: If this function returns with an error, it will not release any}}
+\DoxyCodeLine{78 \textcolor{comment}{ * dynamically allocated fields. You will need to call pb\_release() yourself.}}
+\DoxyCodeLine{79 \textcolor{comment}{ */}}
+\DoxyCodeLine{80 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__decode_8h_ac5cc3947451089ca8594663a3913cec2}{pb\_decode\_noinit}}(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}} fields[], \textcolor{keywordtype}{void} *dest\_struct);}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{comment}{/* Same as pb\_decode, except expects the stream to start with the message size}}
+\DoxyCodeLine{83 \textcolor{comment}{ * encoded as varint. Corresponds to parseDelimitedFrom() in Google's}}
+\DoxyCodeLine{84 \textcolor{comment}{ * protobuf API.}}
+\DoxyCodeLine{85 \textcolor{comment}{ */}}
+\DoxyCodeLine{86 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__decode_8h_a7c030d7dee687e354a62a72d45dca39b}{pb\_decode\_delimited}}(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}} fields[], \textcolor{keywordtype}{void} *dest\_struct);}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{comment}{/* Same as pb\_decode\_delimited, except that it does not initialize the destination structure.}}
+\DoxyCodeLine{89 \textcolor{comment}{ * See pb\_decode\_noinit}}
+\DoxyCodeLine{90 \textcolor{comment}{ */}}
+\DoxyCodeLine{91 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__decode_8h_a4e16612cc85ed43e7c62f2766ecf132f}{pb\_decode\_delimited\_noinit}}(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}} fields[], \textcolor{keywordtype}{void} *dest\_struct);}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{comment}{/* Same as pb\_decode, except allows the message to be terminated with a null byte.}}
+\DoxyCodeLine{94 \textcolor{comment}{ * NOTE: Until nanopb-\/0.4.0, pb\_decode() also allows null-\/termination. This behaviour}}
+\DoxyCodeLine{95 \textcolor{comment}{ * is not supported in most other protobuf implementations, so pb\_decode\_delimited()}}
+\DoxyCodeLine{96 \textcolor{comment}{ * is a better option for compatibility.}}
+\DoxyCodeLine{97 \textcolor{comment}{ */}}
+\DoxyCodeLine{98 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__decode_8h_a9e1a55d9902cbc0c79594651bbff3bfd}{pb\_decode\_nullterminated}}(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}} fields[], \textcolor{keywordtype}{void} *dest\_struct);}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#ifdef PB\_ENABLE\_MALLOC}}
+\DoxyCodeLine{101 \textcolor{comment}{/* Release any allocated pointer fields. If you use dynamic allocation, you should}}
+\DoxyCodeLine{102 \textcolor{comment}{ * call this for any successfully decoded message when you are done with it. If}}
+\DoxyCodeLine{103 \textcolor{comment}{ * pb\_decode() returns with an error, the message is already released.}}
+\DoxyCodeLine{104 \textcolor{comment}{ */}}
+\DoxyCodeLine{105 \textcolor{keywordtype}{void} pb\_release(\textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}} fields[], \textcolor{keywordtype}{void} *dest\_struct);}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{comment}{/**************************************}}
+\DoxyCodeLine{110 \textcolor{comment}{ * Functions for manipulating streams *}}
+\DoxyCodeLine{111 \textcolor{comment}{ **************************************/}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{comment}{/* Create an input stream for reading from a memory buffer.}}
+\DoxyCodeLine{114 \textcolor{comment}{ *}}
+\DoxyCodeLine{115 \textcolor{comment}{ * Alternatively, you can use a custom stream that reads directly from e.g.}}
+\DoxyCodeLine{116 \textcolor{comment}{ * a file or a network socket.}}
+\DoxyCodeLine{117 \textcolor{comment}{ */}}
+\DoxyCodeLine{118 \mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} \mbox{\hyperlink{pb__decode_8h_aa2f1648fa736205118f5603625f08021}{pb\_istream\_from\_buffer}}(\textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_a25ed6987f3543891dbf205fadc10ba2c}{pb\_byte\_t}} *buf, \textcolor{keywordtype}{size\_t} bufsize);}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 \textcolor{comment}{/* Function to read from a pb\_istream\_t. You can use this if you need to}}
+\DoxyCodeLine{121 \textcolor{comment}{ * read some custom header data, or to read data in field callbacks.}}
+\DoxyCodeLine{122 \textcolor{comment}{ */}}
+\DoxyCodeLine{123 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__decode_8h_a0541a98c9e081db3b9cde63267a3e1d8}{pb\_read}}(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, \mbox{\hyperlink{pb_8h_a25ed6987f3543891dbf205fadc10ba2c}{pb\_byte\_t}} *buf, \textcolor{keywordtype}{size\_t} count);}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 \textcolor{comment}{/************************************************}}
+\DoxyCodeLine{127 \textcolor{comment}{ * Helper functions for writing field callbacks *}}
+\DoxyCodeLine{128 \textcolor{comment}{ ************************************************/}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \textcolor{comment}{/* Decode the tag for the next field in the stream. Gives the wire type and}}
+\DoxyCodeLine{131 \textcolor{comment}{ * field tag. At end of the message, returns false and sets eof to true. */}}
+\DoxyCodeLine{132 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__decode_8h_ac874f32d9d2014ff109c48a19c9ab65a}{pb\_decode\_tag}}(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, \mbox{\hyperlink{pb_8h_ac815846d88d0f550fe93ea99096430bf}{pb\_wire\_type\_t}} *wire\_type, uint32\_t *tag, \textcolor{keywordtype}{bool} *eof);}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{comment}{/* Skip the field payload data, given the wire type. */}}
+\DoxyCodeLine{135 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__decode_8h_a552905c162dd763c284aacd22baff6ec}{pb\_skip\_field}}(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, \mbox{\hyperlink{pb_8h_ac815846d88d0f550fe93ea99096430bf}{pb\_wire\_type\_t}} wire\_type);}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137 \textcolor{comment}{/* Decode an integer in the varint format. This works for bool, enum, int32,}}
+\DoxyCodeLine{138 \textcolor{comment}{ * int64, uint32 and uint64 field types. */}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#ifndef PB\_WITHOUT\_64BIT}}
+\DoxyCodeLine{140 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__decode_8h_a062d95bed58072d4d3bbb63dd2d3d01d}{pb\_decode\_varint}}(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, uint64\_t *dest);}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#define pb\_decode\_varint pb\_decode\_varint32}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{comment}{/* Decode an integer in the varint format. This works for bool, enum, int32,}}
+\DoxyCodeLine{146 \textcolor{comment}{ * and uint32 field types. */}}
+\DoxyCodeLine{147 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__decode_8h_a4947e39bdcdd392449090df9c8529902}{pb\_decode\_varint32}}(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, uint32\_t *dest);}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 \textcolor{comment}{/* Decode an integer in the zig-\/zagged svarint format. This works for sint32}}
+\DoxyCodeLine{150 \textcolor{comment}{ * and sint64. */}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#ifndef PB\_WITHOUT\_64BIT}}
+\DoxyCodeLine{152 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__decode_8h_ac65955bdfa42d9b5652c82121c7da00f}{pb\_decode\_svarint}}(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, int64\_t *dest);}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{154 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__decode_8h_ac65955bdfa42d9b5652c82121c7da00f}{pb\_decode\_svarint}}(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, int32\_t *dest);}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 \textcolor{comment}{/* Decode a fixed32, sfixed32 or float value. You need to pass a pointer to}}
+\DoxyCodeLine{158 \textcolor{comment}{ * a 4-\/byte wide C variable. */}}
+\DoxyCodeLine{159 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__decode_8h_a314808b2293f16165a056be4f3dc28d6}{pb\_decode\_fixed32}}(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, \textcolor{keywordtype}{void} *dest);}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#ifndef PB\_WITHOUT\_64BIT}}
+\DoxyCodeLine{162 \textcolor{comment}{/* Decode a fixed64, sfixed64 or double value. You need to pass a pointer to}}
+\DoxyCodeLine{163 \textcolor{comment}{ * a 8-\/byte wide C variable. */}}
+\DoxyCodeLine{164 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__decode_8h_abdd5881d0bc42df1a78d46f487065681}{pb\_decode\_fixed64}}(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, \textcolor{keywordtype}{void} *dest);}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167 \textcolor{comment}{/* Make a limited-\/length substream for reading a PB\_WT\_STRING field. */}}
+\DoxyCodeLine{168 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__decode_8h_a52a4c2e011aeb9196a9388bf9613d936}{pb\_make\_string\_substream}}(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, \mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *substream);}
+\DoxyCodeLine{169 \textcolor{keywordtype}{bool} \mbox{\hyperlink{pb__decode_8h_ab13897d91499d895bfb2752f7e2b540f}{pb\_close\_string\_substream}}(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, \mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *substream);}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{172 \} \textcolor{comment}{/* extern "{}C"{} */}}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

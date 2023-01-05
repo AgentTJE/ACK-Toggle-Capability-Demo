@@ -1,0 +1,54 @@
+\hypertarget{ack__core__validation_8h_source}{}\doxysection{ack\+\_\+core\+\_\+validation.\+h}
+\label{ack__core__validation_8h_source}\index{src/ack\_core\_validation.h@{src/ack\_core\_validation.h}}
+\mbox{\hyperlink{ack__core__validation_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_CORE\_VALIDATION\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_CORE\_VALIDATION\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{comment}{// These must match the values in the ACK module simulator Python script(s).}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define ACK\_MARKER\_LIFECYCLE\_STATE "{}LIFECYCLE-\/STATE"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define ACK\_MARKER\_PROTOCOL\_ERROR "{}PROTOCOL-\/ERROR"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define ACK\_MARKER\_READ\_OTA\_CHUNK\_ERROR "{}OTA-\/CHUNK-\/ERROR"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define ACK\_MARKER\_READ\_OTA\_CHUNK\_SUCCESS "{}OTA-\/CHUNK-\/DOWNLOADED"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define ACK\_MARKER\_OTA\_COMPLETE "{}OTA-\/COMPLETE"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define ACK\_MARKER\_OTA\_RESTART\_DEVICE "{}OTA-\/RESTART"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#ifdef ACK\_VALIDATION}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{26 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{comment}{// NULL terminates the list.}}
+\DoxyCodeLine{31 \textcolor{keywordtype}{void} ValidationSendMarker(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* pName, ...);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{comment}{// There has to be at least one string, to terminate an empty list.}}
+\DoxyCodeLine{34 \textcolor{comment}{// Don't use \#\#\_\_VA\_ARGS\_\_ because that strips the comma ahead of an empty list, potentially hiding}}
+\DoxyCodeLine{35 \textcolor{comment}{// a bug if someone forgets to put in a NULL.}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define VALIDATION\_SEND\_MARKER(name, ...) ValidationSendMarker(name, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{39 \}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#else }\textcolor{comment}{// ndef ACK\_VALIDATION}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define VALIDATION\_SEND\_MARKER(name, ...)}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def ACK\_VALIDATION}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ndef \_\_ACK\_CORE\_VALIDATION\_H\_\_}}
+
+\end{DoxyCode}

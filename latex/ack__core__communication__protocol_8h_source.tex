@@ -1,0 +1,118 @@
+\hypertarget{ack__core__communication__protocol_8h_source}{}\doxysection{ack\+\_\+core\+\_\+communication\+\_\+protocol.\+h}
+\label{ack__core__communication__protocol_8h_source}\index{src/ack\_core\_communication\_protocol.h@{src/ack\_core\_communication\_protocol.h}}
+\mbox{\hyperlink{ack__core__communication__protocol_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_COMMUNICATION\_PROTOCOL\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_COMMUNICATION\_PROTOCOL\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{comment}{// Compiler-\/independent means of expressing structure packing.}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#if defined(\_MSC\_VER)}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define BEGIN\_PACKED\_STRUCT \_\_pragma(pack(push, 1))}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define END\_PACKED\_STRUCT \_\_pragma(pack(pop))}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define PACKED\_STRUCT1}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define PACKED\_STRUCT2}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#elif defined(\_\_GNUC\_\_) || defined(\_\_clang\_\_)}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define BEGIN\_PACKED\_STRUCT}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define END\_PACKED\_STRUCT}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define PACKED\_STRUCT1 \_\_attribute\_\_((packed))}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define PACKED\_STRUCT2}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#elif defined(\_\_CC\_ARM)}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define BEGIN\_PACKED\_STRUCT}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define END\_PACKED\_STRUCT}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define PACKED\_STRUCT1}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define PACKED\_STRUCT2 \_\_packed}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#error Unknown compiler; structure packing not configured}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{37 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{38 \{}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{comment}{// This will be bumped when the contents of this file are changed}}
+\DoxyCodeLine{42 \textcolor{comment}{// or when there's changes in the communication sequence}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define ACP\_PROTOCOL\_MAJOR\_VERSION  1}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define ACP\_PROTOCOL\_MINOR\_VERSION  0}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define ACP\_REQUEST\_HDR\_BYTES   \{'\string~', 0xD4, '*', 0x94, 'J'\}}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define ACP\_REQUEST\_HDR\_LEN 5}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58}{\_AcpValue\_t}}}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51     \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58ad0e82025d1d7818215e7d91c9c4765b5}{ACK\_ACP\_NO\_ERROR}} = 0,}
+\DoxyCodeLine{52     \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58a8990415afa2567c3f5e6947ad5c98b41}{ACK\_ACP\_DECODE\_ERROR}} = 1,}
+\DoxyCodeLine{53     \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58aadc29f7b6b7eb2e9cfa8188816d40183}{ACK\_ACP\_ENCODE\_ERROR}} = 2,}
+\DoxyCodeLine{54     \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58a218b2196e063ef67f2be1162ba988d87}{ACK\_ACP\_NO\_PENDING\_EVENT}} = 3,}
+\DoxyCodeLine{55     \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58aa5e8aee7ddc5c2ab21b1a0f7b0ef9026}{ACK\_ACP\_EXCEEDED\_MAX\_MESSAGE\_SIZE}} = 4,}
+\DoxyCodeLine{56     \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58ae3b5c1a07520a2d7591435c3d89a31ea}{ACK\_ACP\_NO\_RESPONSE}} = 5,}
+\DoxyCodeLine{57     \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58a2272a05718bdb56baee03665393fd823}{ACK\_ACP\_INVALID\_REQUEST}} = 6,}
+\DoxyCodeLine{58     \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58a5bcaf9f74b4e9ba68032088073225de2}{ACK\_ACP\_INVALID\_CHECKSUM}} = 7,}
+\DoxyCodeLine{59     \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58affa87b190b631de1bad6a0613eb0f4cd}{ACK\_ACP\_INTERNAL\_ERROR}} = 8}
+\DoxyCodeLine{60 \}}
+\DoxyCodeLine{61 \mbox{\hyperlink{ack__core__communication__protocol_8h_a7645091dcac4af8fb45c519565014f0a}{AcpValue\_t}};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \mbox{\hyperlink{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5f}{\_AcpRequestType\_t}}}
+\DoxyCodeLine{64 \{}
+\DoxyCodeLine{65     \mbox{\hyperlink{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5faad38e4d13b0742c5dab9c5dbb5f4c0d4}{ACP\_REQUEST\_WRITE\_CMD}},}
+\DoxyCodeLine{66     \mbox{\hyperlink{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5fa4881e4c8f8674c6b071b23b098a85f3e}{ACP\_REQUEST\_READ\_RESPONSE\_HEADER}},}
+\DoxyCodeLine{67     \mbox{\hyperlink{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5faaf83f69a712908e5b50973f2a2c3638b}{ACP\_REQUEST\_READ\_RESPONSE\_BODY}}}
+\DoxyCodeLine{68 \}}
+\DoxyCodeLine{69 \mbox{\hyperlink{ack__core__communication__protocol_8h_a6fcc29395dd32c2a6acac6d165ceed31}{AcpRequestType\_t}};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 BEGIN\_PACKED\_STRUCT}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{keyword}{typedef} PACKED\_STRUCT2 \textcolor{keyword}{struct }\mbox{\hyperlink{struct___acp_request__t}{\_AcpRequest\_t}}}
+\DoxyCodeLine{74 \{}
+\DoxyCodeLine{75     uint8\_t \mbox{\hyperlink{struct___acp_request__t_a0440321d84d03fb9a8729659af21b471}{Header}}[\mbox{\hyperlink{ack__core__communication__protocol_8h_a8c0c71b52362f6c4ea9c151eaebaf959}{ACP\_REQUEST\_HDR\_LEN}}];}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{comment}{// Version[0] major \#, Version[1] minor \#}}
+\DoxyCodeLine{78     uint8\_t \mbox{\hyperlink{struct___acp_request__t_a87a03860be8bc2d84a6ef360a964f764}{Version}}[2];}
+\DoxyCodeLine{79     uint8\_t \mbox{\hyperlink{struct___acp_request__t_a32528cbeb50acdd269018dbf989dc381}{Type}};}
+\DoxyCodeLine{80     uint16\_t \mbox{\hyperlink{struct___acp_request__t_ae0e75c8289fcc6a10361bd97025e625f}{Length}};}
+\DoxyCodeLine{81     uint16\_t \mbox{\hyperlink{struct___acp_request__t_aabb1a38e3edc00b1f5f8fde124f67153}{Offset}};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83      \textcolor{comment}{// A 32bit CRC checksum over the payload of the request.}}
+\DoxyCodeLine{84     uint32\_t \mbox{\hyperlink{struct___acp_request__t_a77a7f3c4f2429183da8db2ddebf2b456}{Crc32}};}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     uint8\_t \mbox{\hyperlink{struct___acp_request__t_a0c39ab97d5edebb528da8ac1edffb492}{Reserved}}[8];}
+\DoxyCodeLine{87 \}}
+\DoxyCodeLine{88 PACKED\_STRUCT1 \mbox{\hyperlink{ack__core__communication__protocol_8h_a644888b8774c10acbec8f7a668f602da}{AcpRequest\_t}};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{keyword}{typedef} PACKED\_STRUCT2 \textcolor{keyword}{struct }\mbox{\hyperlink{struct___acp_ack__t}{\_AcpAck\_t}}}
+\DoxyCodeLine{91 \{}
+\DoxyCodeLine{92     uint8\_t \mbox{\hyperlink{struct___acp_ack__t_a716b70b60e794f003badc28c7ca80051}{Value}};}
+\DoxyCodeLine{93     uint8\_t \mbox{\hyperlink{struct___acp_ack__t_a1fa9989200f15612be6d9ce3a3d1a428}{Version}}[2];}
+\DoxyCodeLine{94     uint8\_t \mbox{\hyperlink{struct___acp_ack__t_a14f0d00681f220d6da4bdeda4469b958}{Reserved}}[5];}
+\DoxyCodeLine{95 \}}
+\DoxyCodeLine{96 PACKED\_STRUCT1 \mbox{\hyperlink{ack__core__communication__protocol_8h_ab7c7e7c35041c83f1832502979f8a6e3}{AcpAck\_t}};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{keyword}{typedef} PACKED\_STRUCT2 \textcolor{keyword}{struct }\mbox{\hyperlink{struct___acp_response_header__t}{\_AcpResponseHeader\_t}}}
+\DoxyCodeLine{99 \{}
+\DoxyCodeLine{100     uint16\_t \mbox{\hyperlink{struct___acp_response_header__t_a67bb854d69783b3d4825351e0549c619}{Length}};}
+\DoxyCodeLine{101     uint32\_t \mbox{\hyperlink{struct___acp_response_header__t_a233e9fabe20956f91911cefa24204275}{Crc32}}; \textcolor{comment}{// A 32bit CRC checksum over the payload of the response}}
+\DoxyCodeLine{102     uint8\_t \mbox{\hyperlink{struct___acp_response_header__t_a0f5d16f79cade718ba03f129c4e1f35e}{Reserved}}[6];}
+\DoxyCodeLine{103 \}}
+\DoxyCodeLine{104 PACKED\_STRUCT1 \mbox{\hyperlink{ack__core__communication__protocol_8h_a7a4bc0fcd660bb6b699a0e4d15b71c24}{AcpResponseHeader\_t}};}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 END\_PACKED\_STRUCT}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{109 \}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \_\_ACK\_COMMUNICATION\_PROTOCOL\_H\_\_}}
+
+\end{DoxyCode}

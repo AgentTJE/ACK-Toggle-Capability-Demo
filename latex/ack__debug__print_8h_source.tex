@@ -1,0 +1,98 @@
+\hypertarget{ack__debug__print_8h_source}{}\doxysection{ack\+\_\+debug\+\_\+print.\+h}
+\label{ack__debug__print_8h_source}\index{src/ack\_debug\_print.h@{src/ack\_debug\_print.h}}
+\mbox{\hyperlink{ack__debug__print_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_DEBUG\_PRINT\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_DEBUG\_PRINT\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__user__platform_8h}{ack\_user\_platform.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{18 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{comment}{// Debug print levels. \#define ACK\_DEBUG\_PRINT\_LEVEL to one of these in ack\_user\_config.h to enable}}
+\DoxyCodeLine{23 \textcolor{comment}{// debug output at that level and lower. Leave ACK\_DEBUG\_PRINT\_LEVEL undefined to disable debug printing.}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_LEVEL\_CRITICAL 0}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_LEVEL\_ERROR 1}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_LEVEL\_WARNING 2}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_LEVEL\_INFO 3}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_LEVEL\_DEBUG 4}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_BASE(\_lvlstring,  \_format, ...) \(\backslash\)}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{    ACK\_DebugPrint(\_lvlstring, \_\_FUNCTION\_\_, \_format, \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#ifdef ACK\_DEBUG\_PRINT\_LEVEL}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#if ACK\_DEBUG\_PRINT\_LEVEL >= ACK\_DEBUG\_PRINT\_LEVEL\_DEBUG}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_D(\_format, ...) \(\backslash\)}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{    ACK\_DEBUG\_PRINT\_BASE(c\_pDebugLevelString, \_format, \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_D(\_format, ...)}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#if ACK\_DEBUG\_PRINT\_LEVEL >= ACK\_DEBUG\_PRINT\_LEVEL\_INFO}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_I(\_format, ...) \(\backslash\)}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{    ACK\_DEBUG\_PRINT\_BASE(c\_pInfoLevelString, \_format, \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_I(\_message, ...)}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#if ACK\_DEBUG\_PRINT\_LEVEL >= ACK\_DEBUG\_PRINT\_LEVEL\_WARNING}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_W(\_format, ...) \(\backslash\)}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{    ACK\_DEBUG\_PRINT\_BASE(c\_pWarningLevelString, \_format, \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_W(\_format, ...)}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#if ACK\_DEBUG\_PRINT\_LEVEL >= ACK\_DEBUG\_PRINT\_LEVEL\_ERROR}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_E(\_format, ...) \(\backslash\)}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{    ACK\_DEBUG\_PRINT\_BASE(c\_pErrorLevelString, \_format, \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_E(\_format, ...)}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#if ACK\_DEBUG\_PRINT\_LEVEL >= ACK\_DEBUG\_PRINT\_LEVEL\_CRITICAL}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_C(\_format, ...) \(\backslash\)}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{    ACK\_DEBUG\_PRINT\_BASE(c\_pCriticalLevelString, \_format, \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_C(\_format, ...)}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \textcolor{keyword}{const} \mbox{\hyperlink{ack__debug__print_8h_a84ecf9691176defe3fcdc615914e554f}{c\_pDebugLevelString}};}
+\DoxyCodeLine{71 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \textcolor{keyword}{const} \mbox{\hyperlink{ack__debug__print_8h_a0831952335d7cd76e7ebde4fce72b1bf}{c\_pInfoLevelString}};}
+\DoxyCodeLine{72 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \textcolor{keyword}{const} \mbox{\hyperlink{ack__debug__print_8h_a32bd8fe176685a7d1022a8db859164b7}{c\_pWarningLevelString}};}
+\DoxyCodeLine{73 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \textcolor{keyword}{const} \mbox{\hyperlink{ack__debug__print_8h_a6bbacac527d681e8bb4db90ed11d9d5a}{c\_pErrorLevelString}};}
+\DoxyCodeLine{74 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \textcolor{keyword}{const} \mbox{\hyperlink{ack__debug__print_8h_aa57757a35983f237a1e7bfbe3f33e601}{c\_pCriticalLevelString}};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__debug__print_8h_aa7af780b39c8fe68aa25a156f61d4fea}{ACK\_DebugPrint}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* pLevel, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* pFunction, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* pFormat, ...);}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_D(\_format, ...)}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_I(\_format, ...)}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_W(\_format, ...)}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_E(\_format, ...)}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_C(\_format, ...)}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{89 \}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_DEBUG\_PRINT\_H\_\_}}
+
+\end{DoxyCode}

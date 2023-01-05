@@ -1,0 +1,68 @@
+\hypertarget{ack__user__device_8h_source}{}\doxysection{ack\+\_\+user\+\_\+device.\+h}
+\label{ack__user__device_8h_source}\index{src/ack\_user\_device.h@{src/ack\_user\_device.h}}
+\mbox{\hyperlink{ack__user__device_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{comment}{/*}}
+\DoxyCodeLine{11 \textcolor{comment}{    Header file for application-\/level user-\/supplied routines. You replace the placeholder implementations of}}
+\DoxyCodeLine{12 \textcolor{comment}{    routines decelared in here with your own device-\/specific logic.}}
+\DoxyCodeLine{13 \textcolor{comment}{*/}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#ifndef \_\_ACK\_USER\_DEVICE\_H\_\_}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define \_\_ACK\_USER\_DEVICE\_H\_\_}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{22 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{comment}{// Returns the version of your firmware. This can be any 64-\/bit value meaningful for your firmware}}
+\DoxyCodeLine{27 \textcolor{comment}{// versioning scheme.}}
+\DoxyCodeLine{28 uint64\_t \mbox{\hyperlink{ack__user__device_8h_a83a9cfef940c660907194694d93ee871}{ACKUser\_GetFirmwareVersion}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{comment}{// Change the implementation of this routine to return a value indicating whether your device is in use.}}
+\DoxyCodeLine{31 \textcolor{comment}{// If a device is in use, certain lifecycle processing is deferred until the device is not in use. For}}
+\DoxyCodeLine{32 \textcolor{comment}{// example, firmware updates are not initiated until this returns false.}}
+\DoxyCodeLine{33 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__user__device_8h_a03fbd6529f601d59e50c8b945a776c7c}{ACKUser\_IsDeviceInUse}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{comment}{// Change the implementation of this routine to return a value based on your device-\/specific factory reset}}
+\DoxyCodeLine{36 \textcolor{comment}{// initiation mechanism (the user presses and holds a "{}reset"{} button, or enters a certain keystroke on a}}
+\DoxyCodeLine{37 \textcolor{comment}{// keypad, etc.).}}
+\DoxyCodeLine{38 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__user__device_8h_a862bb458ab8084b428f04cd6cf16c4ce}{ACKUser\_DoesUserWantFactoryReset}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{comment}{// Change the implementation of this routine to return a value based on your device-\/specific}}
+\DoxyCodeLine{41 \textcolor{comment}{// User-\/Guided Setup initiation mechanism (the user presses and holds a "{}setup"{} button, or enters a certain}}
+\DoxyCodeLine{42 \textcolor{comment}{// keystroke on a keypad, etc.).}}
+\DoxyCodeLine{43 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__user__device_8h_a82e39fcd6c006ea174513b8dc56ecfca}{ACKUser\_DoesUserWantUserGuidedSetup}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{comment}{// Change the implementation of this routine to return a value based on your device-\/specific}}
+\DoxyCodeLine{46 \textcolor{comment}{// initiation mechanism for submitting logs (the user presses and holds a specific button on the device,}}
+\DoxyCodeLine{47 \textcolor{comment}{// or enters a certain keystroke on a keypad, etc.).}}
+\DoxyCodeLine{48 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__user__device_8h_a003c4d1793eb768581593d251d7d845a}{ACKUser\_DoesUserWantToSubmitLogs}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{comment}{// Update user-\/facing display elements relating to lifecycle and connectivity state. For example, lighting a}}
+\DoxyCodeLine{51 \textcolor{comment}{// "{}connected to Alexa"{} LED, or flashing an LED during factory reset, or flashing a clock when in setup mode.}}
+\DoxyCodeLine{52 \textcolor{comment}{// State is maintained in the global variables ACK\_LifecycleState and ACK\_LifecycleSubStateInfo.}}
+\DoxyCodeLine{53 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__user__device_8h_a46ce38d62dc041abacaa7d82f06d8c30}{ACKUser\_OnLifecycleStateChange}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{comment}{// Change the implementation of this routine to erase persisted user settings.}}
+\DoxyCodeLine{56 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__user__device_8h_a17495c2a852a1147fb0bbbff5c9ca741}{ACKUser\_EraseUserSettings}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{59 \}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_USER\_DEVICE\_H\_\_}}
+
+\end{DoxyCode}

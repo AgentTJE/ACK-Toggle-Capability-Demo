@@ -1,0 +1,83 @@
+\hypertarget{ack__thermostat__controller_8h_source}{}\doxysection{ack\+\_\+thermostat\+\_\+controller.\+h}
+\label{ack__thermostat__controller_8h_source}\index{src/ack\_thermostat\_controller.h@{src/ack\_thermostat\_controller.h}}
+\mbox{\hyperlink{ack__thermostat__controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_THERMOSTAT\_CONTROLLER\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_THERMOSTAT\_CONTROLLER\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__types_8h}{ack\_types.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__generated__alexa__thermostat__controller_8h}{ack\_generated\_alexa\_thermostat\_controller.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__generated__thermostat__mode_8h}{ack\_generated\_thermostat\_mode.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{20 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#ifdef ACK\_THERMOSTAT\_CONTROLLER}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_ACKThermostatControllerSetTargetTemperatureParams\_t}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28     \mbox{\hyperlink{struct___a_c_k_temperature__t}{ACKTemperature\_t}} TargetSetpointTemperature;}
+\DoxyCodeLine{29     \mbox{\hyperlink{struct___a_c_k_temperature__t}{ACKTemperature\_t}} LowerSetpointTemperature;}
+\DoxyCodeLine{30     \mbox{\hyperlink{struct___a_c_k_temperature__t}{ACKTemperature\_t}} UpperSetpointTemperature;}
+\DoxyCodeLine{31     \mbox{\hyperlink{struct___a_c_k_time_interval__t}{ACKTimeInterval\_t}} Schedule;}
+\DoxyCodeLine{32 \}}
+\DoxyCodeLine{33 ACKThermostatControllerSetTargetTemperatureParams\_t;}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{comment}{// You must implement these routines.}}
+\DoxyCodeLine{36 \textcolor{keywordtype}{void} ACKUser\_OnThermostatControllerSetTargetTemperatureDirective(}
+\DoxyCodeLine{37     int32\_t correlationId,}
+\DoxyCodeLine{38     \textcolor{keyword}{const} ACKThermostatControllerSetTargetTemperatureParams\_t* pSetTargetTemperature);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{keywordtype}{void} ACKUser\_OnThermostatControllerAdjustTargetTemperatureDirective(}
+\DoxyCodeLine{41     int32\_t correlationId,}
+\DoxyCodeLine{42     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_temperature__t}{ACKTemperature\_t}}* pTemperature);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keywordtype}{void} ACKUser\_OnThermostatControllerSetThermostatModeDirective(}
+\DoxyCodeLine{45     int32\_t correlationId,}
+\DoxyCodeLine{46     \mbox{\hyperlink{ack__generated__thermostat__mode_8h_a8b5458acebc32729e5cc60008e62722b}{ack\_thermostat\_mode}} thermostatMode);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keywordtype}{void} ACKUser\_OnThermostatControllerResumeScheduleDirective(int32\_t correlationId);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{comment}{// Call this to add a property representing the state of a thermostat controller to an outbound event.}}
+\DoxyCodeLine{51 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACK\_AddThermostatControllerTargetSetpointProperty(}
+\DoxyCodeLine{52     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_state_common__t}{ACKStateCommon\_t}}* pCommon,}
+\DoxyCodeLine{53     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_temperature__t}{ACKTemperature\_t}}* pTargetSetpoint);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACK\_AddThermostatControllerLowerSetpointProperty(}
+\DoxyCodeLine{56     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_state_common__t}{ACKStateCommon\_t}}* pCommon,}
+\DoxyCodeLine{57     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_temperature__t}{ACKTemperature\_t}}* pLowerSetpoint);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACK\_AddThermostatControllerUpperSetpointProperty(}
+\DoxyCodeLine{60     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_state_common__t}{ACKStateCommon\_t}}* pCommon,}
+\DoxyCodeLine{61     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_temperature__t}{ACKTemperature\_t}}* pUpperSetpoint);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACK\_AddThermostatControllerModeProperty(}
+\DoxyCodeLine{64     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_state_common__t}{ACKStateCommon\_t}}* pCommon,}
+\DoxyCodeLine{65     \mbox{\hyperlink{ack__generated__thermostat__mode_8h_a8b5458acebc32729e5cc60008e62722b}{ack\_thermostat\_mode}} thermostatMode);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACK\_AddThermostatControllerAdaptiveRecoveryStatusProperty(}
+\DoxyCodeLine{68     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_state_common__t}{ACKStateCommon\_t}}* pCommon,}
+\DoxyCodeLine{69     \mbox{\hyperlink{ack__generated__alexa__thermostat__controller_8h_a99185e4acdb0063cec5e2ed07bf85345}{ack\_alexa\_thermostat\_controller\_adaptive\_recovery\_status}} adaptiveRecoveryStatus);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def ACK\_THERMOSTAT\_CONTROLLER}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{74 \}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_THERMOSTAT\_CONTROLLER\_H\_\_}}
+
+\end{DoxyCode}

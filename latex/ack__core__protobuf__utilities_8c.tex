@@ -1,0 +1,193 @@
+\hypertarget{ack__core__protobuf__utilities_8c}{}\doxysection{src/ack\+\_\+core\+\_\+protobuf\+\_\+utilities.c File Reference}
+\label{ack__core__protobuf__utilities_8c}\index{src/ack\_core\_protobuf\_utilities.c@{src/ack\_core\_protobuf\_utilities.c}}
+{\ttfamily \#include \char`\"{}pb.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pb\+\_\+decode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pb\+\_\+encode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+protobuf\+\_\+utilities.\+h\char`\"{}}\newline
+Include dependency graph for ack\+\_\+core\+\_\+protobuf\+\_\+utilities.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__protobuf__utilities_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{ack__core__protobuf__utilities_8c_a83e2046cba8dc38ae0f0ef2994b69862}{Protobuf\+Decode\+Callback\+Field}} (\mbox{\hyperlink{pb_8h_ae4a0d49c85b2eb9e3497a4352aa0db63}{pb\+\_\+istream\+\_\+t}} $\ast$p\+Stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$p\+Field, void $\ast$$\ast$pp\+Arg)
+\item 
+bool \mbox{\hyperlink{ack__core__protobuf__utilities_8c_a692df237f755be8dc742d2d70965cf73}{Protobuf\+Encode\+Callback\+Field}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$p\+Stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$p\+Field, void $\ast$const $\ast$pp\+Arg)
+\item 
+bool \mbox{\hyperlink{ack__core__protobuf__utilities_8c_aa8b39340a734085a7c1ed435331a2b1f}{Protobuf\+Encode\+Array\+Callback}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$p\+Stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$p\+Field, void $\ast$const $\ast$pp\+Arg)
+\item 
+bool \mbox{\hyperlink{ack__core__protobuf__utilities_8c_ac86df2e9a33e772299910901faeff746}{Protobuf\+Decode}} (const uint8\+\_\+t $\ast$p\+Input, size\+\_\+t input\+Length, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$p\+Fields, void $\ast$p\+Destination\+Struct)
+\item 
+bool \mbox{\hyperlink{ack__core__protobuf__utilities_8c_a7da654af54899b69a0b3e9613a066f9d}{Protobuf\+Decode\+Submessage}} (const uint8\+\_\+t $\ast$p\+Input, size\+\_\+t input\+Length, uint32\+\_\+t submessage\+Tag, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$p\+Submessage\+Fields, void $\ast$p\+Destination\+Struct)
+\item 
+bool \mbox{\hyperlink{ack__core__protobuf__utilities_8c_ae209dc4abdca5e73cb9040d44a38b38c}{Protobuf\+Skip\+To\+Encoded\+Submessage\+Payload}} (\mbox{\hyperlink{pb_8h_ae4a0d49c85b2eb9e3497a4352aa0db63}{pb\+\_\+istream\+\_\+t}} $\ast$p\+Stream, uint32\+\_\+t tag)
+\item 
+size\+\_\+t \mbox{\hyperlink{ack__core__protobuf__utilities_8c_ac2cfc5fe4f2d3ec77c7be2e4cff436ba}{Protobuf\+Get\+Encoded\+Size}} (const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$p\+Fields, const void $\ast$p\+Source\+Struct)
+\item 
+bool \mbox{\hyperlink{ack__core__protobuf__utilities_8c_a2c5002322c12977fb949790fffc79c9e}{Protobuf\+Encode}} (uint8\+\_\+t $\ast$p\+Output, size\+\_\+t output\+Length, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$p\+Fields, const void $\ast$p\+Source\+Struct)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__protobuf__utilities_8c_ac86df2e9a33e772299910901faeff746}\label{ack__core__protobuf__utilities_8c_ac86df2e9a33e772299910901faeff746}} 
+\index{ack\_core\_protobuf\_utilities.c@{ack\_core\_protobuf\_utilities.c}!ProtobufDecode@{ProtobufDecode}}
+\index{ProtobufDecode@{ProtobufDecode}!ack\_core\_protobuf\_utilities.c@{ack\_core\_protobuf\_utilities.c}}
+\doxysubsubsection{\texorpdfstring{ProtobufDecode()}{ProtobufDecode()}}
+{\footnotesize\ttfamily bool Protobuf\+Decode (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{p\+Input,  }\item[{size\+\_\+t}]{input\+Length,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{p\+Fields,  }\item[{void $\ast$}]{p\+Destination\+Struct }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__protobuf__utilities_8c_ac86df2e9a33e772299910901faeff746_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__protobuf__utilities_8c_ac86df2e9a33e772299910901faeff746_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__protobuf__utilities_8c_a83e2046cba8dc38ae0f0ef2994b69862}\label{ack__core__protobuf__utilities_8c_a83e2046cba8dc38ae0f0ef2994b69862}} 
+\index{ack\_core\_protobuf\_utilities.c@{ack\_core\_protobuf\_utilities.c}!ProtobufDecodeCallbackField@{ProtobufDecodeCallbackField}}
+\index{ProtobufDecodeCallbackField@{ProtobufDecodeCallbackField}!ack\_core\_protobuf\_utilities.c@{ack\_core\_protobuf\_utilities.c}}
+\doxysubsubsection{\texorpdfstring{ProtobufDecodeCallbackField()}{ProtobufDecodeCallbackField()}}
+{\footnotesize\ttfamily bool Protobuf\+Decode\+Callback\+Field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_ae4a0d49c85b2eb9e3497a4352aa0db63}{pb\+\_\+istream\+\_\+t}} $\ast$}]{p\+Stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{p\+Field,  }\item[{void $\ast$$\ast$}]{pp\+Arg }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__protobuf__utilities_8c_a83e2046cba8dc38ae0f0ef2994b69862_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__protobuf__utilities_8c_a83e2046cba8dc38ae0f0ef2994b69862_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__protobuf__utilities_8c_a7da654af54899b69a0b3e9613a066f9d}\label{ack__core__protobuf__utilities_8c_a7da654af54899b69a0b3e9613a066f9d}} 
+\index{ack\_core\_protobuf\_utilities.c@{ack\_core\_protobuf\_utilities.c}!ProtobufDecodeSubmessage@{ProtobufDecodeSubmessage}}
+\index{ProtobufDecodeSubmessage@{ProtobufDecodeSubmessage}!ack\_core\_protobuf\_utilities.c@{ack\_core\_protobuf\_utilities.c}}
+\doxysubsubsection{\texorpdfstring{ProtobufDecodeSubmessage()}{ProtobufDecodeSubmessage()}}
+{\footnotesize\ttfamily bool Protobuf\+Decode\+Submessage (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{p\+Input,  }\item[{size\+\_\+t}]{input\+Length,  }\item[{uint32\+\_\+t}]{submessage\+Tag,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{p\+Submessage\+Fields,  }\item[{void $\ast$}]{p\+Destination\+Struct }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__protobuf__utilities_8c_a7da654af54899b69a0b3e9613a066f9d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__protobuf__utilities_8c_a7da654af54899b69a0b3e9613a066f9d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__protobuf__utilities_8c_a2c5002322c12977fb949790fffc79c9e}\label{ack__core__protobuf__utilities_8c_a2c5002322c12977fb949790fffc79c9e}} 
+\index{ack\_core\_protobuf\_utilities.c@{ack\_core\_protobuf\_utilities.c}!ProtobufEncode@{ProtobufEncode}}
+\index{ProtobufEncode@{ProtobufEncode}!ack\_core\_protobuf\_utilities.c@{ack\_core\_protobuf\_utilities.c}}
+\doxysubsubsection{\texorpdfstring{ProtobufEncode()}{ProtobufEncode()}}
+{\footnotesize\ttfamily bool Protobuf\+Encode (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{p\+Output,  }\item[{size\+\_\+t}]{output\+Length,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{p\+Fields,  }\item[{const void $\ast$}]{p\+Source\+Struct }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__protobuf__utilities_8c_a2c5002322c12977fb949790fffc79c9e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__protobuf__utilities_8c_a2c5002322c12977fb949790fffc79c9e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__protobuf__utilities_8c_aa8b39340a734085a7c1ed435331a2b1f}\label{ack__core__protobuf__utilities_8c_aa8b39340a734085a7c1ed435331a2b1f}} 
+\index{ack\_core\_protobuf\_utilities.c@{ack\_core\_protobuf\_utilities.c}!ProtobufEncodeArrayCallback@{ProtobufEncodeArrayCallback}}
+\index{ProtobufEncodeArrayCallback@{ProtobufEncodeArrayCallback}!ack\_core\_protobuf\_utilities.c@{ack\_core\_protobuf\_utilities.c}}
+\doxysubsubsection{\texorpdfstring{ProtobufEncodeArrayCallback()}{ProtobufEncodeArrayCallback()}}
+{\footnotesize\ttfamily bool Protobuf\+Encode\+Array\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{p\+Stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{p\+Field,  }\item[{void $\ast$const $\ast$}]{pp\+Arg }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__protobuf__utilities_8c_aa8b39340a734085a7c1ed435331a2b1f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__protobuf__utilities_8c_a692df237f755be8dc742d2d70965cf73}\label{ack__core__protobuf__utilities_8c_a692df237f755be8dc742d2d70965cf73}} 
+\index{ack\_core\_protobuf\_utilities.c@{ack\_core\_protobuf\_utilities.c}!ProtobufEncodeCallbackField@{ProtobufEncodeCallbackField}}
+\index{ProtobufEncodeCallbackField@{ProtobufEncodeCallbackField}!ack\_core\_protobuf\_utilities.c@{ack\_core\_protobuf\_utilities.c}}
+\doxysubsubsection{\texorpdfstring{ProtobufEncodeCallbackField()}{ProtobufEncodeCallbackField()}}
+{\footnotesize\ttfamily bool Protobuf\+Encode\+Callback\+Field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{p\+Stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{p\+Field,  }\item[{void $\ast$const $\ast$}]{pp\+Arg }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__protobuf__utilities_8c_a692df237f755be8dc742d2d70965cf73_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__protobuf__utilities_8c_a692df237f755be8dc742d2d70965cf73_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__protobuf__utilities_8c_ac2cfc5fe4f2d3ec77c7be2e4cff436ba}\label{ack__core__protobuf__utilities_8c_ac2cfc5fe4f2d3ec77c7be2e4cff436ba}} 
+\index{ack\_core\_protobuf\_utilities.c@{ack\_core\_protobuf\_utilities.c}!ProtobufGetEncodedSize@{ProtobufGetEncodedSize}}
+\index{ProtobufGetEncodedSize@{ProtobufGetEncodedSize}!ack\_core\_protobuf\_utilities.c@{ack\_core\_protobuf\_utilities.c}}
+\doxysubsubsection{\texorpdfstring{ProtobufGetEncodedSize()}{ProtobufGetEncodedSize()}}
+{\footnotesize\ttfamily size\+\_\+t Protobuf\+Get\+Encoded\+Size (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{p\+Fields,  }\item[{const void $\ast$}]{p\+Source\+Struct }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__protobuf__utilities_8c_ac2cfc5fe4f2d3ec77c7be2e4cff436ba_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__protobuf__utilities_8c_ac2cfc5fe4f2d3ec77c7be2e4cff436ba_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__protobuf__utilities_8c_ae209dc4abdca5e73cb9040d44a38b38c}\label{ack__core__protobuf__utilities_8c_ae209dc4abdca5e73cb9040d44a38b38c}} 
+\index{ack\_core\_protobuf\_utilities.c@{ack\_core\_protobuf\_utilities.c}!ProtobufSkipToEncodedSubmessagePayload@{ProtobufSkipToEncodedSubmessagePayload}}
+\index{ProtobufSkipToEncodedSubmessagePayload@{ProtobufSkipToEncodedSubmessagePayload}!ack\_core\_protobuf\_utilities.c@{ack\_core\_protobuf\_utilities.c}}
+\doxysubsubsection{\texorpdfstring{ProtobufSkipToEncodedSubmessagePayload()}{ProtobufSkipToEncodedSubmessagePayload()}}
+{\footnotesize\ttfamily bool Protobuf\+Skip\+To\+Encoded\+Submessage\+Payload (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_ae4a0d49c85b2eb9e3497a4352aa0db63}{pb\+\_\+istream\+\_\+t}} $\ast$}]{p\+Stream,  }\item[{uint32\+\_\+t}]{tag }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__protobuf__utilities_8c_ae209dc4abdca5e73cb9040d44a38b38c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__protobuf__utilities_8c_ae209dc4abdca5e73cb9040d44a38b38c_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,44 @@
+\hypertarget{ack__core__endpoint__id_8h_source}{}\doxysection{ack\+\_\+core\+\_\+endpoint\+\_\+id.\+h}
+\label{ack__core__endpoint__id_8h_source}\index{src/ack\_core\_endpoint\_id.h@{src/ack\_core\_endpoint\_id.h}}
+\mbox{\hyperlink{ack__core__endpoint__id_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef ASDK\_HMCU\_ACK\_CORE\_ENDPOINT\_ID\_H}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define ASDK\_HMCU\_ACK\_CORE\_ENDPOINT\_ID\_H}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifdef ACK\_COMPOUND\_DEVICE}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{16 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{comment}{// Can be override to allow support of multiple concurrent directives.}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifndef ACK\_COMPOUND\_DEVICE\_ARRAY\_SIZE}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define ACK\_COMPOUND\_DEVICE\_ARRAY\_SIZE 2}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{comment}{// Can be overriden to specify a different default endpoint.}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#ifndef ACK\_COMPOUND\_DEVICE\_DEFAULT\_ENDPOINT}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define ACK\_COMPOUND\_DEVICE\_DEFAULT\_ENDPOINT 0}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keywordtype}{void} SetEndpointId(int32\_t correlationId, uint16\_t endpointId);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{33 \}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//ASDK\_HMCU\_ACK\_CORE\_ENDPOINT\_ID\_H}}
+
+\end{DoxyCode}

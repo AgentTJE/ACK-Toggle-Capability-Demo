@@ -1,0 +1,11 @@
+<map id="ProcessEventIfAvailable" name="ProcessEventIfAvailable">
+<area shape="rect" id="node1" title=" " alt="" coords="5,60,171,87"/>
+<area shape="rect" id="node2" href="$ack__core__module__pins_8c.html#ace81d75482296a1f2e4e8599384457f1" title=" " alt="" coords="219,20,415,47"/>
+<area shape="rect" id="node4" href="$ack__core__processevent_8c.html#a34398001b285295fa765fc0beb5d104c" title=" " alt="" coords="247,85,386,112"/>
+<area shape="rect" id="node3" href="$ack__arduino__platform_8cpp.html#a614450ab8fbdde5e1607ca7be5c2b055" title=" " alt="" coords="463,5,656,32"/>
+<area shape="rect" id="node5" href="$ack__core__event__builder_8c.html#a673a280ae959291b76d817aed824f707" title=" " alt="" coords="500,56,619,83"/>
+<area shape="rect" id="node8" href="$ack__core__event__builder_8c.html#ab1061645c39f82af656a30c877b6fd61" title=" " alt="" coords="472,107,647,149"/>
+<area shape="rect" id="node9" href="$ack__core__heaplet_8c.html#af689b2b6caafad5ba9f3dcbe72d40a30" title=" " alt="" coords="478,173,641,200"/>
+<area shape="rect" id="node6" href="$ack__core__heaplet_8c.html#a249ef4b78b976c6a6e8e598d50797525" title=" " alt="" coords="704,56,797,83"/>
+<area shape="rect" id="node7" href="$ack__core__heaplet_8c.html#a769a3d7a3cf5cab9082db30abec15ec4" title=" " alt="" coords="845,56,932,83"/>
+</map>

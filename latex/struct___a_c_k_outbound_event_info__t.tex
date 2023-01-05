@@ -1,0 +1,88 @@
+\hypertarget{struct___a_c_k_outbound_event_info__t}{}\doxysection{\+\_\+\+ACKOutbound\+Event\+Info\+\_\+t Struct Reference}
+\label{struct___a_c_k_outbound_event_info__t}\index{\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}}
+
+
+{\ttfamily \#include $<$ack\+\_\+core\+\_\+outbound\+\_\+events.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}} \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_a016e3186c60cf867679ff104f7a60ccd}{Properties\+Bits}}
+\item 
+\mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}} \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_a8543cf32988246dd9b34f3299c9e7257}{Change\+Report\+Payload\+Properties\+Bits}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>unsigned \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_a27f79e538b0da20d9e81646ec10a0e2d}{EventPending}}: 1\\
+\>\>unsigned \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_a67eeda1c230190e569d297fad7bfa82c}{SynthesizeChangeReport}}: 1\\
+\>\>unsigned \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_a715e085bc7a6dfee133f164c92305c75}{IsChangeReport}}: 1\\
+\>\>unsigned \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_adc1e2f19584ba4a3dda594a684e2e38d}{AddEndpointHealthProperty}}: 1\\
+\>\} \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_a77c96bb20a8eb6afb7939db7257609ff}{Bits}}\\
+\>uint8\_t \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_a18086148fc9dd9b83cf82c96a30f4cc4}{All}}\\
+\} \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_ad98361a563e860d53e01a3e214a4c33e}{Flags}}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct___a_c_k_outbound_event_info__t_adc1e2f19584ba4a3dda594a684e2e38d}\label{struct___a_c_k_outbound_event_info__t_adc1e2f19584ba4a3dda594a684e2e38d}} 
+\index{\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}!AddEndpointHealthProperty@{AddEndpointHealthProperty}}
+\index{AddEndpointHealthProperty@{AddEndpointHealthProperty}!\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}}
+\doxysubsubsection{\texorpdfstring{AddEndpointHealthProperty}{AddEndpointHealthProperty}}
+{\footnotesize\ttfamily unsigned \+\_\+\+ACKOutbound\+Event\+Info\+\_\+t\+::\+Add\+Endpoint\+Health\+Property}
+
+\mbox{\Hypertarget{struct___a_c_k_outbound_event_info__t_a18086148fc9dd9b83cf82c96a30f4cc4}\label{struct___a_c_k_outbound_event_info__t_a18086148fc9dd9b83cf82c96a30f4cc4}} 
+\index{\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}!All@{All}}
+\index{All@{All}!\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}}
+\doxysubsubsection{\texorpdfstring{All}{All}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+\+ACKOutbound\+Event\+Info\+\_\+t\+::\+All}
+
+\mbox{\Hypertarget{struct___a_c_k_outbound_event_info__t_a77c96bb20a8eb6afb7939db7257609ff}\label{struct___a_c_k_outbound_event_info__t_a77c96bb20a8eb6afb7939db7257609ff}} 
+\index{\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}!Bits@{Bits}}
+\index{Bits@{Bits}!\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  \+\_\+\+ACKOutbound\+Event\+Info\+\_\+t\+::\+Bits}
+
+\mbox{\Hypertarget{struct___a_c_k_outbound_event_info__t_a8543cf32988246dd9b34f3299c9e7257}\label{struct___a_c_k_outbound_event_info__t_a8543cf32988246dd9b34f3299c9e7257}} 
+\index{\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}!ChangeReportPayloadPropertiesBits@{ChangeReportPayloadPropertiesBits}}
+\index{ChangeReportPayloadPropertiesBits@{ChangeReportPayloadPropertiesBits}!\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}}
+\doxysubsubsection{\texorpdfstring{ChangeReportPayloadPropertiesBits}{ChangeReportPayloadPropertiesBits}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}} \+\_\+\+ACKOutbound\+Event\+Info\+\_\+t\+::\+Change\+Report\+Payload\+Properties\+Bits}
+
+\mbox{\Hypertarget{struct___a_c_k_outbound_event_info__t_a27f79e538b0da20d9e81646ec10a0e2d}\label{struct___a_c_k_outbound_event_info__t_a27f79e538b0da20d9e81646ec10a0e2d}} 
+\index{\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}!EventPending@{EventPending}}
+\index{EventPending@{EventPending}!\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}}
+\doxysubsubsection{\texorpdfstring{EventPending}{EventPending}}
+{\footnotesize\ttfamily unsigned \+\_\+\+ACKOutbound\+Event\+Info\+\_\+t\+::\+Event\+Pending}
+
+\mbox{\Hypertarget{struct___a_c_k_outbound_event_info__t_ad98361a563e860d53e01a3e214a4c33e}\label{struct___a_c_k_outbound_event_info__t_ad98361a563e860d53e01a3e214a4c33e}} 
+\index{\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}!Flags@{Flags}}
+\index{Flags@{Flags}!\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily union  \{ ... \}  \+\_\+\+ACKOutbound\+Event\+Info\+\_\+t\+::\+Flags}
+
+\mbox{\Hypertarget{struct___a_c_k_outbound_event_info__t_a715e085bc7a6dfee133f164c92305c75}\label{struct___a_c_k_outbound_event_info__t_a715e085bc7a6dfee133f164c92305c75}} 
+\index{\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}!IsChangeReport@{IsChangeReport}}
+\index{IsChangeReport@{IsChangeReport}!\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}}
+\doxysubsubsection{\texorpdfstring{IsChangeReport}{IsChangeReport}}
+{\footnotesize\ttfamily unsigned \+\_\+\+ACKOutbound\+Event\+Info\+\_\+t\+::\+Is\+Change\+Report}
+
+\mbox{\Hypertarget{struct___a_c_k_outbound_event_info__t_a016e3186c60cf867679ff104f7a60ccd}\label{struct___a_c_k_outbound_event_info__t_a016e3186c60cf867679ff104f7a60ccd}} 
+\index{\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}!PropertiesBits@{PropertiesBits}}
+\index{PropertiesBits@{PropertiesBits}!\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}}
+\doxysubsubsection{\texorpdfstring{PropertiesBits}{PropertiesBits}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}} \+\_\+\+ACKOutbound\+Event\+Info\+\_\+t\+::\+Properties\+Bits}
+
+\mbox{\Hypertarget{struct___a_c_k_outbound_event_info__t_a67eeda1c230190e569d297fad7bfa82c}\label{struct___a_c_k_outbound_event_info__t_a67eeda1c230190e569d297fad7bfa82c}} 
+\index{\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}!SynthesizeChangeReport@{SynthesizeChangeReport}}
+\index{SynthesizeChangeReport@{SynthesizeChangeReport}!\_ACKOutboundEventInfo\_t@{\_ACKOutboundEventInfo\_t}}
+\doxysubsubsection{\texorpdfstring{SynthesizeChangeReport}{SynthesizeChangeReport}}
+{\footnotesize\ttfamily unsigned \+\_\+\+ACKOutbound\+Event\+Info\+\_\+t\+::\+Synthesize\+Change\+Report}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{ack__core__outbound__events_8h}{ack\+\_\+core\+\_\+outbound\+\_\+events.\+h}}\end{DoxyCompactItemize}

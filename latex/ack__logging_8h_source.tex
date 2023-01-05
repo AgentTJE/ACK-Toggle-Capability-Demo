@@ -1,0 +1,57 @@
+\hypertarget{ack__logging_8h_source}{}\doxysection{ack\+\_\+logging.\+h}
+\label{ack__logging_8h_source}\index{src/ack\_logging.h@{src/ack\_logging.h}}
+\mbox{\hyperlink{ack__logging_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_LOGGING\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_LOGGING\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__types_8h}{ack\_types.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{acp_8pb_8h}{acp.pb.h}}"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{18 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#ifdef ACK\_LOGGING}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{comment}{// Call these routines to write into the log. The log is buffered on the Connectivity Module until an}}
+\DoxyCodeLine{25 \textcolor{comment}{// explicit command is sent to the Connectivity Module to send it to the cloud. That command is sent when}}
+\DoxyCodeLine{26 \textcolor{comment}{// your ACKUser\_DoesUserWantFactoryReset routine returns true.}}
+\DoxyCodeLine{27 \textcolor{comment}{// The component and message strings are user-\/defined and not interpreted by ACK. The component string can be}}
+\DoxyCodeLine{28 \textcolor{comment}{// a maximum length of 63 characters and is truncated if longer than that. Use acp\_log\_level\_info and}}
+\DoxyCodeLine{29 \textcolor{comment}{// acp\_log\_level\_error as appropriate to log information that would be helpful to diagnose problems in}}
+\DoxyCodeLine{30 \textcolor{comment}{// production devices. Use log level acp\_log\_level\_debug to log more verbose information helpful during}}
+\DoxyCodeLine{31 \textcolor{comment}{// development.}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACK\_WriteLog(\mbox{\hyperlink{acp_8pb_8h_ad2969cdb844e1698da2c84a41437316e}{acp\_log\_level}} logLevel, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* pComponent, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* pMessage);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACK\_WriteLogFormatted(}
+\DoxyCodeLine{36     \mbox{\hyperlink{acp_8pb_8h_ad2969cdb844e1698da2c84a41437316e}{acp\_log\_level}} logLevel,}
+\DoxyCodeLine{37     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* pComponent,}
+\DoxyCodeLine{38     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* pMessageFormat,}
+\DoxyCodeLine{39     ...);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{comment}{// Log level. Calls to ACK\_WriteLog and ACK\_WriteLogFormatted are no-\/ops when the message log level is}}
+\DoxyCodeLine{42 \textcolor{comment}{// less than this value.}}
+\DoxyCodeLine{43 \textcolor{keyword}{extern} \mbox{\hyperlink{acp_8pb_8h_ad2969cdb844e1698da2c84a41437316e}{acp\_log\_level}} ACK\_LogLevel;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def ACK\_LOGGING}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{48 \}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_LOGGING\_H\_\_}}
+
+\end{DoxyCode}

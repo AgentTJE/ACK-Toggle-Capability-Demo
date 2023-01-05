@@ -1,0 +1,123 @@
+\hypertarget{ack__core__common_8h}{}\doxysection{src/ack\+\_\+core\+\_\+common.h File Reference}
+\label{ack__core__common_8h}\index{src/ack\_core\_common.h@{src/ack\_core\_common.h}}
+{\ttfamily \#include \char`\"{}ack.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for ack\+\_\+core\+\_\+common.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__common_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__common_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ack__core__common_8h_a3c5eb94f3dfcf3371a485c9ebbb03b6a}{ACK\+\_\+\+REENTRY\+\_\+\+GENERAL\+\_\+\+CASE}}~0x01
+\item 
+\#define \mbox{\hyperlink{ack__core__common_8h_a202fb143d71147ac19cd9632b4d53112}{ACK\+\_\+\+SIMULTANEOUS\+\_\+\+ACKPROCESS}}~0x02
+\item 
+\#define \mbox{\hyperlink{ack__core__common_8h_a5df04b2ef9593d19d5c16ad58a35aada}{ACK\+\_\+\+REENTRY\+\_\+\+SHIELDS\+\_\+\+UP}}~\mbox{\hyperlink{ack__core__common_8h_a528970fcadc71f894d4d618b9b1ab5c0}{ACK\+\_\+\+REENTRY\+\_\+\+ACQUIRE\+\_\+}}(\mbox{\hyperlink{ack__core__common_8h_a3c5eb94f3dfcf3371a485c9ebbb03b6a}{ACK\+\_\+\+REENTRY\+\_\+\+GENERAL\+\_\+\+CASE}})
+\item 
+\#define \mbox{\hyperlink{ack__core__common_8h_a683208a2fd2c5bf6087d851724f540d4}{ACK\+\_\+\+REENTRY\+\_\+\+SHIELDS\+\_\+\+DOWN}}~\mbox{\hyperlink{ack__core__common_8h_a2963304504a20d05d4c29aca71d2e38d}{ACK\+\_\+\+REENTRY\+\_\+\+RELEASE\+\_\+}}(\mbox{\hyperlink{ack__core__common_8h_a3c5eb94f3dfcf3371a485c9ebbb03b6a}{ACK\+\_\+\+REENTRY\+\_\+\+GENERAL\+\_\+\+CASE}})
+\item 
+\#define \mbox{\hyperlink{ack__core__common_8h_a923e60ebcc21c52e7af9d0c1e452bd8c}{ACK\+\_\+\+REENTRY\+\_\+\+CHECK}}~\mbox{\hyperlink{ack__core__common_8h_a6b5655aed848cc7375bd541c08198d2b}{ACK\+\_\+\+REENTRY\+\_\+\+CHECK\+\_\+}}(\mbox{\hyperlink{ack__core__common_8h_a3c5eb94f3dfcf3371a485c9ebbb03b6a}{ACK\+\_\+\+REENTRY\+\_\+\+GENERAL\+\_\+\+CASE}})
+\item 
+\#define \mbox{\hyperlink{ack__core__common_8h_a528970fcadc71f894d4d618b9b1ab5c0}{ACK\+\_\+\+REENTRY\+\_\+\+ACQUIRE\+\_\+}}(category)~\mbox{\hyperlink{ack__core__common_8h_a8ad4cbf6b22ecd197d42479142cd55f6}{g\+\_\+reentry\+Guard}} $\vert$= (category)
+\item 
+\#define \mbox{\hyperlink{ack__core__common_8h_a2963304504a20d05d4c29aca71d2e38d}{ACK\+\_\+\+REENTRY\+\_\+\+RELEASE\+\_\+}}(category)~\mbox{\hyperlink{ack__core__common_8h_a8ad4cbf6b22ecd197d42479142cd55f6}{g\+\_\+reentry\+Guard}} \&= $\sim$(category)
+\item 
+\#define \mbox{\hyperlink{ack__core__common_8h_a6b5655aed848cc7375bd541c08198d2b}{ACK\+\_\+\+REENTRY\+\_\+\+CHECK\+\_\+}}(category)~if (0 != (\mbox{\hyperlink{ack__core__common_8h_a8ad4cbf6b22ecd197d42479142cd55f6}{g\+\_\+reentry\+Guard}} \& (category))) \mbox{\hyperlink{ack__core__common_8h_a4755d035751184c49a235a8a4ac9e886}{Reentry\+Fail}}(\+\_\+\+\_\+\+FUNCTION\+\_\+\+\_\+)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ack__core__common_8h_a4755d035751184c49a235a8a4ac9e886}{Reentry\+Fail}} (const char $\ast$p\+Function\+Name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{ack__core__common_8h_a8ad4cbf6b22ecd197d42479142cd55f6}{g\+\_\+reentry\+Guard}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ack__core__common_8h_a528970fcadc71f894d4d618b9b1ab5c0}\label{ack__core__common_8h_a528970fcadc71f894d4d618b9b1ab5c0}} 
+\index{ack\_core\_common.h@{ack\_core\_common.h}!ACK\_REENTRY\_ACQUIRE\_@{ACK\_REENTRY\_ACQUIRE\_}}
+\index{ACK\_REENTRY\_ACQUIRE\_@{ACK\_REENTRY\_ACQUIRE\_}!ack\_core\_common.h@{ack\_core\_common.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_REENTRY\_ACQUIRE\_}{ACK\_REENTRY\_ACQUIRE\_}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+REENTRY\+\_\+\+ACQUIRE\+\_\+(\begin{DoxyParamCaption}\item[{}]{category }\end{DoxyParamCaption})~\mbox{\hyperlink{ack__core__common_8h_a8ad4cbf6b22ecd197d42479142cd55f6}{g\+\_\+reentry\+Guard}} $\vert$= (category)}
+
+\mbox{\Hypertarget{ack__core__common_8h_a923e60ebcc21c52e7af9d0c1e452bd8c}\label{ack__core__common_8h_a923e60ebcc21c52e7af9d0c1e452bd8c}} 
+\index{ack\_core\_common.h@{ack\_core\_common.h}!ACK\_REENTRY\_CHECK@{ACK\_REENTRY\_CHECK}}
+\index{ACK\_REENTRY\_CHECK@{ACK\_REENTRY\_CHECK}!ack\_core\_common.h@{ack\_core\_common.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_REENTRY\_CHECK}{ACK\_REENTRY\_CHECK}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+REENTRY\+\_\+\+CHECK~\mbox{\hyperlink{ack__core__common_8h_a6b5655aed848cc7375bd541c08198d2b}{ACK\+\_\+\+REENTRY\+\_\+\+CHECK\+\_\+}}(\mbox{\hyperlink{ack__core__common_8h_a3c5eb94f3dfcf3371a485c9ebbb03b6a}{ACK\+\_\+\+REENTRY\+\_\+\+GENERAL\+\_\+\+CASE}})}
+
+\mbox{\Hypertarget{ack__core__common_8h_a6b5655aed848cc7375bd541c08198d2b}\label{ack__core__common_8h_a6b5655aed848cc7375bd541c08198d2b}} 
+\index{ack\_core\_common.h@{ack\_core\_common.h}!ACK\_REENTRY\_CHECK\_@{ACK\_REENTRY\_CHECK\_}}
+\index{ACK\_REENTRY\_CHECK\_@{ACK\_REENTRY\_CHECK\_}!ack\_core\_common.h@{ack\_core\_common.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_REENTRY\_CHECK\_}{ACK\_REENTRY\_CHECK\_}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+REENTRY\+\_\+\+CHECK\+\_\+(\begin{DoxyParamCaption}\item[{}]{category }\end{DoxyParamCaption})~if (0 != (\mbox{\hyperlink{ack__core__common_8h_a8ad4cbf6b22ecd197d42479142cd55f6}{g\+\_\+reentry\+Guard}} \& (category))) \mbox{\hyperlink{ack__core__common_8h_a4755d035751184c49a235a8a4ac9e886}{Reentry\+Fail}}(\+\_\+\+\_\+\+FUNCTION\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{ack__core__common_8h_a3c5eb94f3dfcf3371a485c9ebbb03b6a}\label{ack__core__common_8h_a3c5eb94f3dfcf3371a485c9ebbb03b6a}} 
+\index{ack\_core\_common.h@{ack\_core\_common.h}!ACK\_REENTRY\_GENERAL\_CASE@{ACK\_REENTRY\_GENERAL\_CASE}}
+\index{ACK\_REENTRY\_GENERAL\_CASE@{ACK\_REENTRY\_GENERAL\_CASE}!ack\_core\_common.h@{ack\_core\_common.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_REENTRY\_GENERAL\_CASE}{ACK\_REENTRY\_GENERAL\_CASE}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+REENTRY\+\_\+\+GENERAL\+\_\+\+CASE~0x01}
+
+\mbox{\Hypertarget{ack__core__common_8h_a2963304504a20d05d4c29aca71d2e38d}\label{ack__core__common_8h_a2963304504a20d05d4c29aca71d2e38d}} 
+\index{ack\_core\_common.h@{ack\_core\_common.h}!ACK\_REENTRY\_RELEASE\_@{ACK\_REENTRY\_RELEASE\_}}
+\index{ACK\_REENTRY\_RELEASE\_@{ACK\_REENTRY\_RELEASE\_}!ack\_core\_common.h@{ack\_core\_common.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_REENTRY\_RELEASE\_}{ACK\_REENTRY\_RELEASE\_}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+REENTRY\+\_\+\+RELEASE\+\_\+(\begin{DoxyParamCaption}\item[{}]{category }\end{DoxyParamCaption})~\mbox{\hyperlink{ack__core__common_8h_a8ad4cbf6b22ecd197d42479142cd55f6}{g\+\_\+reentry\+Guard}} \&= $\sim$(category)}
+
+\mbox{\Hypertarget{ack__core__common_8h_a683208a2fd2c5bf6087d851724f540d4}\label{ack__core__common_8h_a683208a2fd2c5bf6087d851724f540d4}} 
+\index{ack\_core\_common.h@{ack\_core\_common.h}!ACK\_REENTRY\_SHIELDS\_DOWN@{ACK\_REENTRY\_SHIELDS\_DOWN}}
+\index{ACK\_REENTRY\_SHIELDS\_DOWN@{ACK\_REENTRY\_SHIELDS\_DOWN}!ack\_core\_common.h@{ack\_core\_common.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_REENTRY\_SHIELDS\_DOWN}{ACK\_REENTRY\_SHIELDS\_DOWN}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+REENTRY\+\_\+\+SHIELDS\+\_\+\+DOWN~\mbox{\hyperlink{ack__core__common_8h_a2963304504a20d05d4c29aca71d2e38d}{ACK\+\_\+\+REENTRY\+\_\+\+RELEASE\+\_\+}}(\mbox{\hyperlink{ack__core__common_8h_a3c5eb94f3dfcf3371a485c9ebbb03b6a}{ACK\+\_\+\+REENTRY\+\_\+\+GENERAL\+\_\+\+CASE}})}
+
+\mbox{\Hypertarget{ack__core__common_8h_a5df04b2ef9593d19d5c16ad58a35aada}\label{ack__core__common_8h_a5df04b2ef9593d19d5c16ad58a35aada}} 
+\index{ack\_core\_common.h@{ack\_core\_common.h}!ACK\_REENTRY\_SHIELDS\_UP@{ACK\_REENTRY\_SHIELDS\_UP}}
+\index{ACK\_REENTRY\_SHIELDS\_UP@{ACK\_REENTRY\_SHIELDS\_UP}!ack\_core\_common.h@{ack\_core\_common.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_REENTRY\_SHIELDS\_UP}{ACK\_REENTRY\_SHIELDS\_UP}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+REENTRY\+\_\+\+SHIELDS\+\_\+\+UP~\mbox{\hyperlink{ack__core__common_8h_a528970fcadc71f894d4d618b9b1ab5c0}{ACK\+\_\+\+REENTRY\+\_\+\+ACQUIRE\+\_\+}}(\mbox{\hyperlink{ack__core__common_8h_a3c5eb94f3dfcf3371a485c9ebbb03b6a}{ACK\+\_\+\+REENTRY\+\_\+\+GENERAL\+\_\+\+CASE}})}
+
+\mbox{\Hypertarget{ack__core__common_8h_a202fb143d71147ac19cd9632b4d53112}\label{ack__core__common_8h_a202fb143d71147ac19cd9632b4d53112}} 
+\index{ack\_core\_common.h@{ack\_core\_common.h}!ACK\_SIMULTANEOUS\_ACKPROCESS@{ACK\_SIMULTANEOUS\_ACKPROCESS}}
+\index{ACK\_SIMULTANEOUS\_ACKPROCESS@{ACK\_SIMULTANEOUS\_ACKPROCESS}!ack\_core\_common.h@{ack\_core\_common.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_SIMULTANEOUS\_ACKPROCESS}{ACK\_SIMULTANEOUS\_ACKPROCESS}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+SIMULTANEOUS\+\_\+\+ACKPROCESS~0x02}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__common_8h_a4755d035751184c49a235a8a4ac9e886}\label{ack__core__common_8h_a4755d035751184c49a235a8a4ac9e886}} 
+\index{ack\_core\_common.h@{ack\_core\_common.h}!ReentryFail@{ReentryFail}}
+\index{ReentryFail@{ReentryFail}!ack\_core\_common.h@{ack\_core\_common.h}}
+\doxysubsubsection{\texorpdfstring{ReentryFail()}{ReentryFail()}}
+{\footnotesize\ttfamily void Reentry\+Fail (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p\+Function\+Name }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{ack__core__common_8h_a4755d035751184c49a235a8a4ac9e886_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ack__core__common_8h_a8ad4cbf6b22ecd197d42479142cd55f6}\label{ack__core__common_8h_a8ad4cbf6b22ecd197d42479142cd55f6}} 
+\index{ack\_core\_common.h@{ack\_core\_common.h}!g\_reentryGuard@{g\_reentryGuard}}
+\index{g\_reentryGuard@{g\_reentryGuard}!ack\_core\_common.h@{ack\_core\_common.h}}
+\doxysubsubsection{\texorpdfstring{g\_reentryGuard}{g\_reentryGuard}}
+{\footnotesize\ttfamily volatile uint8\+\_\+t g\+\_\+reentry\+Guard\hspace{0.3cm}{\ttfamily [extern]}}
+

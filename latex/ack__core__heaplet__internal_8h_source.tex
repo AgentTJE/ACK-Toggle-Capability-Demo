@@ -1,0 +1,56 @@
+\hypertarget{ack__core__heaplet__internal_8h_source}{}\doxysection{ack\+\_\+core\+\_\+heaplet\+\_\+internal.\+h}
+\label{ack__core__heaplet__internal_8h_source}\index{src/ack\_core\_heaplet\_internal.h@{src/ack\_core\_heaplet\_internal.h}}
+\mbox{\hyperlink{ack__core__heaplet__internal_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_HEAPLET\_INTERNAL\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_HEAPLET\_INTERNAL\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__core__heaplet_8h}{ack\_core\_heaplet.h}}"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{17 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{comment}{// Structure at the head of every allocated block. The user area starts following this in memory, rounded up}}
+\DoxyCodeLine{22 \textcolor{comment}{// to an aligned boundary.}}
+\DoxyCodeLine{23 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct___heaplet_block_header}{\_HeapletBlockHeader}}}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     \textcolor{comment}{// Size passed to HeapletSetSize to allocate/resize the block.}}
+\DoxyCodeLine{26     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{struct___heaplet_block_header_a20c59a8699c69a092893f79118d47c6e}{Size}};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{comment}{// Block tag.}}
+\DoxyCodeLine{29     \mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{HeapletTag\_t}} \mbox{\hyperlink{struct___heaplet_block_header_a7b9a6e4e46f41d266eef74411ee3347a}{Tag}};}
+\DoxyCodeLine{30 \}}
+\DoxyCodeLine{31 \mbox{\hyperlink{ack__core__heaplet__internal_8h_ac36814e9bb1f7217062efa05d8abf998}{HeapletBlockHeader\_t}};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{comment}{// Alignment factor for blocks. Ensures that the user area of blocks are aligned suitably to contain any kind}}
+\DoxyCodeLine{34 \textcolor{comment}{// of data. Assuming alignment of pointer fields within blocks is the controlling factor for that, we'd want}}
+\DoxyCodeLine{35 \textcolor{comment}{// the alignment factor to be simply sizeof(void*). However it's also possible that natural alignment is}}
+\DoxyCodeLine{36 \textcolor{comment}{// smaller than sizeof(void*). One example is 8-\/bit MCUs, where memory access is byte-\/oriented and so}}
+\DoxyCodeLine{37 \textcolor{comment}{// alignment is not even required. Another example could be a 16-\/bit MCU with 4-\/byte pointers, where}}
+\DoxyCodeLine{38 \textcolor{comment}{// we'd expect natural alignment to be to even addresses (2-\/byte boundaries).}}
+\DoxyCodeLine{39 \textcolor{comment}{// To determine the actual required alignment, we can use the fact that in an array of structs, the compiler}}
+\DoxyCodeLine{40 \textcolor{comment}{// must ensure that all elements are aligned. Composing a void* field and a byte field into a struct, and}}
+\DoxyCodeLine{41 \textcolor{comment}{// taking the size delta between that and a simple void*, gives us the alignment used by the compiler.}}
+\DoxyCodeLine{42 \textcolor{comment}{// (We expect this to be a small power of 2, but don't explicitly check for that.)}}
+\DoxyCodeLine{43 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_heaplet_align_dummy_struct__t}{HeapletAlignDummyStruct\_t}} \{ \textcolor{keywordtype}{void}* \mbox{\hyperlink{struct_heaplet_align_dummy_struct__t_af2ee5d773e7f525c070a7cafc7a5f9a8}{\_1}}; uint8\_t \mbox{\hyperlink{struct_heaplet_align_dummy_struct__t_a0036da6451212365d294b8a7a23ec41e}{\_2}}; \};}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define HEAPLET\_ALIGNMENT (sizeof(struct HeapletAlignDummyStruct\_t) -\/ sizeof(void*))}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{47 \}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_HEAPLET\_INTERNAL\_H\_\_}}
+
+\end{DoxyCode}

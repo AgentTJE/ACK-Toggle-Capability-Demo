@@ -1,0 +1,716 @@
+\hypertarget{pb__encode_8c}{}\doxysection{src/pb\+\_\+encode.c File Reference}
+\label{pb__encode_8c}\index{src/pb\_encode.c@{src/pb\_encode.c}}
+{\ttfamily \#include \char`\"{}pb.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pb\+\_\+encode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pb\+\_\+common.\+h\char`\"{}}\newline
+Include dependency graph for pb\+\_\+encode.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{pb__encode_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}}
+\item 
+\#define \mbox{\hyperlink{pb__encode_8c_a460d45bc3a2836a701e6b0b7877367c4}{pb\+\_\+int64\+\_\+t}}~int64\+\_\+t
+\item 
+\#define \mbox{\hyperlink{pb__encode_8c_a1fb3ba97e81976fc9f890f729bd77b08}{pb\+\_\+uint64\+\_\+t}}~uint64\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef bool($\ast$ \mbox{\hyperlink{pb__encode_8c_a97fb5d2a4a36b03cc477f301641af615}{pb\+\_\+encoder\+\_\+t}}) (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field, const void $\ast$src) \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_a0a9d874ebe3311e8a5adc41858a49c20}{buf\+\_\+write}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_a25ed6987f3543891dbf205fadc10ba2c}{pb\+\_\+byte\+\_\+t}} $\ast$buf, size\+\_\+t count)
+\item 
+static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_afb8fc9e49589eaae694eff25c858a19c}{encode\+\_\+array}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field, const void $\ast$p\+Data, size\+\_\+t count, \mbox{\hyperlink{pb__encode_8c_a97fb5d2a4a36b03cc477f301641af615}{pb\+\_\+encoder\+\_\+t}} func)
+\item 
+static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_a8aa23313175c09e050e2acbc54a17bd4}{encode\+\_\+field}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field, const void $\ast$p\+Data)
+\item 
+static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_a3a12936f07ae378d68408c7bee72e3c0}{default\+\_\+extension\+\_\+encoder}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_acdcaf79f3e81e71ad851c9c4aef5ad69}{pb\+\_\+extension\+\_\+t}} $\ast$extension)
+\item 
+static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_a0c789b04243dc72075c00744134546c3}{encode\+\_\+extension\+\_\+field}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field, const void $\ast$p\+Data)
+\item 
+static void $\ast$ \mbox{\hyperlink{pb__encode_8c_a86652a8e3ebaafcf8424c0c2992bed5f}{pb\+\_\+const\+\_\+cast}} (const void $\ast$p)
+\item 
+static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_a7d6439adf6388fcd3c7ab58f74954d5c}{pb\+\_\+enc\+\_\+varint}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field, const void $\ast$src)
+\item 
+static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_a475a5f7217dbd290eed58a59110d8b10}{pb\+\_\+enc\+\_\+uvarint}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field, const void $\ast$src)
+\item 
+static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_ae41047e19b694c383f7bba74e1a7ab37}{pb\+\_\+enc\+\_\+svarint}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field, const void $\ast$src)
+\item 
+static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_a6d3de4f90e7b9a4819123602843b88d0}{pb\+\_\+enc\+\_\+fixed32}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field, const void $\ast$src)
+\item 
+static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_af3786ad7969edbdee86f14ba62aa61c8}{pb\+\_\+enc\+\_\+fixed64}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field, const void $\ast$src)
+\item 
+static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_ad856083eab7b7f4ae3a0a2a9c073bb6e}{pb\+\_\+enc\+\_\+bytes}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field, const void $\ast$src)
+\item 
+static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_a43d7e4006be2299245e447b1afa3bb8a}{pb\+\_\+enc\+\_\+string}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field, const void $\ast$src)
+\item 
+static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_a1f6fe701e8ba7999f934064f029c6630}{pb\+\_\+enc\+\_\+submessage}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field, const void $\ast$src)
+\item 
+static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_aa1f7694992f77705ee41aa43612c4a1c}{pb\+\_\+enc\+\_\+fixed\+\_\+length\+\_\+bytes}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field, const void $\ast$src)
+\item 
+\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} \mbox{\hyperlink{pb__encode_8c_a8f9802386928400861c1ce20c4812f53}{pb\+\_\+ostream\+\_\+from\+\_\+buffer}} (\mbox{\hyperlink{pb_8h_a25ed6987f3543891dbf205fadc10ba2c}{pb\+\_\+byte\+\_\+t}} $\ast$buf, size\+\_\+t bufsize)
+\item 
+bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_a51722b3d1c00f2aaecfe1ae100c781fe}{pb\+\_\+write}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_a25ed6987f3543891dbf205fadc10ba2c}{pb\+\_\+byte\+\_\+t}} $\ast$buf, size\+\_\+t count)
+\item 
+static bool \mbox{\hyperlink{pb__encode_8c_a4824943b2bd45d6b6988d8f98d561a4b}{pb\+\_\+check\+\_\+proto3\+\_\+default\+\_\+value}} (const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field, const void $\ast$p\+Data)
+\item 
+static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_a1f186424780069ab183fb7d2360d274e}{encode\+\_\+basic\+\_\+field}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field, const void $\ast$p\+Data)
+\item 
+static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_aacffda1f85cad8e448a183dcc6c13559}{encode\+\_\+callback\+\_\+field}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field, const void $\ast$p\+Data)
+\item 
+bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_af44dde5296bd546d99be35f15658af3e}{pb\+\_\+encode}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} fields\mbox{[}$\,$\mbox{]}, const void $\ast$src\+\_\+struct)
+\item 
+bool \mbox{\hyperlink{pb__encode_8c_ada25a45ba2ec5aa0baa8c692b0f30361}{pb\+\_\+encode\+\_\+delimited}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} fields\mbox{[}$\,$\mbox{]}, const void $\ast$src\+\_\+struct)
+\item 
+bool \mbox{\hyperlink{pb__encode_8c_af628f9c5bd5f1f2ab3f7352a3ca039d3}{pb\+\_\+encode\+\_\+nullterminated}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} fields\mbox{[}$\,$\mbox{]}, const void $\ast$src\+\_\+struct)
+\item 
+bool \mbox{\hyperlink{pb__encode_8c_a7d0d58fcd08d5020b12133c31bbe57f1}{pb\+\_\+get\+\_\+encoded\+\_\+size}} (size\+\_\+t $\ast$size, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} fields\mbox{[}$\,$\mbox{]}, const void $\ast$src\+\_\+struct)
+\item 
+bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_adeaf6a95de34f47d154ef04eb7151d1e}{pb\+\_\+encode\+\_\+varint}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, \mbox{\hyperlink{pb__encode_8c_a1fb3ba97e81976fc9f890f729bd77b08}{pb\+\_\+uint64\+\_\+t}} value)
+\item 
+bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_a7594a839756a77c64d648221f8c76940}{pb\+\_\+encode\+\_\+svarint}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, \mbox{\hyperlink{pb__encode_8c_a460d45bc3a2836a701e6b0b7877367c4}{pb\+\_\+int64\+\_\+t}} value)
+\item 
+bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_a10f037686377976d07531ce87f1cd913}{pb\+\_\+encode\+\_\+fixed32}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const void $\ast$value)
+\item 
+bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_ae61c01d23aaa60452a9f5d01e9a17833}{pb\+\_\+encode\+\_\+fixed64}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const void $\ast$value)
+\item 
+bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_acfbcc89e5e4355b8c263d6d4f2bc8c6f}{pb\+\_\+encode\+\_\+tag}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, \mbox{\hyperlink{pb_8h_ac815846d88d0f550fe93ea99096430bf}{pb\+\_\+wire\+\_\+type\+\_\+t}} wiretype, uint32\+\_\+t field\+\_\+number)
+\item 
+bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_a3e0f1ac29dce37f78220ecd6b9d21cba}{pb\+\_\+encode\+\_\+tag\+\_\+for\+\_\+field}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field)
+\item 
+bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_a17f6d01fe19caa02aca35908212f590e}{pb\+\_\+encode\+\_\+string}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_a25ed6987f3543891dbf205fadc10ba2c}{pb\+\_\+byte\+\_\+t}} $\ast$buffer, size\+\_\+t size)
+\item 
+bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} \mbox{\hyperlink{pb__encode_8c_a5c19520cad847fead01fae854b8a6f86}{pb\+\_\+encode\+\_\+submessage}} (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} fields\mbox{[}$\,$\mbox{]}, const void $\ast$src\+\_\+struct)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const \mbox{\hyperlink{pb__encode_8c_a97fb5d2a4a36b03cc477f301641af615}{pb\+\_\+encoder\+\_\+t}} \mbox{\hyperlink{pb__encode_8c_a079b9740747b9b46b5f6eeb6f4867ce3}{PB\+\_\+\+ENCODERS}} \mbox{[}\mbox{\hyperlink{pb_8h_abc499d8b4d9285dd03653e6a2bd8cb00}{PB\+\_\+\+LTYPES\+\_\+\+COUNT}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}\label{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}} 
+\index{pb\_encode.c@{pb\_encode.c}!checkreturn@{checkreturn}}
+\index{checkreturn@{checkreturn}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{checkreturn}{checkreturn}}
+{\footnotesize\ttfamily \#define checkreturn}
+
+\mbox{\Hypertarget{pb__encode_8c_a460d45bc3a2836a701e6b0b7877367c4}\label{pb__encode_8c_a460d45bc3a2836a701e6b0b7877367c4}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_int64\_t@{pb\_int64\_t}}
+\index{pb\_int64\_t@{pb\_int64\_t}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_int64\_t}{pb\_int64\_t}}
+{\footnotesize\ttfamily \#define pb\+\_\+int64\+\_\+t~int64\+\_\+t}
+
+\mbox{\Hypertarget{pb__encode_8c_a1fb3ba97e81976fc9f890f729bd77b08}\label{pb__encode_8c_a1fb3ba97e81976fc9f890f729bd77b08}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_uint64\_t@{pb\_uint64\_t}}
+\index{pb\_uint64\_t@{pb\_uint64\_t}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_uint64\_t}{pb\_uint64\_t}}
+{\footnotesize\ttfamily \#define pb\+\_\+uint64\+\_\+t~uint64\+\_\+t}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{pb__encode_8c_a97fb5d2a4a36b03cc477f301641af615}\label{pb__encode_8c_a97fb5d2a4a36b03cc477f301641af615}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_encoder\_t@{pb\_encoder\_t}}
+\index{pb\_encoder\_t@{pb\_encoder\_t}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_encoder\_t}{pb\_encoder\_t}}
+{\footnotesize\ttfamily typedef bool($\ast$ pb\+\_\+encoder\+\_\+t) (\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$stream, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$field, const void $\ast$src) \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pb__encode_8c_a0a9d874ebe3311e8a5adc41858a49c20}\label{pb__encode_8c_a0a9d874ebe3311e8a5adc41858a49c20}} 
+\index{pb\_encode.c@{pb\_encode.c}!buf\_write@{buf\_write}}
+\index{buf\_write@{buf\_write}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{buf\_write()}{buf\_write()}}
+{\footnotesize\ttfamily static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} buf\+\_\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_a25ed6987f3543891dbf205fadc10ba2c}{pb\+\_\+byte\+\_\+t}} $\ast$}]{buf,  }\item[{size\+\_\+t}]{count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a0a9d874ebe3311e8a5adc41858a49c20_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a3a12936f07ae378d68408c7bee72e3c0}\label{pb__encode_8c_a3a12936f07ae378d68408c7bee72e3c0}} 
+\index{pb\_encode.c@{pb\_encode.c}!default\_extension\_encoder@{default\_extension\_encoder}}
+\index{default\_extension\_encoder@{default\_extension\_encoder}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{default\_extension\_encoder()}{default\_extension\_encoder()}}
+{\footnotesize\ttfamily static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} default\+\_\+extension\+\_\+encoder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_acdcaf79f3e81e71ad851c9c4aef5ad69}{pb\+\_\+extension\+\_\+t}} $\ast$}]{extension }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a3a12936f07ae378d68408c7bee72e3c0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a3a12936f07ae378d68408c7bee72e3c0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_afb8fc9e49589eaae694eff25c858a19c}\label{pb__encode_8c_afb8fc9e49589eaae694eff25c858a19c}} 
+\index{pb\_encode.c@{pb\_encode.c}!encode\_array@{encode\_array}}
+\index{encode\_array@{encode\_array}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{encode\_array()}{encode\_array()}}
+{\footnotesize\ttfamily static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} encode\+\_\+array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{field,  }\item[{const void $\ast$}]{p\+Data,  }\item[{size\+\_\+t}]{count,  }\item[{\mbox{\hyperlink{pb__encode_8c_a97fb5d2a4a36b03cc477f301641af615}{pb\+\_\+encoder\+\_\+t}}}]{func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_afb8fc9e49589eaae694eff25c858a19c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_afb8fc9e49589eaae694eff25c858a19c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a1f186424780069ab183fb7d2360d274e}\label{pb__encode_8c_a1f186424780069ab183fb7d2360d274e}} 
+\index{pb\_encode.c@{pb\_encode.c}!encode\_basic\_field@{encode\_basic\_field}}
+\index{encode\_basic\_field@{encode\_basic\_field}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{encode\_basic\_field()}{encode\_basic\_field()}}
+{\footnotesize\ttfamily static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} encode\+\_\+basic\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{field,  }\item[{const void $\ast$}]{p\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a1f186424780069ab183fb7d2360d274e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a1f186424780069ab183fb7d2360d274e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_aacffda1f85cad8e448a183dcc6c13559}\label{pb__encode_8c_aacffda1f85cad8e448a183dcc6c13559}} 
+\index{pb\_encode.c@{pb\_encode.c}!encode\_callback\_field@{encode\_callback\_field}}
+\index{encode\_callback\_field@{encode\_callback\_field}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{encode\_callback\_field()}{encode\_callback\_field()}}
+{\footnotesize\ttfamily static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} encode\+\_\+callback\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{field,  }\item[{const void $\ast$}]{p\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_aacffda1f85cad8e448a183dcc6c13559_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a0c789b04243dc72075c00744134546c3}\label{pb__encode_8c_a0c789b04243dc72075c00744134546c3}} 
+\index{pb\_encode.c@{pb\_encode.c}!encode\_extension\_field@{encode\_extension\_field}}
+\index{encode\_extension\_field@{encode\_extension\_field}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{encode\_extension\_field()}{encode\_extension\_field()}}
+{\footnotesize\ttfamily static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} encode\+\_\+extension\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{field,  }\item[{const void $\ast$}]{p\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a0c789b04243dc72075c00744134546c3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a0c789b04243dc72075c00744134546c3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a8aa23313175c09e050e2acbc54a17bd4}\label{pb__encode_8c_a8aa23313175c09e050e2acbc54a17bd4}} 
+\index{pb\_encode.c@{pb\_encode.c}!encode\_field@{encode\_field}}
+\index{encode\_field@{encode\_field}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{encode\_field()}{encode\_field()}}
+{\footnotesize\ttfamily static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} encode\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{field,  }\item[{const void $\ast$}]{p\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a8aa23313175c09e050e2acbc54a17bd4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a8aa23313175c09e050e2acbc54a17bd4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a4824943b2bd45d6b6988d8f98d561a4b}\label{pb__encode_8c_a4824943b2bd45d6b6988d8f98d561a4b}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_check\_proto3\_default\_value@{pb\_check\_proto3\_default\_value}}
+\index{pb\_check\_proto3\_default\_value@{pb\_check\_proto3\_default\_value}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_check\_proto3\_default\_value()}{pb\_check\_proto3\_default\_value()}}
+{\footnotesize\ttfamily static bool pb\+\_\+check\+\_\+proto3\+\_\+default\+\_\+value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{field,  }\item[{const void $\ast$}]{p\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a4824943b2bd45d6b6988d8f98d561a4b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a4824943b2bd45d6b6988d8f98d561a4b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a86652a8e3ebaafcf8424c0c2992bed5f}\label{pb__encode_8c_a86652a8e3ebaafcf8424c0c2992bed5f}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_const\_cast@{pb\_const\_cast}}
+\index{pb\_const\_cast@{pb\_const\_cast}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_const\_cast()}{pb\_const\_cast()}}
+{\footnotesize\ttfamily static void $\ast$ pb\+\_\+const\+\_\+cast (\begin{DoxyParamCaption}\item[{const void $\ast$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a86652a8e3ebaafcf8424c0c2992bed5f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_ad856083eab7b7f4ae3a0a2a9c073bb6e}\label{pb__encode_8c_ad856083eab7b7f4ae3a0a2a9c073bb6e}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_enc\_bytes@{pb\_enc\_bytes}}
+\index{pb\_enc\_bytes@{pb\_enc\_bytes}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_enc\_bytes()}{pb\_enc\_bytes()}}
+{\footnotesize\ttfamily static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+enc\+\_\+bytes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{field,  }\item[{const void $\ast$}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_ad856083eab7b7f4ae3a0a2a9c073bb6e_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a6d3de4f90e7b9a4819123602843b88d0}\label{pb__encode_8c_a6d3de4f90e7b9a4819123602843b88d0}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_enc\_fixed32@{pb\_enc\_fixed32}}
+\index{pb\_enc\_fixed32@{pb\_enc\_fixed32}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_enc\_fixed32()}{pb\_enc\_fixed32()}}
+{\footnotesize\ttfamily static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+enc\+\_\+fixed32 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{field,  }\item[{const void $\ast$}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a6d3de4f90e7b9a4819123602843b88d0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_af3786ad7969edbdee86f14ba62aa61c8}\label{pb__encode_8c_af3786ad7969edbdee86f14ba62aa61c8}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_enc\_fixed64@{pb\_enc\_fixed64}}
+\index{pb\_enc\_fixed64@{pb\_enc\_fixed64}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_enc\_fixed64()}{pb\_enc\_fixed64()}}
+{\footnotesize\ttfamily static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+enc\+\_\+fixed64 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{field,  }\item[{const void $\ast$}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_af3786ad7969edbdee86f14ba62aa61c8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_aa1f7694992f77705ee41aa43612c4a1c}\label{pb__encode_8c_aa1f7694992f77705ee41aa43612c4a1c}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_enc\_fixed\_length\_bytes@{pb\_enc\_fixed\_length\_bytes}}
+\index{pb\_enc\_fixed\_length\_bytes@{pb\_enc\_fixed\_length\_bytes}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_enc\_fixed\_length\_bytes()}{pb\_enc\_fixed\_length\_bytes()}}
+{\footnotesize\ttfamily static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+enc\+\_\+fixed\+\_\+length\+\_\+bytes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{field,  }\item[{const void $\ast$}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_aa1f7694992f77705ee41aa43612c4a1c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a43d7e4006be2299245e447b1afa3bb8a}\label{pb__encode_8c_a43d7e4006be2299245e447b1afa3bb8a}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_enc\_string@{pb\_enc\_string}}
+\index{pb\_enc\_string@{pb\_enc\_string}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_enc\_string()}{pb\_enc\_string()}}
+{\footnotesize\ttfamily static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+enc\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{field,  }\item[{const void $\ast$}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a43d7e4006be2299245e447b1afa3bb8a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a1f6fe701e8ba7999f934064f029c6630}\label{pb__encode_8c_a1f6fe701e8ba7999f934064f029c6630}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_enc\_submessage@{pb\_enc\_submessage}}
+\index{pb\_enc\_submessage@{pb\_enc\_submessage}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_enc\_submessage()}{pb\_enc\_submessage()}}
+{\footnotesize\ttfamily static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+enc\+\_\+submessage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{field,  }\item[{const void $\ast$}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a1f6fe701e8ba7999f934064f029c6630_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_ae41047e19b694c383f7bba74e1a7ab37}\label{pb__encode_8c_ae41047e19b694c383f7bba74e1a7ab37}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_enc\_svarint@{pb\_enc\_svarint}}
+\index{pb\_enc\_svarint@{pb\_enc\_svarint}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_enc\_svarint()}{pb\_enc\_svarint()}}
+{\footnotesize\ttfamily static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+enc\+\_\+svarint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{field,  }\item[{const void $\ast$}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_ae41047e19b694c383f7bba74e1a7ab37_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a475a5f7217dbd290eed58a59110d8b10}\label{pb__encode_8c_a475a5f7217dbd290eed58a59110d8b10}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_enc\_uvarint@{pb\_enc\_uvarint}}
+\index{pb\_enc\_uvarint@{pb\_enc\_uvarint}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_enc\_uvarint()}{pb\_enc\_uvarint()}}
+{\footnotesize\ttfamily static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+enc\+\_\+uvarint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{field,  }\item[{const void $\ast$}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a475a5f7217dbd290eed58a59110d8b10_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a7d6439adf6388fcd3c7ab58f74954d5c}\label{pb__encode_8c_a7d6439adf6388fcd3c7ab58f74954d5c}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_enc\_varint@{pb\_enc\_varint}}
+\index{pb\_enc\_varint@{pb\_enc\_varint}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_enc\_varint()}{pb\_enc\_varint()}}
+{\footnotesize\ttfamily static bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+enc\+\_\+varint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{field,  }\item[{const void $\ast$}]{src }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a7d6439adf6388fcd3c7ab58f74954d5c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_af44dde5296bd546d99be35f15658af3e}\label{pb__encode_8c_af44dde5296bd546d99be35f15658af3e}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_encode@{pb\_encode}}
+\index{pb\_encode@{pb\_encode}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_encode()}{pb\_encode()}}
+{\footnotesize\ttfamily bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}}}]{fields\mbox{[}$\,$\mbox{]},  }\item[{const void $\ast$}]{src\+\_\+struct }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_af44dde5296bd546d99be35f15658af3e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_af44dde5296bd546d99be35f15658af3e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_ada25a45ba2ec5aa0baa8c692b0f30361}\label{pb__encode_8c_ada25a45ba2ec5aa0baa8c692b0f30361}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_encode\_delimited@{pb\_encode\_delimited}}
+\index{pb\_encode\_delimited@{pb\_encode\_delimited}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_encode\_delimited()}{pb\_encode\_delimited()}}
+{\footnotesize\ttfamily bool pb\+\_\+encode\+\_\+delimited (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}}}]{fields\mbox{[}$\,$\mbox{]},  }\item[{const void $\ast$}]{src\+\_\+struct }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_ada25a45ba2ec5aa0baa8c692b0f30361_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a10f037686377976d07531ce87f1cd913}\label{pb__encode_8c_a10f037686377976d07531ce87f1cd913}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_encode\_fixed32@{pb\_encode\_fixed32}}
+\index{pb\_encode\_fixed32@{pb\_encode\_fixed32}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_encode\_fixed32()}{pb\_encode\_fixed32()}}
+{\footnotesize\ttfamily bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+encode\+\_\+fixed32 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const void $\ast$}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a10f037686377976d07531ce87f1cd913_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{pb__encode_8c_a10f037686377976d07531ce87f1cd913_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_ae61c01d23aaa60452a9f5d01e9a17833}\label{pb__encode_8c_ae61c01d23aaa60452a9f5d01e9a17833}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_encode\_fixed64@{pb\_encode\_fixed64}}
+\index{pb\_encode\_fixed64@{pb\_encode\_fixed64}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_encode\_fixed64()}{pb\_encode\_fixed64()}}
+{\footnotesize\ttfamily bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+encode\+\_\+fixed64 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const void $\ast$}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_ae61c01d23aaa60452a9f5d01e9a17833_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{pb__encode_8c_ae61c01d23aaa60452a9f5d01e9a17833_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_af628f9c5bd5f1f2ab3f7352a3ca039d3}\label{pb__encode_8c_af628f9c5bd5f1f2ab3f7352a3ca039d3}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_encode\_nullterminated@{pb\_encode\_nullterminated}}
+\index{pb\_encode\_nullterminated@{pb\_encode\_nullterminated}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_encode\_nullterminated()}{pb\_encode\_nullterminated()}}
+{\footnotesize\ttfamily bool pb\+\_\+encode\+\_\+nullterminated (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}}}]{fields\mbox{[}$\,$\mbox{]},  }\item[{const void $\ast$}]{src\+\_\+struct }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_af628f9c5bd5f1f2ab3f7352a3ca039d3_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a17f6d01fe19caa02aca35908212f590e}\label{pb__encode_8c_a17f6d01fe19caa02aca35908212f590e}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_encode\_string@{pb\_encode\_string}}
+\index{pb\_encode\_string@{pb\_encode\_string}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_encode\_string()}{pb\_encode\_string()}}
+{\footnotesize\ttfamily bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+encode\+\_\+string (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_a25ed6987f3543891dbf205fadc10ba2c}{pb\+\_\+byte\+\_\+t}} $\ast$}]{buffer,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a17f6d01fe19caa02aca35908212f590e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a17f6d01fe19caa02aca35908212f590e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a5c19520cad847fead01fae854b8a6f86}\label{pb__encode_8c_a5c19520cad847fead01fae854b8a6f86}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_encode\_submessage@{pb\_encode\_submessage}}
+\index{pb\_encode\_submessage@{pb\_encode\_submessage}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_encode\_submessage()}{pb\_encode\_submessage()}}
+{\footnotesize\ttfamily bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+encode\+\_\+submessage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}}}]{fields\mbox{[}$\,$\mbox{]},  }\item[{const void $\ast$}]{src\+\_\+struct }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a5c19520cad847fead01fae854b8a6f86_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a5c19520cad847fead01fae854b8a6f86_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a7594a839756a77c64d648221f8c76940}\label{pb__encode_8c_a7594a839756a77c64d648221f8c76940}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_encode\_svarint@{pb\_encode\_svarint}}
+\index{pb\_encode\_svarint@{pb\_encode\_svarint}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_encode\_svarint()}{pb\_encode\_svarint()}}
+{\footnotesize\ttfamily bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+encode\+\_\+svarint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{\mbox{\hyperlink{pb__encode_8c_a460d45bc3a2836a701e6b0b7877367c4}{pb\+\_\+int64\+\_\+t}}}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a7594a839756a77c64d648221f8c76940_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{pb__encode_8c_a7594a839756a77c64d648221f8c76940_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_acfbcc89e5e4355b8c263d6d4f2bc8c6f}\label{pb__encode_8c_acfbcc89e5e4355b8c263d6d4f2bc8c6f}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_encode\_tag@{pb\_encode\_tag}}
+\index{pb\_encode\_tag@{pb\_encode\_tag}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_encode\_tag()}{pb\_encode\_tag()}}
+{\footnotesize\ttfamily bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+encode\+\_\+tag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{\mbox{\hyperlink{pb_8h_ac815846d88d0f550fe93ea99096430bf}{pb\+\_\+wire\+\_\+type\+\_\+t}}}]{wiretype,  }\item[{uint32\+\_\+t}]{field\+\_\+number }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_acfbcc89e5e4355b8c263d6d4f2bc8c6f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_acfbcc89e5e4355b8c263d6d4f2bc8c6f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a3e0f1ac29dce37f78220ecd6b9d21cba}\label{pb__encode_8c_a3e0f1ac29dce37f78220ecd6b9d21cba}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_encode\_tag\_for\_field@{pb\_encode\_tag\_for\_field}}
+\index{pb\_encode\_tag\_for\_field@{pb\_encode\_tag\_for\_field}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_encode\_tag\_for\_field()}{pb\_encode\_tag\_for\_field()}}
+{\footnotesize\ttfamily bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+encode\+\_\+tag\+\_\+for\+\_\+field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{field }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a3e0f1ac29dce37f78220ecd6b9d21cba_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a3e0f1ac29dce37f78220ecd6b9d21cba_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_adeaf6a95de34f47d154ef04eb7151d1e}\label{pb__encode_8c_adeaf6a95de34f47d154ef04eb7151d1e}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_encode\_varint@{pb\_encode\_varint}}
+\index{pb\_encode\_varint@{pb\_encode\_varint}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_encode\_varint()}{pb\_encode\_varint()}}
+{\footnotesize\ttfamily bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+encode\+\_\+varint (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{\mbox{\hyperlink{pb__encode_8c_a1fb3ba97e81976fc9f890f729bd77b08}{pb\+\_\+uint64\+\_\+t}}}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_adeaf6a95de34f47d154ef04eb7151d1e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_adeaf6a95de34f47d154ef04eb7151d1e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a7d0d58fcd08d5020b12133c31bbe57f1}\label{pb__encode_8c_a7d0d58fcd08d5020b12133c31bbe57f1}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_get\_encoded\_size@{pb\_get\_encoded\_size}}
+\index{pb\_get\_encoded\_size@{pb\_get\_encoded\_size}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_get\_encoded\_size()}{pb\_get\_encoded\_size()}}
+{\footnotesize\ttfamily bool pb\+\_\+get\+\_\+encoded\+\_\+size (\begin{DoxyParamCaption}\item[{size\+\_\+t $\ast$}]{size,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}}}]{fields\mbox{[}$\,$\mbox{]},  }\item[{const void $\ast$}]{src\+\_\+struct }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a7d0d58fcd08d5020b12133c31bbe57f1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a7d0d58fcd08d5020b12133c31bbe57f1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a8f9802386928400861c1ce20c4812f53}\label{pb__encode_8c_a8f9802386928400861c1ce20c4812f53}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_ostream\_from\_buffer@{pb\_ostream\_from\_buffer}}
+\index{pb\_ostream\_from\_buffer@{pb\_ostream\_from\_buffer}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_ostream\_from\_buffer()}{pb\_ostream\_from\_buffer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} pb\+\_\+ostream\+\_\+from\+\_\+buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a25ed6987f3543891dbf205fadc10ba2c}{pb\+\_\+byte\+\_\+t}} $\ast$}]{buf,  }\item[{size\+\_\+t}]{bufsize }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{pb__encode_8c_a8f9802386928400861c1ce20c4812f53_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a8f9802386928400861c1ce20c4812f53_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__encode_8c_a51722b3d1c00f2aaecfe1ae100c781fe}\label{pb__encode_8c_a51722b3d1c00f2aaecfe1ae100c781fe}} 
+\index{pb\_encode.c@{pb\_encode.c}!pb\_write@{pb\_write}}
+\index{pb\_write@{pb\_write}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{pb\_write()}{pb\_write()}}
+{\footnotesize\ttfamily bool \mbox{\hyperlink{pb__encode_8c_ab244d5a64365c2522908485bcfd2415d}{checkreturn}} pb\+\_\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb_8h_a0a2d46c69fdcda81627431d7b58b0bac}{pb\+\_\+ostream\+\_\+t}} $\ast$}]{stream,  }\item[{const \mbox{\hyperlink{pb_8h_a25ed6987f3543891dbf205fadc10ba2c}{pb\+\_\+byte\+\_\+t}} $\ast$}]{buf,  }\item[{size\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=225pt]{pb__encode_8c_a51722b3d1c00f2aaecfe1ae100c781fe_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__encode_8c_a51722b3d1c00f2aaecfe1ae100c781fe_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{pb__encode_8c_a079b9740747b9b46b5f6eeb6f4867ce3}\label{pb__encode_8c_a079b9740747b9b46b5f6eeb6f4867ce3}} 
+\index{pb\_encode.c@{pb\_encode.c}!PB\_ENCODERS@{PB\_ENCODERS}}
+\index{PB\_ENCODERS@{PB\_ENCODERS}!pb\_encode.c@{pb\_encode.c}}
+\doxysubsubsection{\texorpdfstring{PB\_ENCODERS}{PB\_ENCODERS}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{pb__encode_8c_a97fb5d2a4a36b03cc477f301641af615}{pb\+\_\+encoder\+\_\+t}} PB\+\_\+\+ENCODERS\mbox{[}\mbox{\hyperlink{pb_8h_abc499d8b4d9285dd03653e6a2bd8cb00}{PB\+\_\+\+LTYPES\+\_\+\+COUNT}}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \&\mbox{\hyperlink{pb__encode_8c_a7d6439adf6388fcd3c7ab58f74954d5c}{pb\_enc\_varint}},}
+\DoxyCodeLine{    \&\mbox{\hyperlink{pb__encode_8c_a475a5f7217dbd290eed58a59110d8b10}{pb\_enc\_uvarint}},}
+\DoxyCodeLine{    \&\mbox{\hyperlink{pb__encode_8c_ae41047e19b694c383f7bba74e1a7ab37}{pb\_enc\_svarint}},}
+\DoxyCodeLine{    \&\mbox{\hyperlink{pb__encode_8c_a6d3de4f90e7b9a4819123602843b88d0}{pb\_enc\_fixed32}},}
+\DoxyCodeLine{    \&\mbox{\hyperlink{pb__encode_8c_af3786ad7969edbdee86f14ba62aa61c8}{pb\_enc\_fixed64}},}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \&\mbox{\hyperlink{pb__encode_8c_ad856083eab7b7f4ae3a0a2a9c073bb6e}{pb\_enc\_bytes}},}
+\DoxyCodeLine{    \&\mbox{\hyperlink{pb__encode_8c_a43d7e4006be2299245e447b1afa3bb8a}{pb\_enc\_string}},}
+\DoxyCodeLine{    \&\mbox{\hyperlink{pb__encode_8c_a1f6fe701e8ba7999f934064f029c6630}{pb\_enc\_submessage}},}
+\DoxyCodeLine{    NULL, }
+\DoxyCodeLine{    \&\mbox{\hyperlink{pb__encode_8c_aa1f7694992f77705ee41aa43612c4a1c}{pb\_enc\_fixed\_length\_bytes}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

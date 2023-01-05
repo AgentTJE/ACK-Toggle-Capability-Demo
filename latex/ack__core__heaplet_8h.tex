@@ -1,0 +1,296 @@
+\hypertarget{ack__core__heaplet_8h}{}\doxysection{src/ack\+\_\+core\+\_\+heaplet.h File Reference}
+\label{ack__core__heaplet_8h}\index{src/ack\_core\_heaplet.h@{src/ack\_core\_heaplet.h}}
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for ack\+\_\+core\+\_\+heaplet.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__heaplet_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__heaplet_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ack__core__heaplet_8h_a64743e2b98cdd803267a29f312a8b866}{ACK\+\_\+\+MEMORY\+\_\+\+DIAG}}
+\item 
+\#define \mbox{\hyperlink{ack__core__heaplet_8h_a531789683b5ca61d3a45888ba99a84b3}{MEM\+\_\+\+TAG\+\_\+\+MAX}}~255
+\item 
+\#define \mbox{\hyperlink{ack__core__heaplet_8h_a38de460bb292c011a81783d1bb54d53c}{MEM\+\_\+\+NONE}}~0
+\item 
+\#define \mbox{\hyperlink{ack__core__heaplet_8h_adc9b93d591862fdd4afe6dab090d5bf1}{MEM\+\_\+\+RECEIVED\+\_\+\+ENCODED\+\_\+\+ACP\+\_\+\+RESPONSE}}~10
+\item 
+\#define \mbox{\hyperlink{ack__core__heaplet_8h_aee52c1b281ab9c7653f9e00a4cbc04ec}{MEM\+\_\+\+RECEIVED\+\_\+\+DIRECTIVE\+\_\+\+INFO}}~20
+\item 
+\#define \mbox{\hyperlink{ack__core__heaplet_8h_a0fcfdcc2fc3873dff2f5d82578d86dbd}{MEM\+\_\+\+OUTBOUND\+\_\+\+LOG\+\_\+\+AND\+\_\+\+METRICS\+\_\+\+DATA}}~90
+\item 
+\#define \mbox{\hyperlink{ack__core__heaplet_8h_a6529e02d6b7ad861ac9b6deaf8fd2c50}{MEM\+\_\+\+OUTBOUND\+\_\+\+BINARY\+\_\+\+DOCUMENT}}~120
+\item 
+\#define \mbox{\hyperlink{ack__core__heaplet_8h_a5195291d7b6321bb44bfaed9e0d38b41}{MEM\+\_\+\+OUTBOUND\+\_\+\+ENCODED\+\_\+\+ACP\+\_\+\+CMD}}~130
+\item 
+\#define \mbox{\hyperlink{ack__core__heaplet_8h_a4beef10dc564c403b367fda4630b9dd8}{MEM\+\_\+\+RECEIVED\+\_\+\+BINARY\+\_\+\+DOCUMENT}}~230
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint8\+\_\+t \mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ack__core__heaplet_8h_abf737e83acbcfe011f683e8889ec5e12}{Heaplet\+Init}} (void)
+\item 
+void $\ast$ \mbox{\hyperlink{ack__core__heaplet_8h_a757199e9939e4598279cc950ef3c10dc}{Heaplet\+Set\+Size}} (\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}} tag, size\+\_\+t new\+Size)
+\item 
+void \mbox{\hyperlink{ack__core__heaplet_8h_a249ef4b78b976c6a6e8e598d50797525}{Heaplet\+Free}} (\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}} tag)
+\item 
+size\+\_\+t \mbox{\hyperlink{ack__core__heaplet_8h_a36c319ccd1905503c6689fce340e558f}{Heaplet\+Get\+Size}} (\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}} tag)
+\item 
+void $\ast$ \mbox{\hyperlink{ack__core__heaplet_8h_ac03ca341b0f9018dfa4da4d43480649b}{Heaplet\+Access}} (\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}} tag)
+\item 
+bool \mbox{\hyperlink{ack__core__heaplet_8h_a730050a2e6334a227124ea943b0eff59}{Heaplet\+Get\+Block}} (\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}} tag, void $\ast$$\ast$pp\+Block, size\+\_\+t $\ast$p\+Size)
+\item 
+void $\ast$ \mbox{\hyperlink{ack__core__heaplet_8h_a48f91fa0d3acaf3a6d4a720587158056}{Heaplet\+Set\+To\+Largest\+Possible\+Size}} (\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}} tag)
+\item 
+size\+\_\+t \mbox{\hyperlink{ack__core__heaplet_8h_af689b2b6caafad5ba9f3dcbe72d40a30}{Heaplet\+Get\+Blocks\+In\+Use}} (\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}} $\ast$p\+Tags, size\+\_\+t max\+Tags)
+\item 
+void \mbox{\hyperlink{ack__core__heaplet_8h_a2757129891774ac1761e19be3aa74707}{Heaplet\+Assert\+Blocks\+In\+Use}} (const \mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}} $\ast$p\+Expected\+Tags)
+\item 
+void \mbox{\hyperlink{ack__core__heaplet_8h_a9f4d54de616a3a1dc358012432924612}{Heaplet\+Inject\+Set\+Size\+Failure}} (\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}} tag)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ack__core__heaplet_8h_a64743e2b98cdd803267a29f312a8b866}\label{ack__core__heaplet_8h_a64743e2b98cdd803267a29f312a8b866}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!ACK\_MEMORY\_DIAG@{ACK\_MEMORY\_DIAG}}
+\index{ACK\_MEMORY\_DIAG@{ACK\_MEMORY\_DIAG}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_MEMORY\_DIAG}{ACK\_MEMORY\_DIAG}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+MEMORY\+\_\+\+DIAG}
+
+\mbox{\Hypertarget{ack__core__heaplet_8h_a38de460bb292c011a81783d1bb54d53c}\label{ack__core__heaplet_8h_a38de460bb292c011a81783d1bb54d53c}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!MEM\_NONE@{MEM\_NONE}}
+\index{MEM\_NONE@{MEM\_NONE}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{MEM\_NONE}{MEM\_NONE}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+NONE~0}
+
+\mbox{\Hypertarget{ack__core__heaplet_8h_a6529e02d6b7ad861ac9b6deaf8fd2c50}\label{ack__core__heaplet_8h_a6529e02d6b7ad861ac9b6deaf8fd2c50}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!MEM\_OUTBOUND\_BINARY\_DOCUMENT@{MEM\_OUTBOUND\_BINARY\_DOCUMENT}}
+\index{MEM\_OUTBOUND\_BINARY\_DOCUMENT@{MEM\_OUTBOUND\_BINARY\_DOCUMENT}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{MEM\_OUTBOUND\_BINARY\_DOCUMENT}{MEM\_OUTBOUND\_BINARY\_DOCUMENT}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+OUTBOUND\+\_\+\+BINARY\+\_\+\+DOCUMENT~120}
+
+\mbox{\Hypertarget{ack__core__heaplet_8h_a5195291d7b6321bb44bfaed9e0d38b41}\label{ack__core__heaplet_8h_a5195291d7b6321bb44bfaed9e0d38b41}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!MEM\_OUTBOUND\_ENCODED\_ACP\_CMD@{MEM\_OUTBOUND\_ENCODED\_ACP\_CMD}}
+\index{MEM\_OUTBOUND\_ENCODED\_ACP\_CMD@{MEM\_OUTBOUND\_ENCODED\_ACP\_CMD}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{MEM\_OUTBOUND\_ENCODED\_ACP\_CMD}{MEM\_OUTBOUND\_ENCODED\_ACP\_CMD}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+OUTBOUND\+\_\+\+ENCODED\+\_\+\+ACP\+\_\+\+CMD~130}
+
+\mbox{\Hypertarget{ack__core__heaplet_8h_a0fcfdcc2fc3873dff2f5d82578d86dbd}\label{ack__core__heaplet_8h_a0fcfdcc2fc3873dff2f5d82578d86dbd}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!MEM\_OUTBOUND\_LOG\_AND\_METRICS\_DATA@{MEM\_OUTBOUND\_LOG\_AND\_METRICS\_DATA}}
+\index{MEM\_OUTBOUND\_LOG\_AND\_METRICS\_DATA@{MEM\_OUTBOUND\_LOG\_AND\_METRICS\_DATA}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{MEM\_OUTBOUND\_LOG\_AND\_METRICS\_DATA}{MEM\_OUTBOUND\_LOG\_AND\_METRICS\_DATA}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+OUTBOUND\+\_\+\+LOG\+\_\+\+AND\+\_\+\+METRICS\+\_\+\+DATA~90}
+
+\mbox{\Hypertarget{ack__core__heaplet_8h_a4beef10dc564c403b367fda4630b9dd8}\label{ack__core__heaplet_8h_a4beef10dc564c403b367fda4630b9dd8}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!MEM\_RECEIVED\_BINARY\_DOCUMENT@{MEM\_RECEIVED\_BINARY\_DOCUMENT}}
+\index{MEM\_RECEIVED\_BINARY\_DOCUMENT@{MEM\_RECEIVED\_BINARY\_DOCUMENT}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{MEM\_RECEIVED\_BINARY\_DOCUMENT}{MEM\_RECEIVED\_BINARY\_DOCUMENT}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+RECEIVED\+\_\+\+BINARY\+\_\+\+DOCUMENT~230}
+
+\mbox{\Hypertarget{ack__core__heaplet_8h_aee52c1b281ab9c7653f9e00a4cbc04ec}\label{ack__core__heaplet_8h_aee52c1b281ab9c7653f9e00a4cbc04ec}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!MEM\_RECEIVED\_DIRECTIVE\_INFO@{MEM\_RECEIVED\_DIRECTIVE\_INFO}}
+\index{MEM\_RECEIVED\_DIRECTIVE\_INFO@{MEM\_RECEIVED\_DIRECTIVE\_INFO}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{MEM\_RECEIVED\_DIRECTIVE\_INFO}{MEM\_RECEIVED\_DIRECTIVE\_INFO}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+RECEIVED\+\_\+\+DIRECTIVE\+\_\+\+INFO~20}
+
+\mbox{\Hypertarget{ack__core__heaplet_8h_adc9b93d591862fdd4afe6dab090d5bf1}\label{ack__core__heaplet_8h_adc9b93d591862fdd4afe6dab090d5bf1}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!MEM\_RECEIVED\_ENCODED\_ACP\_RESPONSE@{MEM\_RECEIVED\_ENCODED\_ACP\_RESPONSE}}
+\index{MEM\_RECEIVED\_ENCODED\_ACP\_RESPONSE@{MEM\_RECEIVED\_ENCODED\_ACP\_RESPONSE}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{MEM\_RECEIVED\_ENCODED\_ACP\_RESPONSE}{MEM\_RECEIVED\_ENCODED\_ACP\_RESPONSE}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+RECEIVED\+\_\+\+ENCODED\+\_\+\+ACP\+\_\+\+RESPONSE~10}
+
+\mbox{\Hypertarget{ack__core__heaplet_8h_a531789683b5ca61d3a45888ba99a84b3}\label{ack__core__heaplet_8h_a531789683b5ca61d3a45888ba99a84b3}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!MEM\_TAG\_MAX@{MEM\_TAG\_MAX}}
+\index{MEM\_TAG\_MAX@{MEM\_TAG\_MAX}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{MEM\_TAG\_MAX}{MEM\_TAG\_MAX}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+TAG\+\_\+\+MAX~255}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}\label{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!HeapletTag\_t@{HeapletTag\_t}}
+\index{HeapletTag\_t@{HeapletTag\_t}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{HeapletTag\_t}{HeapletTag\_t}}
+{\footnotesize\ttfamily typedef uint8\+\_\+t \mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__heaplet_8h_ac03ca341b0f9018dfa4da4d43480649b}\label{ack__core__heaplet_8h_ac03ca341b0f9018dfa4da4d43480649b}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!HeapletAccess@{HeapletAccess}}
+\index{HeapletAccess@{HeapletAccess}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{HeapletAccess()}{HeapletAccess()}}
+{\footnotesize\ttfamily void $\ast$ Heaplet\+Access (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}}}]{tag }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__heaplet_8h_ac03ca341b0f9018dfa4da4d43480649b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__heaplet_8h_ac03ca341b0f9018dfa4da4d43480649b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__heaplet_8h_a2757129891774ac1761e19be3aa74707}\label{ack__core__heaplet_8h_a2757129891774ac1761e19be3aa74707}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!HeapletAssertBlocksInUse@{HeapletAssertBlocksInUse}}
+\index{HeapletAssertBlocksInUse@{HeapletAssertBlocksInUse}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{HeapletAssertBlocksInUse()}{HeapletAssertBlocksInUse()}}
+{\footnotesize\ttfamily void Heaplet\+Assert\+Blocks\+In\+Use (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}} $\ast$}]{p\+Expected\+Tags }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ack__core__heaplet_8h_a249ef4b78b976c6a6e8e598d50797525}\label{ack__core__heaplet_8h_a249ef4b78b976c6a6e8e598d50797525}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!HeapletFree@{HeapletFree}}
+\index{HeapletFree@{HeapletFree}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{HeapletFree()}{HeapletFree()}}
+{\footnotesize\ttfamily void Heaplet\+Free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}}}]{tag }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{ack__core__heaplet_8h_a249ef4b78b976c6a6e8e598d50797525_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__heaplet_8h_a249ef4b78b976c6a6e8e598d50797525_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__heaplet_8h_a730050a2e6334a227124ea943b0eff59}\label{ack__core__heaplet_8h_a730050a2e6334a227124ea943b0eff59}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!HeapletGetBlock@{HeapletGetBlock}}
+\index{HeapletGetBlock@{HeapletGetBlock}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{HeapletGetBlock()}{HeapletGetBlock()}}
+{\footnotesize\ttfamily bool Heaplet\+Get\+Block (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}}}]{tag,  }\item[{void $\ast$$\ast$}]{pp\+Block,  }\item[{size\+\_\+t $\ast$}]{p\+Size }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{ack__core__heaplet_8h_a730050a2e6334a227124ea943b0eff59_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__heaplet_8h_a730050a2e6334a227124ea943b0eff59_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__heaplet_8h_af689b2b6caafad5ba9f3dcbe72d40a30}\label{ack__core__heaplet_8h_af689b2b6caafad5ba9f3dcbe72d40a30}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!HeapletGetBlocksInUse@{HeapletGetBlocksInUse}}
+\index{HeapletGetBlocksInUse@{HeapletGetBlocksInUse}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{HeapletGetBlocksInUse()}{HeapletGetBlocksInUse()}}
+{\footnotesize\ttfamily size\+\_\+t Heaplet\+Get\+Blocks\+In\+Use (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}} $\ast$}]{p\+Tags,  }\item[{size\+\_\+t}]{max\+Tags }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__heaplet_8h_af689b2b6caafad5ba9f3dcbe72d40a30_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__heaplet_8h_a36c319ccd1905503c6689fce340e558f}\label{ack__core__heaplet_8h_a36c319ccd1905503c6689fce340e558f}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!HeapletGetSize@{HeapletGetSize}}
+\index{HeapletGetSize@{HeapletGetSize}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{HeapletGetSize()}{HeapletGetSize()}}
+{\footnotesize\ttfamily size\+\_\+t Heaplet\+Get\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}}}]{tag }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__heaplet_8h_a36c319ccd1905503c6689fce340e558f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__heaplet_8h_a36c319ccd1905503c6689fce340e558f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__heaplet_8h_abf737e83acbcfe011f683e8889ec5e12}\label{ack__core__heaplet_8h_abf737e83acbcfe011f683e8889ec5e12}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!HeapletInit@{HeapletInit}}
+\index{HeapletInit@{HeapletInit}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{HeapletInit()}{HeapletInit()}}
+{\footnotesize\ttfamily void Heaplet\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__heaplet_8h_abf737e83acbcfe011f683e8889ec5e12_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__heaplet_8h_a9f4d54de616a3a1dc358012432924612}\label{ack__core__heaplet_8h_a9f4d54de616a3a1dc358012432924612}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!HeapletInjectSetSizeFailure@{HeapletInjectSetSizeFailure}}
+\index{HeapletInjectSetSizeFailure@{HeapletInjectSetSizeFailure}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{HeapletInjectSetSizeFailure()}{HeapletInjectSetSizeFailure()}}
+{\footnotesize\ttfamily void Heaplet\+Inject\+Set\+Size\+Failure (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}}}]{tag }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ack__core__heaplet_8h_a757199e9939e4598279cc950ef3c10dc}\label{ack__core__heaplet_8h_a757199e9939e4598279cc950ef3c10dc}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!HeapletSetSize@{HeapletSetSize}}
+\index{HeapletSetSize@{HeapletSetSize}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{HeapletSetSize()}{HeapletSetSize()}}
+{\footnotesize\ttfamily void $\ast$ Heaplet\+Set\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}}}]{tag,  }\item[{size\+\_\+t}]{new\+Size }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__heaplet_8h_a757199e9939e4598279cc950ef3c10dc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__heaplet_8h_a757199e9939e4598279cc950ef3c10dc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__heaplet_8h_a48f91fa0d3acaf3a6d4a720587158056}\label{ack__core__heaplet_8h_a48f91fa0d3acaf3a6d4a720587158056}} 
+\index{ack\_core\_heaplet.h@{ack\_core\_heaplet.h}!HeapletSetToLargestPossibleSize@{HeapletSetToLargestPossibleSize}}
+\index{HeapletSetToLargestPossibleSize@{HeapletSetToLargestPossibleSize}!ack\_core\_heaplet.h@{ack\_core\_heaplet.h}}
+\doxysubsubsection{\texorpdfstring{HeapletSetToLargestPossibleSize()}{HeapletSetToLargestPossibleSize()}}
+{\footnotesize\ttfamily void $\ast$ Heaplet\+Set\+To\+Largest\+Possible\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}}}]{tag }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__heaplet_8h_a48f91fa0d3acaf3a6d4a720587158056_cgraph}
+\end{center}
+\end{figure}

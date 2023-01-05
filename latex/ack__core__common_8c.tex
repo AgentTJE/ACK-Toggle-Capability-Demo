@@ -1,0 +1,76 @@
+\hypertarget{ack__core__common_8c}{}\doxysection{src/ack\+\_\+core\+\_\+common.c File Reference}
+\label{ack__core__common_8c}\index{src/ack\_core\_common.c@{src/ack\_core\_common.c}}
+{\ttfamily \#include \char`\"{}acp.\+pb.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+communication.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+event\+\_\+builder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+fixed\+\_\+memory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+heaplet.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+protobuf\+\_\+utilities.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+Include dependency graph for ack\+\_\+core\+\_\+common.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__common_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ack__core__common_8c_a4755d035751184c49a235a8a4ac9e886}{Reentry\+Fail}} (const char $\ast$p\+Function\+Name)
+\item 
+void \mbox{\hyperlink{ack__core__common_8c_a09973f8d967fba8c09a9eaa217d81c08}{ACK\+\_\+\+Assertion\+Failed}} (const char $\ast$p\+Condition)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{ack__core__common_8c_a8ad4cbf6b22ecd197d42479142cd55f6}{g\+\_\+reentry\+Guard}} = 0
+\item 
+void($\ast$ \mbox{\hyperlink{ack__core__common_8c_a64950a7552975d09c0f48892280d86b8}{ACK\+\_\+\+Assertion\+Failed\+Hook}} )(void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__common_8c_a09973f8d967fba8c09a9eaa217d81c08}\label{ack__core__common_8c_a09973f8d967fba8c09a9eaa217d81c08}} 
+\index{ack\_core\_common.c@{ack\_core\_common.c}!ACK\_AssertionFailed@{ACK\_AssertionFailed}}
+\index{ACK\_AssertionFailed@{ACK\_AssertionFailed}!ack\_core\_common.c@{ack\_core\_common.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_AssertionFailed()}{ACK\_AssertionFailed()}}
+{\footnotesize\ttfamily void ACK\+\_\+\+Assertion\+Failed (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p\+Condition }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{ack__core__common_8c_a09973f8d967fba8c09a9eaa217d81c08_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__common_8c_a4755d035751184c49a235a8a4ac9e886}\label{ack__core__common_8c_a4755d035751184c49a235a8a4ac9e886}} 
+\index{ack\_core\_common.c@{ack\_core\_common.c}!ReentryFail@{ReentryFail}}
+\index{ReentryFail@{ReentryFail}!ack\_core\_common.c@{ack\_core\_common.c}}
+\doxysubsubsection{\texorpdfstring{ReentryFail()}{ReentryFail()}}
+{\footnotesize\ttfamily void Reentry\+Fail (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p\+Function\+Name }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{ack__core__common_8c_a4755d035751184c49a235a8a4ac9e886_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ack__core__common_8c_a64950a7552975d09c0f48892280d86b8}\label{ack__core__common_8c_a64950a7552975d09c0f48892280d86b8}} 
+\index{ack\_core\_common.c@{ack\_core\_common.c}!ACK\_AssertionFailedHook@{ACK\_AssertionFailedHook}}
+\index{ACK\_AssertionFailedHook@{ACK\_AssertionFailedHook}!ack\_core\_common.c@{ack\_core\_common.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_AssertionFailedHook}{ACK\_AssertionFailedHook}}
+{\footnotesize\ttfamily void($\ast$ ACK\+\_\+\+Assertion\+Failed\+Hook) (void) (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ack__core__common_8c_a8ad4cbf6b22ecd197d42479142cd55f6}\label{ack__core__common_8c_a8ad4cbf6b22ecd197d42479142cd55f6}} 
+\index{ack\_core\_common.c@{ack\_core\_common.c}!g\_reentryGuard@{g\_reentryGuard}}
+\index{g\_reentryGuard@{g\_reentryGuard}!ack\_core\_common.c@{ack\_core\_common.c}}
+\doxysubsubsection{\texorpdfstring{g\_reentryGuard}{g\_reentryGuard}}
+{\footnotesize\ttfamily volatile uint8\+\_\+t g\+\_\+reentry\+Guard = 0}
+

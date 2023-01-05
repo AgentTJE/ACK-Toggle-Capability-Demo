@@ -1,0 +1,40 @@
+\hypertarget{ack__core__circularbuffer_8c}{}\doxysection{src/ack\+\_\+core\+\_\+circularbuffer.c File Reference}
+\label{ack__core__circularbuffer_8c}\index{src/ack\_core\_circularbuffer.c@{src/ack\_core\_circularbuffer.c}}
+{\ttfamily \#include \char`\"{}ack\+\_\+circularbuffer.\+h\char`\"{}}\newline
+Include dependency graph for ack\+\_\+core\+\_\+circularbuffer.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{ack__core__circularbuffer_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ack__core__circularbuffer_8c_a3cf023d703733ef875eac265a2419df0}{ACK\+\_\+\+Initialize\+Circular\+Buffer}} (volatile \mbox{\hyperlink{ack__circularbuffer_8h_a9a22a25e414f0aa11a178477345be02d}{ACKCircular\+Buffer\+\_\+t}} $\ast$p\+Circular\+Buffer)
+\item 
+bool \mbox{\hyperlink{ack__core__circularbuffer_8c_ab716a6183eddd7132b586514ea67272c}{ACK\+\_\+\+Insert\+Into\+Circular\+Buffer}} (volatile \mbox{\hyperlink{ack__circularbuffer_8h_a9a22a25e414f0aa11a178477345be02d}{ACKCircular\+Buffer\+\_\+t}} $\ast$p\+Circular\+Buffer, uint8\+\_\+t x)
+\item 
+bool \mbox{\hyperlink{ack__core__circularbuffer_8c_a24a81939f28246599661513e96f00db6}{ACK\+\_\+\+Read\+From\+Circular\+Buffer}} (volatile \mbox{\hyperlink{ack__circularbuffer_8h_a9a22a25e414f0aa11a178477345be02d}{ACKCircular\+Buffer\+\_\+t}} $\ast$p\+Circular\+Buffer, uint8\+\_\+t $\ast$pX)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__circularbuffer_8c_a3cf023d703733ef875eac265a2419df0}\label{ack__core__circularbuffer_8c_a3cf023d703733ef875eac265a2419df0}} 
+\index{ack\_core\_circularbuffer.c@{ack\_core\_circularbuffer.c}!ACK\_InitializeCircularBuffer@{ACK\_InitializeCircularBuffer}}
+\index{ACK\_InitializeCircularBuffer@{ACK\_InitializeCircularBuffer}!ack\_core\_circularbuffer.c@{ack\_core\_circularbuffer.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_InitializeCircularBuffer()}{ACK\_InitializeCircularBuffer()}}
+{\footnotesize\ttfamily void ACK\+\_\+\+Initialize\+Circular\+Buffer (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{ack__circularbuffer_8h_a9a22a25e414f0aa11a178477345be02d}{ACKCircular\+Buffer\+\_\+t}} $\ast$}]{p\+Circular\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ack__core__circularbuffer_8c_ab716a6183eddd7132b586514ea67272c}\label{ack__core__circularbuffer_8c_ab716a6183eddd7132b586514ea67272c}} 
+\index{ack\_core\_circularbuffer.c@{ack\_core\_circularbuffer.c}!ACK\_InsertIntoCircularBuffer@{ACK\_InsertIntoCircularBuffer}}
+\index{ACK\_InsertIntoCircularBuffer@{ACK\_InsertIntoCircularBuffer}!ack\_core\_circularbuffer.c@{ack\_core\_circularbuffer.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_InsertIntoCircularBuffer()}{ACK\_InsertIntoCircularBuffer()}}
+{\footnotesize\ttfamily bool ACK\+\_\+\+Insert\+Into\+Circular\+Buffer (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{ack__circularbuffer_8h_a9a22a25e414f0aa11a178477345be02d}{ACKCircular\+Buffer\+\_\+t}} $\ast$}]{p\+Circular\+Buffer,  }\item[{uint8\+\_\+t}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ack__core__circularbuffer_8c_a24a81939f28246599661513e96f00db6}\label{ack__core__circularbuffer_8c_a24a81939f28246599661513e96f00db6}} 
+\index{ack\_core\_circularbuffer.c@{ack\_core\_circularbuffer.c}!ACK\_ReadFromCircularBuffer@{ACK\_ReadFromCircularBuffer}}
+\index{ACK\_ReadFromCircularBuffer@{ACK\_ReadFromCircularBuffer}!ack\_core\_circularbuffer.c@{ack\_core\_circularbuffer.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_ReadFromCircularBuffer()}{ACK\_ReadFromCircularBuffer()}}
+{\footnotesize\ttfamily bool ACK\+\_\+\+Read\+From\+Circular\+Buffer (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{ack__circularbuffer_8h_a9a22a25e414f0aa11a178477345be02d}{ACKCircular\+Buffer\+\_\+t}} $\ast$}]{p\+Circular\+Buffer,  }\item[{uint8\+\_\+t $\ast$}]{pX }\end{DoxyParamCaption})}
+

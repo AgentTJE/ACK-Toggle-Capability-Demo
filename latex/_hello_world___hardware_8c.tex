@@ -1,0 +1,184 @@
+\hypertarget{_hello_world___hardware_8c}{}\doxysection{Hello\+World\+\_\+\+Hardware.\+c File Reference}
+\label{_hello_world___hardware_8c}\index{HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}}
+{\ttfamily \#include \char`\"{}src/ack\+\_\+user\+\_\+platform.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Hello\+World\+\_\+\+Hardware.\+h\char`\"{}}\newline
+Include dependency graph for Hello\+World\+\_\+\+Hardware.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___hardware_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_hello_world___hardware_8c_a679c5544a376f1ef4e01f526704f8319}{MAXIMUM\+\_\+\+BRIGHTNESS}}~10
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_hello_world___hardware_8c_af073f10d55513def62ddb6af68598d24}{Hardware\+\_\+\+Set\+Power\+State}} (bool power\+On)
+\item 
+bool \mbox{\hyperlink{_hello_world___hardware_8c_a43cd7636e88ea9b4916106facea5a7b2}{Hardware\+\_\+\+Is\+Power\+On}} (void)
+\item 
+bool \mbox{\hyperlink{_hello_world___hardware_8c_a987016ce2b85a2cae4becf4434adcacf}{Hardware\+\_\+\+Is\+Power\+Toggle\+Button\+Down}} (void)
+\item 
+void \mbox{\hyperlink{_hello_world___hardware_8c_a2fbe91fc50c1e4da8c739bf5c01ff578}{Hardware\+\_\+\+Set\+Connectivity\+Led\+State}} (\mbox{\hyperlink{_hello_world___hardware_8h_a95897941ae9ef94f9c0ff9702b73d201}{Hardware\+Connectivity\+Led\+State}} state)
+\item 
+bool \mbox{\hyperlink{_hello_world___hardware_8c_a3f6f5dff967666bed9dd18d3995c7ec1}{Hardware\+\_\+\+Is\+Lifecycle\+Button\+Down}} (void)
+\item 
+int32\+\_\+t \mbox{\hyperlink{_hello_world___hardware_8c_acaa4413463849a502b5291ce7c80cbc3}{Hardware\+\_\+\+Get\+Brightness\+State}} (void)
+\item 
+void \mbox{\hyperlink{_hello_world___hardware_8c_ab3edb167992c05876016190441dc209a}{Hardware\+\_\+\+Set\+Brightness\+State}} (int32\+\_\+t value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{_hello_world___hardware_8c_a759809cde67301048ed7a5c2b9fb005e}{g\+\_\+brightness}} = \mbox{\hyperlink{_hello_world___hardware_8c_a679c5544a376f1ef4e01f526704f8319}{MAXIMUM\+\_\+\+BRIGHTNESS}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_hello_world___hardware_8c_a679c5544a376f1ef4e01f526704f8319}\label{_hello_world___hardware_8c_a679c5544a376f1ef4e01f526704f8319}} 
+\index{HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}!MAXIMUM\_BRIGHTNESS@{MAXIMUM\_BRIGHTNESS}}
+\index{MAXIMUM\_BRIGHTNESS@{MAXIMUM\_BRIGHTNESS}!HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}}
+\doxysubsubsection{\texorpdfstring{MAXIMUM\_BRIGHTNESS}{MAXIMUM\_BRIGHTNESS}}
+{\footnotesize\ttfamily \#define MAXIMUM\+\_\+\+BRIGHTNESS~10}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_hello_world___hardware_8c_acaa4413463849a502b5291ce7c80cbc3}\label{_hello_world___hardware_8c_acaa4413463849a502b5291ce7c80cbc3}} 
+\index{HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}!Hardware\_GetBrightnessState@{Hardware\_GetBrightnessState}}
+\index{Hardware\_GetBrightnessState@{Hardware\_GetBrightnessState}!HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}}
+\doxysubsubsection{\texorpdfstring{Hardware\_GetBrightnessState()}{Hardware\_GetBrightnessState()}}
+{\footnotesize\ttfamily int32\+\_\+t Hardware\+\_\+\+Get\+Brightness\+State (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___hardware_8c_acaa4413463849a502b5291ce7c80cbc3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___hardware_8c_a3f6f5dff967666bed9dd18d3995c7ec1}\label{_hello_world___hardware_8c_a3f6f5dff967666bed9dd18d3995c7ec1}} 
+\index{HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}!Hardware\_IsLifecycleButtonDown@{Hardware\_IsLifecycleButtonDown}}
+\index{Hardware\_IsLifecycleButtonDown@{Hardware\_IsLifecycleButtonDown}!HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}}
+\doxysubsubsection{\texorpdfstring{Hardware\_IsLifecycleButtonDown()}{Hardware\_IsLifecycleButtonDown()}}
+{\footnotesize\ttfamily bool Hardware\+\_\+\+Is\+Lifecycle\+Button\+Down (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___hardware_8c_a3f6f5dff967666bed9dd18d3995c7ec1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___hardware_8c_a43cd7636e88ea9b4916106facea5a7b2}\label{_hello_world___hardware_8c_a43cd7636e88ea9b4916106facea5a7b2}} 
+\index{HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}!Hardware\_IsPowerOn@{Hardware\_IsPowerOn}}
+\index{Hardware\_IsPowerOn@{Hardware\_IsPowerOn}!HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}}
+\doxysubsubsection{\texorpdfstring{Hardware\_IsPowerOn()}{Hardware\_IsPowerOn()}}
+{\footnotesize\ttfamily bool Hardware\+\_\+\+Is\+Power\+On (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___hardware_8c_a43cd7636e88ea9b4916106facea5a7b2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___hardware_8c_a43cd7636e88ea9b4916106facea5a7b2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___hardware_8c_a987016ce2b85a2cae4becf4434adcacf}\label{_hello_world___hardware_8c_a987016ce2b85a2cae4becf4434adcacf}} 
+\index{HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}!Hardware\_IsPowerToggleButtonDown@{Hardware\_IsPowerToggleButtonDown}}
+\index{Hardware\_IsPowerToggleButtonDown@{Hardware\_IsPowerToggleButtonDown}!HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}}
+\doxysubsubsection{\texorpdfstring{Hardware\_IsPowerToggleButtonDown()}{Hardware\_IsPowerToggleButtonDown()}}
+{\footnotesize\ttfamily bool Hardware\+\_\+\+Is\+Power\+Toggle\+Button\+Down (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___hardware_8c_a987016ce2b85a2cae4becf4434adcacf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___hardware_8c_a987016ce2b85a2cae4becf4434adcacf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___hardware_8c_ab3edb167992c05876016190441dc209a}\label{_hello_world___hardware_8c_ab3edb167992c05876016190441dc209a}} 
+\index{HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}!Hardware\_SetBrightnessState@{Hardware\_SetBrightnessState}}
+\index{Hardware\_SetBrightnessState@{Hardware\_SetBrightnessState}!HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}}
+\doxysubsubsection{\texorpdfstring{Hardware\_SetBrightnessState()}{Hardware\_SetBrightnessState()}}
+{\footnotesize\ttfamily void Hardware\+\_\+\+Set\+Brightness\+State (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___hardware_8c_ab3edb167992c05876016190441dc209a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___hardware_8c_ab3edb167992c05876016190441dc209a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___hardware_8c_a2fbe91fc50c1e4da8c739bf5c01ff578}\label{_hello_world___hardware_8c_a2fbe91fc50c1e4da8c739bf5c01ff578}} 
+\index{HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}!Hardware\_SetConnectivityLedState@{Hardware\_SetConnectivityLedState}}
+\index{Hardware\_SetConnectivityLedState@{Hardware\_SetConnectivityLedState}!HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}}
+\doxysubsubsection{\texorpdfstring{Hardware\_SetConnectivityLedState()}{Hardware\_SetConnectivityLedState()}}
+{\footnotesize\ttfamily void Hardware\+\_\+\+Set\+Connectivity\+Led\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_hello_world___hardware_8h_a95897941ae9ef94f9c0ff9702b73d201}{Hardware\+Connectivity\+Led\+State}}}]{state }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___hardware_8c_a2fbe91fc50c1e4da8c739bf5c01ff578_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world___hardware_8c_af073f10d55513def62ddb6af68598d24}\label{_hello_world___hardware_8c_af073f10d55513def62ddb6af68598d24}} 
+\index{HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}!Hardware\_SetPowerState@{Hardware\_SetPowerState}}
+\index{Hardware\_SetPowerState@{Hardware\_SetPowerState}!HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}}
+\doxysubsubsection{\texorpdfstring{Hardware\_SetPowerState()}{Hardware\_SetPowerState()}}
+{\footnotesize\ttfamily void Hardware\+\_\+\+Set\+Power\+State (\begin{DoxyParamCaption}\item[{bool}]{power\+On }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___hardware_8c_af073f10d55513def62ddb6af68598d24_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world___hardware_8c_af073f10d55513def62ddb6af68598d24_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_hello_world___hardware_8c_a759809cde67301048ed7a5c2b9fb005e}\label{_hello_world___hardware_8c_a759809cde67301048ed7a5c2b9fb005e}} 
+\index{HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}!g\_brightness@{g\_brightness}}
+\index{g\_brightness@{g\_brightness}!HelloWorld\_Hardware.c@{HelloWorld\_Hardware.c}}
+\doxysubsubsection{\texorpdfstring{g\_brightness}{g\_brightness}}
+{\footnotesize\ttfamily int32\+\_\+t g\+\_\+brightness = \mbox{\hyperlink{_hello_world___hardware_8c_a679c5544a376f1ef4e01f526704f8319}{MAXIMUM\+\_\+\+BRIGHTNESS}}}
+

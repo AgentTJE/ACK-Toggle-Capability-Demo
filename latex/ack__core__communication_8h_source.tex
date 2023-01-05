@@ -1,0 +1,47 @@
+\hypertarget{ack__core__communication_8h_source}{}\doxysection{ack\+\_\+core\+\_\+communication.\+h}
+\label{ack__core__communication_8h_source}\index{src/ack\_core\_communication.h@{src/ack\_core\_communication.h}}
+\mbox{\hyperlink{ack__core__communication_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_COMMUNICATION\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_COMMUNICATION\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack_8h}{ack.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__core__communication__protocol_8h}{ack\_core\_communication\_protocol.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{20 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define ACP\_IO\_DEFAULT\_TIMEOUT\_MS 100}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define ACP\_IO\_RESPONSE\_TIMEOUT\_MS 500}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#ifndef ACK\_IO\_MAX\_RETRIES}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define ACK\_IO\_MAX\_RETRIES 1}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def ACK\_IO\_MAX\_RETRIES}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__core__communication_8h_abd554bf8258eb04864a95e0fd757af74}{CommsSendAcpProtobufCmd}}(\textcolor{keyword}{const} \textcolor{keywordtype}{void}* pBuffer, \textcolor{keywordtype}{size\_t} length);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{comment}{// Gets the response into the given tag.}}
+\DoxyCodeLine{34 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__core__communication_8h_a7eff37c56faf03173c2172274d64f130}{CommsGetAcpResponse}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{37 \}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_COMMUNICATION\_H\_\_}}
+\DoxyCodeLine{41 }
+
+\end{DoxyCode}

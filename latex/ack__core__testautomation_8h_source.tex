@@ -1,0 +1,74 @@
+\hypertarget{ack__core__testautomation_8h_source}{}\doxysection{ack\+\_\+core\+\_\+testautomation.\+h}
+\label{ack__core__testautomation_8h_source}\index{src/ack\_core\_testautomation.h@{src/ack\_core\_testautomation.h}}
+\mbox{\hyperlink{ack__core__testautomation_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{comment}{/*}}
+\DoxyCodeLine{11 \textcolor{comment}{    Functionality for test automation. Because this code may be running on an MCU during integration tests,}}
+\DoxyCodeLine{12 \textcolor{comment}{    we cannot directly observe its internals. Instead, the functionality in this header can be used to emit}}
+\DoxyCodeLine{13 \textcolor{comment}{    data into the debug spew using the platform-\/specific debug print mechanism.}}
+\DoxyCodeLine{14 \textcolor{comment}{}}
+\DoxyCodeLine{15 \textcolor{comment}{    Unlike the normal debug spew, messages associated with test automation are not necessarily human-\/readable.}}
+\DoxyCodeLine{16 \textcolor{comment}{    It's only important that the test(s) expecting to find the test automation messages can process them.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef \_\_ACK\_TESTAUTOMATION\_H\_\_}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define \_\_ACK\_TESTAUTOMATION\_H\_\_}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__user__platform_8h}{ack\_user\_platform.h}}"{}}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{27 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#ifdef ACK\_TESTAUTOMATION}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define TA\_PREFIX "{}[TA]"{}}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define TA\_TEST\_START "{}test-\/start"{}}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define TA\_TEST\_PASS "{}test-\/pass"{}}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define TA\_TEST\_FAIL "{}test-\/fail"{}}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define TA\_TEST\_UNKNOWN "{}test-\/unknown"{}}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define TA\_TEST\_MESSAGE "{}test-\/message"{}}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define TA\_EMIT\_TEST\_START(testName) \_TA\_EMIT(TA\_TEST\_START, "{}\%s"{}}, testName)}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define TA\_EMIT\_TEST\_PASS(testName) \_TA\_EMIT(TA\_TEST\_PASS, "{}\%s"{}}, testName)}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define TA\_EMIT\_TEST\_FAIL(testName) \_TA\_EMIT(TA\_TEST\_FAIL, "{}\%s"{}}, testName)}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define TA\_EMIT\_TEST\_UNKNOWN(testName) \_TA\_EMIT(TA\_TEST\_UNKNOWN, "{}\%s"{}}, testName)}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define TA\_EMIT\_TEST\_MESSAGE(format, ...) \_TA\_EMIT(TA\_TEST\_MESSAGE, format, \#\#\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{comment}{// Format is}}
+\DoxyCodeLine{47 \textcolor{comment}{//    [TA][head]...}}
+\DoxyCodeLine{48 \textcolor{comment}{// [TA] is a hard-\/coded string present as the first 5 chars of any test automation emission.}}
+\DoxyCodeLine{49 \textcolor{comment}{// head is a caller-\/supplied string}}
+\DoxyCodeLine{50 \textcolor{comment}{// The rest is standard printf-\/style format.}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define \_TA\_EMIT(head, format, ...)  \(\backslash\)}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{    ACKPlatform\_DebugPrint(TA\_PREFIX "{}["{}} head "{}]"{} format, \#\#\_\_VA\_ARGS\_\_)}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define TA\_EMIT\_TEST\_START(testName)}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define TA\_EMIT\_TEST\_PASS(testName)}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define TA\_EMIT\_TEST\_FAIL(testName)}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define TA\_EMIT\_TEST\_UNKNOWN(testName)}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define TA\_EMIT\_TEST\_MESSAGE(format, ...)}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{65 \}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_TESTAUTOMATION\_H\_\_}}
+
+\end{DoxyCode}

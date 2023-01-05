@@ -1,0 +1,103 @@
+\hypertarget{ack__core__communication_8h}{}\doxysection{src/ack\+\_\+core\+\_\+communication.h File Reference}
+\label{ack__core__communication_8h}\index{src/ack\_core\_communication.h@{src/ack\_core\_communication.h}}
+{\ttfamily \#include \char`\"{}ack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+communication\+\_\+protocol.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for ack\+\_\+core\+\_\+communication.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__communication_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__communication_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ack__core__communication_8h_aaf1415a43ff5a0de03bf14fc57415d44}{ACP\+\_\+\+IO\+\_\+\+DEFAULT\+\_\+\+TIMEOUT\+\_\+\+MS}}~100
+\item 
+\#define \mbox{\hyperlink{ack__core__communication_8h_ac2612860849f9b46bf65f6179f24a121}{ACP\+\_\+\+IO\+\_\+\+RESPONSE\+\_\+\+TIMEOUT\+\_\+\+MS}}~500
+\item 
+\#define \mbox{\hyperlink{ack__core__communication_8h_ad18cbc023c87c7c2756b42de8e0e61bb}{ACK\+\_\+\+IO\+\_\+\+MAX\+\_\+\+RETRIES}}~1
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__communication_8h_abd554bf8258eb04864a95e0fd757af74}{Comms\+Send\+Acp\+Protobuf\+Cmd}} (const void $\ast$p\+Buffer, size\+\_\+t length)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__communication_8h_a7eff37c56faf03173c2172274d64f130}{Comms\+Get\+Acp\+Response}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ack__core__communication_8h_ad18cbc023c87c7c2756b42de8e0e61bb}\label{ack__core__communication_8h_ad18cbc023c87c7c2756b42de8e0e61bb}} 
+\index{ack\_core\_communication.h@{ack\_core\_communication.h}!ACK\_IO\_MAX\_RETRIES@{ACK\_IO\_MAX\_RETRIES}}
+\index{ACK\_IO\_MAX\_RETRIES@{ACK\_IO\_MAX\_RETRIES}!ack\_core\_communication.h@{ack\_core\_communication.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_IO\_MAX\_RETRIES}{ACK\_IO\_MAX\_RETRIES}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+IO\+\_\+\+MAX\+\_\+\+RETRIES~1}
+
+\mbox{\Hypertarget{ack__core__communication_8h_aaf1415a43ff5a0de03bf14fc57415d44}\label{ack__core__communication_8h_aaf1415a43ff5a0de03bf14fc57415d44}} 
+\index{ack\_core\_communication.h@{ack\_core\_communication.h}!ACP\_IO\_DEFAULT\_TIMEOUT\_MS@{ACP\_IO\_DEFAULT\_TIMEOUT\_MS}}
+\index{ACP\_IO\_DEFAULT\_TIMEOUT\_MS@{ACP\_IO\_DEFAULT\_TIMEOUT\_MS}!ack\_core\_communication.h@{ack\_core\_communication.h}}
+\doxysubsubsection{\texorpdfstring{ACP\_IO\_DEFAULT\_TIMEOUT\_MS}{ACP\_IO\_DEFAULT\_TIMEOUT\_MS}}
+{\footnotesize\ttfamily \#define ACP\+\_\+\+IO\+\_\+\+DEFAULT\+\_\+\+TIMEOUT\+\_\+\+MS~100}
+
+\mbox{\Hypertarget{ack__core__communication_8h_ac2612860849f9b46bf65f6179f24a121}\label{ack__core__communication_8h_ac2612860849f9b46bf65f6179f24a121}} 
+\index{ack\_core\_communication.h@{ack\_core\_communication.h}!ACP\_IO\_RESPONSE\_TIMEOUT\_MS@{ACP\_IO\_RESPONSE\_TIMEOUT\_MS}}
+\index{ACP\_IO\_RESPONSE\_TIMEOUT\_MS@{ACP\_IO\_RESPONSE\_TIMEOUT\_MS}!ack\_core\_communication.h@{ack\_core\_communication.h}}
+\doxysubsubsection{\texorpdfstring{ACP\_IO\_RESPONSE\_TIMEOUT\_MS}{ACP\_IO\_RESPONSE\_TIMEOUT\_MS}}
+{\footnotesize\ttfamily \#define ACP\+\_\+\+IO\+\_\+\+RESPONSE\+\_\+\+TIMEOUT\+\_\+\+MS~500}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__communication_8h_a7eff37c56faf03173c2172274d64f130}\label{ack__core__communication_8h_a7eff37c56faf03173c2172274d64f130}} 
+\index{ack\_core\_communication.h@{ack\_core\_communication.h}!CommsGetAcpResponse@{CommsGetAcpResponse}}
+\index{CommsGetAcpResponse@{CommsGetAcpResponse}!ack\_core\_communication.h@{ack\_core\_communication.h}}
+\doxysubsubsection{\texorpdfstring{CommsGetAcpResponse()}{CommsGetAcpResponse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Comms\+Get\+Acp\+Response (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__communication_8h_a7eff37c56faf03173c2172274d64f130_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__communication_8h_a7eff37c56faf03173c2172274d64f130_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__communication_8h_abd554bf8258eb04864a95e0fd757af74}\label{ack__core__communication_8h_abd554bf8258eb04864a95e0fd757af74}} 
+\index{ack\_core\_communication.h@{ack\_core\_communication.h}!CommsSendAcpProtobufCmd@{CommsSendAcpProtobufCmd}}
+\index{CommsSendAcpProtobufCmd@{CommsSendAcpProtobufCmd}!ack\_core\_communication.h@{ack\_core\_communication.h}}
+\doxysubsubsection{\texorpdfstring{CommsSendAcpProtobufCmd()}{CommsSendAcpProtobufCmd()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Comms\+Send\+Acp\+Protobuf\+Cmd (\begin{DoxyParamCaption}\item[{const void $\ast$}]{p\+Buffer,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__communication_8h_abd554bf8258eb04864a95e0fd757af74_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__communication_8h_abd554bf8258eb04864a95e0fd757af74_icgraph}
+\end{center}
+\end{figure}

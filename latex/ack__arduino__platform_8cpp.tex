@@ -1,0 +1,278 @@
+\hypertarget{ack__arduino__platform_8cpp}{}\doxysection{src/ack\+\_\+arduino\+\_\+platform.cpp File Reference}
+\label{ack__arduino__platform_8cpp}\index{src/ack\_arduino\_platform.cpp@{src/ack\_arduino\_platform.cpp}}
+{\ttfamily \#include \char`\"{}ack.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+power\+\_\+saving.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+crc32.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+Include dependency graph for ack\+\_\+arduino\+\_\+platform.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__arduino__platform_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ack__arduino__platform_8cpp_a90c43346cbebb0650e9e74ea192636e8}{ARDUINO\+\_\+\+PIN\+\_\+\+HOST\+\_\+\+INTERRUPT}}~2
+\item 
+\#define \mbox{\hyperlink{ack__arduino__platform_8cpp_a0843a657f69424afda8ec160010de941}{ARDUINO\+\_\+\+PIN\+\_\+\+RESET}}~3
+\item 
+\#define \mbox{\hyperlink{ack__arduino__platform_8cpp_a548c3733ecb3c78816162747cf5a8f30}{ARDUINO\+\_\+\+PIN\+\_\+\+SAMPLE\+\_\+\+APPLICATIONS\+\_\+\+LED}}~8
+\item 
+\#define \mbox{\hyperlink{ack__arduino__platform_8cpp_ae158f74964f591a8fb1e4fa0b9ce21ea}{ARDUINO\+\_\+\+PIN\+\_\+\+SAMPLE\+\_\+\+APPLICATIONS\+\_\+\+GPIO\+\_\+1}}~9
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ack__arduino__platform_8cpp_a91dfdefb64d8d19218883c6fd34340d6}{ACKPlatform\+\_\+\+Initialize}} ()
+\item 
+uint32\+\_\+t \mbox{\hyperlink{ack__arduino__platform_8cpp_a5a0930c494b304fd26ae48f35ac88d7d}{ACKPlatform\+\_\+\+Tick\+Count}} (void)
+\item 
+void \mbox{\hyperlink{ack__arduino__platform_8cpp_a714fe817d5ed149d8ff3b9c78253af58}{ACKPlatform\+\_\+\+Delay}} (uint32\+\_\+t milliseconds)
+\item 
+void \mbox{\hyperlink{ack__arduino__platform_8cpp_a9cd2eba9eb604d27bef1dae91cb80ee7}{ACKPlatform\+\_\+\+Write\+Digital\+Pin}} (\mbox{\hyperlink{ack__user__platform_8h_afa7a4633ca7fd23acf14c16df225b664}{ACKHardware\+Pin\+\_\+t}} pin, bool state)
+\item 
+bool \mbox{\hyperlink{ack__arduino__platform_8cpp_a614450ab8fbdde5e1607ca7be5c2b055}{ACKPlatform\+\_\+\+Read\+Digital\+Pin}} (\mbox{\hyperlink{ack__user__platform_8h_afa7a4633ca7fd23acf14c16df225b664}{ACKHardware\+Pin\+\_\+t}} pin)
+\item 
+void \mbox{\hyperlink{ack__arduino__platform_8cpp_a4bfbddc28909f857fb0e5c66192434ab}{ACKPlatform\+\_\+\+Set\+Digital\+Pin\+PWMLevel}} (\mbox{\hyperlink{ack__user__platform_8h_afa7a4633ca7fd23acf14c16df225b664}{ACKHardware\+Pin\+\_\+t}} pin, uint8\+\_\+t val)
+\item 
+bool \mbox{\hyperlink{ack__arduino__platform_8cpp_a2b766007ab3a47c8d69c6f6526ecd04f}{ACKPlatform\+\_\+\+Send}} (const void $\ast$buffer, size\+\_\+t length, uint32\+\_\+t timeout\+Milliseconds)
+\item 
+bool \mbox{\hyperlink{ack__arduino__platform_8cpp_a94c2c424fa4a8f0dc301aa49d520e100}{ACKPlatform\+\_\+\+Receive}} (void $\ast$p\+Buffer, size\+\_\+t length, uint32\+\_\+t timeout\+Milliseconds)
+\item 
+void \mbox{\hyperlink{ack__arduino__platform_8cpp_afec2ad8f63546e54302254631700914b}{ACKPlatform\+\_\+\+Drain\+Read}} ()
+\item 
+uint32\+\_\+t \mbox{\hyperlink{ack__arduino__platform_8cpp_a1b0efb26d53ea213836762c5279e1fb5}{ACKPlatform\+\_\+\+Calculate\+Crc32}} (const void $\ast$p\+Input, size\+\_\+t length)
+\item 
+void \mbox{\hyperlink{ack__arduino__platform_8cpp_a465a92cc685b838420ec4d72b7cc8134}{ACKPlatform\+\_\+\+Debug\+Print}} (const char $\ast$p\+Message)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static uint32\+\_\+t \mbox{\hyperlink{ack__arduino__platform_8cpp_a8e496b419234e53c35d4cbc170051750}{sg\+\_\+arduino\+Digital\+Pins}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ack__arduino__platform_8cpp_a90c43346cbebb0650e9e74ea192636e8}\label{ack__arduino__platform_8cpp_a90c43346cbebb0650e9e74ea192636e8}} 
+\index{ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}!ARDUINO\_PIN\_HOST\_INTERRUPT@{ARDUINO\_PIN\_HOST\_INTERRUPT}}
+\index{ARDUINO\_PIN\_HOST\_INTERRUPT@{ARDUINO\_PIN\_HOST\_INTERRUPT}!ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}}
+\doxysubsubsection{\texorpdfstring{ARDUINO\_PIN\_HOST\_INTERRUPT}{ARDUINO\_PIN\_HOST\_INTERRUPT}}
+{\footnotesize\ttfamily \#define ARDUINO\+\_\+\+PIN\+\_\+\+HOST\+\_\+\+INTERRUPT~2}
+
+\mbox{\Hypertarget{ack__arduino__platform_8cpp_a0843a657f69424afda8ec160010de941}\label{ack__arduino__platform_8cpp_a0843a657f69424afda8ec160010de941}} 
+\index{ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}!ARDUINO\_PIN\_RESET@{ARDUINO\_PIN\_RESET}}
+\index{ARDUINO\_PIN\_RESET@{ARDUINO\_PIN\_RESET}!ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}}
+\doxysubsubsection{\texorpdfstring{ARDUINO\_PIN\_RESET}{ARDUINO\_PIN\_RESET}}
+{\footnotesize\ttfamily \#define ARDUINO\+\_\+\+PIN\+\_\+\+RESET~3}
+
+\mbox{\Hypertarget{ack__arduino__platform_8cpp_ae158f74964f591a8fb1e4fa0b9ce21ea}\label{ack__arduino__platform_8cpp_ae158f74964f591a8fb1e4fa0b9ce21ea}} 
+\index{ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}!ARDUINO\_PIN\_SAMPLE\_APPLICATIONS\_GPIO\_1@{ARDUINO\_PIN\_SAMPLE\_APPLICATIONS\_GPIO\_1}}
+\index{ARDUINO\_PIN\_SAMPLE\_APPLICATIONS\_GPIO\_1@{ARDUINO\_PIN\_SAMPLE\_APPLICATIONS\_GPIO\_1}!ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}}
+\doxysubsubsection{\texorpdfstring{ARDUINO\_PIN\_SAMPLE\_APPLICATIONS\_GPIO\_1}{ARDUINO\_PIN\_SAMPLE\_APPLICATIONS\_GPIO\_1}}
+{\footnotesize\ttfamily \#define ARDUINO\+\_\+\+PIN\+\_\+\+SAMPLE\+\_\+\+APPLICATIONS\+\_\+\+GPIO\+\_\+1~9}
+
+\mbox{\Hypertarget{ack__arduino__platform_8cpp_a548c3733ecb3c78816162747cf5a8f30}\label{ack__arduino__platform_8cpp_a548c3733ecb3c78816162747cf5a8f30}} 
+\index{ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}!ARDUINO\_PIN\_SAMPLE\_APPLICATIONS\_LED@{ARDUINO\_PIN\_SAMPLE\_APPLICATIONS\_LED}}
+\index{ARDUINO\_PIN\_SAMPLE\_APPLICATIONS\_LED@{ARDUINO\_PIN\_SAMPLE\_APPLICATIONS\_LED}!ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}}
+\doxysubsubsection{\texorpdfstring{ARDUINO\_PIN\_SAMPLE\_APPLICATIONS\_LED}{ARDUINO\_PIN\_SAMPLE\_APPLICATIONS\_LED}}
+{\footnotesize\ttfamily \#define ARDUINO\+\_\+\+PIN\+\_\+\+SAMPLE\+\_\+\+APPLICATIONS\+\_\+\+LED~8}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__arduino__platform_8cpp_a1b0efb26d53ea213836762c5279e1fb5}\label{ack__arduino__platform_8cpp_a1b0efb26d53ea213836762c5279e1fb5}} 
+\index{ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}!ACKPlatform\_CalculateCrc32@{ACKPlatform\_CalculateCrc32}}
+\index{ACKPlatform\_CalculateCrc32@{ACKPlatform\_CalculateCrc32}!ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}}
+\doxysubsubsection{\texorpdfstring{ACKPlatform\_CalculateCrc32()}{ACKPlatform\_CalculateCrc32()}}
+{\footnotesize\ttfamily uint32\+\_\+t ACKPlatform\+\_\+\+Calculate\+Crc32 (\begin{DoxyParamCaption}\item[{const void $\ast$}]{p\+Input,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__arduino__platform_8cpp_a1b0efb26d53ea213836762c5279e1fb5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__arduino__platform_8cpp_a1b0efb26d53ea213836762c5279e1fb5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__arduino__platform_8cpp_a465a92cc685b838420ec4d72b7cc8134}\label{ack__arduino__platform_8cpp_a465a92cc685b838420ec4d72b7cc8134}} 
+\index{ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}!ACKPlatform\_DebugPrint@{ACKPlatform\_DebugPrint}}
+\index{ACKPlatform\_DebugPrint@{ACKPlatform\_DebugPrint}!ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}}
+\doxysubsubsection{\texorpdfstring{ACKPlatform\_DebugPrint()}{ACKPlatform\_DebugPrint()}}
+{\footnotesize\ttfamily void ACKPlatform\+\_\+\+Debug\+Print (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p\+Message }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{ack__arduino__platform_8cpp_a465a92cc685b838420ec4d72b7cc8134_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__arduino__platform_8cpp_a714fe817d5ed149d8ff3b9c78253af58}\label{ack__arduino__platform_8cpp_a714fe817d5ed149d8ff3b9c78253af58}} 
+\index{ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}!ACKPlatform\_Delay@{ACKPlatform\_Delay}}
+\index{ACKPlatform\_Delay@{ACKPlatform\_Delay}!ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}}
+\doxysubsubsection{\texorpdfstring{ACKPlatform\_Delay()}{ACKPlatform\_Delay()}}
+{\footnotesize\ttfamily void ACKPlatform\+\_\+\+Delay (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{milliseconds }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__arduino__platform_8cpp_a714fe817d5ed149d8ff3b9c78253af58_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__arduino__platform_8cpp_afec2ad8f63546e54302254631700914b}\label{ack__arduino__platform_8cpp_afec2ad8f63546e54302254631700914b}} 
+\index{ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}!ACKPlatform\_DrainRead@{ACKPlatform\_DrainRead}}
+\index{ACKPlatform\_DrainRead@{ACKPlatform\_DrainRead}!ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}}
+\doxysubsubsection{\texorpdfstring{ACKPlatform\_DrainRead()}{ACKPlatform\_DrainRead()}}
+{\footnotesize\ttfamily void ACKPlatform\+\_\+\+Drain\+Read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__arduino__platform_8cpp_afec2ad8f63546e54302254631700914b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__arduino__platform_8cpp_a91dfdefb64d8d19218883c6fd34340d6}\label{ack__arduino__platform_8cpp_a91dfdefb64d8d19218883c6fd34340d6}} 
+\index{ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}!ACKPlatform\_Initialize@{ACKPlatform\_Initialize}}
+\index{ACKPlatform\_Initialize@{ACKPlatform\_Initialize}!ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}}
+\doxysubsubsection{\texorpdfstring{ACKPlatform\_Initialize()}{ACKPlatform\_Initialize()}}
+{\footnotesize\ttfamily void ACKPlatform\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__arduino__platform_8cpp_a91dfdefb64d8d19218883c6fd34340d6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__arduino__platform_8cpp_a614450ab8fbdde5e1607ca7be5c2b055}\label{ack__arduino__platform_8cpp_a614450ab8fbdde5e1607ca7be5c2b055}} 
+\index{ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}!ACKPlatform\_ReadDigitalPin@{ACKPlatform\_ReadDigitalPin}}
+\index{ACKPlatform\_ReadDigitalPin@{ACKPlatform\_ReadDigitalPin}!ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}}
+\doxysubsubsection{\texorpdfstring{ACKPlatform\_ReadDigitalPin()}{ACKPlatform\_ReadDigitalPin()}}
+{\footnotesize\ttfamily bool ACKPlatform\+\_\+\+Read\+Digital\+Pin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__user__platform_8h_afa7a4633ca7fd23acf14c16df225b664}{ACKHardware\+Pin\+\_\+t}}}]{pin }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__arduino__platform_8cpp_a614450ab8fbdde5e1607ca7be5c2b055_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__arduino__platform_8cpp_a94c2c424fa4a8f0dc301aa49d520e100}\label{ack__arduino__platform_8cpp_a94c2c424fa4a8f0dc301aa49d520e100}} 
+\index{ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}!ACKPlatform\_Receive@{ACKPlatform\_Receive}}
+\index{ACKPlatform\_Receive@{ACKPlatform\_Receive}!ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}}
+\doxysubsubsection{\texorpdfstring{ACKPlatform\_Receive()}{ACKPlatform\_Receive()}}
+{\footnotesize\ttfamily bool ACKPlatform\+\_\+\+Receive (\begin{DoxyParamCaption}\item[{void $\ast$}]{p\+Buffer,  }\item[{size\+\_\+t}]{length,  }\item[{uint32\+\_\+t}]{timeout\+Milliseconds }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__arduino__platform_8cpp_a94c2c424fa4a8f0dc301aa49d520e100_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__arduino__platform_8cpp_a2b766007ab3a47c8d69c6f6526ecd04f}\label{ack__arduino__platform_8cpp_a2b766007ab3a47c8d69c6f6526ecd04f}} 
+\index{ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}!ACKPlatform\_Send@{ACKPlatform\_Send}}
+\index{ACKPlatform\_Send@{ACKPlatform\_Send}!ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}}
+\doxysubsubsection{\texorpdfstring{ACKPlatform\_Send()}{ACKPlatform\_Send()}}
+{\footnotesize\ttfamily bool ACKPlatform\+\_\+\+Send (\begin{DoxyParamCaption}\item[{const void $\ast$}]{buffer,  }\item[{size\+\_\+t}]{length,  }\item[{uint32\+\_\+t}]{timeout\+Milliseconds }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__arduino__platform_8cpp_a2b766007ab3a47c8d69c6f6526ecd04f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__arduino__platform_8cpp_a4bfbddc28909f857fb0e5c66192434ab}\label{ack__arduino__platform_8cpp_a4bfbddc28909f857fb0e5c66192434ab}} 
+\index{ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}!ACKPlatform\_SetDigitalPinPWMLevel@{ACKPlatform\_SetDigitalPinPWMLevel}}
+\index{ACKPlatform\_SetDigitalPinPWMLevel@{ACKPlatform\_SetDigitalPinPWMLevel}!ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}}
+\doxysubsubsection{\texorpdfstring{ACKPlatform\_SetDigitalPinPWMLevel()}{ACKPlatform\_SetDigitalPinPWMLevel()}}
+{\footnotesize\ttfamily void ACKPlatform\+\_\+\+Set\+Digital\+Pin\+PWMLevel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__user__platform_8h_afa7a4633ca7fd23acf14c16df225b664}{ACKHardware\+Pin\+\_\+t}}}]{pin,  }\item[{uint8\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__arduino__platform_8cpp_a4bfbddc28909f857fb0e5c66192434ab_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__arduino__platform_8cpp_a5a0930c494b304fd26ae48f35ac88d7d}\label{ack__arduino__platform_8cpp_a5a0930c494b304fd26ae48f35ac88d7d}} 
+\index{ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}!ACKPlatform\_TickCount@{ACKPlatform\_TickCount}}
+\index{ACKPlatform\_TickCount@{ACKPlatform\_TickCount}!ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}}
+\doxysubsubsection{\texorpdfstring{ACKPlatform\_TickCount()}{ACKPlatform\_TickCount()}}
+{\footnotesize\ttfamily uint32\+\_\+t ACKPlatform\+\_\+\+Tick\+Count (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__arduino__platform_8cpp_a5a0930c494b304fd26ae48f35ac88d7d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__arduino__platform_8cpp_a9cd2eba9eb604d27bef1dae91cb80ee7}\label{ack__arduino__platform_8cpp_a9cd2eba9eb604d27bef1dae91cb80ee7}} 
+\index{ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}!ACKPlatform\_WriteDigitalPin@{ACKPlatform\_WriteDigitalPin}}
+\index{ACKPlatform\_WriteDigitalPin@{ACKPlatform\_WriteDigitalPin}!ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}}
+\doxysubsubsection{\texorpdfstring{ACKPlatform\_WriteDigitalPin()}{ACKPlatform\_WriteDigitalPin()}}
+{\footnotesize\ttfamily void ACKPlatform\+\_\+\+Write\+Digital\+Pin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__user__platform_8h_afa7a4633ca7fd23acf14c16df225b664}{ACKHardware\+Pin\+\_\+t}}}]{pin,  }\item[{bool}]{state }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__arduino__platform_8cpp_a9cd2eba9eb604d27bef1dae91cb80ee7_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ack__arduino__platform_8cpp_a8e496b419234e53c35d4cbc170051750}\label{ack__arduino__platform_8cpp_a8e496b419234e53c35d4cbc170051750}} 
+\index{ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}!sg\_arduinoDigitalPins@{sg\_arduinoDigitalPins}}
+\index{sg\_arduinoDigitalPins@{sg\_arduinoDigitalPins}!ack\_arduino\_platform.cpp@{ack\_arduino\_platform.cpp}}
+\doxysubsubsection{\texorpdfstring{sg\_arduinoDigitalPins}{sg\_arduinoDigitalPins}}
+{\footnotesize\ttfamily uint32\+\_\+t sg\+\_\+arduino\+Digital\+Pins\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \mbox{\hyperlink{ack__arduino__platform_8cpp_a90c43346cbebb0650e9e74ea192636e8}{ARDUINO\_PIN\_HOST\_INTERRUPT}},}
+\DoxyCodeLine{    \mbox{\hyperlink{ack__arduino__platform_8cpp_a0843a657f69424afda8ec160010de941}{ARDUINO\_PIN\_RESET}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{    ,\mbox{\hyperlink{ack__arduino__platform_8cpp_a548c3733ecb3c78816162747cf5a8f30}{ARDUINO\_PIN\_SAMPLE\_APPLICATIONS\_LED}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{    ,\mbox{\hyperlink{ack__arduino__platform_8cpp_ae158f74964f591a8fb1e4fa0b9ce21ea}{ARDUINO\_PIN\_SAMPLE\_APPLICATIONS\_GPIO\_1}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

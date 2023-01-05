@@ -1,0 +1,67 @@
+\hypertarget{ack__core__powercontroller_8c}{}\doxysection{src/ack\+\_\+core\+\_\+powercontroller.c File Reference}
+\label{ack__core__powercontroller_8c}\index{src/ack\_core\_powercontroller.c@{src/ack\_core\_powercontroller.c}}
+{\ttfamily \#include \char`\"{}ack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+directives.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+document\+\_\+wrappers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+power\+\_\+controller.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+generated\+\_\+alexa\+\_\+power\+\_\+controller.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+generated\+\_\+power\+\_\+state.\+h\char`\"{}}\newline
+Include dependency graph for ack\+\_\+core\+\_\+powercontroller.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__powercontroller_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__powercontroller_8c_aca70026b33629b099a140e2916fda426}{Process\+Power\+Controller\+Directive}} (const \mbox{\hyperlink{ack_8h_a2d6b333100bb548196c3088556ac22ff}{ACKDirective\+Params\+\_\+t}} $\ast$p\+Document)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__powercontroller_8c_ab1e3bab17df43d14e2c9ca9d57a116b6}{ACK\+\_\+\+Add\+Power\+Controller\+Property}} (const \mbox{\hyperlink{ack__types_8h_a3f2f70bfb119cc34ec2c8894bc55f049}{ACKState\+Common\+\_\+t}} $\ast$p\+Common, bool power\+On)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__powercontroller_8c_ab1e3bab17df43d14e2c9ca9d57a116b6}\label{ack__core__powercontroller_8c_ab1e3bab17df43d14e2c9ca9d57a116b6}} 
+\index{ack\_core\_powercontroller.c@{ack\_core\_powercontroller.c}!ACK\_AddPowerControllerProperty@{ACK\_AddPowerControllerProperty}}
+\index{ACK\_AddPowerControllerProperty@{ACK\_AddPowerControllerProperty}!ack\_core\_powercontroller.c@{ack\_core\_powercontroller.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_AddPowerControllerProperty()}{ACK\_AddPowerControllerProperty()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACK\+\_\+\+Add\+Power\+Controller\+Property (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__types_8h_a3f2f70bfb119cc34ec2c8894bc55f049}{ACKState\+Common\+\_\+t}} $\ast$}]{p\+Common,  }\item[{bool}]{power\+On }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__powercontroller_8c_ab1e3bab17df43d14e2c9ca9d57a116b6_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__powercontroller_8c_ab1e3bab17df43d14e2c9ca9d57a116b6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__powercontroller_8c_aca70026b33629b099a140e2916fda426}\label{ack__core__powercontroller_8c_aca70026b33629b099a140e2916fda426}} 
+\index{ack\_core\_powercontroller.c@{ack\_core\_powercontroller.c}!ProcessPowerControllerDirective@{ProcessPowerControllerDirective}}
+\index{ProcessPowerControllerDirective@{ProcessPowerControllerDirective}!ack\_core\_powercontroller.c@{ack\_core\_powercontroller.c}}
+\doxysubsubsection{\texorpdfstring{ProcessPowerControllerDirective()}{ProcessPowerControllerDirective()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Process\+Power\+Controller\+Directive (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack_8h_a2d6b333100bb548196c3088556ac22ff}{ACKDirective\+Params\+\_\+t}} $\ast$}]{p\+Document }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__powercontroller_8c_aca70026b33629b099a140e2916fda426_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__powercontroller_8c_aca70026b33629b099a140e2916fda426_icgraph}
+\end{center}
+\end{figure}

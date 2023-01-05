@@ -1,0 +1,599 @@
+\hypertarget{pb_8h_source}{}\doxysection{pb.\+h}
+\label{pb_8h_source}\index{src/pb.h@{src/pb.h}}
+\mbox{\hyperlink{pb_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* Common parts of the nanopb library. Most of these are quite low-\/level}}
+\DoxyCodeLine{2 \textcolor{comment}{ * stuff. For the high-\/level interface, see pb\_encode.h and pb\_decode.h.}}
+\DoxyCodeLine{3 \textcolor{comment}{ */}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef PB\_H\_INCLUDED}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define PB\_H\_INCLUDED}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{comment}{/*****************************************************************}}
+\DoxyCodeLine{9 \textcolor{comment}{ * Nanopb compilation time options. You can change these here by *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * uncommenting the lines, or on the compiler command line.      *}}
+\DoxyCodeLine{11 \textcolor{comment}{ *****************************************************************/}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{comment}{/* Enable support for dynamically allocated fields */}}
+\DoxyCodeLine{14 \textcolor{comment}{/* \#define PB\_ENABLE\_MALLOC 1 */}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{comment}{/* Define this if your CPU / compiler combination does not support}}
+\DoxyCodeLine{17 \textcolor{comment}{ * unaligned memory access to packed structures. */}}
+\DoxyCodeLine{18 \textcolor{comment}{/* \#define PB\_NO\_PACKED\_STRUCTS 1 */}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{comment}{/* Increase the number of required fields that are tracked.}}
+\DoxyCodeLine{21 \textcolor{comment}{ * A compiler warning will tell if you need this. */}}
+\DoxyCodeLine{22 \textcolor{comment}{/* \#define PB\_MAX\_REQUIRED\_FIELDS 256 */}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{comment}{/* Add support for tag numbers > 255 and fields larger than 255 bytes. */}}
+\DoxyCodeLine{25 \textcolor{comment}{/* \#define PB\_FIELD\_16BIT 1 */}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{comment}{/* Add support for tag numbers > 65536 and fields larger than 65536 bytes. */}}
+\DoxyCodeLine{28 \textcolor{comment}{/* \#define PB\_FIELD\_32BIT 1 */}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{comment}{/* Disable support for error messages in order to save some code space. */}}
+\DoxyCodeLine{31 \textcolor{comment}{/* \#define PB\_NO\_ERRMSG 1 */}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{comment}{/* Disable support for custom streams (support only memory buffers). */}}
+\DoxyCodeLine{34 \textcolor{comment}{/* \#define PB\_BUFFER\_ONLY 1 */}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{comment}{/* Switch back to the old-\/style callback function signature.}}
+\DoxyCodeLine{37 \textcolor{comment}{ * This was the default until nanopb-\/0.2.1. */}}
+\DoxyCodeLine{38 \textcolor{comment}{/* \#define PB\_OLD\_CALLBACK\_STYLE */}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{comment}{/******************************************************************}}
+\DoxyCodeLine{42 \textcolor{comment}{ * You usually don't need to change anything below this line.     *}}
+\DoxyCodeLine{43 \textcolor{comment}{ * Feel free to look around and use the defined macros, though.   *}}
+\DoxyCodeLine{44 \textcolor{comment}{ ******************************************************************/}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{comment}{/* Version of the nanopb library. Just in case you want to check it in}}
+\DoxyCodeLine{48 \textcolor{comment}{ * your own program. */}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define NANOPB\_VERSION nanopb-\/0.4.0-\/dev}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{comment}{/* Include all the system headers needed by nanopb. You will need the}}
+\DoxyCodeLine{52 \textcolor{comment}{ * definitions of the following:}}
+\DoxyCodeLine{53 \textcolor{comment}{ * -\/ strlen, memcpy, memset functions}}
+\DoxyCodeLine{54 \textcolor{comment}{ * -\/ [u]int\_least8\_t, uint\_fast8\_t, [u]int\_least16\_t, [u]int32\_t, [u]int64\_t}}
+\DoxyCodeLine{55 \textcolor{comment}{ * -\/ size\_t}}
+\DoxyCodeLine{56 \textcolor{comment}{ * -\/ bool}}
+\DoxyCodeLine{57 \textcolor{comment}{ *}}
+\DoxyCodeLine{58 \textcolor{comment}{ * If you don't have the standard header files, you can instead provide}}
+\DoxyCodeLine{59 \textcolor{comment}{ * a custom header that defines or includes all this. In that case,}}
+\DoxyCodeLine{60 \textcolor{comment}{ * define PB\_SYSTEM\_HEADER to the path of this file.}}
+\DoxyCodeLine{61 \textcolor{comment}{ */}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#ifdef PB\_SYSTEM\_HEADER}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#include PB\_SYSTEM\_HEADER}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#ifdef PB\_ENABLE\_MALLOC}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{comment}{/* Macro for defining packed structures (compiler dependent).}}
+\DoxyCodeLine{76 \textcolor{comment}{ * This just reduces memory requirements, but is not required.}}
+\DoxyCodeLine{77 \textcolor{comment}{ */}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#if defined(PB\_NO\_PACKED\_STRUCTS)}}
+\DoxyCodeLine{79     \textcolor{comment}{/* Disable struct packing */}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#   define PB\_PACKED\_STRUCT\_START}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#   define PB\_PACKED\_STRUCT\_END}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#   define pb\_packed}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#elif defined(\_\_GNUC\_\_) || defined(\_\_clang\_\_)}}
+\DoxyCodeLine{84     \textcolor{comment}{/* For GCC and clang */}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#   define PB\_PACKED\_STRUCT\_START}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#   define PB\_PACKED\_STRUCT\_END}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#   define pb\_packed \_\_attribute\_\_((packed))}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#elif defined(\_\_ICCARM\_\_) || defined(\_\_CC\_ARM)}}
+\DoxyCodeLine{89     \textcolor{comment}{/* For IAR ARM and Keil MDK-\/ARM compilers */}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#   define PB\_PACKED\_STRUCT\_START \_Pragma("{}pack(push, 1)"{}})}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#   define PB\_PACKED\_STRUCT\_END \_Pragma("{}pack(pop)"{}})}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#   define pb\_packed}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#elif defined(\_MSC\_VER) \&\& (\_MSC\_VER >= 1500)}}
+\DoxyCodeLine{94     \textcolor{comment}{/* For Microsoft Visual C++ */}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#   define PB\_PACKED\_STRUCT\_START \_\_pragma(pack(push, 1))}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#   define PB\_PACKED\_STRUCT\_END \_\_pragma(pack(pop))}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#   define pb\_packed}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{99     \textcolor{comment}{/* Unknown compiler */}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#   define PB\_PACKED\_STRUCT\_START}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#   define PB\_PACKED\_STRUCT\_END}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#   define pb\_packed}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{comment}{/* Handly macro for suppressing unreferenced-\/parameter compiler warnings. */}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#ifndef PB\_UNUSED}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define PB\_UNUSED(x) (void)(x)}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 \textcolor{comment}{/* Compile-\/time assertion, used for checking compatible compilation options.}}
+\DoxyCodeLine{111 \textcolor{comment}{ * If this does not work properly on your compiler, use}}
+\DoxyCodeLine{112 \textcolor{comment}{ * \#define PB\_NO\_STATIC\_ASSERT to disable it.}}
+\DoxyCodeLine{113 \textcolor{comment}{ *}}
+\DoxyCodeLine{114 \textcolor{comment}{ * But before doing that, check carefully the error message / place where it}}
+\DoxyCodeLine{115 \textcolor{comment}{ * comes from to see if the error has a real cause. Unfortunately the error}}
+\DoxyCodeLine{116 \textcolor{comment}{ * message is not always very clear to read, but you can see the reason better}}
+\DoxyCodeLine{117 \textcolor{comment}{ * in the place where the PB\_STATIC\_ASSERT macro was called.}}
+\DoxyCodeLine{118 \textcolor{comment}{ */}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#ifndef PB\_NO\_STATIC\_ASSERT}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#ifndef PB\_STATIC\_ASSERT}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#define PB\_STATIC\_ASSERT(COND,MSG) typedef char PB\_STATIC\_ASSERT\_MSG(MSG, \_\_LINE\_\_, \_\_COUNTER\_\_)[(COND)?1:-\/1];}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#define PB\_STATIC\_ASSERT\_MSG(MSG, LINE, COUNTER) PB\_STATIC\_ASSERT\_MSG\_(MSG, LINE, COUNTER)}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#define PB\_STATIC\_ASSERT\_MSG\_(MSG, LINE, COUNTER) pb\_static\_assertion\_\#\#MSG\#\#LINE\#\#COUNTER}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#define PB\_STATIC\_ASSERT(COND,MSG)}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{comment}{/* Number of required fields to keep track of. */}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#ifndef PB\_MAX\_REQUIRED\_FIELDS}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#define PB\_MAX\_REQUIRED\_FIELDS 64}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#if PB\_MAX\_REQUIRED\_FIELDS < 64}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#error You should not lower PB\_MAX\_REQUIRED\_FIELDS from the default value (64).}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{comment}{/* List of possible field types. These are used in the autogenerated code.}}
+\DoxyCodeLine{139 \textcolor{comment}{ * Least-\/significant 4 bits tell the scalar type}}
+\DoxyCodeLine{140 \textcolor{comment}{ * Most-\/significant 4 bits specify repeated/required/packed etc.}}
+\DoxyCodeLine{141 \textcolor{comment}{ */}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{keyword}{typedef} uint\_least8\_t \mbox{\hyperlink{pb_8h_aef2b931eff868535f32a94ceb8daab8c}{pb\_type\_t}};}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{comment}{/**** Field data types ****/}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 \textcolor{comment}{/* Numeric types */}}
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#define PB\_LTYPE\_VARINT  0x00 }\textcolor{comment}{/* int32, int64, enum, bool */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#define PB\_LTYPE\_UVARINT 0x01 }\textcolor{comment}{/* uint32, uint64 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#define PB\_LTYPE\_SVARINT 0x02 }\textcolor{comment}{/* sint32, sint64 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#define PB\_LTYPE\_FIXED32 0x03 }\textcolor{comment}{/* fixed32, sfixed32, float */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#define PB\_LTYPE\_FIXED64 0x04 }\textcolor{comment}{/* fixed64, sfixed64, double */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 \textcolor{comment}{/* Marker for last packable field type. */}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define PB\_LTYPE\_LAST\_PACKABLE 0x04}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 \textcolor{comment}{/* Byte array with pre-\/allocated buffer.}}
+\DoxyCodeLine{158 \textcolor{comment}{ * data\_size is the length of the allocated PB\_BYTES\_ARRAY structure. */}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#define PB\_LTYPE\_BYTES 0x05}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 \textcolor{comment}{/* String with pre-\/allocated buffer.}}
+\DoxyCodeLine{162 \textcolor{comment}{ * data\_size is the maximum length. */}}
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#define PB\_LTYPE\_STRING 0x06}}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165 \textcolor{comment}{/* Submessage}}
+\DoxyCodeLine{166 \textcolor{comment}{ * submsg\_fields is pointer to field descriptions */}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#define PB\_LTYPE\_SUBMESSAGE 0x07}}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 \textcolor{comment}{/* Extension pseudo-\/field}}
+\DoxyCodeLine{170 \textcolor{comment}{ * The field contains a pointer to pb\_extension\_t */}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#define PB\_LTYPE\_EXTENSION 0x08}}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173 \textcolor{comment}{/* Byte array with inline, pre-\/allocated byffer.}}
+\DoxyCodeLine{174 \textcolor{comment}{ * data\_size is the length of the inline, allocated buffer.}}
+\DoxyCodeLine{175 \textcolor{comment}{ * This differs from PB\_LTYPE\_BYTES by defining the element as}}
+\DoxyCodeLine{176 \textcolor{comment}{ * pb\_byte\_t[data\_size] rather than pb\_bytes\_array\_t. */}}
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#define PB\_LTYPE\_FIXED\_LENGTH\_BYTES 0x09}}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179 \textcolor{comment}{/* Number of declared LTYPES */}}
+\DoxyCodeLine{180 \textcolor{preprocessor}{\#define PB\_LTYPES\_COUNT 0x0A}}
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#define PB\_LTYPE\_MASK 0x0F}}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183 \textcolor{comment}{/**** Field repetition rules ****/}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185 \textcolor{preprocessor}{\#define PB\_HTYPE\_REQUIRED 0x00}}
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#define PB\_HTYPE\_OPTIONAL 0x10}}
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#define PB\_HTYPE\_REPEATED 0x20}}
+\DoxyCodeLine{188 \textcolor{preprocessor}{\#define PB\_HTYPE\_ONEOF    0x30}}
+\DoxyCodeLine{189 \textcolor{preprocessor}{\#define PB\_HTYPE\_MASK     0x30}}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191 \textcolor{comment}{/**** Field allocation types ****/}}
+\DoxyCodeLine{192  }
+\DoxyCodeLine{193 \textcolor{preprocessor}{\#define PB\_ATYPE\_STATIC   0x00}}
+\DoxyCodeLine{194 \textcolor{preprocessor}{\#define PB\_ATYPE\_POINTER  0x80}}
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#define PB\_ATYPE\_CALLBACK 0x40}}
+\DoxyCodeLine{196 \textcolor{preprocessor}{\#define PB\_ATYPE\_MASK     0xC0}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198 \textcolor{preprocessor}{\#define PB\_ATYPE(x) ((x) \& PB\_ATYPE\_MASK)}}
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#define PB\_HTYPE(x) ((x) \& PB\_HTYPE\_MASK)}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{\#define PB\_LTYPE(x) ((x) \& PB\_LTYPE\_MASK)}}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202 \textcolor{comment}{/* Data type used for storing sizes of struct fields}}
+\DoxyCodeLine{203 \textcolor{comment}{ * and array counts.}}
+\DoxyCodeLine{204 \textcolor{comment}{ */}}
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#if defined(PB\_FIELD\_32BIT)}}
+\DoxyCodeLine{206     \textcolor{keyword}{typedef} uint32\_t \mbox{\hyperlink{pb_8h_a07fe6866e0d1d9332669cdae10fe6519}{pb\_size\_t}};}
+\DoxyCodeLine{207     \textcolor{keyword}{typedef} int32\_t \mbox{\hyperlink{pb_8h_acaf22c3be27fb961a1cb348a8eed8621}{pb\_ssize\_t}};}
+\DoxyCodeLine{208 \textcolor{preprocessor}{\#elif defined(PB\_FIELD\_16BIT)}}
+\DoxyCodeLine{209     \textcolor{keyword}{typedef} uint\_least16\_t \mbox{\hyperlink{pb_8h_a07fe6866e0d1d9332669cdae10fe6519}{pb\_size\_t}};}
+\DoxyCodeLine{210     \textcolor{keyword}{typedef} int\_least16\_t \mbox{\hyperlink{pb_8h_acaf22c3be27fb961a1cb348a8eed8621}{pb\_ssize\_t}};}
+\DoxyCodeLine{211 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{212     \textcolor{keyword}{typedef} uint\_least8\_t \mbox{\hyperlink{pb_8h_a07fe6866e0d1d9332669cdae10fe6519}{pb\_size\_t}};}
+\DoxyCodeLine{213     \textcolor{keyword}{typedef} int\_least8\_t \mbox{\hyperlink{pb_8h_acaf22c3be27fb961a1cb348a8eed8621}{pb\_ssize\_t}};}
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{215 \textcolor{preprocessor}{\#define PB\_SIZE\_MAX ((pb\_size\_t)-\/1)}}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217 \textcolor{comment}{/* Data type for storing encoded data and other byte streams.}}
+\DoxyCodeLine{218 \textcolor{comment}{ * This typedef exists to support platforms where uint8\_t does not exist.}}
+\DoxyCodeLine{219 \textcolor{comment}{ * You can regard it as equivalent on uint8\_t on other platforms.}}
+\DoxyCodeLine{220 \textcolor{comment}{ */}}
+\DoxyCodeLine{221 \textcolor{keyword}{typedef} uint\_least8\_t \mbox{\hyperlink{pb_8h_a25ed6987f3543891dbf205fadc10ba2c}{pb\_byte\_t}};}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223 \textcolor{comment}{/* This structure is used in auto-\/generated constants}}
+\DoxyCodeLine{224 \textcolor{comment}{ * to specify struct fields.}}
+\DoxyCodeLine{225 \textcolor{comment}{ * You can change field sizes if you need structures}}
+\DoxyCodeLine{226 \textcolor{comment}{ * larger than 256 bytes or field tags larger than 256.}}
+\DoxyCodeLine{227 \textcolor{comment}{ * The compiler should complain if your .proto has such}}
+\DoxyCodeLine{228 \textcolor{comment}{ * structures. Fix that by defining PB\_FIELD\_16BIT or}}
+\DoxyCodeLine{229 \textcolor{comment}{ * PB\_FIELD\_32BIT.}}
+\DoxyCodeLine{230 \textcolor{comment}{ */}}
+\DoxyCodeLine{231 \mbox{\hyperlink{pb_8h_a92cc851115d087966aa219a2301a721d}{PB\_PACKED\_STRUCT\_START}}}
+\DoxyCodeLine{232 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structpb__field__s}{pb\_field\_s}} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}};}
+\DoxyCodeLine{233 \textcolor{keyword}{struct }\mbox{\hyperlink{structpb__field__s}{pb\_field\_s}} \{}
+\DoxyCodeLine{234     \mbox{\hyperlink{pb_8h_a07fe6866e0d1d9332669cdae10fe6519}{pb\_size\_t}} \mbox{\hyperlink{structpb__field__s_ab357e50f9a06af66b19dd4040a1a7a7d}{tag}};}
+\DoxyCodeLine{235     \mbox{\hyperlink{pb_8h_aef2b931eff868535f32a94ceb8daab8c}{pb\_type\_t}} \mbox{\hyperlink{structpb__field__s_a3e1f6228b883e14c108cbfd9dbaaa392}{type}};}
+\DoxyCodeLine{236     \mbox{\hyperlink{pb_8h_a07fe6866e0d1d9332669cdae10fe6519}{pb\_size\_t}} \mbox{\hyperlink{structpb__field__s_ab285835e1ec2e72000a9ac4083e7a0bc}{data\_offset}}; \textcolor{comment}{/* Offset of field data, relative to previous field. */}}
+\DoxyCodeLine{237     \mbox{\hyperlink{pb_8h_acaf22c3be27fb961a1cb348a8eed8621}{pb\_ssize\_t}} \mbox{\hyperlink{structpb__field__s_a98de59ce77ceb2bea4ffcc6cef93cac1}{size\_offset}}; \textcolor{comment}{/* Offset of array size or has-\/boolean, relative to data */}}
+\DoxyCodeLine{238     \mbox{\hyperlink{pb_8h_a07fe6866e0d1d9332669cdae10fe6519}{pb\_size\_t}} \mbox{\hyperlink{structpb__field__s_ad8bc42878809b80ca060f8eb4feeb87f}{data\_size}}; \textcolor{comment}{/* Data size in bytes for a single item */}}
+\DoxyCodeLine{239     \mbox{\hyperlink{pb_8h_a07fe6866e0d1d9332669cdae10fe6519}{pb\_size\_t}} \mbox{\hyperlink{structpb__field__s_a35a0a07c83af6f4c6911e5fdd834a0bf}{array\_size}}; \textcolor{comment}{/* Maximum number of entries in array */}}
+\DoxyCodeLine{240     }
+\DoxyCodeLine{241     \textcolor{comment}{/* Field definitions for submessage}}
+\DoxyCodeLine{242 \textcolor{comment}{     * OR default value for all other non-\/array, non-\/callback types}}
+\DoxyCodeLine{243 \textcolor{comment}{     * If null, then field will zeroed. */}}
+\DoxyCodeLine{244     \textcolor{keyword}{const} \textcolor{keywordtype}{void} *\mbox{\hyperlink{structpb__field__s_a67a073f9609017ffcba6010abe9d867d}{ptr}};}
+\DoxyCodeLine{245 \} \mbox{\hyperlink{pb_8h_a4bfa1b4964889b18e285d43526d8e735}{pb\_packed}};}
+\DoxyCodeLine{246 \mbox{\hyperlink{pb_8h_a298390c2a9b3911c09f6467d9427aa20}{PB\_PACKED\_STRUCT\_END}}}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248 \textcolor{comment}{/* Make sure that the standard integer types are of the expected sizes.}}
+\DoxyCodeLine{249 \textcolor{comment}{ * Otherwise fixed32/fixed64 fields can break.}}
+\DoxyCodeLine{250 \textcolor{comment}{ *}}
+\DoxyCodeLine{251 \textcolor{comment}{ * If you get errors here, it probably means that your stdint.h is not}}
+\DoxyCodeLine{252 \textcolor{comment}{ * correct for your platform.}}
+\DoxyCodeLine{253 \textcolor{comment}{ */}}
+\DoxyCodeLine{254 \textcolor{preprocessor}{\#ifndef PB\_WITHOUT\_64BIT}}
+\DoxyCodeLine{255 \mbox{\hyperlink{pb_8h_a109c137397d42393f89fa66d22b19468}{PB\_STATIC\_ASSERT}}(\textcolor{keyword}{sizeof}(int64\_t) == 2 * \textcolor{keyword}{sizeof}(int32\_t), INT64\_T\_WRONG\_SIZE)}
+\DoxyCodeLine{256 \mbox{\hyperlink{pb_8h_a109c137397d42393f89fa66d22b19468}{PB\_STATIC\_ASSERT}}(\textcolor{keyword}{sizeof}(uint64\_t) == 2 * \textcolor{keyword}{sizeof}(uint32\_t), UINT64\_T\_WRONG\_SIZE)}
+\DoxyCodeLine{257 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259 \textcolor{comment}{/* This structure is used for 'bytes' arrays.}}
+\DoxyCodeLine{260 \textcolor{comment}{ * It has the number of bytes in the beginning, and after that an array.}}
+\DoxyCodeLine{261 \textcolor{comment}{ * Note that actual structs used will have a different length of bytes array.}}
+\DoxyCodeLine{262 \textcolor{comment}{ */}}
+\DoxyCodeLine{263 \textcolor{preprocessor}{\#define PB\_BYTES\_ARRAY\_T(n) struct \{ pb\_size\_t size; pb\_byte\_t bytes[n]; \}}}
+\DoxyCodeLine{264 \textcolor{preprocessor}{\#define PB\_BYTES\_ARRAY\_T\_ALLOCSIZE(n) ((size\_t)n + offsetof(pb\_bytes\_array\_t, bytes))}}
+\DoxyCodeLine{265 }
+\DoxyCodeLine{266 \textcolor{keyword}{struct }\mbox{\hyperlink{structpb__bytes__array__s}{pb\_bytes\_array\_s}} \{}
+\DoxyCodeLine{267     \mbox{\hyperlink{pb_8h_a07fe6866e0d1d9332669cdae10fe6519}{pb\_size\_t}} \mbox{\hyperlink{structpb__bytes__array__s_a4b4511e93a62ffd36f6b066273a3f53d}{size}};}
+\DoxyCodeLine{268     \mbox{\hyperlink{pb_8h_a25ed6987f3543891dbf205fadc10ba2c}{pb\_byte\_t}} \mbox{\hyperlink{structpb__bytes__array__s_a9d726987b85fa78c85c5def56a1ca4b1}{bytes}}[1];}
+\DoxyCodeLine{269 \};}
+\DoxyCodeLine{270 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structpb__bytes__array__s}{pb\_bytes\_array\_s}} \mbox{\hyperlink{structpb__bytes__array__s}{pb\_bytes\_array\_t}};}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272 \textcolor{comment}{/* This structure is used for giving the callback function.}}
+\DoxyCodeLine{273 \textcolor{comment}{ * It is stored in the message structure and filled in by the method that}}
+\DoxyCodeLine{274 \textcolor{comment}{ * calls pb\_decode.}}
+\DoxyCodeLine{275 \textcolor{comment}{ *}}
+\DoxyCodeLine{276 \textcolor{comment}{ * The decoding callback will be given a limited-\/length stream}}
+\DoxyCodeLine{277 \textcolor{comment}{ * If the wire type was string, the length is the length of the string.}}
+\DoxyCodeLine{278 \textcolor{comment}{ * If the wire type was a varint/fixed32/fixed64, the length is the length}}
+\DoxyCodeLine{279 \textcolor{comment}{ * of the actual value.}}
+\DoxyCodeLine{280 \textcolor{comment}{ * The function may be called multiple times (especially for repeated types,}}
+\DoxyCodeLine{281 \textcolor{comment}{ * but also otherwise if the message happens to contain the field multiple}}
+\DoxyCodeLine{282 \textcolor{comment}{ * times.)}}
+\DoxyCodeLine{283 \textcolor{comment}{ *}}
+\DoxyCodeLine{284 \textcolor{comment}{ * The encoding callback will receive the actual output stream.}}
+\DoxyCodeLine{285 \textcolor{comment}{ * It should write all the data in one call, including the field tag and}}
+\DoxyCodeLine{286 \textcolor{comment}{ * wire type. It can write multiple fields.}}
+\DoxyCodeLine{287 \textcolor{comment}{ *}}
+\DoxyCodeLine{288 \textcolor{comment}{ * The callback can be null if you want to skip a field.}}
+\DoxyCodeLine{289 \textcolor{comment}{ */}}
+\DoxyCodeLine{290 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_s}} \mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}};}
+\DoxyCodeLine{291 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_s}} \mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}};}
+\DoxyCodeLine{292 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structpb__callback__s}{pb\_callback\_s}} \mbox{\hyperlink{structpb__callback__s}{pb\_callback\_t}};}
+\DoxyCodeLine{293 \textcolor{keyword}{struct }\mbox{\hyperlink{structpb__callback__s}{pb\_callback\_s}} \{}
+\DoxyCodeLine{294 \textcolor{preprocessor}{\#ifdef PB\_OLD\_CALLBACK\_STYLE}}
+\DoxyCodeLine{295     \textcolor{comment}{/* Deprecated since nanopb-\/0.2.1 */}}
+\DoxyCodeLine{296     \textcolor{keyword}{union }\{}
+\DoxyCodeLine{297         bool (*\mbox{\hyperlink{structpb__callback__s_a2653fd8f7b040fdf0e3c71c0b72ed35a}{decode}})(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}} *field, \textcolor{keywordtype}{void} *\mbox{\hyperlink{structpb__callback__s_a3cc8f3ad6ff8c967d392a7b1f1451a1b}{arg}});}
+\DoxyCodeLine{298         bool (*\mbox{\hyperlink{structpb__callback__s_afda7608dcc2d2c4515a9c4c2112d583f}{encode}})(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}} *field, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *\mbox{\hyperlink{structpb__callback__s_a3cc8f3ad6ff8c967d392a7b1f1451a1b}{arg}});}
+\DoxyCodeLine{299     \} \mbox{\hyperlink{structpb__callback__s_a1db068375965e88e8adb2c8d31d87662}{funcs}};}
+\DoxyCodeLine{300 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{301     \textcolor{comment}{/* New function signature, which allows modifying arg contents in callback. */}}
+\DoxyCodeLine{302     \textcolor{keyword}{union }\{}
+\DoxyCodeLine{303         bool (*\mbox{\hyperlink{structpb__callback__s_a2653fd8f7b040fdf0e3c71c0b72ed35a}{decode}})(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}} *field, \textcolor{keywordtype}{void} **\mbox{\hyperlink{structpb__callback__s_a3cc8f3ad6ff8c967d392a7b1f1451a1b}{arg}});}
+\DoxyCodeLine{304         bool (*\mbox{\hyperlink{structpb__callback__s_afda7608dcc2d2c4515a9c4c2112d583f}{encode}})(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\_field\_t}} *field, \textcolor{keywordtype}{void} * \textcolor{keyword}{const} *\mbox{\hyperlink{structpb__callback__s_a3cc8f3ad6ff8c967d392a7b1f1451a1b}{arg}});}
+\DoxyCodeLine{305     \} \mbox{\hyperlink{structpb__callback__s_a1db068375965e88e8adb2c8d31d87662}{funcs}};}
+\DoxyCodeLine{306 \textcolor{preprocessor}{\#endif    }}
+\DoxyCodeLine{307     }
+\DoxyCodeLine{308     \textcolor{comment}{/* Free arg for use by callback */}}
+\DoxyCodeLine{309     \textcolor{keywordtype}{void} *\mbox{\hyperlink{structpb__callback__s_a3cc8f3ad6ff8c967d392a7b1f1451a1b}{arg}};}
+\DoxyCodeLine{310 \};}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312 \textcolor{comment}{/* Wire types. Library user needs these only in encoder callbacks. */}}
+\DoxyCodeLine{313 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{314     \mbox{\hyperlink{pb_8h_ac815846d88d0f550fe93ea99096430bfa11971c70664957a2b6cfaf0bb849009d}{PB\_WT\_VARINT}} = 0,}
+\DoxyCodeLine{315     \mbox{\hyperlink{pb_8h_ac815846d88d0f550fe93ea99096430bfaf958e1dfda6fe6eb3a477234b394abec}{PB\_WT\_64BIT}}  = 1,}
+\DoxyCodeLine{316     \mbox{\hyperlink{pb_8h_ac815846d88d0f550fe93ea99096430bfae3bb480a42c661a43f2a29c3ea9ef5e7}{PB\_WT\_STRING}} = 2,}
+\DoxyCodeLine{317     \mbox{\hyperlink{pb_8h_ac815846d88d0f550fe93ea99096430bfa810a9701e115714e2fc7d02fb1666f09}{PB\_WT\_32BIT}}  = 5}
+\DoxyCodeLine{318 \} \mbox{\hyperlink{pb_8h_ac815846d88d0f550fe93ea99096430bf}{pb\_wire\_type\_t}};}
+\DoxyCodeLine{319 }
+\DoxyCodeLine{320 \textcolor{comment}{/* Structure for defining the handling of unknown/extension fields.}}
+\DoxyCodeLine{321 \textcolor{comment}{ * Usually the pb\_extension\_type\_t structure is automatically generated,}}
+\DoxyCodeLine{322 \textcolor{comment}{ * while the pb\_extension\_t structure is created by the user. However,}}
+\DoxyCodeLine{323 \textcolor{comment}{ * if you want to catch all unknown fields, you can also create a custom}}
+\DoxyCodeLine{324 \textcolor{comment}{ * pb\_extension\_type\_t with your own callback.}}
+\DoxyCodeLine{325 \textcolor{comment}{ */}}
+\DoxyCodeLine{326 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structpb__extension__type__s}{pb\_extension\_type\_s}} \mbox{\hyperlink{structpb__extension__type__s}{pb\_extension\_type\_t}};}
+\DoxyCodeLine{327 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structpb__extension__s}{pb\_extension\_s}} \mbox{\hyperlink{structpb__extension__s}{pb\_extension\_t}};}
+\DoxyCodeLine{328 \textcolor{keyword}{struct }\mbox{\hyperlink{structpb__extension__type__s}{pb\_extension\_type\_s}} \{}
+\DoxyCodeLine{329     \textcolor{comment}{/* Called for each unknown field in the message.}}
+\DoxyCodeLine{330 \textcolor{comment}{     * If you handle the field, read off all of its data and return true.}}
+\DoxyCodeLine{331 \textcolor{comment}{     * If you do not handle the field, do not read anything and return true.}}
+\DoxyCodeLine{332 \textcolor{comment}{     * If you run into an error, return false.}}
+\DoxyCodeLine{333 \textcolor{comment}{     * Set to NULL for default handler.}}
+\DoxyCodeLine{334 \textcolor{comment}{     */}}
+\DoxyCodeLine{335     bool (*\mbox{\hyperlink{structpb__extension__type__s_ad6b83e237c3366f4c2f0f189c46718be}{decode}})(\mbox{\hyperlink{structpb__istream__s}{pb\_istream\_t}} *stream, \mbox{\hyperlink{structpb__extension__s}{pb\_extension\_t}} *extension,}
+\DoxyCodeLine{336                    uint32\_t tag, \mbox{\hyperlink{pb_8h_ac815846d88d0f550fe93ea99096430bf}{pb\_wire\_type\_t}} wire\_type);}
+\DoxyCodeLine{337     }
+\DoxyCodeLine{338     \textcolor{comment}{/* Called once after all regular fields have been encoded.}}
+\DoxyCodeLine{339 \textcolor{comment}{     * If you have something to write, do so and return true.}}
+\DoxyCodeLine{340 \textcolor{comment}{     * If you do not have anything to write, just return true.}}
+\DoxyCodeLine{341 \textcolor{comment}{     * If you run into an error, return false.}}
+\DoxyCodeLine{342 \textcolor{comment}{     * Set to NULL for default handler.}}
+\DoxyCodeLine{343 \textcolor{comment}{     */}}
+\DoxyCodeLine{344     bool (*\mbox{\hyperlink{structpb__extension__type__s_afc835c35b4af322d911caab10ceb6928}{encode}})(\mbox{\hyperlink{structpb__ostream__s}{pb\_ostream\_t}} *stream, \textcolor{keyword}{const} \mbox{\hyperlink{structpb__extension__s}{pb\_extension\_t}} *extension);}
+\DoxyCodeLine{345     }
+\DoxyCodeLine{346     \textcolor{comment}{/* Free field for use by the callback. */}}
+\DoxyCodeLine{347     \textcolor{keyword}{const} \textcolor{keywordtype}{void} *\mbox{\hyperlink{structpb__extension__type__s_a814b085ac56b866b4ae74795277809a2}{arg}};}
+\DoxyCodeLine{348 \};}
+\DoxyCodeLine{349 }
+\DoxyCodeLine{350 \textcolor{keyword}{struct }\mbox{\hyperlink{structpb__extension__s}{pb\_extension\_s}} \{}
+\DoxyCodeLine{351     \textcolor{comment}{/* Type describing the extension field. Usually you'll initialize}}
+\DoxyCodeLine{352 \textcolor{comment}{     * this to a pointer to the automatically generated structure. */}}
+\DoxyCodeLine{353     \textcolor{keyword}{const} \mbox{\hyperlink{structpb__extension__type__s}{pb\_extension\_type\_t}} *\mbox{\hyperlink{structpb__extension__s_a3c3a1998be35b8c6486d19a45dbe613e}{type}};}
+\DoxyCodeLine{354     }
+\DoxyCodeLine{355     \textcolor{comment}{/* Destination for the decoded data. This must match the datatype}}
+\DoxyCodeLine{356 \textcolor{comment}{     * of the extension field. */}}
+\DoxyCodeLine{357     \textcolor{keywordtype}{void} *\mbox{\hyperlink{structpb__extension__s_a1d7be46f262b691d70a9ec502534f8ae}{dest}};}
+\DoxyCodeLine{358     }
+\DoxyCodeLine{359     \textcolor{comment}{/* Pointer to the next extension handler, or NULL.}}
+\DoxyCodeLine{360 \textcolor{comment}{     * If this extension does not match a field, the next handler is}}
+\DoxyCodeLine{361 \textcolor{comment}{     * automatically called. */}}
+\DoxyCodeLine{362     \mbox{\hyperlink{structpb__extension__s}{pb\_extension\_t}} *\mbox{\hyperlink{structpb__extension__s_a305c87e1aafda526be8b3d9b0b55eaa2}{next}};}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364     \textcolor{comment}{/* The decoder sets this to true if the extension was found.}}
+\DoxyCodeLine{365 \textcolor{comment}{     * Ignored for encoding. */}}
+\DoxyCodeLine{366     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structpb__extension__s_a188b555ba3d46bfe1d46d7c89f1bbd1a}{found}};}
+\DoxyCodeLine{367 \};}
+\DoxyCodeLine{368 }
+\DoxyCodeLine{369 \textcolor{comment}{/* Memory allocation functions to use. You can define pb\_realloc and}}
+\DoxyCodeLine{370 \textcolor{comment}{ * pb\_free to custom functions if you want. */}}
+\DoxyCodeLine{371 \textcolor{preprocessor}{\#ifdef PB\_ENABLE\_MALLOC}}
+\DoxyCodeLine{372 \textcolor{preprocessor}{\#   ifndef pb\_realloc}}
+\DoxyCodeLine{373 \textcolor{preprocessor}{\#       define pb\_realloc(ptr, size) realloc(ptr, size)}}
+\DoxyCodeLine{374 \textcolor{preprocessor}{\#   endif}}
+\DoxyCodeLine{375 \textcolor{preprocessor}{\#   ifndef pb\_free}}
+\DoxyCodeLine{376 \textcolor{preprocessor}{\#       define pb\_free(ptr) free(ptr)}}
+\DoxyCodeLine{377 \textcolor{preprocessor}{\#   endif}}
+\DoxyCodeLine{378 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{380 \textcolor{comment}{/* This is used to inform about need to regenerate .pb.h/.pb.c files. */}}
+\DoxyCodeLine{381 \textcolor{preprocessor}{\#define PB\_PROTO\_HEADER\_VERSION 30}}
+\DoxyCodeLine{382 }
+\DoxyCodeLine{383 \textcolor{comment}{/* These macros are used to declare pb\_field\_t's in the constant array. */}}
+\DoxyCodeLine{384 \textcolor{comment}{/* Size of a structure member, in bytes. */}}
+\DoxyCodeLine{385 \textcolor{preprocessor}{\#define pb\_membersize(st, m) (sizeof ((st*)0)-\/>m)}}
+\DoxyCodeLine{386 \textcolor{comment}{/* Number of entries in an array. */}}
+\DoxyCodeLine{387 \textcolor{preprocessor}{\#define pb\_arraysize(st, m) (pb\_membersize(st, m) / pb\_membersize(st, m[0]))}}
+\DoxyCodeLine{388 \textcolor{comment}{/* Delta from start of one member to the start of another member. */}}
+\DoxyCodeLine{389 \textcolor{preprocessor}{\#define pb\_delta(st, m1, m2) ((int)offsetof(st, m1) -\/ (int)offsetof(st, m2))}}
+\DoxyCodeLine{390 \textcolor{comment}{/* Marks the end of the field list */}}
+\DoxyCodeLine{391 \textcolor{preprocessor}{\#define PB\_LAST\_FIELD \{0,(pb\_type\_t) 0,0,0,0,0,0\}}}
+\DoxyCodeLine{392 }
+\DoxyCodeLine{393 \textcolor{comment}{/* Macros for filling in the data\_offset field */}}
+\DoxyCodeLine{394 \textcolor{comment}{/* data\_offset for first field in a message */}}
+\DoxyCodeLine{395 \textcolor{preprocessor}{\#define PB\_DATAOFFSET\_FIRST(st, m1, m2) (offsetof(st, m1))}}
+\DoxyCodeLine{396 \textcolor{comment}{/* data\_offset for subsequent fields */}}
+\DoxyCodeLine{397 \textcolor{preprocessor}{\#define PB\_DATAOFFSET\_OTHER(st, m1, m2) (offsetof(st, m1) -\/ offsetof(st, m2) -\/ pb\_membersize(st, m2))}}
+\DoxyCodeLine{398 \textcolor{comment}{/* data offset for subsequent fields inside an union (oneof) */}}
+\DoxyCodeLine{399 \textcolor{preprocessor}{\#define PB\_DATAOFFSET\_UNION(st, m1, m2) (PB\_SIZE\_MAX)}}
+\DoxyCodeLine{400 \textcolor{comment}{/* Choose first/other based on m1 == m2 (deprecated, remains for backwards compatibility) */}}
+\DoxyCodeLine{401 \textcolor{preprocessor}{\#define PB\_DATAOFFSET\_CHOOSE(st, m1, m2) (int)(offsetof(st, m1) == offsetof(st, m2) \(\backslash\)}}
+\DoxyCodeLine{402 \textcolor{preprocessor}{                                  ? PB\_DATAOFFSET\_FIRST(st, m1, m2) \(\backslash\)}}
+\DoxyCodeLine{403 \textcolor{preprocessor}{                                  : PB\_DATAOFFSET\_OTHER(st, m1, m2))}}
+\DoxyCodeLine{404 }
+\DoxyCodeLine{405 \textcolor{comment}{/* Required fields are the simplest. They just have delta (padding) from}}
+\DoxyCodeLine{406 \textcolor{comment}{ * previous field end, and the size of the field. Pointer is used for}}
+\DoxyCodeLine{407 \textcolor{comment}{ * submessages and default values.}}
+\DoxyCodeLine{408 \textcolor{comment}{ */}}
+\DoxyCodeLine{409 \textcolor{preprocessor}{\#define PB\_REQUIRED\_STATIC(tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{410 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_STATIC | PB\_HTYPE\_REQUIRED | ltype, \(\backslash\)}}
+\DoxyCodeLine{411 \textcolor{preprocessor}{    fd, 0, pb\_membersize(st, m), 0, ptr\}}}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{413 \textcolor{comment}{/* Optional fields add the delta to the has\_ variable. */}}
+\DoxyCodeLine{414 \textcolor{preprocessor}{\#define PB\_OPTIONAL\_STATIC(tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{415 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_STATIC | PB\_HTYPE\_OPTIONAL | ltype, \(\backslash\)}}
+\DoxyCodeLine{416 \textcolor{preprocessor}{    fd, \(\backslash\)}}
+\DoxyCodeLine{417 \textcolor{preprocessor}{    pb\_delta(st, has\_ \#\# m, m), \(\backslash\)}}
+\DoxyCodeLine{418 \textcolor{preprocessor}{    pb\_membersize(st, m), 0, ptr\}}}
+\DoxyCodeLine{419 }
+\DoxyCodeLine{420 \textcolor{preprocessor}{\#define PB\_SINGULAR\_STATIC(tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{421 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_STATIC | PB\_HTYPE\_OPTIONAL | ltype, \(\backslash\)}}
+\DoxyCodeLine{422 \textcolor{preprocessor}{    fd, 0, pb\_membersize(st, m), 0, ptr\}}}
+\DoxyCodeLine{423 }
+\DoxyCodeLine{424 \textcolor{comment}{/* Repeated fields have a \_count field and also the maximum number of entries. */}}
+\DoxyCodeLine{425 \textcolor{preprocessor}{\#define PB\_REPEATED\_STATIC(tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{426 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_STATIC | PB\_HTYPE\_REPEATED | ltype, \(\backslash\)}}
+\DoxyCodeLine{427 \textcolor{preprocessor}{    fd, \(\backslash\)}}
+\DoxyCodeLine{428 \textcolor{preprocessor}{    pb\_delta(st, m \#\# \_count, m), \(\backslash\)}}
+\DoxyCodeLine{429 \textcolor{preprocessor}{    pb\_membersize(st, m[0]), \(\backslash\)}}
+\DoxyCodeLine{430 \textcolor{preprocessor}{    pb\_arraysize(st, m), ptr\}}}
+\DoxyCodeLine{431 }
+\DoxyCodeLine{432 \textcolor{comment}{/* Allocated fields carry the size of the actual data, not the pointer */}}
+\DoxyCodeLine{433 \textcolor{preprocessor}{\#define PB\_REQUIRED\_POINTER(tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{434 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_POINTER | PB\_HTYPE\_REQUIRED | ltype, \(\backslash\)}}
+\DoxyCodeLine{435 \textcolor{preprocessor}{    fd, 0, pb\_membersize(st, m[0]), 0, ptr\}}}
+\DoxyCodeLine{436 }
+\DoxyCodeLine{437 \textcolor{comment}{/* Optional fields don't need a has\_ variable, as information would be redundant */}}
+\DoxyCodeLine{438 \textcolor{preprocessor}{\#define PB\_OPTIONAL\_POINTER(tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{439 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_POINTER | PB\_HTYPE\_OPTIONAL | ltype, \(\backslash\)}}
+\DoxyCodeLine{440 \textcolor{preprocessor}{    fd, 0, pb\_membersize(st, m[0]), 0, ptr\}}}
+\DoxyCodeLine{441 }
+\DoxyCodeLine{442 \textcolor{comment}{/* Same as optional fields*/}}
+\DoxyCodeLine{443 \textcolor{preprocessor}{\#define PB\_SINGULAR\_POINTER(tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{444 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_POINTER | PB\_HTYPE\_OPTIONAL | ltype, \(\backslash\)}}
+\DoxyCodeLine{445 \textcolor{preprocessor}{    fd, 0, pb\_membersize(st, m[0]), 0, ptr\}}}
+\DoxyCodeLine{446 }
+\DoxyCodeLine{447 \textcolor{comment}{/* Repeated fields have a \_count field and a pointer to array of pointers */}}
+\DoxyCodeLine{448 \textcolor{preprocessor}{\#define PB\_REPEATED\_POINTER(tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{449 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_POINTER | PB\_HTYPE\_REPEATED | ltype, \(\backslash\)}}
+\DoxyCodeLine{450 \textcolor{preprocessor}{    fd, pb\_delta(st, m \#\# \_count, m), \(\backslash\)}}
+\DoxyCodeLine{451 \textcolor{preprocessor}{    pb\_membersize(st, m[0]), 0, ptr\}}}
+\DoxyCodeLine{452 }
+\DoxyCodeLine{453 \textcolor{comment}{/* Callbacks are much like required fields except with special datatype. */}}
+\DoxyCodeLine{454 \textcolor{preprocessor}{\#define PB\_REQUIRED\_CALLBACK(tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{455 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_CALLBACK | PB\_HTYPE\_REQUIRED | ltype, \(\backslash\)}}
+\DoxyCodeLine{456 \textcolor{preprocessor}{    fd, 0, pb\_membersize(st, m), 0, ptr\}}}
+\DoxyCodeLine{457 }
+\DoxyCodeLine{458 \textcolor{preprocessor}{\#define PB\_OPTIONAL\_CALLBACK(tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{459 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_CALLBACK | PB\_HTYPE\_OPTIONAL | ltype, \(\backslash\)}}
+\DoxyCodeLine{460 \textcolor{preprocessor}{    fd, 0, pb\_membersize(st, m), 0, ptr\}}}
+\DoxyCodeLine{461 }
+\DoxyCodeLine{462 \textcolor{preprocessor}{\#define PB\_SINGULAR\_CALLBACK(tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{463 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_CALLBACK | PB\_HTYPE\_OPTIONAL | ltype, \(\backslash\)}}
+\DoxyCodeLine{464 \textcolor{preprocessor}{    fd, 0, pb\_membersize(st, m), 0, ptr\}}}
+\DoxyCodeLine{465     }
+\DoxyCodeLine{466 \textcolor{preprocessor}{\#define PB\_REPEATED\_CALLBACK(tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{467 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_CALLBACK | PB\_HTYPE\_REPEATED | ltype, \(\backslash\)}}
+\DoxyCodeLine{468 \textcolor{preprocessor}{    fd, 0, pb\_membersize(st, m), 0, ptr\}}}
+\DoxyCodeLine{469 }
+\DoxyCodeLine{470 \textcolor{comment}{/* Optional extensions don't have the has\_ field, as that would be redundant.}}
+\DoxyCodeLine{471 \textcolor{comment}{ * Furthermore, the combination of OPTIONAL without has\_ field is used}}
+\DoxyCodeLine{472 \textcolor{comment}{ * for indicating proto3 style fields. Extensions exist in proto2 mode only,}}
+\DoxyCodeLine{473 \textcolor{comment}{ * so they should be encoded according to proto2 rules. To avoid the conflict,}}
+\DoxyCodeLine{474 \textcolor{comment}{ * extensions are marked as REQUIRED instead.}}
+\DoxyCodeLine{475 \textcolor{comment}{ */}}
+\DoxyCodeLine{476 \textcolor{preprocessor}{\#define PB\_OPTEXT\_STATIC(tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{477 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_STATIC | PB\_HTYPE\_REQUIRED | ltype, \(\backslash\)}}
+\DoxyCodeLine{478 \textcolor{preprocessor}{    0, \(\backslash\)}}
+\DoxyCodeLine{479 \textcolor{preprocessor}{    0, \(\backslash\)}}
+\DoxyCodeLine{480 \textcolor{preprocessor}{    pb\_membersize(st, m), 0, ptr\}}}
+\DoxyCodeLine{481 }
+\DoxyCodeLine{482 \textcolor{preprocessor}{\#define PB\_OPTEXT\_POINTER(tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{483 \textcolor{preprocessor}{    PB\_OPTIONAL\_POINTER(tag, st, m, fd, ltype, ptr)}}
+\DoxyCodeLine{484 }
+\DoxyCodeLine{485 \textcolor{preprocessor}{\#define PB\_OPTEXT\_CALLBACK(tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{486 \textcolor{preprocessor}{    PB\_OPTIONAL\_CALLBACK(tag, st, m, fd, ltype, ptr)}}
+\DoxyCodeLine{487 }
+\DoxyCodeLine{488 \textcolor{comment}{/* The mapping from protobuf types to LTYPEs is done using these macros. */}}
+\DoxyCodeLine{489 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_BOOL               PB\_LTYPE\_VARINT}}
+\DoxyCodeLine{490 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_BYTES              PB\_LTYPE\_BYTES}}
+\DoxyCodeLine{491 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_DOUBLE             PB\_LTYPE\_FIXED64}}
+\DoxyCodeLine{492 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_ENUM               PB\_LTYPE\_VARINT}}
+\DoxyCodeLine{493 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_UENUM              PB\_LTYPE\_UVARINT}}
+\DoxyCodeLine{494 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_FIXED32            PB\_LTYPE\_FIXED32}}
+\DoxyCodeLine{495 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_FIXED64            PB\_LTYPE\_FIXED64}}
+\DoxyCodeLine{496 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_FLOAT              PB\_LTYPE\_FIXED32}}
+\DoxyCodeLine{497 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_INT32              PB\_LTYPE\_VARINT}}
+\DoxyCodeLine{498 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_INT64              PB\_LTYPE\_VARINT}}
+\DoxyCodeLine{499 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_MESSAGE            PB\_LTYPE\_SUBMESSAGE}}
+\DoxyCodeLine{500 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_SFIXED32           PB\_LTYPE\_FIXED32}}
+\DoxyCodeLine{501 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_SFIXED64           PB\_LTYPE\_FIXED64}}
+\DoxyCodeLine{502 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_SINT32             PB\_LTYPE\_SVARINT}}
+\DoxyCodeLine{503 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_SINT64             PB\_LTYPE\_SVARINT}}
+\DoxyCodeLine{504 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_STRING             PB\_LTYPE\_STRING}}
+\DoxyCodeLine{505 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_UINT32             PB\_LTYPE\_UVARINT}}
+\DoxyCodeLine{506 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_UINT64             PB\_LTYPE\_UVARINT}}
+\DoxyCodeLine{507 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_EXTENSION          PB\_LTYPE\_EXTENSION}}
+\DoxyCodeLine{508 \textcolor{preprocessor}{\#define PB\_LTYPE\_MAP\_FIXED\_LENGTH\_BYTES PB\_LTYPE\_FIXED\_LENGTH\_BYTES}}
+\DoxyCodeLine{509 }
+\DoxyCodeLine{510 \textcolor{comment}{/* This is the actual macro used in field descriptions.}}
+\DoxyCodeLine{511 \textcolor{comment}{ * It takes these arguments:}}
+\DoxyCodeLine{512 \textcolor{comment}{ * -\/ Field tag number}}
+\DoxyCodeLine{513 \textcolor{comment}{ * -\/ Field type:   BOOL, BYTES, DOUBLE, ENUM, UENUM, FIXED32, FIXED64,}}
+\DoxyCodeLine{514 \textcolor{comment}{ *                 FLOAT, INT32, INT64, MESSAGE, SFIXED32, SFIXED64}}
+\DoxyCodeLine{515 \textcolor{comment}{ *                 SINT32, SINT64, STRING, UINT32, UINT64 or EXTENSION}}
+\DoxyCodeLine{516 \textcolor{comment}{ * -\/ Field rules:  REQUIRED, OPTIONAL or REPEATED}}
+\DoxyCodeLine{517 \textcolor{comment}{ * -\/ Allocation:   STATIC, CALLBACK or POINTER}}
+\DoxyCodeLine{518 \textcolor{comment}{ * -\/ Placement: FIRST or OTHER, depending on if this is the first field in structure.}}
+\DoxyCodeLine{519 \textcolor{comment}{ * -\/ Message name}}
+\DoxyCodeLine{520 \textcolor{comment}{ * -\/ Field name}}
+\DoxyCodeLine{521 \textcolor{comment}{ * -\/ Previous field name (or field name again for first field)}}
+\DoxyCodeLine{522 \textcolor{comment}{ * -\/ Pointer to default value or submsg fields.}}
+\DoxyCodeLine{523 \textcolor{comment}{ */}}
+\DoxyCodeLine{524 }
+\DoxyCodeLine{525 \textcolor{preprocessor}{\#define PB\_FIELD(tag, type, rules, allocation, placement, message, field, prevfield, ptr) \(\backslash\)}}
+\DoxyCodeLine{526 \textcolor{preprocessor}{        PB\_ \#\# rules \#\# \_ \#\# allocation(tag, message, field, \(\backslash\)}}
+\DoxyCodeLine{527 \textcolor{preprocessor}{        PB\_DATAOFFSET\_ \#\# placement(message, field, prevfield), \(\backslash\)}}
+\DoxyCodeLine{528 \textcolor{preprocessor}{        PB\_LTYPE\_MAP\_ \#\# type, ptr)}}
+\DoxyCodeLine{529 }
+\DoxyCodeLine{530 \textcolor{comment}{/* Field description for repeated static fixed count fields.*/}}
+\DoxyCodeLine{531 \textcolor{preprocessor}{\#define PB\_REPEATED\_FIXED\_COUNT(tag, type, placement, message, field, prevfield, ptr) \(\backslash\)}}
+\DoxyCodeLine{532 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_STATIC | PB\_HTYPE\_REPEATED | PB\_LTYPE\_MAP\_ \#\# type, \(\backslash\)}}
+\DoxyCodeLine{533 \textcolor{preprocessor}{    PB\_DATAOFFSET\_ \#\# placement(message, field, prevfield), \(\backslash\)}}
+\DoxyCodeLine{534 \textcolor{preprocessor}{    0, \(\backslash\)}}
+\DoxyCodeLine{535 \textcolor{preprocessor}{    pb\_membersize(message, field[0]), \(\backslash\)}}
+\DoxyCodeLine{536 \textcolor{preprocessor}{    pb\_arraysize(message, field), ptr\}}}
+\DoxyCodeLine{537 }
+\DoxyCodeLine{538 \textcolor{comment}{/* Field description for oneof fields. This requires taking into account the}}
+\DoxyCodeLine{539 \textcolor{comment}{ * union name also, that's why a separate set of macros is needed.}}
+\DoxyCodeLine{540 \textcolor{comment}{ */}}
+\DoxyCodeLine{541 \textcolor{preprocessor}{\#define PB\_ONEOF\_STATIC(u, tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{542 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_STATIC | PB\_HTYPE\_ONEOF | ltype, \(\backslash\)}}
+\DoxyCodeLine{543 \textcolor{preprocessor}{    fd, pb\_delta(st, which\_ \#\# u, u.m), \(\backslash\)}}
+\DoxyCodeLine{544 \textcolor{preprocessor}{    pb\_membersize(st, u.m), 0, ptr\}}}
+\DoxyCodeLine{545 }
+\DoxyCodeLine{546 \textcolor{preprocessor}{\#define PB\_ONEOF\_POINTER(u, tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{547 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_POINTER | PB\_HTYPE\_ONEOF | ltype, \(\backslash\)}}
+\DoxyCodeLine{548 \textcolor{preprocessor}{    fd, pb\_delta(st, which\_ \#\# u, u.m), \(\backslash\)}}
+\DoxyCodeLine{549 \textcolor{preprocessor}{    pb\_membersize(st, u.m[0]), 0, ptr\}}}
+\DoxyCodeLine{550 }
+\DoxyCodeLine{551 \textcolor{preprocessor}{\#define PB\_ONEOF\_FIELD(union\_name, tag, type, rules, allocation, placement, message, field, prevfield, ptr) \(\backslash\)}}
+\DoxyCodeLine{552 \textcolor{preprocessor}{        PB\_ONEOF\_ \#\# allocation(union\_name, tag, message, field, \(\backslash\)}}
+\DoxyCodeLine{553 \textcolor{preprocessor}{        PB\_DATAOFFSET\_ \#\# placement(message, union\_name.field, prevfield), \(\backslash\)}}
+\DoxyCodeLine{554 \textcolor{preprocessor}{        PB\_LTYPE\_MAP\_ \#\# type, ptr)}}
+\DoxyCodeLine{555 }
+\DoxyCodeLine{556 \textcolor{preprocessor}{\#define PB\_ANONYMOUS\_ONEOF\_STATIC(u, tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{557 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_STATIC | PB\_HTYPE\_ONEOF | ltype, \(\backslash\)}}
+\DoxyCodeLine{558 \textcolor{preprocessor}{    fd, pb\_delta(st, which\_ \#\# u, m), \(\backslash\)}}
+\DoxyCodeLine{559 \textcolor{preprocessor}{    pb\_membersize(st, m), 0, ptr\}}}
+\DoxyCodeLine{560 }
+\DoxyCodeLine{561 \textcolor{preprocessor}{\#define PB\_ANONYMOUS\_ONEOF\_POINTER(u, tag, st, m, fd, ltype, ptr) \(\backslash\)}}
+\DoxyCodeLine{562 \textcolor{preprocessor}{    \{tag, PB\_ATYPE\_POINTER | PB\_HTYPE\_ONEOF | ltype, \(\backslash\)}}
+\DoxyCodeLine{563 \textcolor{preprocessor}{    fd, pb\_delta(st, which\_ \#\# u, m), \(\backslash\)}}
+\DoxyCodeLine{564 \textcolor{preprocessor}{    pb\_membersize(st, m[0]), 0, ptr\}}}
+\DoxyCodeLine{565 }
+\DoxyCodeLine{566 \textcolor{preprocessor}{\#define PB\_ANONYMOUS\_ONEOF\_FIELD(union\_name, tag, type, rules, allocation, placement, message, field, prevfield, ptr) \(\backslash\)}}
+\DoxyCodeLine{567 \textcolor{preprocessor}{        PB\_ANONYMOUS\_ONEOF\_ \#\# allocation(union\_name, tag, message, field, \(\backslash\)}}
+\DoxyCodeLine{568 \textcolor{preprocessor}{        PB\_DATAOFFSET\_ \#\# placement(message, field, prevfield), \(\backslash\)}}
+\DoxyCodeLine{569 \textcolor{preprocessor}{        PB\_LTYPE\_MAP\_ \#\# type, ptr)}}
+\DoxyCodeLine{570 }
+\DoxyCodeLine{571 \textcolor{comment}{/* These macros are used for giving out error messages.}}
+\DoxyCodeLine{572 \textcolor{comment}{ * They are mostly a debugging aid; the main error information}}
+\DoxyCodeLine{573 \textcolor{comment}{ * is the true/false return value from functions.}}
+\DoxyCodeLine{574 \textcolor{comment}{ * Some code space can be saved by disabling the error}}
+\DoxyCodeLine{575 \textcolor{comment}{ * messages if not used.}}
+\DoxyCodeLine{576 \textcolor{comment}{ *}}
+\DoxyCodeLine{577 \textcolor{comment}{ * PB\_SET\_ERROR() sets the error message if none has been set yet.}}
+\DoxyCodeLine{578 \textcolor{comment}{ *                msg must be a constant string literal.}}
+\DoxyCodeLine{579 \textcolor{comment}{ * PB\_GET\_ERROR() always returns a pointer to a string.}}
+\DoxyCodeLine{580 \textcolor{comment}{ * PB\_RETURN\_ERROR() sets the error and returns false from current}}
+\DoxyCodeLine{581 \textcolor{comment}{ *                   function.}}
+\DoxyCodeLine{582 \textcolor{comment}{ */}}
+\DoxyCodeLine{583 \textcolor{preprocessor}{\#ifdef PB\_NO\_ERRMSG}}
+\DoxyCodeLine{584 \textcolor{preprocessor}{\#define PB\_SET\_ERROR(stream, msg) PB\_UNUSED(stream)}}
+\DoxyCodeLine{585 \textcolor{preprocessor}{\#define PB\_GET\_ERROR(stream) "{}(errmsg disabled)"{}}}
+\DoxyCodeLine{586 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{587 \textcolor{preprocessor}{\#define PB\_SET\_ERROR(stream, msg) (stream-\/>errmsg = (stream)-\/>errmsg ? (stream)-\/>errmsg : (msg))}}
+\DoxyCodeLine{588 \textcolor{preprocessor}{\#define PB\_GET\_ERROR(stream) ((stream)-\/>errmsg ? (stream)-\/>errmsg : "{}(none)"{}})}
+\DoxyCodeLine{589 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{590 }
+\DoxyCodeLine{591 \textcolor{preprocessor}{\#define PB\_RETURN\_ERROR(stream, msg) return PB\_SET\_ERROR(stream, msg), false}}
+\DoxyCodeLine{592 }
+\DoxyCodeLine{593 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

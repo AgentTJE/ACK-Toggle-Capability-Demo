@@ -1,0 +1,242 @@
+\hypertarget{ack__core__alexa__namespace_8c}{}\doxysection{src/ack\+\_\+core\+\_\+alexa\+\_\+namespace.c File Reference}
+\label{ack__core__alexa__namespace_8c}\index{src/ack\_core\_alexa\_namespace.c@{src/ack\_core\_alexa\_namespace.c}}
+{\ttfamily \#include \char`\"{}ack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+alexa\+\_\+namespace.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+directives.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+document\+\_\+wrappers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+event\+\_\+builder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+outbound\+\_\+events.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+temperature.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+Include dependency graph for ack\+\_\+core\+\_\+alexa\+\_\+namespace.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__alexa__namespace_8c_a269d9907366f4e22fb7852763ff2c5b1}{Start\+Error\+Event\+\_\+}} (int32\+\_\+t correlation\+Id, \mbox{\hyperlink{ack__generated__alexa_8h_a960daf9ec3a0306117891417dea624a5}{ack\+\_\+alexa\+\_\+error\+\_\+type}} error, const char $\ast$p\+Optional\+Message)
+\item 
+static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__alexa__namespace_8c_a9ab391ab125e4c4717c2465d7b7e67ee}{ACK\+\_\+\+Send\+Change\+Report\+\_\+}} (\mbox{\hyperlink{ack__generated__alexa_8h_a860c0b4dd21471dc0b640e8b54580719}{ack\+\_\+alexa\+\_\+change\+\_\+report\+\_\+cause\+\_\+type}} cause, \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}} changed\+Properies\+Bits, \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}} other\+Properties\+Bits)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__alexa__namespace_8c_a1f24d0aa8973a4752d00416ab85e8198}{Process\+Alexa\+Directive}} (const \mbox{\hyperlink{ack_8h_a2d6b333100bb548196c3088556ac22ff}{ACKDirective\+Params\+\_\+t}} $\ast$p\+Document)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__alexa__namespace_8c_a70b1229eb62b4786993f087bcdd11742}{ACK\+\_\+\+Complete\+Directive\+With\+Success}} (int32\+\_\+t correlation\+Id, \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}} response\+Properties\+Bits, \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}} change\+Report\+Properties\+Bits)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__alexa__namespace_8c_a7faf09765377b7b9c4df757954d4bfd1}{ACK\+\_\+\+Complete\+Directive\+With\+Simple\+Error}} (int32\+\_\+t correlation\+Id, \mbox{\hyperlink{ack__generated__alexa_8h_a960daf9ec3a0306117891417dea624a5}{ack\+\_\+alexa\+\_\+error\+\_\+type}} error, const char $\ast$p\+Optional\+Message)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__alexa__namespace_8c_a74d46c74841230909fd4035aec451300}{ACK\+\_\+\+Complete\+Directive\+With\+Out\+Of\+Range\+Error}} (int32\+\_\+t correlation\+Id, float minimum, float maximum, const char $\ast$p\+Optional\+Message)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__alexa__namespace_8c_a7064de8838156d25443855f48ab0b524}{ACK\+\_\+\+Complete\+Directive\+With\+Temperature\+Out\+Of\+Range\+Error}} (int32\+\_\+t correlation\+Id, \mbox{\hyperlink{ack__generated__temperature_8h_ad0d517afea334399e7384fa8a2aa0f5a}{ack\+\_\+temperature\+\_\+scale}} scale, float minimum, float maximum, const char $\ast$p\+Optional\+Message)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__alexa__namespace_8c_acc0268aa9ea53f98006fdaa5711c2c77}{ACK\+\_\+\+Complete\+Directive\+With\+Not\+Supported\+In\+Current\+Mode\+Error}} (int32\+\_\+t correlation\+Id, \mbox{\hyperlink{ack__generated__alexa_8h_a999a6c37da63149958949d11e629c88d}{ack\+\_\+alexa\+\_\+device\+\_\+mode}} mode, const char $\ast$p\+Optional\+Message)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__alexa__namespace_8c_a036c1fc7a4008c350a8210d9a015329d}{ACK\+\_\+\+Complete\+State\+Report\+With\+Success}} (int32\+\_\+t correlation\+Id)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__alexa__namespace_8c_aa4ff3e98ff4c415ab6984c9b7a8099a0}{ACK\+\_\+\+Send\+Change\+Report}} (\mbox{\hyperlink{ack__generated__alexa_8h_a860c0b4dd21471dc0b640e8b54580719}{ack\+\_\+alexa\+\_\+change\+\_\+report\+\_\+cause\+\_\+type}} cause, \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}} changed\+Properies\+Bits, \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}} other\+Properties\+Bits)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__alexa__namespace_8c_ac074159f91710873f8080b8d6cd76642}{Alexa\+Namespace\+Start\+Change\+Report\+Event}} (\mbox{\hyperlink{ack__generated__alexa_8h_a860c0b4dd21471dc0b640e8b54580719}{ack\+\_\+alexa\+\_\+change\+\_\+report\+\_\+cause\+\_\+type}} cause)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__alexa__namespace_8c_acc0268aa9ea53f98006fdaa5711c2c77}\label{ack__core__alexa__namespace_8c_acc0268aa9ea53f98006fdaa5711c2c77}} 
+\index{ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}!ACK\_CompleteDirectiveWithNotSupportedInCurrentModeError@{ACK\_CompleteDirectiveWithNotSupportedInCurrentModeError}}
+\index{ACK\_CompleteDirectiveWithNotSupportedInCurrentModeError@{ACK\_CompleteDirectiveWithNotSupportedInCurrentModeError}!ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_CompleteDirectiveWithNotSupportedInCurrentModeError()}{ACK\_CompleteDirectiveWithNotSupportedInCurrentModeError()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACK\+\_\+\+Complete\+Directive\+With\+Not\+Supported\+In\+Current\+Mode\+Error (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id,  }\item[{\mbox{\hyperlink{ack__generated__alexa_8h_a999a6c37da63149958949d11e629c88d}{ack\+\_\+alexa\+\_\+device\+\_\+mode}}}]{mode,  }\item[{const char $\ast$}]{p\+Optional\+Message }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_acc0268aa9ea53f98006fdaa5711c2c77_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__alexa__namespace_8c_a74d46c74841230909fd4035aec451300}\label{ack__core__alexa__namespace_8c_a74d46c74841230909fd4035aec451300}} 
+\index{ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}!ACK\_CompleteDirectiveWithOutOfRangeError@{ACK\_CompleteDirectiveWithOutOfRangeError}}
+\index{ACK\_CompleteDirectiveWithOutOfRangeError@{ACK\_CompleteDirectiveWithOutOfRangeError}!ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_CompleteDirectiveWithOutOfRangeError()}{ACK\_CompleteDirectiveWithOutOfRangeError()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACK\+\_\+\+Complete\+Directive\+With\+Out\+Of\+Range\+Error (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id,  }\item[{float}]{minimum,  }\item[{float}]{maximum,  }\item[{const char $\ast$}]{p\+Optional\+Message }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_a74d46c74841230909fd4035aec451300_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__alexa__namespace_8c_a7faf09765377b7b9c4df757954d4bfd1}\label{ack__core__alexa__namespace_8c_a7faf09765377b7b9c4df757954d4bfd1}} 
+\index{ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}!ACK\_CompleteDirectiveWithSimpleError@{ACK\_CompleteDirectiveWithSimpleError}}
+\index{ACK\_CompleteDirectiveWithSimpleError@{ACK\_CompleteDirectiveWithSimpleError}!ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_CompleteDirectiveWithSimpleError()}{ACK\_CompleteDirectiveWithSimpleError()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACK\+\_\+\+Complete\+Directive\+With\+Simple\+Error (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id,  }\item[{\mbox{\hyperlink{ack__generated__alexa_8h_a960daf9ec3a0306117891417dea624a5}{ack\+\_\+alexa\+\_\+error\+\_\+type}}}]{error,  }\item[{const char $\ast$}]{p\+Optional\+Message }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_a7faf09765377b7b9c4df757954d4bfd1_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__alexa__namespace_8c_a70b1229eb62b4786993f087bcdd11742}\label{ack__core__alexa__namespace_8c_a70b1229eb62b4786993f087bcdd11742}} 
+\index{ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}!ACK\_CompleteDirectiveWithSuccess@{ACK\_CompleteDirectiveWithSuccess}}
+\index{ACK\_CompleteDirectiveWithSuccess@{ACK\_CompleteDirectiveWithSuccess}!ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_CompleteDirectiveWithSuccess()}{ACK\_CompleteDirectiveWithSuccess()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACK\+\_\+\+Complete\+Directive\+With\+Success (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id,  }\item[{\mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}}}]{response\+Properties\+Bits,  }\item[{\mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}}}]{change\+Report\+Properties\+Bits }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_a70b1229eb62b4786993f087bcdd11742_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_a70b1229eb62b4786993f087bcdd11742_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__alexa__namespace_8c_a7064de8838156d25443855f48ab0b524}\label{ack__core__alexa__namespace_8c_a7064de8838156d25443855f48ab0b524}} 
+\index{ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}!ACK\_CompleteDirectiveWithTemperatureOutOfRangeError@{ACK\_CompleteDirectiveWithTemperatureOutOfRangeError}}
+\index{ACK\_CompleteDirectiveWithTemperatureOutOfRangeError@{ACK\_CompleteDirectiveWithTemperatureOutOfRangeError}!ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_CompleteDirectiveWithTemperatureOutOfRangeError()}{ACK\_CompleteDirectiveWithTemperatureOutOfRangeError()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACK\+\_\+\+Complete\+Directive\+With\+Temperature\+Out\+Of\+Range\+Error (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id,  }\item[{\mbox{\hyperlink{ack__generated__temperature_8h_ad0d517afea334399e7384fa8a2aa0f5a}{ack\+\_\+temperature\+\_\+scale}}}]{scale,  }\item[{float}]{minimum,  }\item[{float}]{maximum,  }\item[{const char $\ast$}]{p\+Optional\+Message }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_a7064de8838156d25443855f48ab0b524_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__alexa__namespace_8c_a036c1fc7a4008c350a8210d9a015329d}\label{ack__core__alexa__namespace_8c_a036c1fc7a4008c350a8210d9a015329d}} 
+\index{ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}!ACK\_CompleteStateReportWithSuccess@{ACK\_CompleteStateReportWithSuccess}}
+\index{ACK\_CompleteStateReportWithSuccess@{ACK\_CompleteStateReportWithSuccess}!ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_CompleteStateReportWithSuccess()}{ACK\_CompleteStateReportWithSuccess()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACK\+\_\+\+Complete\+State\+Report\+With\+Success (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_a036c1fc7a4008c350a8210d9a015329d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_a036c1fc7a4008c350a8210d9a015329d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__alexa__namespace_8c_aa4ff3e98ff4c415ab6984c9b7a8099a0}\label{ack__core__alexa__namespace_8c_aa4ff3e98ff4c415ab6984c9b7a8099a0}} 
+\index{ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}!ACK\_SendChangeReport@{ACK\_SendChangeReport}}
+\index{ACK\_SendChangeReport@{ACK\_SendChangeReport}!ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_SendChangeReport()}{ACK\_SendChangeReport()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACK\+\_\+\+Send\+Change\+Report (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__generated__alexa_8h_a860c0b4dd21471dc0b640e8b54580719}{ack\+\_\+alexa\+\_\+change\+\_\+report\+\_\+cause\+\_\+type}}}]{cause,  }\item[{\mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}}}]{changed\+Properies\+Bits,  }\item[{\mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}}}]{other\+Properties\+Bits }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_aa4ff3e98ff4c415ab6984c9b7a8099a0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_aa4ff3e98ff4c415ab6984c9b7a8099a0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__alexa__namespace_8c_a9ab391ab125e4c4717c2465d7b7e67ee}\label{ack__core__alexa__namespace_8c_a9ab391ab125e4c4717c2465d7b7e67ee}} 
+\index{ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}!ACK\_SendChangeReport\_@{ACK\_SendChangeReport\_}}
+\index{ACK\_SendChangeReport\_@{ACK\_SendChangeReport\_}!ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_SendChangeReport\_()}{ACK\_SendChangeReport\_()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} ACK\+\_\+\+Send\+Change\+Report\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__generated__alexa_8h_a860c0b4dd21471dc0b640e8b54580719}{ack\+\_\+alexa\+\_\+change\+\_\+report\+\_\+cause\+\_\+type}}}]{cause,  }\item[{\mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}}}]{changed\+Properies\+Bits,  }\item[{\mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKProperties\+Bits\+\_\+t}}}]{other\+Properties\+Bits }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_a9ab391ab125e4c4717c2465d7b7e67ee_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_a9ab391ab125e4c4717c2465d7b7e67ee_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__alexa__namespace_8c_ac074159f91710873f8080b8d6cd76642}\label{ack__core__alexa__namespace_8c_ac074159f91710873f8080b8d6cd76642}} 
+\index{ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}!AlexaNamespaceStartChangeReportEvent@{AlexaNamespaceStartChangeReportEvent}}
+\index{AlexaNamespaceStartChangeReportEvent@{AlexaNamespaceStartChangeReportEvent}!ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}}
+\doxysubsubsection{\texorpdfstring{AlexaNamespaceStartChangeReportEvent()}{AlexaNamespaceStartChangeReportEvent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Alexa\+Namespace\+Start\+Change\+Report\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__generated__alexa_8h_a860c0b4dd21471dc0b640e8b54580719}{ack\+\_\+alexa\+\_\+change\+\_\+report\+\_\+cause\+\_\+type}}}]{cause }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_ac074159f91710873f8080b8d6cd76642_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_ac074159f91710873f8080b8d6cd76642_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__alexa__namespace_8c_a1f24d0aa8973a4752d00416ab85e8198}\label{ack__core__alexa__namespace_8c_a1f24d0aa8973a4752d00416ab85e8198}} 
+\index{ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}!ProcessAlexaDirective@{ProcessAlexaDirective}}
+\index{ProcessAlexaDirective@{ProcessAlexaDirective}!ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}}
+\doxysubsubsection{\texorpdfstring{ProcessAlexaDirective()}{ProcessAlexaDirective()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Process\+Alexa\+Directive (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack_8h_a2d6b333100bb548196c3088556ac22ff}{ACKDirective\+Params\+\_\+t}} $\ast$}]{p\+Document }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_a1f24d0aa8973a4752d00416ab85e8198_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_a1f24d0aa8973a4752d00416ab85e8198_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__alexa__namespace_8c_a269d9907366f4e22fb7852763ff2c5b1}\label{ack__core__alexa__namespace_8c_a269d9907366f4e22fb7852763ff2c5b1}} 
+\index{ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}!StartErrorEvent\_@{StartErrorEvent\_}}
+\index{StartErrorEvent\_@{StartErrorEvent\_}!ack\_core\_alexa\_namespace.c@{ack\_core\_alexa\_namespace.c}}
+\doxysubsubsection{\texorpdfstring{StartErrorEvent\_()}{StartErrorEvent\_()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Start\+Error\+Event\+\_\+ (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id,  }\item[{\mbox{\hyperlink{ack__generated__alexa_8h_a960daf9ec3a0306117891417dea624a5}{ack\+\_\+alexa\+\_\+error\+\_\+type}}}]{error,  }\item[{const char $\ast$}]{p\+Optional\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_a269d9907366f4e22fb7852763ff2c5b1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__alexa__namespace_8c_a269d9907366f4e22fb7852763ff2c5b1_icgraph}
+\end{center}
+\end{figure}

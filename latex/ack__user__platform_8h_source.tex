@@ -1,0 +1,173 @@
+\hypertarget{ack__user__platform_8h_source}{}\doxysection{ack\+\_\+user\+\_\+platform.\+h}
+\label{ack__user__platform_8h_source}\index{src/ack\_user\_platform.h@{src/ack\_user\_platform.h}}
+\mbox{\hyperlink{ack__user__platform_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{comment}{/*}}
+\DoxyCodeLine{11 \textcolor{comment}{    Declares functions that must be implemented on every platform, in a platform-\/specific way.}}
+\DoxyCodeLine{12 \textcolor{comment}{    Actual definitions are in platform-\/specific directories under the user directory.}}
+\DoxyCodeLine{13 \textcolor{comment}{}}
+\DoxyCodeLine{14 \textcolor{comment}{    Functions declared in this file are not typically called directly. The rest of the code in the}}
+\DoxyCodeLine{15 \textcolor{comment}{    Alexa Connect Kit itself calls these functions, which you implement in order to provide platform-\/specific}}
+\DoxyCodeLine{16 \textcolor{comment}{    functionality for your device's Host MCU.}}
+\DoxyCodeLine{17 \textcolor{comment}{*/}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifndef \_\_ACK\_USER\_PLATFORM\_H\_\_}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define \_\_ACK\_USER\_PLATFORM\_H\_\_}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{28 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{comment}{// Represents the piece of hardware to use when reading or writing a pin with ACKPlatform\_ReadDigitalPin}}
+\DoxyCodeLine{33 \textcolor{comment}{// and ACKPlatform\_WriteDigitalPin.}}
+\DoxyCodeLine{34 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \mbox{\hyperlink{ack__user__platform_8h_a5bdd3bf7aabb447216c2f5a8c50265af}{\_ACKHardwarePin\_t}}}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36     \mbox{\hyperlink{ack__user__platform_8h_a5bdd3bf7aabb447216c2f5a8c50265afa297bf99797672ebe185ff2715c8526db}{ACK\_HW\_PIN\_HOST\_INTERRUPT}},}
+\DoxyCodeLine{37     \mbox{\hyperlink{ack__user__platform_8h_a5bdd3bf7aabb447216c2f5a8c50265afad6177050568e70f82c17a7ebb7def31a}{ACK\_HW\_PIN\_MODULE\_RESET}}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#ifdef ACK\_MODULE\_POWER\_SAVING}}
+\DoxyCodeLine{40     ,ACK\_HW\_PIN\_MODULE\_POWER\_SAVING\_LOCK}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{comment}{// Hardware used in the sample applications.}}
+\DoxyCodeLine{44     \textcolor{comment}{// Use \#define in ack\_user\_config.h to include support.}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#ifdef ACK\_SAMPLE\_APPLICATIONS\_LED\_PIN}}
+\DoxyCodeLine{46     \textcolor{comment}{// For MCUs on boards that have a built-\/in LED, this GPIO pin should control that.}}
+\DoxyCodeLine{47     \textcolor{comment}{// For bare MCUs or boards that don't have a built-\/in LED, the user will have to connect an LED}}
+\DoxyCodeLine{48     \textcolor{comment}{// to this pin.}}
+\DoxyCodeLine{49     ,\mbox{\hyperlink{ack__user__platform_8h_a5bdd3bf7aabb447216c2f5a8c50265afacd70a728a9bf78e165f19fd12c88c88e}{ACK\_HW\_PIN\_SAMPLE\_APPLICATIONS\_LED}}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#ifdef ACK\_SAMPLE\_APPLICATIONS\_GPIO\_PIN\_1}}
+\DoxyCodeLine{52     ,\mbox{\hyperlink{ack__user__platform_8h_a5bdd3bf7aabb447216c2f5a8c50265afa7cf5bf008db9a960c0594ffafc0875fb}{ACK\_HW\_PIN\_SAMPLE\_APPLICATIONS\_GPIO\_1}}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#ifdef ACK\_SAMPLE\_APPLICATIONS\_GPIO\_PIN\_2}}
+\DoxyCodeLine{55     ,ACK\_HW\_PIN\_SAMPLE\_APPLICATIONS\_GPIO\_2}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#ifdef ACK\_SAMPLE\_APPLICATIONS\_GPIO\_PIN\_3}}
+\DoxyCodeLine{58     ,ACK\_HW\_PIN\_SAMPLE\_APPLICATIONS\_GPIO\_3}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{60 \}}
+\DoxyCodeLine{61 \mbox{\hyperlink{ack__user__platform_8h_afa7a4633ca7fd23acf14c16df225b664}{ACKHardwarePin\_t}};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{comment}{// Initializes the Alexa Connect Kit platform-\/specific implementation.}}
+\DoxyCodeLine{64 \textcolor{comment}{// Your implementation should set up UARTs, GPIO pins, and similar resources needed by the}}
+\DoxyCodeLine{65 \textcolor{comment}{// implementations of rest of the ACKPlatform\_Xxx functions.}}
+\DoxyCodeLine{66 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__user__platform_8h_a4c95fb850000a187b3d7563b56c5f7a8}{ACKPlatform\_Initialize}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{comment}{// Retrieves a tick count in milliseconds that can be used for timing.}}
+\DoxyCodeLine{69 uint32\_t \mbox{\hyperlink{ack__user__platform_8h_a5a0930c494b304fd26ae48f35ac88d7d}{ACKPlatform\_TickCount}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{comment}{// Delays by a number of milliseconds.}}
+\DoxyCodeLine{72 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__user__platform_8h_a714fe817d5ed149d8ff3b9c78253af58}{ACKPlatform\_Delay}}(uint32\_t milliseconds);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{comment}{// Changes the state of a GPIO pin.}}
+\DoxyCodeLine{75 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__user__platform_8h_a9cd2eba9eb604d27bef1dae91cb80ee7}{ACKPlatform\_WriteDigitalPin}}(\mbox{\hyperlink{ack__user__platform_8h_afa7a4633ca7fd23acf14c16df225b664}{ACKHardwarePin\_t}} pin, \textcolor{keywordtype}{bool} state);}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{comment}{// Reads the state of a GPIO pin.}}
+\DoxyCodeLine{78 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__user__platform_8h_a614450ab8fbdde5e1607ca7be5c2b055}{ACKPlatform\_ReadDigitalPin}}(\mbox{\hyperlink{ack__user__platform_8h_afa7a4633ca7fd23acf14c16df225b664}{ACKHardwarePin\_t}} pin);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{comment}{// Set PWM level of digital pin.}}
+\DoxyCodeLine{81 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__user__platform_8h_a4bfbddc28909f857fb0e5c66192434ab}{ACKPlatform\_SetDigitalPinPWMLevel}}(\mbox{\hyperlink{ack__user__platform_8h_afa7a4633ca7fd23acf14c16df225b664}{ACKHardwarePin\_t}} pin, uint8\_t val);}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{comment}{// Writes data to the Alexa Connect Kit connectivity module.}}
+\DoxyCodeLine{84 \textcolor{comment}{// Your implementation should send the given data on the UART connected to the Alexa Connect Kit}}
+\DoxyCodeLine{85 \textcolor{comment}{// connectivity module.}}
+\DoxyCodeLine{86 \textcolor{comment}{// Returns a Boolean value indicating whether all the data was sent successfully.}}
+\DoxyCodeLine{87 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__user__platform_8h_a80410e694e4e32f3d560d0698a1a6e2c}{ACKPlatform\_Send}}(\textcolor{keyword}{const} \textcolor{keywordtype}{void}* pBuffer, \textcolor{keywordtype}{size\_t} length, uint32\_t timeoutMilliseconds);}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{comment}{// Reads data from the Alexa Connect Kit connectivity module.}}
+\DoxyCodeLine{90 \textcolor{comment}{// Your implementation should read data from the UART connected to the Alexa Connect Kit connectivity module.}}
+\DoxyCodeLine{91 \textcolor{comment}{// Returns a Boolean value indicating whether all the data was sent successfully within the given}}
+\DoxyCodeLine{92 \textcolor{comment}{// timeout period.}}
+\DoxyCodeLine{93 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__user__platform_8h_a94c2c424fa4a8f0dc301aa49d520e100}{ACKPlatform\_Receive}}(\textcolor{keywordtype}{void}* pBuffer, \textcolor{keywordtype}{size\_t} length, uint32\_t timeoutMilliseconds);}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{comment}{// Throws away data waiting to be received from the Alexa Connect Kit connectivity module.}}
+\DoxyCodeLine{96 \textcolor{comment}{// Your implementation should read data from the UART connected to the Alexa Connect Kit connectivity module,}}
+\DoxyCodeLine{97 \textcolor{comment}{// until there is no more such data remaining.}}
+\DoxyCodeLine{98 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__user__platform_8h_a7592d825af97a0b03a684f74e431481e}{ACKPlatform\_DrainRead}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{comment}{// Calculates a 32-\/bit CRC.}}
+\DoxyCodeLine{101 \textcolor{comment}{// This is a platform-\/specific function because some MCUs have hardware assist for CRC calculation,}}
+\DoxyCodeLine{102 \textcolor{comment}{// but note that your implementation must use the same CRC algorithm as is used by the Alexa Connect Kit}}
+\DoxyCodeLine{103 \textcolor{comment}{// connectivity module itself. See the implementation in ack\_arduino\_platform.cpp for more information.}}
+\DoxyCodeLine{104 uint32\_t \mbox{\hyperlink{ack__user__platform_8h_a1b0efb26d53ea213836762c5279e1fb5}{ACKPlatform\_CalculateCrc32}}(\textcolor{keyword}{const} \textcolor{keywordtype}{void}* pInput, \textcolor{keywordtype}{size\_t} length);}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{comment}{// Writes messages to a platform-\/specific debug output.}}
+\DoxyCodeLine{107 \textcolor{comment}{// Your implementation should format the message and send it to a platform-\/specific output,}}
+\DoxyCodeLine{108 \textcolor{comment}{// for example a debug port or UART to which a serial monitor is attached.}}
+\DoxyCodeLine{109 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__user__platform_8h_a465a92cc685b838420ec4d72b7cc8134}{ACKPlatform\_DebugPrint}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* pMessage);}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#ifdef ACK\_HOST\_FIRMWARE\_UPDATE}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#define ACK\_HOST\_FIRMWARE\_UPDATE\_MAX\_DEVICE\_TYPE\_STRING\_LENGTH 16}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{comment}{// Value for ACKHostUpdateImageHeader\_t Signature. Represents ASCII 'OTA@' in hex.}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#define ACK\_HOST\_FIRMWARE\_UPDATE\_IMAGE\_HEADER\_SIGNATURE 0x4041544f}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \textcolor{comment}{// Header used in the stock Over-\/the-\/Air update solution.}}
+\DoxyCodeLine{119 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_ACKHostFirmwareUpdateImageHeader\_t}
+\DoxyCodeLine{120 \{}
+\DoxyCodeLine{121     \textcolor{comment}{// Must match ACK\_HOST\_UPDATE\_IMAGE\_HEADER\_SIGNATURE.}}
+\DoxyCodeLine{122     uint32\_t Signature;}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124     \textcolor{comment}{// Device type. This is used to ensure that a host update image is actually targeting the right product.}}
+\DoxyCodeLine{125     \textcolor{comment}{// NOTE: not nul-\/terminated.}}
+\DoxyCodeLine{126     \textcolor{keywordtype}{char} DeviceType[ACK\_HOST\_FIRMWARE\_UPDATE\_MAX\_DEVICE\_TYPE\_STRING\_LENGTH];}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128     \textcolor{comment}{// The address in flash memory where the host update image is to be installed. This can be used as a}}
+\DoxyCodeLine{129     \textcolor{comment}{// sanity check in your implementation, i.e., if this address doesn't match the base flash address}}
+\DoxyCodeLine{130     \textcolor{comment}{// in your MCU, then the image won't possibly be able to run successfully.}}
+\DoxyCodeLine{131     uint32\_t TargetAddress;}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133     \textcolor{comment}{// Size in bytes of the host update image (not including this header).}}
+\DoxyCodeLine{134     uint32\_t Size;}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136     \textcolor{comment}{// CRC32 of the host update image (not including this header).}}
+\DoxyCodeLine{137     uint32\_t Crc32;}
+\DoxyCodeLine{138 \}}
+\DoxyCodeLine{139 ACKHostFirmwareUpdateImageHeader\_t;}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{comment}{// Prepare to receive and save a firmware update.}}
+\DoxyCodeLine{142 \textcolor{comment}{// Return a boolean indicating success or failure.}}
+\DoxyCodeLine{143 \textcolor{keywordtype}{bool} ACKPlatform\_StartHostFirmwareUpdate(uint32\_t size, uint32\_t targetAddress, uint32\_t crc32);}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{comment}{// Save a chunk of the firmware update.}}
+\DoxyCodeLine{146 \textcolor{comment}{// Return a boolean indicating success or failure.}}
+\DoxyCodeLine{147 \textcolor{keywordtype}{bool} ACKPlatform\_SaveHostFirmwareUpdateChunk(uint32\_t startOffset, \textcolor{keyword}{const} uint8\_t* pData, uint32\_t size);}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 \textcolor{comment}{// Finish successful reception of a firmware update. Your implementation should perform a CRC check.}}
+\DoxyCodeLine{150 \textcolor{comment}{// Return a boolean indicating success or failure. Do not reboot the MCU here; in the success case,}}
+\DoxyCodeLine{151 \textcolor{comment}{// ACKPlatform\_ApplyHostFirmwareUpdate is called on a future pass through the main loop, when the device is}}
+\DoxyCodeLine{152 \textcolor{comment}{// not in use.}}
+\DoxyCodeLine{153 \textcolor{keywordtype}{bool} ACKPlatform\_HostFirmwareUpdateSuccessfullyRetrieved(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 \textcolor{comment}{// Clean up after a failed host firmware update download.}}
+\DoxyCodeLine{156 \textcolor{keywordtype}{void} ACKPlatform\_HostFirmwareUpdateFailed(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{comment}{// Apply the update, such as by rebooting the MCU.}}
+\DoxyCodeLine{159 \textcolor{keywordtype}{void} ACKPlatform\_ApplyHostFirmwareUpdate(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def ACK\_HOST\_FIRMWARE\_UPDATE}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{164 \}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_USER\_PLATFORM\_H\_\_}}
+
+\end{DoxyCode}

@@ -1,0 +1,59 @@
+\hypertarget{ack__core__document__wrappers_8h_source}{}\doxysection{ack\+\_\+core\+\_\+document\+\_\+wrappers.\+h}
+\label{ack__core__document__wrappers_8h_source}\index{src/ack\_core\_document\_wrappers.h@{src/ack\_core\_document\_wrappers.h}}
+\mbox{\hyperlink{ack__core__document__wrappers_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_CORE\_DOCUMENT\_WRAPPERS\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_CORE\_DOCUMENT\_WRAPPERS\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__document_8h}{ack\_document.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__generated__ack_8h}{ack\_generated\_ack.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_v3_a_v_s_8pb_8h}{V3AVS.pb.h}}"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{18 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{comment}{// This is the single namespace in the AVS "{}envelope"{} for all DOM Binary Form messages, in both directions}}
+\DoxyCodeLine{23 \textcolor{comment}{// (directives and events). This is a value in V3AVS\_Namespace enum in V3AVS.proto.}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define ACK\_DOM\_BINARY\_FORM\_ENVELOPE\_NAMESPACE V3AVS\_Namespace\_ACK\_DOM\_BINARY\_FORM}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct___a_c_k_event_document__t}{\_ACKEventDocument\_t}}}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28     \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}} \mbox{\hyperlink{struct___a_c_k_event_document__t_a06fe9692f2af30bda1eac792b7e88927}{PayloadObject}};}
+\DoxyCodeLine{29     \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}} \mbox{\hyperlink{struct___a_c_k_event_document__t_aae7fdaeb9f4fbd426ccc139e20445aeb}{ContextObject}};}
+\DoxyCodeLine{30 \}}
+\DoxyCodeLine{31 \mbox{\hyperlink{ack__core__document__wrappers_8h_a4f71d25b0d23beaaf7ce8b0724f9a1fd}{ACKEventDocument\_t}};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{extern} \mbox{\hyperlink{struct___a_c_k_event_document__t}{ACKEventDocument\_t}} \mbox{\hyperlink{ack__core__document__wrappers_8h_a374b548c9480f4436d78db9b18a639a6}{g\_eventDocument}};}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#ifdef ACK\_COMPOUND\_DEVICE}}
+\DoxyCodeLine{35 \textcolor{keyword}{extern} uint16\_t g\_eventEndpointId;}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__document__wrappers_8h_a9330b30e5cd7ad5962450a82ac56ec89}{CreateEventDocument}}(\mbox{\hyperlink{ack__generated__ack_8h_a61c4574433cc1a7fb91919f1257d2992}{ack\_namespace}} eventNamespace, \textcolor{keywordtype}{unsigned} eventName, \textcolor{keywordtype}{unsigned} flags);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define CEDF\_OMIT\_CONTEXT 0x0001}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__document__wrappers_8h_aa34a213a4299d47a0884dccdd67f03b5}{AddPropertyToEventDocument}}(}
+\DoxyCodeLine{43     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_state_common__t}{ACKStateCommon\_t}}* pCommon,}
+\DoxyCodeLine{44     \mbox{\hyperlink{ack__generated__ack_8h_a61c4574433cc1a7fb91919f1257d2992}{ack\_namespace}} v3Namespace,}
+\DoxyCodeLine{45     \textcolor{keyword}{const} uint32\_t* pInstance,}
+\DoxyCodeLine{46     \textcolor{keywordtype}{unsigned} name,}
+\DoxyCodeLine{47     \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pPropertyObject);    \textcolor{comment}{// returned to caller, for adding actual value}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{50 \}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ndef \_\_ACK\_CORE\_DOCUMENT\_WRAPPERS\_H\_\_}}
+
+\end{DoxyCode}

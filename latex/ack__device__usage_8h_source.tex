@@ -1,0 +1,96 @@
+\hypertarget{ack__device__usage_8h_source}{}\doxysection{ack\+\_\+device\+\_\+usage.\+h}
+\label{ack__device__usage_8h_source}\index{src/ack\_device\_usage.h@{src/ack\_device\_usage.h}}
+\mbox{\hyperlink{ack__device__usage_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_DEVICE\_USAGE\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_DEVICE\_USAGE\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__types_8h}{ack\_types.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__generated__alexa__device__usage__estimation_8h}{ack\_generated\_alexa\_device\_usage\_estimation.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__generated__alexa__device__usage__meter_8h}{ack\_generated\_alexa\_device\_usage\_meter.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{20 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#ifdef ACK\_DEVICE\_USAGE}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_ACKDeviceUsageEstimationQuantity\_t}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28     \textcolor{keywordtype}{double} Value;}
+\DoxyCodeLine{29     \mbox{\hyperlink{ack__generated__alexa__device__usage__estimation_8h_a217e7f0a6e5cd541e2fda2528744cce0}{ack\_alexa\_device\_usage\_estimation\_units}} Units;}
+\DoxyCodeLine{30 \}}
+\DoxyCodeLine{31 ACKDeviceUsageEstimationQuantity\_t;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{comment}{// Indicates the kind of reading described.}}
+\DoxyCodeLine{34 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \_ACKDeviceUsageMeterKind\_t}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36     ACK\_DEVICE\_USAGE\_METER\_ELECTRICITY,}
+\DoxyCodeLine{37     ACK\_DEVICE\_USAGE\_METER\_NATURAL\_GAS}
+\DoxyCodeLine{38 \}}
+\DoxyCodeLine{39 ACKDeviceUsageMeterKind\_t;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_ACKDeviceUsageMeterInterval\_t}
+\DoxyCodeLine{42 \{}
+\DoxyCodeLine{43     \textcolor{keywordtype}{double} Usage;}
+\DoxyCodeLine{44     uint64\_t Start; \textcolor{comment}{// Posix epoch value in milliseconds.}}
+\DoxyCodeLine{45     uint64\_t End;   \textcolor{comment}{// Posix epoch value in milliseconds.}}
+\DoxyCodeLine{46 \}}
+\DoxyCodeLine{47 ACKDeviceUsageMeterInterval\_t;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_ACKDeviceUsageMeterMeasurements\_t}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51     ACKDeviceUsageMeterInterval\_t* ElectricityIntervals;}
+\DoxyCodeLine{52     \textcolor{keywordtype}{unsigned} ElectricityIntervalCount;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     ACKDeviceUsageMeterInterval\_t* NaturalGasIntervals;}
+\DoxyCodeLine{55     \textcolor{keywordtype}{unsigned} NaturalGasIntervalCount;}
+\DoxyCodeLine{56 \}}
+\DoxyCodeLine{57 ACKDeviceUsageMeterMeasurements\_t;}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{comment}{// You must implement these routines.}}
+\DoxyCodeLine{60 \textcolor{keywordtype}{void} ACKUser\_OnDeviceUsageMeterReportMeasurementsDirective(int32\_t correlationId);}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{keywordtype}{void} ACKUser\_OnDeviceUsageMeterReduceResolutionDirective(}
+\DoxyCodeLine{63     int32\_t correlationId,}
+\DoxyCodeLine{64     uint32\_t limit,}
+\DoxyCodeLine{65     uint64\_t durationMilliseconds);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{keywordtype}{void} ACKUser\_OnDeviceUsageMeterInvalidMeasurementErrorDirective(}
+\DoxyCodeLine{68     int32\_t correlationId,}
+\DoxyCodeLine{69     ACKDeviceUsageMeterKind\_t kind,}
+\DoxyCodeLine{70     \mbox{\hyperlink{ack__generated__alexa__device__usage__meter_8h_a752f3c3d216858c102833fa929adf9ee}{ack\_alexa\_device\_usage\_meter\_invalid\_measurement\_error\_code}} errorCode,}
+\DoxyCodeLine{71     uint64\_t timeOfError);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{comment}{// Call this to add a property representing a measurement report to an outbound event.}}
+\DoxyCodeLine{74 \textcolor{comment}{// At least one measurement property should have a count greater than 0.}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#ifdef ACK\_COMPOUND\_DEVICE}}
+\DoxyCodeLine{76 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACK\_SendDeviceUsageMeterMeasurementsReportEvent(}
+\DoxyCodeLine{77     uint16\_t endpointId,}
+\DoxyCodeLine{78     \textcolor{keyword}{const} ACKDeviceUsageMeterMeasurements\_t* pMeasurements);}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{80 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACK\_SendDeviceUsageMeterMeasurementsReportEvent(}
+\DoxyCodeLine{81     \textcolor{keyword}{const} ACKDeviceUsageMeterMeasurements\_t* pMeasurements);}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def ACK\_DEVICE\_USAGE}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{87 \}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_DEVICE\_USAGE\_H\_\_}}
+
+\end{DoxyCode}

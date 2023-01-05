@@ -1,0 +1,273 @@
+\hypertarget{ack__types_8h}{}\doxysection{src/ack\+\_\+types.h File Reference}
+\label{ack__types_8h}\index{src/ack\_types.h@{src/ack\_types.h}}
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+generated\+\_\+count.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+generated\+\_\+enumerated\+\_\+power\+\_\+level.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+generated\+\_\+item\+\_\+quantity.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+generated\+\_\+temperature.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+generated\+\_\+volume.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+generated\+\_\+weight.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for ack\+\_\+types.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__types_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__types_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct___a_c_k_state_common__t}{\+\_\+\+ACKState\+Common\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct___a_c_k_item_quantity__t}{\+\_\+\+ACKItem\+Quantity\+\_\+t}}
+\item 
+union \mbox{\hyperlink{union___a_c_k_power_level__t}{\+\_\+\+ACKPower\+Level\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct___a_c_k_temperature__t}{\+\_\+\+ACKTemperature\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct___a_c_k_time_interval__t}{\+\_\+\+ACKTime\+Interval\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ack__types_8h_ad7f4c1950a9d5326c175e02750ef4814}{ACK\+\_\+\+STATIC\+\_\+\+ASSERT}}(x)~switch(0)\{case 0\+: case (x)\+:;\}
+\item 
+\#define \mbox{\hyperlink{ack__types_8h_a4da92e4ec3cb304d14594eb7bf6b64d6}{ACK\+\_\+\+SAFE\+\_\+\+COPY\+\_\+\+STRING}}(target,  source)
+\item 
+\#define \mbox{\hyperlink{ack__types_8h_a47a7028b023f763db8c8f334744d30a3}{ACK\+\_\+\+ASSERT}}(x)~if (!(x)) \{ \mbox{\hyperlink{ack__types_8h_a09973f8d967fba8c09a9eaa217d81c08}{ACK\+\_\+\+Assertion\+Failed}}(\#x); \}
+\item 
+\#define \mbox{\hyperlink{ack__types_8h_a16b5d444d44a7d97bc6fb115c36698e6}{ACK\+\_\+\+COUNTOF}}(x)~(sizeof(x) / sizeof((x)\mbox{[}0\mbox{]}))
+\item 
+\#define \mbox{\hyperlink{ack__types_8h_a84b45eaa3b03a71b5b742f92c4dd8257}{ACK\+\_\+\+PROPERTY\+\_\+\+CHANGE\+\_\+\+REPORT\+\_\+\+PAYLOAD}}~0x01
+\item 
+\#define \mbox{\hyperlink{ack__types_8h_aa1be9b0de4858de8b4cee7d5f2a1fef4}{ACK\+\_\+\+MINIMUM\+\_\+\+PROPERTY\+\_\+\+TIMESTAMP}}~1546300800000
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{ack__types_8h_a799544addb680f2661a04b94367c8b42}{\+\_\+\+ACKError\+\_\+t}} \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{struct___a_c_k_state_common__t}{\+\_\+\+ACKState\+Common\+\_\+t}} \mbox{\hyperlink{ack__types_8h_a3f2f70bfb119cc34ec2c8894bc55f049}{ACKState\+Common\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{struct___a_c_k_item_quantity__t}{\+\_\+\+ACKItem\+Quantity\+\_\+t}} \mbox{\hyperlink{ack__types_8h_af5763d43b78805a3b67cccaf06291a81}{ACKItem\+Quantity\+\_\+t}}
+\item 
+typedef enum \mbox{\hyperlink{ack__types_8h_aa42b191e656d012b4300386b076f9688}{\+\_\+\+ACKPower\+Level\+Kind\+\_\+t}} \mbox{\hyperlink{ack__types_8h_a0cecb48fa75e07884bfaaa556eceff34}{ACKPower\+Level\+Kind\+\_\+t}}
+\item 
+typedef union \mbox{\hyperlink{union___a_c_k_power_level__t}{\+\_\+\+ACKPower\+Level\+\_\+t}} \mbox{\hyperlink{ack__types_8h_ab8c0b3009d2a6eb728ce968260319f43}{ACKPower\+Level\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{struct___a_c_k_temperature__t}{\+\_\+\+ACKTemperature\+\_\+t}} \mbox{\hyperlink{ack__types_8h_af083bc8e817dd2f3fd5646ef65f57575}{ACKTemperature\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{struct___a_c_k_time_interval__t}{\+\_\+\+ACKTime\+Interval\+\_\+t}} \mbox{\hyperlink{ack__types_8h_ab7116d7b6582d16f63779a2b9ce349b7}{ACKTime\+Interval\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{ack__types_8h_a799544addb680f2661a04b94367c8b42}{\+\_\+\+ACKError\+\_\+t}} \{ \newline
+\mbox{\hyperlink{ack__types_8h_a799544addb680f2661a04b94367c8b42a7588c4f1a6c2b1504850bdba226cec22}{ACK\+\_\+\+NO\+\_\+\+ERROR}} = 0
+, \mbox{\hyperlink{ack__types_8h_a799544addb680f2661a04b94367c8b42aaa778b96dfa2560837aadb5c441dea52}{ACK\+\_\+\+ERR\+\_\+\+OUT\+\_\+\+OF\+\_\+\+MEMORY}}
+, \mbox{\hyperlink{ack__types_8h_a799544addb680f2661a04b94367c8b42ae9a02edef8e613b36ada8135b3af147b}{ACK\+\_\+\+ERR\+\_\+\+IO}}
+, \mbox{\hyperlink{ack__types_8h_a799544addb680f2661a04b94367c8b42ac42fb6d157172289ab2dabde16c8d141}{ACK\+\_\+\+ERR\+\_\+\+PROTOCOL}}
+, \newline
+\mbox{\hyperlink{ack__types_8h_a799544addb680f2661a04b94367c8b42afede34942f7f9e6b724b2c714d874840}{ACK\+\_\+\+ERR\+\_\+\+INTERNAL}}
+ \}
+\item 
+enum \mbox{\hyperlink{ack__types_8h_aa42b191e656d012b4300386b076f9688}{\+\_\+\+ACKPower\+Level\+Kind\+\_\+t}} \{ \mbox{\hyperlink{ack__types_8h_aa42b191e656d012b4300386b076f9688ae984418ede4459a79293c3bfcfc935ed}{ACK\+\_\+\+POWER\+\_\+\+LEVEL\+\_\+\+NONE}}
+, \mbox{\hyperlink{ack__types_8h_aa42b191e656d012b4300386b076f9688a46a895d18183b4a0997a179ecbe60fdb}{ACK\+\_\+\+POWER\+\_\+\+LEVEL\+\_\+\+INTEGRAL}}
+, \mbox{\hyperlink{ack__types_8h_aa42b191e656d012b4300386b076f9688a55e8a4a4c388bbb81530f8533558fa21}{ACK\+\_\+\+POWER\+\_\+\+LEVEL\+\_\+\+ENUMERATED}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ack__types_8h_a09973f8d967fba8c09a9eaa217d81c08}{ACK\+\_\+\+Assertion\+Failed}} (const char $\ast$p\+Condition)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$ \mbox{\hyperlink{ack__types_8h_a64950a7552975d09c0f48892280d86b8}{ACK\+\_\+\+Assertion\+Failed\+Hook}} )(void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ack__types_8h_a47a7028b023f763db8c8f334744d30a3}\label{ack__types_8h_a47a7028b023f763db8c8f334744d30a3}} 
+\index{ack\_types.h@{ack\_types.h}!ACK\_ASSERT@{ACK\_ASSERT}}
+\index{ACK\_ASSERT@{ACK\_ASSERT}!ack\_types.h@{ack\_types.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_ASSERT}{ACK\_ASSERT}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+ASSERT(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~if (!(x)) \{ \mbox{\hyperlink{ack__types_8h_a09973f8d967fba8c09a9eaa217d81c08}{ACK\+\_\+\+Assertion\+Failed}}(\#x); \}}
+
+\mbox{\Hypertarget{ack__types_8h_a16b5d444d44a7d97bc6fb115c36698e6}\label{ack__types_8h_a16b5d444d44a7d97bc6fb115c36698e6}} 
+\index{ack\_types.h@{ack\_types.h}!ACK\_COUNTOF@{ACK\_COUNTOF}}
+\index{ACK\_COUNTOF@{ACK\_COUNTOF}!ack\_types.h@{ack\_types.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_COUNTOF}{ACK\_COUNTOF}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+COUNTOF(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(sizeof(x) / sizeof((x)\mbox{[}0\mbox{]}))}
+
+\mbox{\Hypertarget{ack__types_8h_aa1be9b0de4858de8b4cee7d5f2a1fef4}\label{ack__types_8h_aa1be9b0de4858de8b4cee7d5f2a1fef4}} 
+\index{ack\_types.h@{ack\_types.h}!ACK\_MINIMUM\_PROPERTY\_TIMESTAMP@{ACK\_MINIMUM\_PROPERTY\_TIMESTAMP}}
+\index{ACK\_MINIMUM\_PROPERTY\_TIMESTAMP@{ACK\_MINIMUM\_PROPERTY\_TIMESTAMP}!ack\_types.h@{ack\_types.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_MINIMUM\_PROPERTY\_TIMESTAMP}{ACK\_MINIMUM\_PROPERTY\_TIMESTAMP}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+MINIMUM\+\_\+\+PROPERTY\+\_\+\+TIMESTAMP~1546300800000}
+
+\mbox{\Hypertarget{ack__types_8h_a84b45eaa3b03a71b5b742f92c4dd8257}\label{ack__types_8h_a84b45eaa3b03a71b5b742f92c4dd8257}} 
+\index{ack\_types.h@{ack\_types.h}!ACK\_PROPERTY\_CHANGE\_REPORT\_PAYLOAD@{ACK\_PROPERTY\_CHANGE\_REPORT\_PAYLOAD}}
+\index{ACK\_PROPERTY\_CHANGE\_REPORT\_PAYLOAD@{ACK\_PROPERTY\_CHANGE\_REPORT\_PAYLOAD}!ack\_types.h@{ack\_types.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_PROPERTY\_CHANGE\_REPORT\_PAYLOAD}{ACK\_PROPERTY\_CHANGE\_REPORT\_PAYLOAD}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+PROPERTY\+\_\+\+CHANGE\+\_\+\+REPORT\+\_\+\+PAYLOAD~0x01}
+
+\mbox{\Hypertarget{ack__types_8h_a4da92e4ec3cb304d14594eb7bf6b64d6}\label{ack__types_8h_a4da92e4ec3cb304d14594eb7bf6b64d6}} 
+\index{ack\_types.h@{ack\_types.h}!ACK\_SAFE\_COPY\_STRING@{ACK\_SAFE\_COPY\_STRING}}
+\index{ACK\_SAFE\_COPY\_STRING@{ACK\_SAFE\_COPY\_STRING}!ack\_types.h@{ack\_types.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_SAFE\_COPY\_STRING}{ACK\_SAFE\_COPY\_STRING}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+SAFE\+\_\+\+COPY\+\_\+\+STRING(\begin{DoxyParamCaption}\item[{}]{target,  }\item[{}]{source }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (\textcolor{keyword}{sizeof}(target)) \(\backslash\)}
+\DoxyCodeLine{    \{ \(\backslash\)}
+\DoxyCodeLine{        if (source) \(\backslash\)}
+\DoxyCodeLine{        \{ \(\backslash\)}
+\DoxyCodeLine{            strncpy(target, source, \textcolor{keyword}{sizeof}(target) -\/ 1); \(\backslash\)}
+\DoxyCodeLine{            target[\textcolor{keyword}{sizeof}(target) -\/ 1] = \textcolor{charliteral}{'\(\backslash\)0'}; \(\backslash\)}
+\DoxyCodeLine{        \} \(\backslash\)}
+\DoxyCodeLine{        else \(\backslash\)}
+\DoxyCodeLine{        \{ \(\backslash\)}
+\DoxyCodeLine{            target[0] = \textcolor{charliteral}{'\(\backslash\)0'}; \(\backslash\)}
+\DoxyCodeLine{        \} \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{ack__types_8h_ad7f4c1950a9d5326c175e02750ef4814}\label{ack__types_8h_ad7f4c1950a9d5326c175e02750ef4814}} 
+\index{ack\_types.h@{ack\_types.h}!ACK\_STATIC\_ASSERT@{ACK\_STATIC\_ASSERT}}
+\index{ACK\_STATIC\_ASSERT@{ACK\_STATIC\_ASSERT}!ack\_types.h@{ack\_types.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_STATIC\_ASSERT}{ACK\_STATIC\_ASSERT}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+STATIC\+\_\+\+ASSERT(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~switch(0)\{case 0\+: case (x)\+:;\}}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}\label{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}} 
+\index{ack\_types.h@{ack\_types.h}!ACKError\_t@{ACKError\_t}}
+\index{ACKError\_t@{ACKError\_t}!ack\_types.h@{ack\_types.h}}
+\doxysubsubsection{\texorpdfstring{ACKError\_t}{ACKError\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{ack__types_8h_a799544addb680f2661a04b94367c8b42}{\+\_\+\+ACKError\+\_\+t}} \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}}}
+
+\mbox{\Hypertarget{ack__types_8h_af5763d43b78805a3b67cccaf06291a81}\label{ack__types_8h_af5763d43b78805a3b67cccaf06291a81}} 
+\index{ack\_types.h@{ack\_types.h}!ACKItemQuantity\_t@{ACKItemQuantity\_t}}
+\index{ACKItemQuantity\_t@{ACKItemQuantity\_t}!ack\_types.h@{ack\_types.h}}
+\doxysubsubsection{\texorpdfstring{ACKItemQuantity\_t}{ACKItemQuantity\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___a_c_k_item_quantity__t}{\+\_\+\+ACKItem\+Quantity\+\_\+t}} \mbox{\hyperlink{ack__types_8h_af5763d43b78805a3b67cccaf06291a81}{ACKItem\+Quantity\+\_\+t}}}
+
+\mbox{\Hypertarget{ack__types_8h_ab8c0b3009d2a6eb728ce968260319f43}\label{ack__types_8h_ab8c0b3009d2a6eb728ce968260319f43}} 
+\index{ack\_types.h@{ack\_types.h}!ACKPowerLevel\_t@{ACKPowerLevel\_t}}
+\index{ACKPowerLevel\_t@{ACKPowerLevel\_t}!ack\_types.h@{ack\_types.h}}
+\doxysubsubsection{\texorpdfstring{ACKPowerLevel\_t}{ACKPowerLevel\_t}}
+{\footnotesize\ttfamily typedef union \mbox{\hyperlink{union___a_c_k_power_level__t}{\+\_\+\+ACKPower\+Level\+\_\+t}} \mbox{\hyperlink{ack__types_8h_ab8c0b3009d2a6eb728ce968260319f43}{ACKPower\+Level\+\_\+t}}}
+
+\mbox{\Hypertarget{ack__types_8h_a0cecb48fa75e07884bfaaa556eceff34}\label{ack__types_8h_a0cecb48fa75e07884bfaaa556eceff34}} 
+\index{ack\_types.h@{ack\_types.h}!ACKPowerLevelKind\_t@{ACKPowerLevelKind\_t}}
+\index{ACKPowerLevelKind\_t@{ACKPowerLevelKind\_t}!ack\_types.h@{ack\_types.h}}
+\doxysubsubsection{\texorpdfstring{ACKPowerLevelKind\_t}{ACKPowerLevelKind\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{ack__types_8h_aa42b191e656d012b4300386b076f9688}{\+\_\+\+ACKPower\+Level\+Kind\+\_\+t}} \mbox{\hyperlink{ack__types_8h_a0cecb48fa75e07884bfaaa556eceff34}{ACKPower\+Level\+Kind\+\_\+t}}}
+
+\mbox{\Hypertarget{ack__types_8h_a3f2f70bfb119cc34ec2c8894bc55f049}\label{ack__types_8h_a3f2f70bfb119cc34ec2c8894bc55f049}} 
+\index{ack\_types.h@{ack\_types.h}!ACKStateCommon\_t@{ACKStateCommon\_t}}
+\index{ACKStateCommon\_t@{ACKStateCommon\_t}!ack\_types.h@{ack\_types.h}}
+\doxysubsubsection{\texorpdfstring{ACKStateCommon\_t}{ACKStateCommon\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___a_c_k_state_common__t}{\+\_\+\+ACKState\+Common\+\_\+t}} \mbox{\hyperlink{ack__types_8h_a3f2f70bfb119cc34ec2c8894bc55f049}{ACKState\+Common\+\_\+t}}}
+
+\mbox{\Hypertarget{ack__types_8h_af083bc8e817dd2f3fd5646ef65f57575}\label{ack__types_8h_af083bc8e817dd2f3fd5646ef65f57575}} 
+\index{ack\_types.h@{ack\_types.h}!ACKTemperature\_t@{ACKTemperature\_t}}
+\index{ACKTemperature\_t@{ACKTemperature\_t}!ack\_types.h@{ack\_types.h}}
+\doxysubsubsection{\texorpdfstring{ACKTemperature\_t}{ACKTemperature\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___a_c_k_temperature__t}{\+\_\+\+ACKTemperature\+\_\+t}} \mbox{\hyperlink{ack__types_8h_af083bc8e817dd2f3fd5646ef65f57575}{ACKTemperature\+\_\+t}}}
+
+\mbox{\Hypertarget{ack__types_8h_ab7116d7b6582d16f63779a2b9ce349b7}\label{ack__types_8h_ab7116d7b6582d16f63779a2b9ce349b7}} 
+\index{ack\_types.h@{ack\_types.h}!ACKTimeInterval\_t@{ACKTimeInterval\_t}}
+\index{ACKTimeInterval\_t@{ACKTimeInterval\_t}!ack\_types.h@{ack\_types.h}}
+\doxysubsubsection{\texorpdfstring{ACKTimeInterval\_t}{ACKTimeInterval\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___a_c_k_time_interval__t}{\+\_\+\+ACKTime\+Interval\+\_\+t}} \mbox{\hyperlink{ack__types_8h_ab7116d7b6582d16f63779a2b9ce349b7}{ACKTime\+Interval\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{ack__types_8h_a799544addb680f2661a04b94367c8b42}\label{ack__types_8h_a799544addb680f2661a04b94367c8b42}} 
+\index{ack\_types.h@{ack\_types.h}!\_ACKError\_t@{\_ACKError\_t}}
+\index{\_ACKError\_t@{\_ACKError\_t}!ack\_types.h@{ack\_types.h}}
+\doxysubsubsection{\texorpdfstring{\_ACKError\_t}{\_ACKError\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ack__types_8h_a799544addb680f2661a04b94367c8b42}{\+\_\+\+ACKError\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_NO\_ERROR@{ACK\_NO\_ERROR}!ack\_types.h@{ack\_types.h}}\index{ack\_types.h@{ack\_types.h}!ACK\_NO\_ERROR@{ACK\_NO\_ERROR}}}\mbox{\Hypertarget{ack__types_8h_a799544addb680f2661a04b94367c8b42a7588c4f1a6c2b1504850bdba226cec22}\label{ack__types_8h_a799544addb680f2661a04b94367c8b42a7588c4f1a6c2b1504850bdba226cec22}} 
+ACK\+\_\+\+NO\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_ERR\_OUT\_OF\_MEMORY@{ACK\_ERR\_OUT\_OF\_MEMORY}!ack\_types.h@{ack\_types.h}}\index{ack\_types.h@{ack\_types.h}!ACK\_ERR\_OUT\_OF\_MEMORY@{ACK\_ERR\_OUT\_OF\_MEMORY}}}\mbox{\Hypertarget{ack__types_8h_a799544addb680f2661a04b94367c8b42aaa778b96dfa2560837aadb5c441dea52}\label{ack__types_8h_a799544addb680f2661a04b94367c8b42aaa778b96dfa2560837aadb5c441dea52}} 
+ACK\+\_\+\+ERR\+\_\+\+OUT\+\_\+\+OF\+\_\+\+MEMORY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_ERR\_IO@{ACK\_ERR\_IO}!ack\_types.h@{ack\_types.h}}\index{ack\_types.h@{ack\_types.h}!ACK\_ERR\_IO@{ACK\_ERR\_IO}}}\mbox{\Hypertarget{ack__types_8h_a799544addb680f2661a04b94367c8b42ae9a02edef8e613b36ada8135b3af147b}\label{ack__types_8h_a799544addb680f2661a04b94367c8b42ae9a02edef8e613b36ada8135b3af147b}} 
+ACK\+\_\+\+ERR\+\_\+\+IO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_ERR\_PROTOCOL@{ACK\_ERR\_PROTOCOL}!ack\_types.h@{ack\_types.h}}\index{ack\_types.h@{ack\_types.h}!ACK\_ERR\_PROTOCOL@{ACK\_ERR\_PROTOCOL}}}\mbox{\Hypertarget{ack__types_8h_a799544addb680f2661a04b94367c8b42ac42fb6d157172289ab2dabde16c8d141}\label{ack__types_8h_a799544addb680f2661a04b94367c8b42ac42fb6d157172289ab2dabde16c8d141}} 
+ACK\+\_\+\+ERR\+\_\+\+PROTOCOL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_ERR\_INTERNAL@{ACK\_ERR\_INTERNAL}!ack\_types.h@{ack\_types.h}}\index{ack\_types.h@{ack\_types.h}!ACK\_ERR\_INTERNAL@{ACK\_ERR\_INTERNAL}}}\mbox{\Hypertarget{ack__types_8h_a799544addb680f2661a04b94367c8b42afede34942f7f9e6b724b2c714d874840}\label{ack__types_8h_a799544addb680f2661a04b94367c8b42afede34942f7f9e6b724b2c714d874840}} 
+ACK\+\_\+\+ERR\+\_\+\+INTERNAL&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{ack__types_8h_aa42b191e656d012b4300386b076f9688}\label{ack__types_8h_aa42b191e656d012b4300386b076f9688}} 
+\index{ack\_types.h@{ack\_types.h}!\_ACKPowerLevelKind\_t@{\_ACKPowerLevelKind\_t}}
+\index{\_ACKPowerLevelKind\_t@{\_ACKPowerLevelKind\_t}!ack\_types.h@{ack\_types.h}}
+\doxysubsubsection{\texorpdfstring{\_ACKPowerLevelKind\_t}{\_ACKPowerLevelKind\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ack__types_8h_aa42b191e656d012b4300386b076f9688}{\+\_\+\+ACKPower\+Level\+Kind\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_POWER\_LEVEL\_NONE@{ACK\_POWER\_LEVEL\_NONE}!ack\_types.h@{ack\_types.h}}\index{ack\_types.h@{ack\_types.h}!ACK\_POWER\_LEVEL\_NONE@{ACK\_POWER\_LEVEL\_NONE}}}\mbox{\Hypertarget{ack__types_8h_aa42b191e656d012b4300386b076f9688ae984418ede4459a79293c3bfcfc935ed}\label{ack__types_8h_aa42b191e656d012b4300386b076f9688ae984418ede4459a79293c3bfcfc935ed}} 
+ACK\+\_\+\+POWER\+\_\+\+LEVEL\+\_\+\+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_POWER\_LEVEL\_INTEGRAL@{ACK\_POWER\_LEVEL\_INTEGRAL}!ack\_types.h@{ack\_types.h}}\index{ack\_types.h@{ack\_types.h}!ACK\_POWER\_LEVEL\_INTEGRAL@{ACK\_POWER\_LEVEL\_INTEGRAL}}}\mbox{\Hypertarget{ack__types_8h_aa42b191e656d012b4300386b076f9688a46a895d18183b4a0997a179ecbe60fdb}\label{ack__types_8h_aa42b191e656d012b4300386b076f9688a46a895d18183b4a0997a179ecbe60fdb}} 
+ACK\+\_\+\+POWER\+\_\+\+LEVEL\+\_\+\+INTEGRAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_POWER\_LEVEL\_ENUMERATED@{ACK\_POWER\_LEVEL\_ENUMERATED}!ack\_types.h@{ack\_types.h}}\index{ack\_types.h@{ack\_types.h}!ACK\_POWER\_LEVEL\_ENUMERATED@{ACK\_POWER\_LEVEL\_ENUMERATED}}}\mbox{\Hypertarget{ack__types_8h_aa42b191e656d012b4300386b076f9688a55e8a4a4c388bbb81530f8533558fa21}\label{ack__types_8h_aa42b191e656d012b4300386b076f9688a55e8a4a4c388bbb81530f8533558fa21}} 
+ACK\+\_\+\+POWER\+\_\+\+LEVEL\+\_\+\+ENUMERATED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__types_8h_a09973f8d967fba8c09a9eaa217d81c08}\label{ack__types_8h_a09973f8d967fba8c09a9eaa217d81c08}} 
+\index{ack\_types.h@{ack\_types.h}!ACK\_AssertionFailed@{ACK\_AssertionFailed}}
+\index{ACK\_AssertionFailed@{ACK\_AssertionFailed}!ack\_types.h@{ack\_types.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_AssertionFailed()}{ACK\_AssertionFailed()}}
+{\footnotesize\ttfamily void ACK\+\_\+\+Assertion\+Failed (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p\+Condition }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{ack__types_8h_a09973f8d967fba8c09a9eaa217d81c08_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ack__types_8h_a64950a7552975d09c0f48892280d86b8}\label{ack__types_8h_a64950a7552975d09c0f48892280d86b8}} 
+\index{ack\_types.h@{ack\_types.h}!ACK\_AssertionFailedHook@{ACK\_AssertionFailedHook}}
+\index{ACK\_AssertionFailedHook@{ACK\_AssertionFailedHook}!ack\_types.h@{ack\_types.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_AssertionFailedHook}{ACK\_AssertionFailedHook}}
+{\footnotesize\ttfamily void($\ast$ ACK\+\_\+\+Assertion\+Failed\+Hook) (void) (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+

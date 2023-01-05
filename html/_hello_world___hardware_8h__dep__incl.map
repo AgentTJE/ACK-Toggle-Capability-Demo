@@ -1,0 +1,6 @@
+<map id="HelloWorld_Hardware.h" name="HelloWorld_Hardware.h">
+<area shape="rect" id="node1" title="hello world hardware." alt="" coords="125,5,283,32"/>
+<area shape="rect" id="node2" href="$_hello_world_8ino.html" title="this file contains the setup entrypoint and the loop logic for the hello world ack example." alt="" coords="5,80,112,107"/>
+<area shape="rect" id="node3" href="$_hello_world___alexa_8c.html" title=" " alt="" coords="136,80,272,107"/>
+<area shape="rect" id="node4" href="$_hello_world___hardware_8c.html" title=" " alt="" coords="297,80,455,107"/>
+</map>

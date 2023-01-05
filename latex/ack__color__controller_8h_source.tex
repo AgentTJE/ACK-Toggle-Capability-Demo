@@ -1,0 +1,50 @@
+\hypertarget{ack__color__controller_8h_source}{}\doxysection{ack\+\_\+color\+\_\+controller.\+h}
+\label{ack__color__controller_8h_source}\index{src/ack\_color\_controller.h@{src/ack\_color\_controller.h}}
+\mbox{\hyperlink{ack__color__controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_COLOR\_CONTROLLER\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_COLOR\_CONTROLLER\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__types_8h}{ack\_types.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{18 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#ifdef ACK\_COLOR\_CONTROLLER}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{comment}{// You must implement this routine.}}
+\DoxyCodeLine{25 \textcolor{keywordtype}{void} ACKUser\_OnColorControllerDirective(}
+\DoxyCodeLine{26     int32\_t correlationId,}
+\DoxyCodeLine{27     \textcolor{keywordtype}{double} hue,}
+\DoxyCodeLine{28     \textcolor{keywordtype}{double} saturation,}
+\DoxyCodeLine{29     \textcolor{keywordtype}{double} brightness);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{comment}{// Call this to add a property representing the state of a color controller to an outbound event.}}
+\DoxyCodeLine{32 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACK\_AddColorControllerProperty(}
+\DoxyCodeLine{33     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_state_common__t}{ACKStateCommon\_t}}* pCommon,}
+\DoxyCodeLine{34     \textcolor{keywordtype}{double} hue,}
+\DoxyCodeLine{35     \textcolor{keywordtype}{double} saturation,}
+\DoxyCodeLine{36     \textcolor{keywordtype}{double} brightness);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def ACK\_COLOR\_CONTROLLER}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{41 \}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_COLOR\_CONTROLLER\_H\_\_}}
+
+\end{DoxyCode}

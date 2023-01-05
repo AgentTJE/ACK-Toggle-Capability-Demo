@@ -1,0 +1,186 @@
+\hypertarget{ack__core__event__builder_8c}{}\doxysection{src/ack\+\_\+core\+\_\+event\+\_\+builder.c File Reference}
+\label{ack__core__event__builder_8c}\index{src/ack\_core\_event\_builder.c@{src/ack\_core\_event\_builder.c}}
+{\ttfamily \#include \char`\"{}ack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+communication.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+document.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+document\+\_\+wrappers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+event\+\_\+builder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+fixed\+\_\+memory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+heaplet.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+protobuf\+\_\+utilities.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}acp.\+pb.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+module.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+Include dependency graph for ack\+\_\+core\+\_\+event\+\_\+builder.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__event__builder_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352}{Event\+Builder\+State}} \{ \mbox{\hyperlink{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352a625c2cc041309608400fae184ebf1712}{Event\+Builder\+State\+\_\+\+Not\+Building}}
+, \mbox{\hyperlink{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352a0b29f5e437513c3506da573310628ea4}{Event\+Builder\+State\+\_\+\+Building\+No\+Properties}}
+, \mbox{\hyperlink{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352a5f98410549bda7f57ecd61e1b939c236}{Event\+Builder\+State\+\_\+\+Building\+With\+Properties}}
+, \mbox{\hyperlink{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352a12e43c58375817d12d8ae382e1fcb55c}{Event\+Builder\+State\+\_\+\+Building\+With\+Change\+Report\+Payload\+Properties}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{ack__core__event__builder_8c_ab1061645c39f82af656a30c877b6fd61}{Event\+Builder\+Is\+Event\+Being\+Built}} (void)
+\item 
+bool \mbox{\hyperlink{ack__core__event__builder_8c_a1a527884abc1659164b1c2cf231bbc40}{Event\+Builder\+Start}} (int32\+\_\+t correlation\+Id, \mbox{\hyperlink{ack__generated__ack_8h_a61c4574433cc1a7fb91919f1257d2992}{ack\+\_\+namespace}} event\+Namespace, unsigned event\+Name, uint32\+\_\+t instance, unsigned flags)
+\item 
+void \mbox{\hyperlink{ack__core__event__builder_8c_a673a280ae959291b76d817aed824f707}{Event\+Builder\+End}} (void)
+\item 
+void \mbox{\hyperlink{ack__core__event__builder_8c_ac714110d30a33e480615c5d3ce3a4c94}{Event\+Builder\+Check\+Can\+Add\+Property}} (bool change\+Report\+Payload\+Property)
+\item 
+\mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} \mbox{\hyperlink{ack__core__event__builder_8c_a3222f1fb0e26fcd488c2d2d61aeaf816}{Event\+Builder\+Send}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static int32\+\_\+t \mbox{\hyperlink{ack__core__event__builder_8c_ad9e2283639faa6cbf4574d8129535284}{sg\+\_\+correlation\+Id}}
+\item 
+static uint32\+\_\+t \mbox{\hyperlink{ack__core__event__builder_8c_a5735647403b269e207d0445b74d35ca5}{sg\+\_\+instance}}
+\item 
+static enum \mbox{\hyperlink{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352}{Event\+Builder\+State}} \mbox{\hyperlink{ack__core__event__builder_8c_af192ce1320dfcdcbef28c6f1153cc05a}{sg\+\_\+state}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352}\label{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352}} 
+\index{ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}!EventBuilderState@{EventBuilderState}}
+\index{EventBuilderState@{EventBuilderState}!ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}}
+\doxysubsubsection{\texorpdfstring{EventBuilderState}{EventBuilderState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352}{Event\+Builder\+State}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EventBuilderState\_NotBuilding@{EventBuilderState\_NotBuilding}!ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}}\index{ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}!EventBuilderState\_NotBuilding@{EventBuilderState\_NotBuilding}}}\mbox{\Hypertarget{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352a625c2cc041309608400fae184ebf1712}\label{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352a625c2cc041309608400fae184ebf1712}} 
+Event\+Builder\+State\+\_\+\+Not\+Building&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EventBuilderState\_BuildingNoProperties@{EventBuilderState\_BuildingNoProperties}!ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}}\index{ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}!EventBuilderState\_BuildingNoProperties@{EventBuilderState\_BuildingNoProperties}}}\mbox{\Hypertarget{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352a0b29f5e437513c3506da573310628ea4}\label{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352a0b29f5e437513c3506da573310628ea4}} 
+Event\+Builder\+State\+\_\+\+Building\+No\+Properties&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EventBuilderState\_BuildingWithProperties@{EventBuilderState\_BuildingWithProperties}!ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}}\index{ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}!EventBuilderState\_BuildingWithProperties@{EventBuilderState\_BuildingWithProperties}}}\mbox{\Hypertarget{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352a5f98410549bda7f57ecd61e1b939c236}\label{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352a5f98410549bda7f57ecd61e1b939c236}} 
+Event\+Builder\+State\+\_\+\+Building\+With\+Properties&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EventBuilderState\_BuildingWithChangeReportPayloadProperties@{EventBuilderState\_BuildingWithChangeReportPayloadProperties}!ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}}\index{ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}!EventBuilderState\_BuildingWithChangeReportPayloadProperties@{EventBuilderState\_BuildingWithChangeReportPayloadProperties}}}\mbox{\Hypertarget{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352a12e43c58375817d12d8ae382e1fcb55c}\label{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352a12e43c58375817d12d8ae382e1fcb55c}} 
+Event\+Builder\+State\+\_\+\+Building\+With\+Change\+Report\+Payload\+Properties&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__event__builder_8c_ac714110d30a33e480615c5d3ce3a4c94}\label{ack__core__event__builder_8c_ac714110d30a33e480615c5d3ce3a4c94}} 
+\index{ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}!EventBuilderCheckCanAddProperty@{EventBuilderCheckCanAddProperty}}
+\index{EventBuilderCheckCanAddProperty@{EventBuilderCheckCanAddProperty}!ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}}
+\doxysubsubsection{\texorpdfstring{EventBuilderCheckCanAddProperty()}{EventBuilderCheckCanAddProperty()}}
+{\footnotesize\ttfamily void Event\+Builder\+Check\+Can\+Add\+Property (\begin{DoxyParamCaption}\item[{bool}]{change\+Report\+Payload\+Property }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ack__core__event__builder_8c_a673a280ae959291b76d817aed824f707}\label{ack__core__event__builder_8c_a673a280ae959291b76d817aed824f707}} 
+\index{ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}!EventBuilderEnd@{EventBuilderEnd}}
+\index{EventBuilderEnd@{EventBuilderEnd}!ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}}
+\doxysubsubsection{\texorpdfstring{EventBuilderEnd()}{EventBuilderEnd()}}
+{\footnotesize\ttfamily void Event\+Builder\+End (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__event__builder_8c_a673a280ae959291b76d817aed824f707_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__event__builder_8c_a673a280ae959291b76d817aed824f707_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__event__builder_8c_ab1061645c39f82af656a30c877b6fd61}\label{ack__core__event__builder_8c_ab1061645c39f82af656a30c877b6fd61}} 
+\index{ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}!EventBuilderIsEventBeingBuilt@{EventBuilderIsEventBeingBuilt}}
+\index{EventBuilderIsEventBeingBuilt@{EventBuilderIsEventBeingBuilt}!ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}}
+\doxysubsubsection{\texorpdfstring{EventBuilderIsEventBeingBuilt()}{EventBuilderIsEventBeingBuilt()}}
+{\footnotesize\ttfamily bool Event\+Builder\+Is\+Event\+Being\+Built (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__event__builder_8c_ab1061645c39f82af656a30c877b6fd61_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__event__builder_8c_a3222f1fb0e26fcd488c2d2d61aeaf816}\label{ack__core__event__builder_8c_a3222f1fb0e26fcd488c2d2d61aeaf816}} 
+\index{ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}!EventBuilderSend@{EventBuilderSend}}
+\index{EventBuilderSend@{EventBuilderSend}!ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}}
+\doxysubsubsection{\texorpdfstring{EventBuilderSend()}{EventBuilderSend()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\+\_\+t}} Event\+Builder\+Send (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__event__builder_8c_a3222f1fb0e26fcd488c2d2d61aeaf816_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__event__builder_8c_a3222f1fb0e26fcd488c2d2d61aeaf816_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__event__builder_8c_a1a527884abc1659164b1c2cf231bbc40}\label{ack__core__event__builder_8c_a1a527884abc1659164b1c2cf231bbc40}} 
+\index{ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}!EventBuilderStart@{EventBuilderStart}}
+\index{EventBuilderStart@{EventBuilderStart}!ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}}
+\doxysubsubsection{\texorpdfstring{EventBuilderStart()}{EventBuilderStart()}}
+{\footnotesize\ttfamily bool Event\+Builder\+Start (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{correlation\+Id,  }\item[{\mbox{\hyperlink{ack__generated__ack_8h_a61c4574433cc1a7fb91919f1257d2992}{ack\+\_\+namespace}}}]{event\+Namespace,  }\item[{unsigned}]{event\+Name,  }\item[{uint32\+\_\+t}]{instance,  }\item[{unsigned}]{flags }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__event__builder_8c_a1a527884abc1659164b1c2cf231bbc40_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__event__builder_8c_a1a527884abc1659164b1c2cf231bbc40_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ack__core__event__builder_8c_ad9e2283639faa6cbf4574d8129535284}\label{ack__core__event__builder_8c_ad9e2283639faa6cbf4574d8129535284}} 
+\index{ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}!sg\_correlationId@{sg\_correlationId}}
+\index{sg\_correlationId@{sg\_correlationId}!ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}}
+\doxysubsubsection{\texorpdfstring{sg\_correlationId}{sg\_correlationId}}
+{\footnotesize\ttfamily int32\+\_\+t sg\+\_\+correlation\+Id\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{ack__core__event__builder_8c_a5735647403b269e207d0445b74d35ca5}\label{ack__core__event__builder_8c_a5735647403b269e207d0445b74d35ca5}} 
+\index{ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}!sg\_instance@{sg\_instance}}
+\index{sg\_instance@{sg\_instance}!ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}}
+\doxysubsubsection{\texorpdfstring{sg\_instance}{sg\_instance}}
+{\footnotesize\ttfamily uint32\+\_\+t sg\+\_\+instance\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{ack__core__event__builder_8c_af192ce1320dfcdcbef28c6f1153cc05a}\label{ack__core__event__builder_8c_af192ce1320dfcdcbef28c6f1153cc05a}} 
+\index{ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}!sg\_state@{sg\_state}}
+\index{sg\_state@{sg\_state}!ack\_core\_event\_builder.c@{ack\_core\_event\_builder.c}}
+\doxysubsubsection{\texorpdfstring{sg\_state}{sg\_state}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ack__core__event__builder_8c_ae5800dbd41d99c90919fa0043c33b352}{Event\+Builder\+State}} sg\+\_\+state\hspace{0.3cm}{\ttfamily [static]}}
+

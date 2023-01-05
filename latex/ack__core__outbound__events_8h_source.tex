@@ -1,0 +1,65 @@
+\hypertarget{ack__core__outbound__events_8h_source}{}\doxysection{ack\+\_\+core\+\_\+outbound\+\_\+events.\+h}
+\label{ack__core__outbound__events_8h_source}\index{src/ack\_core\_outbound\_events.h@{src/ack\_core\_outbound\_events.h}}
+\mbox{\hyperlink{ack__core__outbound__events_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_CORE\_OUTBOUND\_EVENTS\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_CORE\_OUTBOUND\_EVENTS\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack_8h}{ack.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{18 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{comment}{// Information about a pending outbound event.}}
+\DoxyCodeLine{23 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct___a_c_k_outbound_event_info__t}{\_ACKOutboundEventInfo\_t}}}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     \textcolor{comment}{// Designates properties to be included in the outbound event, if any.}}
+\DoxyCodeLine{26     \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKPropertiesBits\_t}} \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_a016e3186c60cf867679ff104f7a60ccd}{PropertiesBits}};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{comment}{// Indicates which properties actually changed, if any.}}
+\DoxyCodeLine{29     \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKPropertiesBits\_t}} \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_a8543cf32988246dd9b34f3299c9e7257}{ChangeReportPayloadPropertiesBits}};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keyword}{union }}
+\DoxyCodeLine{32     \{}
+\DoxyCodeLine{33         \textcolor{keyword}{struct}}
+\DoxyCodeLine{34         \{}
+\DoxyCodeLine{35             \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_a27f79e538b0da20d9e81646ec10a0e2d}{EventPending}} : 1;}
+\DoxyCodeLine{36             \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_a67eeda1c230190e569d297fad7bfa82c}{SynthesizeChangeReport}} : 1;}
+\DoxyCodeLine{37             \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_a715e085bc7a6dfee133f164c92305c75}{IsChangeReport}} : 1;}
+\DoxyCodeLine{38             \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_adc1e2f19584ba4a3dda594a684e2e38d}{AddEndpointHealthProperty}} : 1;}
+\DoxyCodeLine{39         \}}
+\DoxyCodeLine{40         \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_a77c96bb20a8eb6afb7939db7257609ff}{Bits}};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42         uint8\_t \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_a18086148fc9dd9b83cf82c96a30f4cc4}{All}};}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44     \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t_ad98361a563e860d53e01a3e214a4c33e}{Flags}};}
+\DoxyCodeLine{45 \}}
+\DoxyCodeLine{46 \mbox{\hyperlink{ack__core__outbound__events_8h_a27dcaa653a74005988ff6e8c94b7c630}{ACKOutboundEventInfo\_t}};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keyword}{extern} \mbox{\hyperlink{struct___a_c_k_outbound_event_info__t}{ACKOutboundEventInfo\_t}} \mbox{\hyperlink{ack__core__outbound__events_8h_a2fdeeedccb95f0fc6c7ba371f6e413a8}{g\_pendingOutboundEvent}};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__core__outbound__events_8h_aa66a72c34a94cb641e98c2b300875f93}{OutboundEventSend}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{51 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__core__outbound__events_8h_a6b061193ae56ac24834eaab60f7cd3a0}{OutboundEventSendIfNotProcessingInboundEvent}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__core__outbound__events_8h_af4bed6dd7bc5e5cee87d47c99ccdb27b}{OutboundEventReset}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{56 \}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ndef \_\_ACK\_CORE\_OUTBOUND\_EVENTS\_H\_\_}}
+
+\end{DoxyCode}

@@ -1,0 +1,44 @@
+<map id="src/ack_core_processevent.c" name="src/ack_core_processevent.c">
+<area shape="rect" id="node1" title=" " alt="" coords="1178,5,1371,32"/>
+<area shape="rect" id="node2" href="$ack__core__common_8h.html" title=" " alt="" coords="1114,80,1257,107"/>
+<area shape="rect" id="node4" href="$src_2ack__user__config_8h.html" title=" " alt="" coords="477,386,605,413"/>
+<area shape="rect" id="node6" href="$ack__user__platform_8h.html" title=" " alt="" coords="1083,304,1223,331"/>
+<area shape="rect" id="node8" title=" " alt="" coords="1627,468,1701,495"/>
+<area shape="rect" id="node9" title=" " alt="" coords="1013,468,1078,495"/>
+<area shape="rect" id="node10" href="$acp_8pb_8h.html" title=" " alt="" coords="1885,229,1957,256"/>
+<area shape="rect" id="node25" href="$ack__core__communication_8h.html" title=" " alt="" coords="625,80,807,107"/>
+<area shape="rect" id="node28" href="$ack__core__directives_8h.html" title=" " alt="" coords="428,80,577,107"/>
+<area shape="rect" id="node29" href="$ack__core__heaplet_8h.html" title=" " alt="" coords="94,304,229,331"/>
+<area shape="rect" id="node30" href="$ack__core__document_8h.html" title=" " alt="" coords="766,155,917,181"/>
+<area shape="rect" id="node31" href="$ack__core__document__wrappers_8h.html" title=" " alt="" coords="1453,155,1664,181"/>
+<area shape="rect" id="node32" href="$ack__core__event__builder_8h.html" title=" " alt="" coords="1281,80,1450,107"/>
+<area shape="rect" id="node33" href="$ack__core__fixed__memory_8h.html" title=" " alt="" coords="1688,155,1861,181"/>
+<area shape="rect" id="node34" href="$ack__core__lifecycle_8h.html" title=" " alt="" coords="261,229,403,256"/>
+<area shape="rect" id="node35" href="$ack__core__processevent_8h.html" title=" " alt="" coords="2585,229,2756,256"/>
+<area shape="rect" id="node36" href="$ack__core__protobuf__utilities_8h.html" title=" " alt="" coords="2831,304,3019,331"/>
+<area shape="rect" id="node38" href="$ack__core__validation_8h.html" title=" " alt="" coords="305,304,453,331"/>
+<area shape="rect" id="node39" href="$ack__logging_8h.html" title=" " alt="" coords="1987,155,2090,181"/>
+<area shape="rect" id="node40" href="$ack__user__module_8h.html" title=" " alt="" coords="2066,80,2201,107"/>
+<area shape="rect" id="node42" title=" " alt="" coords="3102,80,3181,107"/>
+<area shape="rect" id="node3" href="$ack_8h.html" title=" " alt="" coords="1259,155,1314,181"/>
+<area shape="rect" id="node14" href="$ack__debug__print_8h.html" title=" " alt="" coords="832,229,960,256"/>
+<area shape="rect" id="node15" href="$ack__document_8h.html" title=" " alt="" coords="1318,229,1437,256"/>
+<area shape="rect" id="node16" href="$ack__types_8h.html" title=" " alt="" coords="1999,304,2092,331"/>
+<area shape="rect" id="node20" href="$ack__generated__temperature_8h.html" title=" " alt="" coords="1437,386,1632,413"/>
+<area shape="rect" id="node23" href="$ack__generated__ack_8h.html" title=" " alt="" coords="1664,229,1811,256"/>
+<area shape="rect" id="node24" href="$ack__generated__alexa_8h.html" title=" " alt="" coords="1035,229,1191,256"/>
+<area shape="rect" id="node5" href="$ack__user__config_8h.html" title="Configuration file for Alexa Connect Kit. Contains #defines to control its behavior,..." alt="" coords="471,468,611,495"/>
+<area shape="rect" id="node7" title=" " alt="" coords="1112,468,1181,495"/>
+<area shape="rect" id="node11" href="$pb_8h.html" title=" " alt="" coords="2841,386,2887,413"/>
+<area shape="rect" id="node13" href="$_v3_a_v_s_8pb_8h.html" title=" " alt="" coords="2271,304,2363,331"/>
+<area shape="rect" id="node12" title=" " alt="" coords="2831,468,2897,495"/>
+<area shape="rect" id="node17" href="$ack__generated__count_8h.html" title=" " alt="" coords="2507,386,2664,413"/>
+<area shape="rect" id="node18" href="$ack__generated__enumerated__power__level_8h.html" title=" " alt="" coords="1707,379,1890,420"/>
+<area shape="rect" id="node19" href="$ack__generated__item__quantity_8h.html" title=" " alt="" coords="1965,379,2104,420"/>
+<area shape="rect" id="node21" href="$ack__generated__volume_8h.html" title=" " alt="" coords="2129,386,2295,413"/>
+<area shape="rect" id="node22" href="$ack__generated__weight_8h.html" title=" " alt="" coords="2320,386,2483,413"/>
+<area shape="rect" id="node26" href="$ack__core__communication__protocol_8h.html" title=" " alt="" coords="837,379,1008,420"/>
+<area shape="rect" id="node27" title=" " alt="" coords="579,155,640,181"/>
+<area shape="rect" id="node37" title=" " alt="" coords="2963,386,3027,413"/>
+<area shape="rect" id="node41" href="$ack__metrics_8h.html" title=" " alt="" coords="2115,155,2219,181"/>
+</map>

@@ -1,0 +1,69 @@
+\hypertarget{ack__core__document_8h_source}{}\doxysection{ack\+\_\+core\+\_\+document.\+h}
+\label{ack__core__document_8h_source}\index{src/ack\_core\_document.h@{src/ack\_core\_document.h}}
+\mbox{\hyperlink{ack__core__document_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_CORE\_DOCUMENT\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_CORE\_DOCUMENT\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__core__heaplet_8h}{ack\_core\_heaplet.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__document_8h}{ack\_document.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{18 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{comment}{// Element kinds.}}
+\DoxyCodeLine{23 \textcolor{comment}{//}}
+\DoxyCodeLine{24 \textcolor{comment}{// MUST fit into 4 bits, because as an important optimization we pack keys with values [1-\/15] into}}
+\DoxyCodeLine{25 \textcolor{comment}{// the high nibble of a type byte for object members. If we need more types, we can use}}
+\DoxyCodeLine{26 \textcolor{comment}{// ACK\_DOC\_ELEMENT\_ESCAPE to indicate the type, and modify the member header parser and emitter in}}
+\DoxyCodeLine{27 \textcolor{comment}{// ack\_core\_document.c to understand that when it sees ACKDOC\_ELEMENT\_ESCAPE as the type, it should load}}
+\DoxyCodeLine{28 \textcolor{comment}{// the actual type from a subsequent byte.}}
+\DoxyCodeLine{29 \textcolor{comment}{//}}
+\DoxyCodeLine{30 \textcolor{comment}{// Also note that ACKDOC\_ELEMENT\_NONE is not actually used in documents, but is defined here for}}
+\DoxyCodeLine{31 \textcolor{comment}{// convenience.}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define ACKDOC\_ELEMENT\_NONE 0               }\textcolor{comment}{// Not actually used in documents}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define ACKDOC\_ELEMENT\_OBJECT 1}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define ACKDOC\_ELEMENT\_ARRAY 2}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define ACKDOC\_ELEMENT\_STRING 3             }\textcolor{comment}{// value: bytes of string, including terminating nul}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define ACKDOC\_ELEMENT\_INTEGER 4            }\textcolor{comment}{// value: variable-\/length encoded}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define ACKDOC\_ELEMENT\_FLOAT64 5            }\textcolor{comment}{// value: 8 bytes representing an IEEE754 64-\/bit float}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define ACKDOC\_ELEMENT\_TRUE 6}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define ACKDOC\_ELEMENT\_FALSE 7}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define ACKDOC\_ELEMENT\_NULL 8}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define ACKDOC\_ELEMENT\_CONTAINER\_END 9}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define ACKDOC\_ELEMENT\_NEGATIVE\_INTEGER 10  }\textcolor{comment}{// value: same as integer, bits flipped (for negative numbers)}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define ACKDOC\_ELEMENT\_FLOAT32 11           }\textcolor{comment}{// value: 4 bytes representing an IEEE754 32-\/bit float}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define ACKDOC\_ELEMENT\_RESERVED\_3 12}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define ACKDOC\_ELEMENT\_RESERVED\_4 13}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define ACKDOC\_ELEMENT\_RESERVED\_5 14}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define ACKDOC\_ELEMENT\_ESCAPE 15            }\textcolor{comment}{// Reserved; not currently used}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__core__document_8h_a9b1c13462f910c361137713d0cbd6d80}{DocumentAddressRoot}}(\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{HeapletTag\_t}} documentTag, \textcolor{keywordtype}{bool} writeable, \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pRootObject);}
+\DoxyCodeLine{50 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__document_8h_a11b1cca014e77d2131212edec35ad379}{DocumentInitializeWriteable}}(\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{HeapletTag\_t}} documentTag, \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pRootObject);}
+\DoxyCodeLine{51 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__core__document_8h_a1ada2dd6ec186b271fc72f31b7145163}{DocumentMakeReadOnly}}(\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{HeapletTag\_t}} documentTag);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{comment}{// Indicates that a container itself has a key field.}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define CF\_HAS\_KEY 0x01}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{comment}{// Indicates that the document in which a container exists is writeable.}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define CF\_WRITEABLE 0x02}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{60 \}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ndef \_\_ACK\_CORE\_DOCUMENT\_H\_\_}}
+
+\end{DoxyCode}

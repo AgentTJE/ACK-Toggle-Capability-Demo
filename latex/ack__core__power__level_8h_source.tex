@@ -1,0 +1,43 @@
+\hypertarget{ack__core__power__level_8h_source}{}\doxysection{ack\+\_\+core\+\_\+power\+\_\+level.\+h}
+\label{ack__core__power__level_8h_source}\index{src/ack\_core\_power\_level.h@{src/ack\_core\_power\_level.h}}
+\mbox{\hyperlink{ack__core__power__level_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_CORE\_POWER\_LEVEL\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_CORE\_POWER\_LEVEL\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__document_8h}{ack\_document.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{17 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__power__level_8h_a2c69ce7cbb7e74915eaeb6298c5bf399}{PowerLevelLoad}}(}
+\DoxyCodeLine{22     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObject,}
+\DoxyCodeLine{23     \textcolor{keywordtype}{unsigned} member,}
+\DoxyCodeLine{24     \mbox{\hyperlink{ack__types_8h_a0cecb48fa75e07884bfaaa556eceff34}{ACKPowerLevelKind\_t}}* pKind,}
+\DoxyCodeLine{25     \mbox{\hyperlink{union___a_c_k_power_level__t}{ACKPowerLevel\_t}}* pLevel);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__power__level_8h_a42d6dce810a1100c05d371b07f4fd5a8}{PowerLevelSave}}(}
+\DoxyCodeLine{28     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pObject,}
+\DoxyCodeLine{29     \textcolor{keywordtype}{unsigned} member,}
+\DoxyCodeLine{30     \mbox{\hyperlink{ack__types_8h_a0cecb48fa75e07884bfaaa556eceff34}{ACKPowerLevelKind\_t}} kind,}
+\DoxyCodeLine{31     \textcolor{keyword}{const} \mbox{\hyperlink{union___a_c_k_power_level__t}{ACKPowerLevel\_t}}* pLevel);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{34 \}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ndef \_\_ACK\_CORE\_POWER\_LEVEL\_H\_\_}}
+
+\end{DoxyCode}

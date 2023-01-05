@@ -1,0 +1,172 @@
+\hypertarget{ack__types_8h_source}{}\doxysection{ack\+\_\+types.\+h}
+\label{ack__types_8h_source}\index{src/ack\_types.h@{src/ack\_types.h}}
+\mbox{\hyperlink{ack__types_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{comment}{// Common data types and other shared constructs.}}
+\DoxyCodeLine{11 \textcolor{comment}{// This file does not need to be included directly; other headers that need it include it themselves.}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef \_\_ACK\_TYPES\_H\_\_}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define \_\_ACK\_TYPES\_H\_\_}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__generated__count_8h}{ack\_generated\_count.h}}"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__generated__enumerated__power__level_8h}{ack\_generated\_enumerated\_power\_level.h}}"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__generated__item__quantity_8h}{ack\_generated\_item\_quantity.h}}"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__generated__temperature_8h}{ack\_generated\_temperature.h}}"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__generated__volume_8h}{ack\_generated\_volume.h}}"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__generated__weight_8h}{ack\_generated\_weight.h}}"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{27 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{comment}{// Portable compile-\/time assertion. If it fails, a "{}duplicate case value"{} error results.}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define ACK\_STATIC\_ASSERT(x) switch(0)\{case 0: case (x):;\}}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{comment}{// Copy strings in a way that ensures nul termination.}}
+\DoxyCodeLine{35 \textcolor{comment}{// The target is intended to be a fixed array of characters, and truncation occurs if necessary.}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define ACK\_SAFE\_COPY\_STRING(target, source) \(\backslash\)}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{    if (sizeof(target)) \(\backslash\)}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{    \{ \(\backslash\)}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{        if (source) \(\backslash\)}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{        \{ \(\backslash\)}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{            strncpy(target, source, sizeof(target) -\/ 1); \(\backslash\)}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{            target[sizeof(target) -\/ 1] = '\(\backslash\)0'; \(\backslash\)}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{        \} \(\backslash\)}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{        else \(\backslash\)}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{        \{ \(\backslash\)}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{            target[0] = '\(\backslash\)0'; \(\backslash\)}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{        \} \(\backslash\)}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{    \}}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{comment}{// Assertion support. Enabled only if ACK\_ENABLE\_ASSERT is \#define'd in ack\_user\_config.h.}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#ifdef ACK\_ENABLE\_ASSERT}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__types_8h_a09973f8d967fba8c09a9eaa217d81c08}{ACK\_AssertionFailed}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* pCondition);}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define ACK\_ASSERT(x) if (!(x)) \{ ACK\_AssertionFailed(\#x); \}}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{comment}{// Provide a hook that for example allows test code to assess whether an assertion failed or not.}}
+\DoxyCodeLine{57 \textcolor{keyword}{extern} void (*\mbox{\hyperlink{ack__types_8h_a64950a7552975d09c0f48892280d86b8}{ACK\_AssertionFailedHook}})(void);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define ACK\_ASSERT(x)}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define ACK\_COUNTOF(x) (sizeof(x) / sizeof((x)[0]))}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{comment}{// General error type.}}
+\DoxyCodeLine{68 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \mbox{\hyperlink{ack__types_8h_a799544addb680f2661a04b94367c8b42}{\_ACKError\_t}}}
+\DoxyCodeLine{69 \{}
+\DoxyCodeLine{70     \textcolor{comment}{// Success.}}
+\DoxyCodeLine{71     \mbox{\hyperlink{ack__types_8h_a799544addb680f2661a04b94367c8b42a7588c4f1a6c2b1504850bdba226cec22}{ACK\_NO\_ERROR}} = 0,}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{comment}{// Exhausted memory in the heaplet.}}
+\DoxyCodeLine{74     \mbox{\hyperlink{ack__types_8h_a799544addb680f2661a04b94367c8b42aaa778b96dfa2560837aadb5c441dea52}{ACK\_ERR\_OUT\_OF\_MEMORY}},}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{comment}{// I/O error reading from or writing to the UART.}}
+\DoxyCodeLine{77     \mbox{\hyperlink{ack__types_8h_a799544addb680f2661a04b94367c8b42ae9a02edef8e613b36ada8135b3af147b}{ACK\_ERR\_IO}},}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{comment}{// Protocol error, such as receiving an ACK indicating an error, or corrupt or unexpected data.}}
+\DoxyCodeLine{80     \textcolor{comment}{// Also indicates that an operation is not supported.}}
+\DoxyCodeLine{81     \mbox{\hyperlink{ack__types_8h_a799544addb680f2661a04b94367c8b42ac42fb6d157172289ab2dabde16c8d141}{ACK\_ERR\_PROTOCOL}},}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{comment}{// Internal error.}}
+\DoxyCodeLine{84     \textcolor{comment}{// TODO: maybe these should just be asserts.}}
+\DoxyCodeLine{85     \mbox{\hyperlink{ack__types_8h_a799544addb680f2661a04b94367c8b42afede34942f7f9e6b724b2c714d874840}{ACK\_ERR\_INTERNAL}}}
+\DoxyCodeLine{86 \}}
+\DoxyCodeLine{87 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{comment}{// In a ChangeReport event, distinguishes a context property from a payload property.}}
+\DoxyCodeLine{90 \textcolor{comment}{// If set, the property is payload, e.g., associated with a change due to some local cause such as the user}}
+\DoxyCodeLine{91 \textcolor{comment}{// turning on a light switch. If clear, the property is context in a ChangeReport, e.g. the value of some}}
+\DoxyCodeLine{92 \textcolor{comment}{// other property on the device but not the one that changed.}}
+\DoxyCodeLine{93 \textcolor{comment}{// See https://developer.amazon.com/docs/device-\/apis/alexa-\/interface.html\#changereport for more info.}}
+\DoxyCodeLine{94 \textcolor{comment}{// Ignored for non-\/ChangeReport events (plain responses, error responses, state reports).}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define ACK\_PROPERTY\_CHANGE\_REPORT\_PAYLOAD 0x01}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct___a_c_k_state_common__t}{\_ACKStateCommon\_t}}}
+\DoxyCodeLine{98 \{}
+\DoxyCodeLine{99     uint64\_t \mbox{\hyperlink{struct___a_c_k_state_common__t_a2cf66dedc865088a444a0472ddd131b2}{TimeOfSample}};}
+\DoxyCodeLine{100     uint32\_t \mbox{\hyperlink{struct___a_c_k_state_common__t_afb75f07d669aab871bcf93d436f9a361}{UncertaintyMilliseconds}};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     \textcolor{comment}{// A combination of ACK\_PROPERTY\_xxx values.}}
+\DoxyCodeLine{103     \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{struct___a_c_k_state_common__t_a65a2034546f1e9e26b6b1abbc27a4aa3}{Flags}};}
+\DoxyCodeLine{104 \}}
+\DoxyCodeLine{105 \mbox{\hyperlink{ack__types_8h_a3f2f70bfb119cc34ec2c8894bc55f049}{ACKStateCommon\_t}};}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 \textcolor{comment}{// Represents the POSIX epoch time of midnight 1/1/2019 UTC. This is the minimum timestamp Alexa}}
+\DoxyCodeLine{108 \textcolor{comment}{// accepts for properties in a Change Report. Properties with earlier timestamps cause the Change Report}}
+\DoxyCodeLine{109 \textcolor{comment}{// to be ignored. If a time-\/of-\/sample value in a property is less than this when Ack\_AddXxxProperty}}
+\DoxyCodeLine{110 \textcolor{comment}{// is called, it is changed to this value.}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define ACK\_MINIMUM\_PROPERTY\_TIMESTAMP 1546300800000}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{comment}{// Represents an item quantity.}}
+\DoxyCodeLine{114 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct___a_c_k_item_quantity__t}{\_ACKItemQuantity\_t}}}
+\DoxyCodeLine{115 \{}
+\DoxyCodeLine{116     \mbox{\hyperlink{ack__generated__item__quantity_8h_a31081cde3f48b5e08f5f66647bed2166}{ack\_item\_quantity\_object\_type}} \mbox{\hyperlink{struct___a_c_k_item_quantity__t_abe8928f95e08bcb264b5a7f13412efb0}{UnitType}};}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118     \textcolor{keyword}{union}}
+\DoxyCodeLine{119     \{}
+\DoxyCodeLine{120         \mbox{\hyperlink{ack__generated__count_8h_aefc2d2c04e7bcab7038c8cec99775dc0}{ack\_count\_unit}} \mbox{\hyperlink{struct___a_c_k_item_quantity__t_a32658f91524f55cfb9c9998f4c97ce37}{Size}};}
+\DoxyCodeLine{121         \mbox{\hyperlink{ack__generated__volume_8h_afcba525e8a49f7a15c81b3c16c416321}{ack\_volume\_unit}} \mbox{\hyperlink{struct___a_c_k_item_quantity__t_a4e1cde210a0c943bb8d22f28c962756d}{VolumeUnit}};}
+\DoxyCodeLine{122         \mbox{\hyperlink{ack__generated__weight_8h_ad75ac742260da0095fe9453b08d040f3}{ack\_weight\_unit}} \mbox{\hyperlink{struct___a_c_k_item_quantity__t_a163a376b51e6e9fee868e50fedfc6fe2}{WeightUnit}};}
+\DoxyCodeLine{123     \}}
+\DoxyCodeLine{124     \mbox{\hyperlink{struct___a_c_k_item_quantity__t_ac637fac5d41d87cd3599dd070ab301e9}{Unit}};}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct___a_c_k_item_quantity__t_a0cdc74a881aa75a4bcd06a8829c4e6e7}{Quantity}};}
+\DoxyCodeLine{127 \}}
+\DoxyCodeLine{128 \mbox{\hyperlink{ack__types_8h_af5763d43b78805a3b67cccaf06291a81}{ACKItemQuantity\_t}};}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \mbox{\hyperlink{ack__types_8h_aa42b191e656d012b4300386b076f9688}{\_ACKPowerLevelKind\_t}}}
+\DoxyCodeLine{131 \{}
+\DoxyCodeLine{132     \mbox{\hyperlink{ack__types_8h_aa42b191e656d012b4300386b076f9688ae984418ede4459a79293c3bfcfc935ed}{ACK\_POWER\_LEVEL\_NONE}},}
+\DoxyCodeLine{133     \mbox{\hyperlink{ack__types_8h_aa42b191e656d012b4300386b076f9688a46a895d18183b4a0997a179ecbe60fdb}{ACK\_POWER\_LEVEL\_INTEGRAL}},}
+\DoxyCodeLine{134     \mbox{\hyperlink{ack__types_8h_aa42b191e656d012b4300386b076f9688a55e8a4a4c388bbb81530f8533558fa21}{ACK\_POWER\_LEVEL\_ENUMERATED}}}
+\DoxyCodeLine{135 \}}
+\DoxyCodeLine{136 \mbox{\hyperlink{ack__types_8h_a0cecb48fa75e07884bfaaa556eceff34}{ACKPowerLevelKind\_t}};}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{keyword}{typedef} \textcolor{keyword}{union }\mbox{\hyperlink{union___a_c_k_power_level__t}{\_ACKPowerLevel\_t}}}
+\DoxyCodeLine{139 \{}
+\DoxyCodeLine{140     int32\_t \mbox{\hyperlink{union___a_c_k_power_level__t_a3cb88c0b455fee9b5cffcf221c19ae5e}{Integral}};}
+\DoxyCodeLine{141     \mbox{\hyperlink{ack__generated__enumerated__power__level_8h_a40d72aee8556dfbcbaa399cc0be810ef}{ack\_enumerated\_power\_level}} \mbox{\hyperlink{union___a_c_k_power_level__t_a6622fd9434d01493915d6344d2792c8c}{Enumerated}};}
+\DoxyCodeLine{142 \}}
+\DoxyCodeLine{143 \mbox{\hyperlink{ack__types_8h_ab8c0b3009d2a6eb728ce968260319f43}{ACKPowerLevel\_t}};}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{comment}{// Represents Temperature.}}
+\DoxyCodeLine{146 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct___a_c_k_temperature__t}{\_ACKTemperature\_t}}}
+\DoxyCodeLine{147 \{}
+\DoxyCodeLine{148     \textcolor{keywordtype}{float} \mbox{\hyperlink{struct___a_c_k_temperature__t_aa9703232d1f36af0cd456141bddb6e01}{Value}};}
+\DoxyCodeLine{149     \mbox{\hyperlink{ack__generated__temperature_8h_ad0d517afea334399e7384fa8a2aa0f5a}{ack\_temperature\_scale}} \mbox{\hyperlink{struct___a_c_k_temperature__t_a60f53545f078e5449e8a04895a4d6dd9}{TemperatureScale}};}
+\DoxyCodeLine{150 \}}
+\DoxyCodeLine{151 \mbox{\hyperlink{ack__types_8h_af083bc8e817dd2f3fd5646ef65f57575}{ACKTemperature\_t}};}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{comment}{// Represents Time Interval.}}
+\DoxyCodeLine{154 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct___a_c_k_time_interval__t}{\_ACKTimeInterval\_t}}}
+\DoxyCodeLine{155 \{}
+\DoxyCodeLine{156     uint64\_t \mbox{\hyperlink{struct___a_c_k_time_interval__t_a4dab65bfd5a8b079b78eacd66997e077}{StartTime}}; \textcolor{comment}{// epoch ms}}
+\DoxyCodeLine{157     uint64\_t \mbox{\hyperlink{struct___a_c_k_time_interval__t_ab75d36e511fdb4110e1df14d2816d90d}{EndTime}};}
+\DoxyCodeLine{158     uint64\_t \mbox{\hyperlink{struct___a_c_k_time_interval__t_ad0a1a087c52221e4fe9580bb6d3f1807}{DurationMilliseconds}};}
+\DoxyCodeLine{159 \}}
+\DoxyCodeLine{160 \mbox{\hyperlink{ack__types_8h_ab7116d7b6582d16f63779a2b9ce349b7}{ACKTimeInterval\_t}};}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{163 \}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_TYPES\_H\_\_}}
+
+\end{DoxyCode}

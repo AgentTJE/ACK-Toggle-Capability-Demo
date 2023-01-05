@@ -1,0 +1,61 @@
+\hypertarget{ack__core__power__saving_8h_source}{}\doxysection{ack\+\_\+core\+\_\+power\+\_\+saving.\+h}
+\label{ack__core__power__saving_8h_source}\index{src/ack\_core\_power\_saving.h@{src/ack\_core\_power\_saving.h}}
+\mbox{\hyperlink{ack__core__power__saving_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_CORE\_POWER\_SAVING\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_CORE\_POWER\_SAVING\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifdef ACK\_MODULE\_POWER\_SAVING}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{comment}{// Acquire and release a power saving (PS) lock.}}
+\DoxyCodeLine{19 \textcolor{comment}{// A short hold is released at the end of ACK\_Process, but a long hold needs to be manually released.}}
+\DoxyCodeLine{20 \textcolor{comment}{// Acquiring a short hold will enable the PS lock.}}
+\DoxyCodeLine{21 \textcolor{comment}{// Acquiring a long hold will not enable the PS lock, instead it turns into a long hold.}}
+\DoxyCodeLine{22 \textcolor{comment}{// Releasing a long hold never releases the PS lock, instead it turns into a short hold.}}
+\DoxyCodeLine{23 \textcolor{comment}{// Releasing a short hold only releases the PS lock if no long hold is acquired.}}
+\DoxyCodeLine{24 \textcolor{keywordtype}{void} LockPowerSaving\_(\textcolor{keywordtype}{bool} longHold, \textcolor{keywordtype}{bool} locked);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{comment}{// Short term lock and unlock}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define LOCK\_POWER\_SAVING() LockPowerSaving\_(false, true)}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define UNLOCK\_POWER\_SAVING() LockPowerSaving\_(false, false)}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{comment}{// Long term lock and unlock}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define LONG\_LOCK\_POWER\_SAVING() LockPowerSaving\_(true, true)}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define LONG\_UNLOCK\_POWER\_SAVING() LockPowerSaving\_(true, false)}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#ifndef ACK\_MODULE\_POWER\_SAVING\_LOCK\_DELAY}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define ACK\_MODULE\_POWER\_SAVING\_LOCK\_DELAY 20}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{comment}{// Used for runtime checks of active-\/high or active-\/low status.}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#ifdef ACK\_MODULE\_POWER\_SAVING\_LOCK\_ACTIVE\_HIGH}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define ACK\_MODULE\_POWER\_SAVING\_LOCK\_ACTIVE true}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#elif defined(ACK\_MODULE\_POWER\_SAVING\_LOCK\_ACTIVE\_LOW)}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define ACK\_MODULE\_POWER\_SAVING\_LOCK\_ACTIVE false}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#error "{}Feature ACK\_MODULE\_POWER\_SAVING requires either ACK\_MODULE\_POWER\_SAVING\_LOCK\_ACTIVE\_HIGH or ACK\_MODULE\_POWER\_SAVING\_LOCK\_ACTIVE\_LOW"{}}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def ACK\_MODULE\_POWER\_SAVING\_LOCK\_ACTIVE\_*}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define LOCK\_POWER\_SAVING()}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define UNLOCK\_POWER\_SAVING()}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define LONG\_LOCK\_POWER\_SAVING()}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define LONG\_UNLOCK\_POWER\_SAVING()}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def ACK\_MODULE\_POWER\_SAVING}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_CORE\_POWER\_SAVING\_H\_\_}}
+
+\end{DoxyCode}

@@ -1,0 +1,1107 @@
+\hypertarget{ack__core__document_8c}{}\doxysection{src/ack\+\_\+core\+\_\+document.c File Reference}
+\label{ack__core__document_8c}\index{src/ack\_core\_document.c@{src/ack\_core\_document.c}}
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+document.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+core\+\_\+heaplet.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ack\+\_\+debug\+\_\+print.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for ack\+\_\+core\+\_\+document.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct___writeable_document_header__t}{\+\_\+\+Writeable\+Document\+Header\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct___document_context__t}{\+\_\+\+Document\+Context\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct___encoded_integer__t}{\+\_\+\+Encoded\+Integer\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct___floating_point__t}{\+\_\+\+Floating\+Point\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ack__core__document_8c_ac3e32220a98b52f321b8cbe03d9cc5a7}{ACK\+\_\+\+IS\+\_\+\+CONTAINER}}(t)~((\mbox{\hyperlink{ack__core__document_8h_a748d222ab77c45ed49e5ca5097b44e16}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+OBJECT}} == (t)) $\vert$$\vert$ (\mbox{\hyperlink{ack__core__document_8h_a262a748b6d5b3d5802f66b831b9f6723}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+ARRAY}}== (t)))
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct___writeable_document_header__t}{\+\_\+\+Writeable\+Document\+Header\+\_\+t}} \mbox{\hyperlink{ack__core__document_8c_abd80de85789dbb280ce3dc87899b925a}{Writeable\+Document\+Header\+\_\+t}}
+\item 
+typedef uint16\+\_\+t \mbox{\hyperlink{ack__core__document_8c_ab11d22c7fefc0c675074b981bfc015d1}{Container\+Index\+Entry\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{struct___document_context__t}{\+\_\+\+Document\+Context\+\_\+t}} \mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}}
+\item 
+typedef enum \mbox{\hyperlink{ack__core__document_8c_a2683bcfc7b601c0fe0e3f90cab50719d}{\+\_\+\+Access\+\_\+t}} \mbox{\hyperlink{ack__core__document_8c_a6253d8c298a37816b8fed2d95149a24d}{Access\+\_\+t}}
+\item 
+typedef enum \mbox{\hyperlink{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379}{\+\_\+\+Found\+\_\+t}} \mbox{\hyperlink{ack__core__document_8c_afd5661902e8c9cfb653fb2eface91311}{Found\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{struct___encoded_integer__t}{\+\_\+\+Encoded\+Integer\+\_\+t}} \mbox{\hyperlink{ack__core__document_8c_a2f414dda1811d5cddb63951cfd327a12}{Encoded\+Integer\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{struct___floating_point__t}{\+\_\+\+Floating\+Point\+\_\+t}} \mbox{\hyperlink{ack__core__document_8c_a9784fe5a35dc8873beb0275cd3d2f4db}{Floating\+Point\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{ack__core__document_8c_a2683bcfc7b601c0fe0e3f90cab50719d}{\+\_\+\+Access\+\_\+t}} \{ \mbox{\hyperlink{ack__core__document_8c_a2683bcfc7b601c0fe0e3f90cab50719dad8fd86a5539cdaa853612c6b96aa73be}{DBF\+\_\+\+ACCESS\+\_\+\+FIND}}
+, \mbox{\hyperlink{ack__core__document_8c_a2683bcfc7b601c0fe0e3f90cab50719daa835d7dc2fe9a792a7c963f447d7377c}{DBF\+\_\+\+ACCESS\+\_\+\+COUNT}}
+, \mbox{\hyperlink{ack__core__document_8c_a2683bcfc7b601c0fe0e3f90cab50719da33e5b77d4dbcea8412e9a478cf130941}{DBF\+\_\+\+ACCESS\+\_\+\+APPEND}}
+ \}
+\item 
+enum \mbox{\hyperlink{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379}{\+\_\+\+Found\+\_\+t}} \{ \mbox{\hyperlink{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379a8c3275ef51ff491c9c4106594bd06589}{DBF\+\_\+\+FOUND\+\_\+\+IN\+\_\+\+OBJECT}}
+, \mbox{\hyperlink{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379ac2aa6defd9bc521600110858765c1195}{DBF\+\_\+\+FOUND\+\_\+\+IN\+\_\+\+ARRAY}}
+, \mbox{\hyperlink{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379a5b59e6978e7c9958e81c00e0d0084471}{DBF\+\_\+\+NOT\+\_\+\+IN\+\_\+\+OBJECT}}
+, \mbox{\hyperlink{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379a3232057ff72309d59bf3a7f57be50893}{DBF\+\_\+\+NOT\+\_\+\+IN\+\_\+\+ARRAY}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{ack__core__document_8c_a9723c93f5d451bf0b03a4ab971d3b850}{Get\+Float\+\_\+}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Container, unsigned name\+Or\+Index, \mbox{\hyperlink{ack__core__document_8c_a9784fe5a35dc8873beb0275cd3d2f4db}{Floating\+Point\+\_\+t}} $\ast$p\+Value, bool float64)
+\item 
+static bool \mbox{\hyperlink{ack__core__document_8c_ab666e2f0396f91cb58b1eeec3df8cceb}{Get\+Container\+\_\+}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Parent\+Container, unsigned key\+Or\+Index, unsigned expected\+Type, \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Found)
+\item 
+static bool \mbox{\hyperlink{ack__core__document_8c_aaceb3b4405380857b0e0bb2e14f8a6bb}{Create\+Container\+\_\+}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Parent\+Container, unsigned key, uint8\+\_\+t type, \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+New\+Container)
+\item 
+static bool \mbox{\hyperlink{ack__core__document_8c_ad768f6fa4aa0959dd711838829249827}{Get\+Member\+\_\+}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Parent\+Container, unsigned key, unsigned $\ast$p\+Found\+Type, \mbox{\hyperlink{ack__core__document_8c_afd5661902e8c9cfb653fb2eface91311}{Found\+\_\+t}} $\ast$p\+Found, \mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$p\+Context)
+\item 
+static bool \mbox{\hyperlink{ack__core__document_8c_af4f532d8640e85751d98bb95e0666fe9}{Append\+Member\+\_\+}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Parent\+Container, unsigned key, uint8\+\_\+t type, const void $\ast$p\+Data, unsigned data\+Size, \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Container\+Out)
+\item 
+static bool \mbox{\hyperlink{ack__core__document_8c_a68365b4ac3d12b9e0b0076e2c2e2a115}{Access\+Member\+\_\+}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Parent\+Container, \mbox{\hyperlink{ack__core__document_8c_a6253d8c298a37816b8fed2d95149a24d}{Access\+\_\+t}} access, unsigned member\+Key, unsigned $\ast$p\+Found\+Member\+Type, \mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$p\+Context, \mbox{\hyperlink{ack__core__document_8c_afd5661902e8c9cfb653fb2eface91311}{Found\+\_\+t}} $\ast$p\+Found)
+\item 
+static bool \mbox{\hyperlink{ack__core__document_8c_ab82b120f7ecb751dcae5f60c96e686f1}{Access\+Container\+\_\+}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Container, \mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$p\+Context, bool $\ast$p\+Is\+Object)
+\item 
+static bool \mbox{\hyperlink{ack__core__document_8c_aaada63b84313536614c5d5acf6bf7bcf}{Load\+Member\+Header\+\_\+}} (\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$p\+Context, unsigned $\ast$p\+Type, unsigned $\ast$p\+Key)
+\item 
+static bool \mbox{\hyperlink{ack__core__document_8c_af5f5b865132d660ceca6e6e1013e66b8}{Skip\+Container\+Body\+\_\+}} (\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$p\+Context, bool members\+Have\+Keys)
+\item 
+static bool \mbox{\hyperlink{ack__core__document_8c_a33386ca2d22a400ce19f6d906d474fee}{Skip\+Non\+Container\+Member\+Value\+\_\+}} (\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$p\+Context, unsigned member\+Type)
+\item 
+static bool \mbox{\hyperlink{ack__core__document_8c_ac81f13e409d421ac64d1b785b8b48b0c}{Load\+Encoded\+Integer\+\_\+}} (\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$p\+Context, int64\+\_\+t $\ast$p\+Value, bool flip\+Bits)
+\item 
+static bool \mbox{\hyperlink{ack__core__document_8c_a05785084bee551e5889d2c7deb9bcfde}{Load\+Encoded\+Small\+Unsigned\+Integer\+\_\+}} (\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$p\+Context, unsigned $\ast$p\+Value)
+\item 
+static void \mbox{\hyperlink{ack__core__document_8c_abd26ff955ddf1d4dff8542184c021439}{Encode\+Integer\+\_\+}} (int64\+\_\+t value, \mbox{\hyperlink{ack__core__document_8c_a2f414dda1811d5cddb63951cfd327a12}{Encoded\+Integer\+\_\+t}} $\ast$p\+Encoded, bool flip\+Bits)
+\item 
+static bool \mbox{\hyperlink{ack__core__document_8c_a8ed33fec7edd39bb5528e1fc278de669}{Load\+Float64\+\_\+}} (\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$p\+Context, double $\ast$p\+Value)
+\item 
+static bool \mbox{\hyperlink{ack__core__document_8c_a8af364175ee359810111375c22d5cb7d}{Load\+Float32\+\_\+}} (\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$p\+Context, float $\ast$p\+Value)
+\item 
+static bool \mbox{\hyperlink{ack__core__document_8c_aa8c0e325fa55a9f4776a920dcb2a4300}{Load\+String\+\_\+}} (\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$p\+Context, const char $\ast$$\ast$pp\+Value)
+\item 
+static int \mbox{\hyperlink{ack__core__document_8c_ab8f1a4bd41121c4916a2bece69cba42f}{Load\+Byte\+\_\+}} (\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$p\+Context)
+\item 
+static bool \mbox{\hyperlink{ack__core__document_8c_ab23d5ad052ea9a2b8418b01f671b0bd1}{Load\+Little\+Endian\+\_\+}} (\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$p\+Context, uint8\+\_\+t $\ast$p\+Data, unsigned count)
+\item 
+static void \mbox{\hyperlink{ack__core__document_8c_a959700bd7903fe7ba9f3654e80966b0f}{Swap\+Order\+If\+Big\+Endian\+\_\+}} (uint8\+\_\+t $\ast$p\+Data, unsigned data\+Size)
+\item 
+static bool \mbox{\hyperlink{ack__core__document_8c_a85fc57c51332153bf17ff79b519b5e74}{Is\+Big\+Endian\+\_\+}} (void)
+\item 
+void \mbox{\hyperlink{ack__core__document_8c_a9b1c13462f910c361137713d0cbd6d80}{Document\+Address\+Root}} (\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}} document\+Tag, bool writeable, \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Root\+Object)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_a11b1cca014e77d2131212edec35ad379}{Document\+Initialize\+Writeable}} (\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}} document\+Tag, \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Root\+Object)
+\item 
+void \mbox{\hyperlink{ack__core__document_8c_a1ada2dd6ec186b271fc72f31b7145163}{Document\+Make\+Read\+Only}} (\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}} document\+Tag)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_ad570b57db81f76486eb813fe32feab54}{ACKDoc\+\_\+\+Get\+Is\+Null}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+Or\+Index, bool $\ast$p\+Is\+Null)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_ac095b0b8c79dd3e09828575a02a56f71}{ACKDoc\+\_\+\+Get\+Int}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+Or\+Index, int $\ast$p\+Value)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_a729816784bc696ea9799bbe0971e33b5}{ACKDoc\+\_\+\+Get\+Int64}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+Or\+Index, int64\+\_\+t $\ast$p\+Value)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_a65c961adabf87e6b55d5c182eca3b95a}{ACKDoc\+\_\+\+Get\+Double}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+Or\+Index, double $\ast$p\+Value)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_a76b6af83b32ad035939c7f2bb9dfe720}{ACKDoc\+\_\+\+Get\+Float}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+Or\+Index, float $\ast$p\+Value)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_a64f577835b5d26111b30ffcb6264b468}{ACKDoc\+\_\+\+Get\+Boolean}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+Or\+Index, bool $\ast$p\+Value)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_ae3672264f15279a7d308f7bed4514d8a}{ACKDoc\+\_\+\+Get\+String}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+Or\+Index, const char $\ast$$\ast$pp\+String)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_a29571eabae41567b414da4f2da038412}{ACKDoc\+\_\+\+Get\+Array}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+Or\+Index, \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Found\+Array)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_ab8f349b8e4757a95c00b6bffda0f56e7}{ACKDoc\+\_\+\+Get\+Object}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+Or\+Index, \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Found\+Object)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_a1cdf6fab553d6bb9bc4dd3b9c9a28256}{ACKDoc\+\_\+\+Get\+Array\+Member\+Count}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Array, unsigned $\ast$p\+Count)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_a2a5c329111d25679b86bf6ebb24a939c}{ACKDoc\+\_\+\+Append\+Null}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+If\+Object)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_add7bf2031d05e1d74bd90d651cab5486}{ACKDoc\+\_\+\+Append\+Int}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+If\+Object, int value)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_ac36779530fe97ef562c6b322209c6a19}{ACKDoc\+\_\+\+Append\+Int64}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+If\+Object, int64\+\_\+t value)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_ac94ff8ba7abe99f3185351692e1e383b}{ACKDoc\+\_\+\+Append\+Double}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+If\+Object, double value)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_a9a999a04f352027a1490062066690d62}{ACKDoc\+\_\+\+Append\+Float}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+If\+Object, float value)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_aa93c5cefdbbcce7dd4d176a1319e3cfb}{ACKDoc\+\_\+\+Append\+Boolean}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+If\+Object, bool value)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_aa7a20d3b646d955ca791431d380f10e2}{ACKDoc\+\_\+\+Append\+String}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+If\+Object, const char $\ast$p\+Value)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_a0c0946920bc2a073d0c1a235d2658954}{ACKDoc\+\_\+\+Append\+Array}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+If\+Object, \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+New\+Array)
+\item 
+bool \mbox{\hyperlink{ack__core__document_8c_ac69efb494baeceb19999221a15362523}{ACKDoc\+\_\+\+Append\+Object}} (const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+Object\+Or\+Array, unsigned name\+If\+Object, \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$p\+New\+Object)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ack__core__document_8c_ac3e32220a98b52f321b8cbe03d9cc5a7}\label{ack__core__document_8c_ac3e32220a98b52f321b8cbe03d9cc5a7}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACK\_IS\_CONTAINER@{ACK\_IS\_CONTAINER}}
+\index{ACK\_IS\_CONTAINER@{ACK\_IS\_CONTAINER}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_IS\_CONTAINER}{ACK\_IS\_CONTAINER}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+IS\+\_\+\+CONTAINER(\begin{DoxyParamCaption}\item[{}]{t }\end{DoxyParamCaption})~((\mbox{\hyperlink{ack__core__document_8h_a748d222ab77c45ed49e5ca5097b44e16}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+OBJECT}} == (t)) $\vert$$\vert$ (\mbox{\hyperlink{ack__core__document_8h_a262a748b6d5b3d5802f66b831b9f6723}{ACKDOC\+\_\+\+ELEMENT\+\_\+\+ARRAY}}== (t)))}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ack__core__document_8c_a6253d8c298a37816b8fed2d95149a24d}\label{ack__core__document_8c_a6253d8c298a37816b8fed2d95149a24d}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!Access\_t@{Access\_t}}
+\index{Access\_t@{Access\_t}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{Access\_t}{Access\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{ack__core__document_8c_a2683bcfc7b601c0fe0e3f90cab50719d}{\+\_\+\+Access\+\_\+t}} \mbox{\hyperlink{ack__core__document_8c_a6253d8c298a37816b8fed2d95149a24d}{Access\+\_\+t}}}
+
+\mbox{\Hypertarget{ack__core__document_8c_ab11d22c7fefc0c675074b981bfc015d1}\label{ack__core__document_8c_ab11d22c7fefc0c675074b981bfc015d1}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ContainerIndexEntry\_t@{ContainerIndexEntry\_t}}
+\index{ContainerIndexEntry\_t@{ContainerIndexEntry\_t}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ContainerIndexEntry\_t}{ContainerIndexEntry\_t}}
+{\footnotesize\ttfamily typedef uint16\+\_\+t \mbox{\hyperlink{ack__core__document_8c_ab11d22c7fefc0c675074b981bfc015d1}{Container\+Index\+Entry\+\_\+t}}}
+
+\mbox{\Hypertarget{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}\label{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!DocumentContext\_t@{DocumentContext\_t}}
+\index{DocumentContext\_t@{DocumentContext\_t}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{DocumentContext\_t}{DocumentContext\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___document_context__t}{\+\_\+\+Document\+Context\+\_\+t}} \mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}}}
+
+\mbox{\Hypertarget{ack__core__document_8c_a2f414dda1811d5cddb63951cfd327a12}\label{ack__core__document_8c_a2f414dda1811d5cddb63951cfd327a12}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!EncodedInteger\_t@{EncodedInteger\_t}}
+\index{EncodedInteger\_t@{EncodedInteger\_t}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{EncodedInteger\_t}{EncodedInteger\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___encoded_integer__t}{\+\_\+\+Encoded\+Integer\+\_\+t}} \mbox{\hyperlink{ack__core__document_8c_a2f414dda1811d5cddb63951cfd327a12}{Encoded\+Integer\+\_\+t}}}
+
+\mbox{\Hypertarget{ack__core__document_8c_a9784fe5a35dc8873beb0275cd3d2f4db}\label{ack__core__document_8c_a9784fe5a35dc8873beb0275cd3d2f4db}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!FloatingPoint\_t@{FloatingPoint\_t}}
+\index{FloatingPoint\_t@{FloatingPoint\_t}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{FloatingPoint\_t}{FloatingPoint\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___floating_point__t}{\+\_\+\+Floating\+Point\+\_\+t}} \mbox{\hyperlink{ack__core__document_8c_a9784fe5a35dc8873beb0275cd3d2f4db}{Floating\+Point\+\_\+t}}}
+
+\mbox{\Hypertarget{ack__core__document_8c_afd5661902e8c9cfb653fb2eface91311}\label{ack__core__document_8c_afd5661902e8c9cfb653fb2eface91311}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!Found\_t@{Found\_t}}
+\index{Found\_t@{Found\_t}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{Found\_t}{Found\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379}{\+\_\+\+Found\+\_\+t}} \mbox{\hyperlink{ack__core__document_8c_afd5661902e8c9cfb653fb2eface91311}{Found\+\_\+t}}}
+
+\mbox{\Hypertarget{ack__core__document_8c_abd80de85789dbb280ce3dc87899b925a}\label{ack__core__document_8c_abd80de85789dbb280ce3dc87899b925a}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!WriteableDocumentHeader\_t@{WriteableDocumentHeader\_t}}
+\index{WriteableDocumentHeader\_t@{WriteableDocumentHeader\_t}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{WriteableDocumentHeader\_t}{WriteableDocumentHeader\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___writeable_document_header__t}{\+\_\+\+Writeable\+Document\+Header\+\_\+t}} \mbox{\hyperlink{ack__core__document_8c_abd80de85789dbb280ce3dc87899b925a}{Writeable\+Document\+Header\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{ack__core__document_8c_a2683bcfc7b601c0fe0e3f90cab50719d}\label{ack__core__document_8c_a2683bcfc7b601c0fe0e3f90cab50719d}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!\_Access\_t@{\_Access\_t}}
+\index{\_Access\_t@{\_Access\_t}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{\_Access\_t}{\_Access\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ack__core__document_8c_a2683bcfc7b601c0fe0e3f90cab50719d}{\+\_\+\+Access\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBF\_ACCESS\_FIND@{DBF\_ACCESS\_FIND}!ack\_core\_document.c@{ack\_core\_document.c}}\index{ack\_core\_document.c@{ack\_core\_document.c}!DBF\_ACCESS\_FIND@{DBF\_ACCESS\_FIND}}}\mbox{\Hypertarget{ack__core__document_8c_a2683bcfc7b601c0fe0e3f90cab50719dad8fd86a5539cdaa853612c6b96aa73be}\label{ack__core__document_8c_a2683bcfc7b601c0fe0e3f90cab50719dad8fd86a5539cdaa853612c6b96aa73be}} 
+DBF\+\_\+\+ACCESS\+\_\+\+FIND&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBF\_ACCESS\_COUNT@{DBF\_ACCESS\_COUNT}!ack\_core\_document.c@{ack\_core\_document.c}}\index{ack\_core\_document.c@{ack\_core\_document.c}!DBF\_ACCESS\_COUNT@{DBF\_ACCESS\_COUNT}}}\mbox{\Hypertarget{ack__core__document_8c_a2683bcfc7b601c0fe0e3f90cab50719daa835d7dc2fe9a792a7c963f447d7377c}\label{ack__core__document_8c_a2683bcfc7b601c0fe0e3f90cab50719daa835d7dc2fe9a792a7c963f447d7377c}} 
+DBF\+\_\+\+ACCESS\+\_\+\+COUNT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBF\_ACCESS\_APPEND@{DBF\_ACCESS\_APPEND}!ack\_core\_document.c@{ack\_core\_document.c}}\index{ack\_core\_document.c@{ack\_core\_document.c}!DBF\_ACCESS\_APPEND@{DBF\_ACCESS\_APPEND}}}\mbox{\Hypertarget{ack__core__document_8c_a2683bcfc7b601c0fe0e3f90cab50719da33e5b77d4dbcea8412e9a478cf130941}\label{ack__core__document_8c_a2683bcfc7b601c0fe0e3f90cab50719da33e5b77d4dbcea8412e9a478cf130941}} 
+DBF\+\_\+\+ACCESS\+\_\+\+APPEND&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379}\label{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!\_Found\_t@{\_Found\_t}}
+\index{\_Found\_t@{\_Found\_t}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{\_Found\_t}{\_Found\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379}{\+\_\+\+Found\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBF\_FOUND\_IN\_OBJECT@{DBF\_FOUND\_IN\_OBJECT}!ack\_core\_document.c@{ack\_core\_document.c}}\index{ack\_core\_document.c@{ack\_core\_document.c}!DBF\_FOUND\_IN\_OBJECT@{DBF\_FOUND\_IN\_OBJECT}}}\mbox{\Hypertarget{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379a8c3275ef51ff491c9c4106594bd06589}\label{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379a8c3275ef51ff491c9c4106594bd06589}} 
+DBF\+\_\+\+FOUND\+\_\+\+IN\+\_\+\+OBJECT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBF\_FOUND\_IN\_ARRAY@{DBF\_FOUND\_IN\_ARRAY}!ack\_core\_document.c@{ack\_core\_document.c}}\index{ack\_core\_document.c@{ack\_core\_document.c}!DBF\_FOUND\_IN\_ARRAY@{DBF\_FOUND\_IN\_ARRAY}}}\mbox{\Hypertarget{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379ac2aa6defd9bc521600110858765c1195}\label{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379ac2aa6defd9bc521600110858765c1195}} 
+DBF\+\_\+\+FOUND\+\_\+\+IN\+\_\+\+ARRAY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBF\_NOT\_IN\_OBJECT@{DBF\_NOT\_IN\_OBJECT}!ack\_core\_document.c@{ack\_core\_document.c}}\index{ack\_core\_document.c@{ack\_core\_document.c}!DBF\_NOT\_IN\_OBJECT@{DBF\_NOT\_IN\_OBJECT}}}\mbox{\Hypertarget{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379a5b59e6978e7c9958e81c00e0d0084471}\label{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379a5b59e6978e7c9958e81c00e0d0084471}} 
+DBF\+\_\+\+NOT\+\_\+\+IN\+\_\+\+OBJECT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBF\_NOT\_IN\_ARRAY@{DBF\_NOT\_IN\_ARRAY}!ack\_core\_document.c@{ack\_core\_document.c}}\index{ack\_core\_document.c@{ack\_core\_document.c}!DBF\_NOT\_IN\_ARRAY@{DBF\_NOT\_IN\_ARRAY}}}\mbox{\Hypertarget{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379a3232057ff72309d59bf3a7f57be50893}\label{ack__core__document_8c_a0e7c37d5e3d0167607dd173202138379a3232057ff72309d59bf3a7f57be50893}} 
+DBF\+\_\+\+NOT\+\_\+\+IN\+\_\+\+ARRAY&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__document_8c_ab82b120f7ecb751dcae5f60c96e686f1}\label{ack__core__document_8c_ab82b120f7ecb751dcae5f60c96e686f1}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!AccessContainer\_@{AccessContainer\_}}
+\index{AccessContainer\_@{AccessContainer\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{AccessContainer\_()}{AccessContainer\_()}}
+{\footnotesize\ttfamily static bool Access\+Container\+\_\+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Container,  }\item[{\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$}]{p\+Context,  }\item[{bool $\ast$}]{p\+Is\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ab82b120f7ecb751dcae5f60c96e686f1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ab82b120f7ecb751dcae5f60c96e686f1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a68365b4ac3d12b9e0b0076e2c2e2a115}\label{ack__core__document_8c_a68365b4ac3d12b9e0b0076e2c2e2a115}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!AccessMember\_@{AccessMember\_}}
+\index{AccessMember\_@{AccessMember\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{AccessMember\_()}{AccessMember\_()}}
+{\footnotesize\ttfamily static bool Access\+Member\+\_\+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Parent\+Container,  }\item[{\mbox{\hyperlink{ack__core__document_8c_a6253d8c298a37816b8fed2d95149a24d}{Access\+\_\+t}}}]{access,  }\item[{unsigned}]{member\+Key,  }\item[{unsigned $\ast$}]{p\+Found\+Member\+Type,  }\item[{\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$}]{p\+Context,  }\item[{\mbox{\hyperlink{ack__core__document_8c_afd5661902e8c9cfb653fb2eface91311}{Found\+\_\+t}} $\ast$}]{p\+Found }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a68365b4ac3d12b9e0b0076e2c2e2a115_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a68365b4ac3d12b9e0b0076e2c2e2a115_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a0c0946920bc2a073d0c1a235d2658954}\label{ack__core__document_8c_a0c0946920bc2a073d0c1a235d2658954}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_AppendArray@{ACKDoc\_AppendArray}}
+\index{ACKDoc\_AppendArray@{ACKDoc\_AppendArray}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_AppendArray()}{ACKDoc\_AppendArray()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Append\+Array (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+If\+Object,  }\item[{\mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+New\+Array }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a0c0946920bc2a073d0c1a235d2658954_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a0c0946920bc2a073d0c1a235d2658954_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_aa93c5cefdbbcce7dd4d176a1319e3cfb}\label{ack__core__document_8c_aa93c5cefdbbcce7dd4d176a1319e3cfb}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_AppendBoolean@{ACKDoc\_AppendBoolean}}
+\index{ACKDoc\_AppendBoolean@{ACKDoc\_AppendBoolean}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_AppendBoolean()}{ACKDoc\_AppendBoolean()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Append\+Boolean (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+If\+Object,  }\item[{bool}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_aa93c5cefdbbcce7dd4d176a1319e3cfb_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_aa93c5cefdbbcce7dd4d176a1319e3cfb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_ac94ff8ba7abe99f3185351692e1e383b}\label{ack__core__document_8c_ac94ff8ba7abe99f3185351692e1e383b}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_AppendDouble@{ACKDoc\_AppendDouble}}
+\index{ACKDoc\_AppendDouble@{ACKDoc\_AppendDouble}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_AppendDouble()}{ACKDoc\_AppendDouble()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Append\+Double (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+If\+Object,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ac94ff8ba7abe99f3185351692e1e383b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ac94ff8ba7abe99f3185351692e1e383b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a9a999a04f352027a1490062066690d62}\label{ack__core__document_8c_a9a999a04f352027a1490062066690d62}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_AppendFloat@{ACKDoc\_AppendFloat}}
+\index{ACKDoc\_AppendFloat@{ACKDoc\_AppendFloat}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_AppendFloat()}{ACKDoc\_AppendFloat()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Append\+Float (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+If\+Object,  }\item[{float}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a9a999a04f352027a1490062066690d62_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a9a999a04f352027a1490062066690d62_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_add7bf2031d05e1d74bd90d651cab5486}\label{ack__core__document_8c_add7bf2031d05e1d74bd90d651cab5486}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_AppendInt@{ACKDoc\_AppendInt}}
+\index{ACKDoc\_AppendInt@{ACKDoc\_AppendInt}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_AppendInt()}{ACKDoc\_AppendInt()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Append\+Int (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+If\+Object,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_add7bf2031d05e1d74bd90d651cab5486_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_add7bf2031d05e1d74bd90d651cab5486_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_ac36779530fe97ef562c6b322209c6a19}\label{ack__core__document_8c_ac36779530fe97ef562c6b322209c6a19}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_AppendInt64@{ACKDoc\_AppendInt64}}
+\index{ACKDoc\_AppendInt64@{ACKDoc\_AppendInt64}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_AppendInt64()}{ACKDoc\_AppendInt64()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Append\+Int64 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+If\+Object,  }\item[{int64\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ac36779530fe97ef562c6b322209c6a19_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ac36779530fe97ef562c6b322209c6a19_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a2a5c329111d25679b86bf6ebb24a939c}\label{ack__core__document_8c_a2a5c329111d25679b86bf6ebb24a939c}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_AppendNull@{ACKDoc\_AppendNull}}
+\index{ACKDoc\_AppendNull@{ACKDoc\_AppendNull}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_AppendNull()}{ACKDoc\_AppendNull()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Append\+Null (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+If\+Object }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a2a5c329111d25679b86bf6ebb24a939c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a2a5c329111d25679b86bf6ebb24a939c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_ac69efb494baeceb19999221a15362523}\label{ack__core__document_8c_ac69efb494baeceb19999221a15362523}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_AppendObject@{ACKDoc\_AppendObject}}
+\index{ACKDoc\_AppendObject@{ACKDoc\_AppendObject}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_AppendObject()}{ACKDoc\_AppendObject()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Append\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+If\+Object,  }\item[{\mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+New\+Object }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ac69efb494baeceb19999221a15362523_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ac69efb494baeceb19999221a15362523_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_aa7a20d3b646d955ca791431d380f10e2}\label{ack__core__document_8c_aa7a20d3b646d955ca791431d380f10e2}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_AppendString@{ACKDoc\_AppendString}}
+\index{ACKDoc\_AppendString@{ACKDoc\_AppendString}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_AppendString()}{ACKDoc\_AppendString()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Append\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+If\+Object,  }\item[{const char $\ast$}]{p\+Value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_aa7a20d3b646d955ca791431d380f10e2_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_aa7a20d3b646d955ca791431d380f10e2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a29571eabae41567b414da4f2da038412}\label{ack__core__document_8c_a29571eabae41567b414da4f2da038412}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_GetArray@{ACKDoc\_GetArray}}
+\index{ACKDoc\_GetArray@{ACKDoc\_GetArray}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_GetArray()}{ACKDoc\_GetArray()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Get\+Array (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+Or\+Index,  }\item[{\mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Found\+Array }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a29571eabae41567b414da4f2da038412_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a29571eabae41567b414da4f2da038412_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a1cdf6fab553d6bb9bc4dd3b9c9a28256}\label{ack__core__document_8c_a1cdf6fab553d6bb9bc4dd3b9c9a28256}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_GetArrayMemberCount@{ACKDoc\_GetArrayMemberCount}}
+\index{ACKDoc\_GetArrayMemberCount@{ACKDoc\_GetArrayMemberCount}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_GetArrayMemberCount()}{ACKDoc\_GetArrayMemberCount()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Get\+Array\+Member\+Count (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Array,  }\item[{unsigned $\ast$}]{p\+Count }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a1cdf6fab553d6bb9bc4dd3b9c9a28256_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a1cdf6fab553d6bb9bc4dd3b9c9a28256_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a64f577835b5d26111b30ffcb6264b468}\label{ack__core__document_8c_a64f577835b5d26111b30ffcb6264b468}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_GetBoolean@{ACKDoc\_GetBoolean}}
+\index{ACKDoc\_GetBoolean@{ACKDoc\_GetBoolean}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_GetBoolean()}{ACKDoc\_GetBoolean()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Get\+Boolean (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+Or\+Index,  }\item[{bool $\ast$}]{p\+Value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a64f577835b5d26111b30ffcb6264b468_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a64f577835b5d26111b30ffcb6264b468_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a65c961adabf87e6b55d5c182eca3b95a}\label{ack__core__document_8c_a65c961adabf87e6b55d5c182eca3b95a}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_GetDouble@{ACKDoc\_GetDouble}}
+\index{ACKDoc\_GetDouble@{ACKDoc\_GetDouble}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_GetDouble()}{ACKDoc\_GetDouble()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Get\+Double (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+Or\+Index,  }\item[{double $\ast$}]{p\+Value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a65c961adabf87e6b55d5c182eca3b95a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a65c961adabf87e6b55d5c182eca3b95a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a76b6af83b32ad035939c7f2bb9dfe720}\label{ack__core__document_8c_a76b6af83b32ad035939c7f2bb9dfe720}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_GetFloat@{ACKDoc\_GetFloat}}
+\index{ACKDoc\_GetFloat@{ACKDoc\_GetFloat}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_GetFloat()}{ACKDoc\_GetFloat()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Get\+Float (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+Or\+Index,  }\item[{float $\ast$}]{p\+Value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a76b6af83b32ad035939c7f2bb9dfe720_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a76b6af83b32ad035939c7f2bb9dfe720_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_ac095b0b8c79dd3e09828575a02a56f71}\label{ack__core__document_8c_ac095b0b8c79dd3e09828575a02a56f71}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_GetInt@{ACKDoc\_GetInt}}
+\index{ACKDoc\_GetInt@{ACKDoc\_GetInt}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_GetInt()}{ACKDoc\_GetInt()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Get\+Int (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+Or\+Index,  }\item[{int $\ast$}]{p\+Value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ac095b0b8c79dd3e09828575a02a56f71_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ac095b0b8c79dd3e09828575a02a56f71_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a729816784bc696ea9799bbe0971e33b5}\label{ack__core__document_8c_a729816784bc696ea9799bbe0971e33b5}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_GetInt64@{ACKDoc\_GetInt64}}
+\index{ACKDoc\_GetInt64@{ACKDoc\_GetInt64}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_GetInt64()}{ACKDoc\_GetInt64()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Get\+Int64 (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+Or\+Index,  }\item[{int64\+\_\+t $\ast$}]{p\+Value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a729816784bc696ea9799bbe0971e33b5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a729816784bc696ea9799bbe0971e33b5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_ad570b57db81f76486eb813fe32feab54}\label{ack__core__document_8c_ad570b57db81f76486eb813fe32feab54}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_GetIsNull@{ACKDoc\_GetIsNull}}
+\index{ACKDoc\_GetIsNull@{ACKDoc\_GetIsNull}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_GetIsNull()}{ACKDoc\_GetIsNull()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Get\+Is\+Null (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+Or\+Index,  }\item[{bool $\ast$}]{p\+Is\+Null }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ad570b57db81f76486eb813fe32feab54_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ad570b57db81f76486eb813fe32feab54_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_ab8f349b8e4757a95c00b6bffda0f56e7}\label{ack__core__document_8c_ab8f349b8e4757a95c00b6bffda0f56e7}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_GetObject@{ACKDoc\_GetObject}}
+\index{ACKDoc\_GetObject@{ACKDoc\_GetObject}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_GetObject()}{ACKDoc\_GetObject()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Get\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+Or\+Index,  }\item[{\mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Found\+Object }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ab8f349b8e4757a95c00b6bffda0f56e7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ab8f349b8e4757a95c00b6bffda0f56e7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_ae3672264f15279a7d308f7bed4514d8a}\label{ack__core__document_8c_ae3672264f15279a7d308f7bed4514d8a}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!ACKDoc\_GetString@{ACKDoc\_GetString}}
+\index{ACKDoc\_GetString@{ACKDoc\_GetString}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{ACKDoc\_GetString()}{ACKDoc\_GetString()}}
+{\footnotesize\ttfamily bool ACKDoc\+\_\+\+Get\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Object\+Or\+Array,  }\item[{unsigned}]{name\+Or\+Index,  }\item[{const char $\ast$$\ast$}]{pp\+String }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ae3672264f15279a7d308f7bed4514d8a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ae3672264f15279a7d308f7bed4514d8a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_af4f532d8640e85751d98bb95e0666fe9}\label{ack__core__document_8c_af4f532d8640e85751d98bb95e0666fe9}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!AppendMember\_@{AppendMember\_}}
+\index{AppendMember\_@{AppendMember\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{AppendMember\_()}{AppendMember\_()}}
+{\footnotesize\ttfamily static bool Append\+Member\+\_\+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Parent\+Container,  }\item[{unsigned}]{key,  }\item[{uint8\+\_\+t}]{type,  }\item[{const void $\ast$}]{p\+Data,  }\item[{unsigned}]{data\+Size,  }\item[{\mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Container\+Out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_af4f532d8640e85751d98bb95e0666fe9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_af4f532d8640e85751d98bb95e0666fe9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_aaceb3b4405380857b0e0bb2e14f8a6bb}\label{ack__core__document_8c_aaceb3b4405380857b0e0bb2e14f8a6bb}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!CreateContainer\_@{CreateContainer\_}}
+\index{CreateContainer\_@{CreateContainer\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{CreateContainer\_()}{CreateContainer\_()}}
+{\footnotesize\ttfamily static bool Create\+Container\+\_\+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Parent\+Container,  }\item[{unsigned}]{key,  }\item[{uint8\+\_\+t}]{type,  }\item[{\mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+New\+Container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_aaceb3b4405380857b0e0bb2e14f8a6bb_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_aaceb3b4405380857b0e0bb2e14f8a6bb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a9b1c13462f910c361137713d0cbd6d80}\label{ack__core__document_8c_a9b1c13462f910c361137713d0cbd6d80}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!DocumentAddressRoot@{DocumentAddressRoot}}
+\index{DocumentAddressRoot@{DocumentAddressRoot}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{DocumentAddressRoot()}{DocumentAddressRoot()}}
+{\footnotesize\ttfamily void Document\+Address\+Root (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}}}]{document\+Tag,  }\item[{bool}]{writeable,  }\item[{\mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Root\+Object }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a9b1c13462f910c361137713d0cbd6d80_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a11b1cca014e77d2131212edec35ad379}\label{ack__core__document_8c_a11b1cca014e77d2131212edec35ad379}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!DocumentInitializeWriteable@{DocumentInitializeWriteable}}
+\index{DocumentInitializeWriteable@{DocumentInitializeWriteable}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{DocumentInitializeWriteable()}{DocumentInitializeWriteable()}}
+{\footnotesize\ttfamily bool Document\+Initialize\+Writeable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}}}]{document\+Tag,  }\item[{\mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Root\+Object }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a11b1cca014e77d2131212edec35ad379_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a11b1cca014e77d2131212edec35ad379_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a1ada2dd6ec186b271fc72f31b7145163}\label{ack__core__document_8c_a1ada2dd6ec186b271fc72f31b7145163}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!DocumentMakeReadOnly@{DocumentMakeReadOnly}}
+\index{DocumentMakeReadOnly@{DocumentMakeReadOnly}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{DocumentMakeReadOnly()}{DocumentMakeReadOnly()}}
+{\footnotesize\ttfamily void Document\+Make\+Read\+Only (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{Heaplet\+Tag\+\_\+t}}}]{document\+Tag }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a1ada2dd6ec186b271fc72f31b7145163_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a1ada2dd6ec186b271fc72f31b7145163_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_abd26ff955ddf1d4dff8542184c021439}\label{ack__core__document_8c_abd26ff955ddf1d4dff8542184c021439}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!EncodeInteger\_@{EncodeInteger\_}}
+\index{EncodeInteger\_@{EncodeInteger\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{EncodeInteger\_()}{EncodeInteger\_()}}
+{\footnotesize\ttfamily static void Encode\+Integer\+\_\+ (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{value,  }\item[{\mbox{\hyperlink{ack__core__document_8c_a2f414dda1811d5cddb63951cfd327a12}{Encoded\+Integer\+\_\+t}} $\ast$}]{p\+Encoded,  }\item[{bool}]{flip\+Bits }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_abd26ff955ddf1d4dff8542184c021439_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_ab666e2f0396f91cb58b1eeec3df8cceb}\label{ack__core__document_8c_ab666e2f0396f91cb58b1eeec3df8cceb}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!GetContainer\_@{GetContainer\_}}
+\index{GetContainer\_@{GetContainer\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{GetContainer\_()}{GetContainer\_()}}
+{\footnotesize\ttfamily static bool Get\+Container\+\_\+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Parent\+Container,  }\item[{unsigned}]{key\+Or\+Index,  }\item[{unsigned}]{expected\+Type,  }\item[{\mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Found }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ab666e2f0396f91cb58b1eeec3df8cceb_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ab666e2f0396f91cb58b1eeec3df8cceb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a9723c93f5d451bf0b03a4ab971d3b850}\label{ack__core__document_8c_a9723c93f5d451bf0b03a4ab971d3b850}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!GetFloat\_@{GetFloat\_}}
+\index{GetFloat\_@{GetFloat\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{GetFloat\_()}{GetFloat\_()}}
+{\footnotesize\ttfamily static bool Get\+Float\+\_\+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Container,  }\item[{unsigned}]{name\+Or\+Index,  }\item[{\mbox{\hyperlink{ack__core__document_8c_a9784fe5a35dc8873beb0275cd3d2f4db}{Floating\+Point\+\_\+t}} $\ast$}]{p\+Value,  }\item[{bool}]{float64 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a9723c93f5d451bf0b03a4ab971d3b850_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a9723c93f5d451bf0b03a4ab971d3b850_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_ad768f6fa4aa0959dd711838829249827}\label{ack__core__document_8c_ad768f6fa4aa0959dd711838829249827}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!GetMember\_@{GetMember\_}}
+\index{GetMember\_@{GetMember\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{GetMember\_()}{GetMember\_()}}
+{\footnotesize\ttfamily static bool Get\+Member\+\_\+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{ack__document_8h_ab5eb53c309aaaed76612a50987ecac18}{ACKDoc\+Container\+\_\+t}} $\ast$}]{p\+Parent\+Container,  }\item[{unsigned}]{key,  }\item[{unsigned $\ast$}]{p\+Found\+Type,  }\item[{\mbox{\hyperlink{ack__core__document_8c_afd5661902e8c9cfb653fb2eface91311}{Found\+\_\+t}} $\ast$}]{p\+Found,  }\item[{\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$}]{p\+Context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ad768f6fa4aa0959dd711838829249827_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ad768f6fa4aa0959dd711838829249827_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a85fc57c51332153bf17ff79b519b5e74}\label{ack__core__document_8c_a85fc57c51332153bf17ff79b519b5e74}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!IsBigEndian\_@{IsBigEndian\_}}
+\index{IsBigEndian\_@{IsBigEndian\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{IsBigEndian\_()}{IsBigEndian\_()}}
+{\footnotesize\ttfamily static bool Is\+Big\+Endian\+\_\+ (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a85fc57c51332153bf17ff79b519b5e74_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_ab8f1a4bd41121c4916a2bece69cba42f}\label{ack__core__document_8c_ab8f1a4bd41121c4916a2bece69cba42f}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!LoadByte\_@{LoadByte\_}}
+\index{LoadByte\_@{LoadByte\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{LoadByte\_()}{LoadByte\_()}}
+{\footnotesize\ttfamily static int Load\+Byte\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$}]{p\+Context }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ab8f1a4bd41121c4916a2bece69cba42f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_ac81f13e409d421ac64d1b785b8b48b0c}\label{ack__core__document_8c_ac81f13e409d421ac64d1b785b8b48b0c}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!LoadEncodedInteger\_@{LoadEncodedInteger\_}}
+\index{LoadEncodedInteger\_@{LoadEncodedInteger\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{LoadEncodedInteger\_()}{LoadEncodedInteger\_()}}
+{\footnotesize\ttfamily static bool Load\+Encoded\+Integer\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$}]{p\+Context,  }\item[{int64\+\_\+t $\ast$}]{p\+Value,  }\item[{bool}]{flip\+Bits }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{ack__core__document_8c_ac81f13e409d421ac64d1b785b8b48b0c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ac81f13e409d421ac64d1b785b8b48b0c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a05785084bee551e5889d2c7deb9bcfde}\label{ack__core__document_8c_a05785084bee551e5889d2c7deb9bcfde}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!LoadEncodedSmallUnsignedInteger\_@{LoadEncodedSmallUnsignedInteger\_}}
+\index{LoadEncodedSmallUnsignedInteger\_@{LoadEncodedSmallUnsignedInteger\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{LoadEncodedSmallUnsignedInteger\_()}{LoadEncodedSmallUnsignedInteger\_()}}
+{\footnotesize\ttfamily static bool Load\+Encoded\+Small\+Unsigned\+Integer\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$}]{p\+Context,  }\item[{unsigned $\ast$}]{p\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a05785084bee551e5889d2c7deb9bcfde_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a05785084bee551e5889d2c7deb9bcfde_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a8af364175ee359810111375c22d5cb7d}\label{ack__core__document_8c_a8af364175ee359810111375c22d5cb7d}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!LoadFloat32\_@{LoadFloat32\_}}
+\index{LoadFloat32\_@{LoadFloat32\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{LoadFloat32\_()}{LoadFloat32\_()}}
+{\footnotesize\ttfamily static bool Load\+Float32\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$}]{p\+Context,  }\item[{float $\ast$}]{p\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a8af364175ee359810111375c22d5cb7d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a8af364175ee359810111375c22d5cb7d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a8ed33fec7edd39bb5528e1fc278de669}\label{ack__core__document_8c_a8ed33fec7edd39bb5528e1fc278de669}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!LoadFloat64\_@{LoadFloat64\_}}
+\index{LoadFloat64\_@{LoadFloat64\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{LoadFloat64\_()}{LoadFloat64\_()}}
+{\footnotesize\ttfamily static bool Load\+Float64\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$}]{p\+Context,  }\item[{double $\ast$}]{p\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a8ed33fec7edd39bb5528e1fc278de669_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a8ed33fec7edd39bb5528e1fc278de669_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_ab23d5ad052ea9a2b8418b01f671b0bd1}\label{ack__core__document_8c_ab23d5ad052ea9a2b8418b01f671b0bd1}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!LoadLittleEndian\_@{LoadLittleEndian\_}}
+\index{LoadLittleEndian\_@{LoadLittleEndian\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{LoadLittleEndian\_()}{LoadLittleEndian\_()}}
+{\footnotesize\ttfamily static bool Load\+Little\+Endian\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$}]{p\+Context,  }\item[{uint8\+\_\+t $\ast$}]{p\+Data,  }\item[{unsigned}]{count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ab23d5ad052ea9a2b8418b01f671b0bd1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_ab23d5ad052ea9a2b8418b01f671b0bd1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_aaada63b84313536614c5d5acf6bf7bcf}\label{ack__core__document_8c_aaada63b84313536614c5d5acf6bf7bcf}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!LoadMemberHeader\_@{LoadMemberHeader\_}}
+\index{LoadMemberHeader\_@{LoadMemberHeader\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{LoadMemberHeader\_()}{LoadMemberHeader\_()}}
+{\footnotesize\ttfamily static bool Load\+Member\+Header\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$}]{p\+Context,  }\item[{unsigned $\ast$}]{p\+Type,  }\item[{unsigned $\ast$}]{p\+Key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_aaada63b84313536614c5d5acf6bf7bcf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_aaada63b84313536614c5d5acf6bf7bcf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_aa8c0e325fa55a9f4776a920dcb2a4300}\label{ack__core__document_8c_aa8c0e325fa55a9f4776a920dcb2a4300}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!LoadString\_@{LoadString\_}}
+\index{LoadString\_@{LoadString\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{LoadString\_()}{LoadString\_()}}
+{\footnotesize\ttfamily static bool Load\+String\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$}]{p\+Context,  }\item[{const char $\ast$$\ast$}]{pp\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{ack__core__document_8c_aa8c0e325fa55a9f4776a920dcb2a4300_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_aa8c0e325fa55a9f4776a920dcb2a4300_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_af5f5b865132d660ceca6e6e1013e66b8}\label{ack__core__document_8c_af5f5b865132d660ceca6e6e1013e66b8}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!SkipContainerBody\_@{SkipContainerBody\_}}
+\index{SkipContainerBody\_@{SkipContainerBody\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{SkipContainerBody\_()}{SkipContainerBody\_()}}
+{\footnotesize\ttfamily static bool Skip\+Container\+Body\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$}]{p\+Context,  }\item[{bool}]{members\+Have\+Keys }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_af5f5b865132d660ceca6e6e1013e66b8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_af5f5b865132d660ceca6e6e1013e66b8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a33386ca2d22a400ce19f6d906d474fee}\label{ack__core__document_8c_a33386ca2d22a400ce19f6d906d474fee}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!SkipNonContainerMemberValue\_@{SkipNonContainerMemberValue\_}}
+\index{SkipNonContainerMemberValue\_@{SkipNonContainerMemberValue\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{SkipNonContainerMemberValue\_()}{SkipNonContainerMemberValue\_()}}
+{\footnotesize\ttfamily static bool Skip\+Non\+Container\+Member\+Value\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ack__core__document_8c_a9bf31a84289db49fd1e50c12af0612c8}{Document\+Context\+\_\+t}} $\ast$}]{p\+Context,  }\item[{unsigned}]{member\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a33386ca2d22a400ce19f6d906d474fee_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a33386ca2d22a400ce19f6d906d474fee_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ack__core__document_8c_a959700bd7903fe7ba9f3654e80966b0f}\label{ack__core__document_8c_a959700bd7903fe7ba9f3654e80966b0f}} 
+\index{ack\_core\_document.c@{ack\_core\_document.c}!SwapOrderIfBigEndian\_@{SwapOrderIfBigEndian\_}}
+\index{SwapOrderIfBigEndian\_@{SwapOrderIfBigEndian\_}!ack\_core\_document.c@{ack\_core\_document.c}}
+\doxysubsubsection{\texorpdfstring{SwapOrderIfBigEndian\_()}{SwapOrderIfBigEndian\_()}}
+{\footnotesize\ttfamily static void Swap\+Order\+If\+Big\+Endian\+\_\+ (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{p\+Data,  }\item[{unsigned}]{data\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{ack__core__document_8c_a959700bd7903fe7ba9f3654e80966b0f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__document_8c_a959700bd7903fe7ba9f3654e80966b0f_icgraph}
+\end{center}
+\end{figure}

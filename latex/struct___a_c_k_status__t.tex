@@ -1,0 +1,100 @@
+\hypertarget{struct___a_c_k_status__t}{}\doxysection{\+\_\+\+ACKStatus\+\_\+t Struct Reference}
+\label{struct___a_c_k_status__t}\index{\_ACKStatus\_t@{\_ACKStatus\_t}}
+
+
+{\ttfamily \#include $<$ack.\+h$>$}
+
+
+
+Collaboration diagram for \+\_\+\+ACKStatus\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct___a_c_k_status__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{struct___a_c_k_status__t_a005ff216a26587315347b87a12261ee4}{HH}}
+\item 
+int \mbox{\hyperlink{struct___a_c_k_status__t_acd92a84e7b99ef1a47bb960edb9f4096}{MM}}
+\item 
+int \mbox{\hyperlink{struct___a_c_k_status__t_a1fcd02933094a6d2ba233eb2f2f2123b}{SS}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct___a_c_k_status__t_a9292b6cdfee92bc447d3d1fc8971120a}{Epoch\+Seconds}}
+\item 
+\mbox{\hyperlink{ack_8h_a7e7a7b4857df9bbe8b45a9db9704a8a1}{ACKAlexa\+Connectivity\+State\+\_\+t}} \mbox{\hyperlink{struct___a_c_k_status__t_ae8793a7dbaa5cefc822ec73ceb19dd69}{Connectivity\+State}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{ack_8h_a32c99df822a1cac035a8c8a89424e461}{ACKSetupModeInfo\_t}} \mbox{\hyperlink{struct___a_c_k_status__t_a1f0fd1c23fd1a1b976eae1a20e780849}{InSetupMode}}\\
+\>\mbox{\hyperlink{ack_8h_af347b7b81c831f5c61e397373aade386}{ACKNotConnectedToAlexaInfo\_t}} \mbox{\hyperlink{struct___a_c_k_status__t_af5db62f24859a431dab5080a539ab7a5}{NotConnectedToAlexa}}\\
+\} \mbox{\hyperlink{struct___a_c_k_status__t_a39ec287bccc67c5631d57de16a033241}{SubStateInfo}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{acp_8pb_8h_ae6f8026825d41585855cda559cb4a3bf}{acp\+\_\+response\+\_\+error\+\_\+codes}} \mbox{\hyperlink{struct___a_c_k_status__t_ae3a205a6f2ab04446f057807a9929b84}{Error\+Code}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct___a_c_k_status__t_ae8793a7dbaa5cefc822ec73ceb19dd69}\label{struct___a_c_k_status__t_ae8793a7dbaa5cefc822ec73ceb19dd69}} 
+\index{\_ACKStatus\_t@{\_ACKStatus\_t}!ConnectivityState@{ConnectivityState}}
+\index{ConnectivityState@{ConnectivityState}!\_ACKStatus\_t@{\_ACKStatus\_t}}
+\doxysubsubsection{\texorpdfstring{ConnectivityState}{ConnectivityState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack_8h_a7e7a7b4857df9bbe8b45a9db9704a8a1}{ACKAlexa\+Connectivity\+State\+\_\+t}} \+\_\+\+ACKStatus\+\_\+t\+::\+Connectivity\+State}
+
+\mbox{\Hypertarget{struct___a_c_k_status__t_a9292b6cdfee92bc447d3d1fc8971120a}\label{struct___a_c_k_status__t_a9292b6cdfee92bc447d3d1fc8971120a}} 
+\index{\_ACKStatus\_t@{\_ACKStatus\_t}!EpochSeconds@{EpochSeconds}}
+\index{EpochSeconds@{EpochSeconds}!\_ACKStatus\_t@{\_ACKStatus\_t}}
+\doxysubsubsection{\texorpdfstring{EpochSeconds}{EpochSeconds}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+\+ACKStatus\+\_\+t\+::\+Epoch\+Seconds}
+
+\mbox{\Hypertarget{struct___a_c_k_status__t_ae3a205a6f2ab04446f057807a9929b84}\label{struct___a_c_k_status__t_ae3a205a6f2ab04446f057807a9929b84}} 
+\index{\_ACKStatus\_t@{\_ACKStatus\_t}!ErrorCode@{ErrorCode}}
+\index{ErrorCode@{ErrorCode}!\_ACKStatus\_t@{\_ACKStatus\_t}}
+\doxysubsubsection{\texorpdfstring{ErrorCode}{ErrorCode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{acp_8pb_8h_ae6f8026825d41585855cda559cb4a3bf}{acp\+\_\+response\+\_\+error\+\_\+codes}} \+\_\+\+ACKStatus\+\_\+t\+::\+Error\+Code}
+
+\mbox{\Hypertarget{struct___a_c_k_status__t_a005ff216a26587315347b87a12261ee4}\label{struct___a_c_k_status__t_a005ff216a26587315347b87a12261ee4}} 
+\index{\_ACKStatus\_t@{\_ACKStatus\_t}!HH@{HH}}
+\index{HH@{HH}!\_ACKStatus\_t@{\_ACKStatus\_t}}
+\doxysubsubsection{\texorpdfstring{HH}{HH}}
+{\footnotesize\ttfamily int \+\_\+\+ACKStatus\+\_\+t\+::\+HH}
+
+\mbox{\Hypertarget{struct___a_c_k_status__t_a1f0fd1c23fd1a1b976eae1a20e780849}\label{struct___a_c_k_status__t_a1f0fd1c23fd1a1b976eae1a20e780849}} 
+\index{\_ACKStatus\_t@{\_ACKStatus\_t}!InSetupMode@{InSetupMode}}
+\index{InSetupMode@{InSetupMode}!\_ACKStatus\_t@{\_ACKStatus\_t}}
+\doxysubsubsection{\texorpdfstring{InSetupMode}{InSetupMode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack_8h_a32c99df822a1cac035a8c8a89424e461}{ACKSetup\+Mode\+Info\+\_\+t}} \+\_\+\+ACKStatus\+\_\+t\+::\+In\+Setup\+Mode}
+
+\mbox{\Hypertarget{struct___a_c_k_status__t_acd92a84e7b99ef1a47bb960edb9f4096}\label{struct___a_c_k_status__t_acd92a84e7b99ef1a47bb960edb9f4096}} 
+\index{\_ACKStatus\_t@{\_ACKStatus\_t}!MM@{MM}}
+\index{MM@{MM}!\_ACKStatus\_t@{\_ACKStatus\_t}}
+\doxysubsubsection{\texorpdfstring{MM}{MM}}
+{\footnotesize\ttfamily int \+\_\+\+ACKStatus\+\_\+t\+::\+MM}
+
+\mbox{\Hypertarget{struct___a_c_k_status__t_af5db62f24859a431dab5080a539ab7a5}\label{struct___a_c_k_status__t_af5db62f24859a431dab5080a539ab7a5}} 
+\index{\_ACKStatus\_t@{\_ACKStatus\_t}!NotConnectedToAlexa@{NotConnectedToAlexa}}
+\index{NotConnectedToAlexa@{NotConnectedToAlexa}!\_ACKStatus\_t@{\_ACKStatus\_t}}
+\doxysubsubsection{\texorpdfstring{NotConnectedToAlexa}{NotConnectedToAlexa}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ack_8h_af347b7b81c831f5c61e397373aade386}{ACKNot\+Connected\+To\+Alexa\+Info\+\_\+t}} \+\_\+\+ACKStatus\+\_\+t\+::\+Not\+Connected\+To\+Alexa}
+
+\mbox{\Hypertarget{struct___a_c_k_status__t_a1fcd02933094a6d2ba233eb2f2f2123b}\label{struct___a_c_k_status__t_a1fcd02933094a6d2ba233eb2f2f2123b}} 
+\index{\_ACKStatus\_t@{\_ACKStatus\_t}!SS@{SS}}
+\index{SS@{SS}!\_ACKStatus\_t@{\_ACKStatus\_t}}
+\doxysubsubsection{\texorpdfstring{SS}{SS}}
+{\footnotesize\ttfamily int \+\_\+\+ACKStatus\+\_\+t\+::\+SS}
+
+\mbox{\Hypertarget{struct___a_c_k_status__t_a39ec287bccc67c5631d57de16a033241}\label{struct___a_c_k_status__t_a39ec287bccc67c5631d57de16a033241}} 
+\index{\_ACKStatus\_t@{\_ACKStatus\_t}!SubStateInfo@{SubStateInfo}}
+\index{SubStateInfo@{SubStateInfo}!\_ACKStatus\_t@{\_ACKStatus\_t}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily union  \{ ... \}  \+\_\+\+ACKStatus\+\_\+t\+::\+Sub\+State\+Info}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{ack_8h}{ack.\+h}}\end{DoxyCompactItemize}

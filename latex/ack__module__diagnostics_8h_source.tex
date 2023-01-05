@@ -1,0 +1,58 @@
+\hypertarget{ack__module__diagnostics_8h_source}{}\doxysection{ack\+\_\+module\+\_\+diagnostics.\+h}
+\label{ack__module__diagnostics_8h_source}\index{src/ack\_module\_diagnostics.h@{src/ack\_module\_diagnostics.h}}
+\mbox{\hyperlink{ack__module__diagnostics_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{comment}{// Routines for ACK Connectivity Module diagnostics.}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifndef \_\_ACK\_MODULE\_DIAGNOSTICS\_H\_\_}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define \_\_ACK\_MODULE\_DIAGNOSTICS\_H\_\_}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__types_8h}{ack\_types.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{acp_8pb_8h}{acp.pb.h}}"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{22 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{comment}{// Call this to get device type info from the ACK connectivity module.}}
+\DoxyCodeLine{27 \textcolor{comment}{// If an empty string is returned, the ACK module is in an early provisioning state, where no}}
+\DoxyCodeLine{28 \textcolor{comment}{// device type is assigned yet.}}
+\DoxyCodeLine{29 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__module__diagnostics_8h_a1422c2da54439b0f08f2181001d77df4}{ACK\_GetDeviceType}}(\textcolor{keywordtype}{char}* pDeviceType, \textcolor{keywordtype}{size\_t} deviceTypeBufferSize);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#ifdef ACK\_MODULE\_DIAGNOSTICS}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{comment}{// Call this to provisioning info from the ACK connectivity module.}}
+\DoxyCodeLine{34 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACK\_GetProvisioningInfo(\mbox{\hyperlink{acp_8pb_8h_a6cf116b18aaba444869d99fd87a6dd6a}{acp\_response\_provisioning\_provisioning\_state}}* pState);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{comment}{// Call this to get the device DSN from the ACK connectivity module.}}
+\DoxyCodeLine{37 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACK\_GetHardwareInfo(\textcolor{keywordtype}{char}* pDsn, \textcolor{keywordtype}{size\_t} dsnBufferSize);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{comment}{// Call this to get the ACK connectivity module's firmware version.}}
+\DoxyCodeLine{40 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACK\_GetFirmwareVersion(}
+\DoxyCodeLine{41     uint32\_t* pProtocolNumber,}
+\DoxyCodeLine{42     uint32\_t* pBuildNumber,}
+\DoxyCodeLine{43     \textcolor{keywordtype}{char}* pIncrementalVersion,}
+\DoxyCodeLine{44     \textcolor{keywordtype}{size\_t} incrementalVersionBufferSize);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def ACK\_MODULE\_DIAGNOSTICS}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{49 \}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_MODULE\_DIAGNOSTICS\_H\_\_}}
+
+\end{DoxyCode}

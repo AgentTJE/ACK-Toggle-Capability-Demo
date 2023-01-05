@@ -1,0 +1,66 @@
+\hypertarget{ack__circularbuffer_8h_source}{}\doxysection{ack\+\_\+circularbuffer.\+h}
+\label{ack__circularbuffer_8h_source}\index{src/ack\_circularbuffer.h@{src/ack\_circularbuffer.h}}
+\mbox{\hyperlink{ack__circularbuffer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_CIRCULARBUFFER\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_CIRCULARBUFFER\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{18 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{comment}{// Opaque -\/-\/ do not use directly.}}
+\DoxyCodeLine{23 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \mbox{\hyperlink{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699}{\_ACKCircularBufferState\_t}}}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     \mbox{\hyperlink{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699aaedb2a641e413008f47c0f5d8e5ea130}{CircularBuffer\_Empty}},}
+\DoxyCodeLine{26     \mbox{\hyperlink{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699a1e551082ad602a73801f3a9b93cfd985}{CircularBuffer\_Full}},}
+\DoxyCodeLine{27     \mbox{\hyperlink{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699a0cb5716de5b3a7ee3608b53a1a7e0abd}{CircularBuffer\_Partial}}}
+\DoxyCodeLine{28 \}}
+\DoxyCodeLine{29 \mbox{\hyperlink{ack__circularbuffer_8h_ad2d674f34d5e4dd14b6b75eceee79c60}{ACKCircularBufferState\_t}};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{comment}{// This size can be overridden in e.g. ack\_user\_config.h.}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#ifndef ACK\_CIRCULAR\_BUFFER\_SIZE}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define ACK\_CIRCULAR\_BUFFER\_SIZE 32}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{comment}{// All members in this structure are opaque. Use the functions provided to access}}
+\DoxyCodeLine{37 \textcolor{comment}{// the circular buffer.}}
+\DoxyCodeLine{38 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct___a_c_k_circular_buffer__t}{\_ACKCircularBuffer\_t}}}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40     uint8\_t \mbox{\hyperlink{struct___a_c_k_circular_buffer__t_a41ac1ea90d6868d5faa7361f8cd1d612}{buffer}}[\mbox{\hyperlink{ack__circularbuffer_8h_a67cdd087e42f40dedac5de87b73020db}{ACK\_CIRCULAR\_BUFFER\_SIZE}}];}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{comment}{// These are offsets into buffer, and so ACK\_CIRCULAR\_BUFFER\_SIZE must be <= 255.}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{    \#if ACK\_CIRCULAR\_BUFFER\_SIZE > 255}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{    \#error ACK\_CIRCULAR\_BUFFER\_SIZE must fit in a byte}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{46     uint8\_t \mbox{\hyperlink{struct___a_c_k_circular_buffer__t_a9a23b1bd7cbf34bb942880726ee1a55e}{tail}};}
+\DoxyCodeLine{47     uint8\_t \mbox{\hyperlink{struct___a_c_k_circular_buffer__t_a20b0678fd2ccc40ffbb759952de2df4a}{head}};}
+\DoxyCodeLine{48     \mbox{\hyperlink{ack__circularbuffer_8h_ad2d674f34d5e4dd14b6b75eceee79c60}{ACKCircularBufferState\_t}} \mbox{\hyperlink{struct___a_c_k_circular_buffer__t_ac7d21abcc4b451fbd41fda6c39428f2f}{bufferState}};}
+\DoxyCodeLine{49 \}}
+\DoxyCodeLine{50 \mbox{\hyperlink{ack__circularbuffer_8h_a9a22a25e414f0aa11a178477345be02d}{ACKCircularBuffer\_t}};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__circularbuffer_8h_a3cf023d703733ef875eac265a2419df0}{ACK\_InitializeCircularBuffer}}(\textcolor{keyword}{volatile} \mbox{\hyperlink{struct___a_c_k_circular_buffer__t}{ACKCircularBuffer\_t}}* pCircularBuffer);}
+\DoxyCodeLine{53 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__circularbuffer_8h_ab716a6183eddd7132b586514ea67272c}{ACK\_InsertIntoCircularBuffer}}(\textcolor{keyword}{volatile} \mbox{\hyperlink{struct___a_c_k_circular_buffer__t}{ACKCircularBuffer\_t}}* pCircularBuffer, uint8\_t x);}
+\DoxyCodeLine{54 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__circularbuffer_8h_a24a81939f28246599661513e96f00db6}{ACK\_ReadFromCircularBuffer}}(\textcolor{keyword}{volatile} \mbox{\hyperlink{struct___a_c_k_circular_buffer__t}{ACKCircularBuffer\_t}}* pCircularBuffer, uint8\_t* pX);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{57 \}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_CIRCULARBUFFER\_H\_\_}}
+
+\end{DoxyCode}

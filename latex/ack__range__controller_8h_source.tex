@@ -1,0 +1,54 @@
+\hypertarget{ack__range__controller_8h_source}{}\doxysection{ack\+\_\+range\+\_\+controller.\+h}
+\label{ack__range__controller_8h_source}\index{src/ack\_range\_controller.h@{src/ack\_range\_controller.h}}
+\mbox{\hyperlink{ack__range__controller_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_RANGE\_CONTROLLER\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_RANGE\_CONTROLLER\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__types_8h}{ack\_types.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{19 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#ifdef ACK\_RANGE\_CONTROLLER}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{comment}{// You must implement this routine.}}
+\DoxyCodeLine{26 \textcolor{comment}{// If is\_delta is false, value is the absolute quantity to which to set the controller state.}}
+\DoxyCodeLine{27 \textcolor{comment}{// If is\_delta is true, value is the amount by which to adjust the controller state. In this case,}}
+\DoxyCodeLine{28 \textcolor{comment}{// isDefaultDelta indicates whether value was a default value, vs. being explicitly specified by the user.}}
+\DoxyCodeLine{29 \textcolor{keywordtype}{void} ACKUser\_OnRangeControllerDirective(}
+\DoxyCodeLine{30     int32\_t correlationId,}
+\DoxyCodeLine{31     uint32\_t instance,}
+\DoxyCodeLine{32     \textcolor{keywordtype}{bool} isDelta,}
+\DoxyCodeLine{33     \textcolor{keywordtype}{double} value,}
+\DoxyCodeLine{34     \textcolor{keywordtype}{bool} isDefaultDelta);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{comment}{// Call this to add a property representing the state of a range controller to an outbound event.}}
+\DoxyCodeLine{37 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ACK\_AddRangeControllerProperty(}
+\DoxyCodeLine{38     uint32\_t instance,}
+\DoxyCodeLine{39     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_state_common__t}{ACKStateCommon\_t}}* pCommon,}
+\DoxyCodeLine{40     \textcolor{keywordtype}{double} value);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def ACK\_RANGE\_CONTROLLER}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{45 \}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_RANGE\_CONTROLLER\_H\_\_}}
+
+\end{DoxyCode}

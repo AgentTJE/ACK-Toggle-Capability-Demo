@@ -1,0 +1,83 @@
+\hypertarget{ack__core__common_8h_source}{}\doxysection{ack\+\_\+core\+\_\+common.\+h}
+\label{ack__core__common_8h_source}\index{src/ack\_core\_common.h@{src/ack\_core\_common.h}}
+\mbox{\hyperlink{ack__core__common_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_COMMON\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_COMMON\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack_8h}{ack.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{17 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{comment}{// Re-\/entrancy tracking/checking.}}
+\DoxyCodeLine{22 \textcolor{comment}{//}}
+\DoxyCodeLine{23 \textcolor{comment}{// For most re-\/entrancy tracking/checking, entering/exiting a guarded section of the SDK is a separate operation}}
+\DoxyCodeLine{24 \textcolor{comment}{// from checking whether attempted entry is allowed. Entering/exiting operations are done with the}}
+\DoxyCodeLine{25 \textcolor{comment}{// ACK\_REENTRY\_SHIELDS\_UP and \_DOWN macros (see below). Checking operations is done with ACK\_REENTRY\_CHECK.}}
+\DoxyCodeLine{26 \textcolor{comment}{//}}
+\DoxyCodeLine{27 \textcolor{comment}{// There are also additional, special-\/case sections, guarded separately. Those use the more general ACK\_REENTRY\_ACQUIRE}}
+\DoxyCodeLine{28 \textcolor{comment}{// and \_RELEASE macros along with a more general variant of the \_CHECK macro.}}
+\DoxyCodeLine{29 \textcolor{comment}{//}}
+\DoxyCodeLine{30 \textcolor{comment}{// Note that this mechanism is not, and does not intend to be, perfect. Instead, it's a best-\/effort diagnostic.}}
+\DoxyCodeLine{31 \textcolor{comment}{// One significant factor is that we don't have a good way of performing atomic operations on the variable we use}}
+\DoxyCodeLine{32 \textcolor{comment}{// to track which categories of non-\/reentrant code are currently being guarded (see below). We can't assume an RTOS}}
+\DoxyCodeLine{33 \textcolor{comment}{// with a mutex API, or a toolchain with atomic compiler intrinsics that could help. And even with some toolchains}}
+\DoxyCodeLine{34 \textcolor{comment}{// that do have support for atomic compiler intrinsics, the CRT doesn't actually implement them. For example,}}
+\DoxyCodeLine{35 \textcolor{comment}{// \_\_atomic\_xxx on gcc (https://gcc.gnu.org/onlinedocs/gcc/\_005f\_005fatomic-\/Builtins.html) compile when building for}}
+\DoxyCodeLine{36 \textcolor{comment}{// embedded, but result in undefined symbol link errors. We could invent a spinlock mechanism to try to deal with this}}
+\DoxyCodeLine{37 \textcolor{comment}{// but that's out of scope in this best-\/effort approach in an SDK explicitly designed for single-\/threaded/non-\/RTOS}}
+\DoxyCodeLine{38 \textcolor{comment}{// operation (or more exactly, designed so that if used otherwise, the application can provide any required}}
+\DoxyCodeLine{39 \textcolor{comment}{// synchronization).}}
+\DoxyCodeLine{40 \textcolor{comment}{//}}
+\DoxyCodeLine{41 \textcolor{comment}{// The different categories of guarded code are identified by these macros.}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define ACK\_REENTRY\_GENERAL\_CASE    0x01   }\textcolor{comment}{// General case}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define ACK\_SIMULTANEOUS\_ACKPROCESS 0x02   }\textcolor{comment}{// Special case for ACK\_Process()}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#ifdef ACK\_ENABLE\_ASSERT}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{keyword}{extern} \textcolor{keyword}{volatile} uint8\_t \mbox{\hyperlink{ack__core__common_8h_a8ad4cbf6b22ecd197d42479142cd55f6}{g\_reentryGuard}};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__core__common_8h_a4755d035751184c49a235a8a4ac9e886}{ReentryFail}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* pFunctionName);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{comment}{// Macros for re-\/entrancy tracking/checking for the general case.}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define ACK\_REENTRY\_SHIELDS\_UP ACK\_REENTRY\_ACQUIRE\_(ACK\_REENTRY\_GENERAL\_CASE)}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define ACK\_REENTRY\_SHIELDS\_DOWN ACK\_REENTRY\_RELEASE\_(ACK\_REENTRY\_GENERAL\_CASE)}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define ACK\_REENTRY\_CHECK ACK\_REENTRY\_CHECK\_(ACK\_REENTRY\_GENERAL\_CASE)}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{comment}{// Worker macros. Can also be used to guard code other than the general case.}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define ACK\_REENTRY\_ACQUIRE\_(category) g\_reentryGuard |= (category)}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define ACK\_REENTRY\_RELEASE\_(category) g\_reentryGuard \&= \string~(category)}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define ACK\_REENTRY\_CHECK\_(category) if (0 != (g\_reentryGuard \& (category))) ReentryFail(\_\_FUNCTION\_\_)}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define ACK\_REENTRY\_SHIELDS\_UP}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define ACK\_REENTRY\_SHIELDS\_DOWN}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define ACK\_REENTRY\_CHECK}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define ACK\_REENTRY\_ACQUIRE\_(category)}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define ACK\_REENTRY\_RELEASE\_(category)}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define ACK\_REENTRY\_CHECK\_(category)}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{74 \}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_COMMON\_H\_\_}}
+
+\end{DoxyCode}

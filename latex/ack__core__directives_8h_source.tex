@@ -1,0 +1,100 @@
+\hypertarget{ack__core__directives_8h_source}{}\doxysection{ack\+\_\+core\+\_\+directives.\+h}
+\label{ack__core__directives_8h_source}\index{src/ack\_core\_directives.h@{src/ack\_core\_directives.h}}
+\mbox{\hyperlink{ack__core__directives_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_DIRECTIVES\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_DIRECTIVES\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack_8h}{ack.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__core__heaplet_8h}{ack\_core\_heaplet.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{18 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__core__directives_8h_a1f24d0aa8973a4752d00416ab85e8198}{ProcessAlexaDirective}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDocument);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#ifdef ACK\_BRIGHTNESS\_CONTROLLER}}
+\DoxyCodeLine{25 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__core__directives_8h_aa6f3e672c1da3475841a656bf7a54f25}{ProcessBrightnessControllerDirective}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDocument);}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#ifdef ACK\_COLOR\_CONTROLLER}}
+\DoxyCodeLine{29 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ProcessColorControllerDirective(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDocument);}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#ifdef ACK\_COLOR\_TEMPERATURE\_CONTROLLER}}
+\DoxyCodeLine{33 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ProcessColorTemperatureControllerDirective(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDocument);}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#ifdef ACK\_COOKING}}
+\DoxyCodeLine{37 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ProcessCookingDirective(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDocument);}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#ifdef ACK\_COOKING\_FOOD\_TEMPERATURE\_CONTROLLER}}
+\DoxyCodeLine{41 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ProcessFoodTemperatureControllerCookingDirective(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDocument);}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#ifdef ACK\_COOKING\_PRESET\_CONTROLLER}}
+\DoxyCodeLine{45 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ProcessCookingPresetControllerDirective(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDocument);}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#ifdef ACK\_COOKING\_TEMPERATURE\_CONTROLLER}}
+\DoxyCodeLine{49 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ProcessCookingTemperatureControllerDirective(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDocument);}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#ifdef ACK\_COOKING\_TIME\_CONTROLLER}}
+\DoxyCodeLine{53 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ProcessCookingTimeControllerDirective(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDocument);}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#ifdef ACK\_DEVICE\_USAGE}}
+\DoxyCodeLine{57 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ProcessDeviceUsageDirective(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDocument);}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#ifdef ACK\_MODE\_CONTROLLER}}
+\DoxyCodeLine{61 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ProcessModeControllerDirective(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDocument);}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#ifdef ACK\_POWER\_CONTROLLER}}
+\DoxyCodeLine{65 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__core__directives_8h_aca70026b33629b099a140e2916fda426}{ProcessPowerControllerDirective}}(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDocument);}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#ifdef ACK\_PERCENTAGE\_CONTROLLER}}
+\DoxyCodeLine{69 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ProcessPercentageControllerDirective(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDocument);}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#ifdef ACK\_THERMOSTAT\_CONTROLLER}}
+\DoxyCodeLine{73 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ProcessThermostatControllerDirective(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDocument);}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#ifdef ACK\_RANGE\_CONTROLLER}}
+\DoxyCodeLine{77 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ProcessRangeControllerDirective(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDocument);}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#ifdef ACK\_TIME\_HOLD\_CONTROLLER}}
+\DoxyCodeLine{81 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ProcessTimeHoldControllerDirective(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDocument);}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#ifdef ACK\_TOGGLE\_CONTROLLER}}
+\DoxyCodeLine{85 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} ProcessToggleControllerDirective(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDocument);}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__core__directives_8h_a9a300aa33e1a7e310908fa637957d061}{ProcessDomBinaryFormDirective}}(\mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{HeapletTag\_t}} documentTag, \mbox{\hyperlink{ack__core__heaplet_8h_a2f9bbc32e92a38356bb624612001d3c3}{HeapletTag\_t}} directiveInfoTag);}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{91 \}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_DIRECTIVES\_H\_\_}}
+
+\end{DoxyCode}

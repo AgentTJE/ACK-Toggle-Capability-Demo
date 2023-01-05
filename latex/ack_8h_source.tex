@@ -1,0 +1,310 @@
+\hypertarget{ack_8h_source}{}\doxysection{ack.\+h}
+\label{ack_8h_source}\index{src/ack.h@{src/ack.h}}
+\mbox{\hyperlink{ack_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{src_2ack__user__config_8h}{ack\_user\_config.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__user__platform_8h}{ack\_user\_platform.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{acp_8pb_8h}{acp.pb.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__debug__print_8h}{ack\_debug\_print.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__document_8h}{ack\_document.h}}"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__types_8h}{ack\_types.h}}"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__generated__ack_8h}{ack\_generated\_ack.h}}"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__generated__alexa_8h}{ack\_generated\_alexa.h}}"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__generated__temperature_8h}{ack\_generated\_temperature.h}}"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{26 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{comment}{// Represents the state of connectivity to Alexa, in the return value from ACK\_GetStatus.}}
+\DoxyCodeLine{31 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \mbox{\hyperlink{ack_8h_ab37848c9b974ad0e6a86230bb47a8fca}{\_ACKAlexaConnectivityState\_t}}}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33     \mbox{\hyperlink{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaa80de767930f6782212b9102deeaa101b}{ACK\_CONNECTIVITY\_UNKNOWN}},}
+\DoxyCodeLine{34     \mbox{\hyperlink{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaa2223b6ff208f561ee928737fbe5073a2}{ACK\_NOT\_REGISTERED}},}
+\DoxyCodeLine{35     \mbox{\hyperlink{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaa23c0937120c9560cb3a0042bf7e56d91}{ACK\_IN\_SETUP\_MODE}},}
+\DoxyCodeLine{36     \mbox{\hyperlink{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaa25264f0576a5d6055b1de10218f1f231}{ACK\_NOT\_CONNECTED\_TO\_ALEXA}},}
+\DoxyCodeLine{37     \mbox{\hyperlink{ack_8h_ab37848c9b974ad0e6a86230bb47a8fcaab254fb992fd6d6540a0fbcf69aa39c35}{ACK\_CONNECTED\_TO\_ALEXA}}}
+\DoxyCodeLine{38 \}}
+\DoxyCodeLine{39 \mbox{\hyperlink{ack_8h_a7e7a7b4857df9bbe8b45a9db9704a8a1}{ACKAlexaConnectivityState\_t}};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{comment}{// Typedef for additional information if current state is in setup mode.}}
+\DoxyCodeLine{42 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct___a_c_k_setup_mode_info__t}{\_ACKSetupModeInfo\_t}}}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44     \mbox{\hyperlink{acp_8pb_8h_a5105b34d0439f566294a29b911994c10}{acp\_setup\_stages}} \mbox{\hyperlink{struct___a_c_k_setup_mode_info__t_a62c648091836d524fab04ce8a0c96732}{SetupStage}};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{comment}{// These fields are all a single bit to save space.}}
+\DoxyCodeLine{47     \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{struct___a_c_k_setup_mode_info__t_a89e485464e3780d6476d29bca8fd60f7}{IsUserGuidedSetupActive}}: 1;}
+\DoxyCodeLine{48     \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{struct___a_c_k_setup_mode_info__t_a0bc284945c61938396aa2dc1a7bcd2d2}{IsBarcodeScanSetupActive}}: 1;}
+\DoxyCodeLine{49     \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{struct___a_c_k_setup_mode_info__t_a63f48f50c0781a2002ba08b65dc5180c}{IsZeroTouchSetupActive}}: 1;}
+\DoxyCodeLine{50 \}}
+\DoxyCodeLine{51 \mbox{\hyperlink{ack_8h_a32c99df822a1cac035a8c8a89424e461}{ACKSetupModeInfo\_t}};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{comment}{// Typedef for additional information if current state is not connected to Alexa.}}
+\DoxyCodeLine{54 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct___a_c_k_not_connected_to_alexa_info__t}{\_ACKNotConnectedToAlexaInfo\_t}}}
+\DoxyCodeLine{55 \{}
+\DoxyCodeLine{56     \mbox{\hyperlink{acp_8pb_8h_a81d03c7cf1ea888efdd673fc7c18cef6}{acp\_wifi\_disconnection\_reason}} \mbox{\hyperlink{struct___a_c_k_not_connected_to_alexa_info__t_ae197991e2f61d6147f42e192d1cbaff6}{DisconnectionReason}};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{comment}{// These fields are all a single bit to save space.}}
+\DoxyCodeLine{59     \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{struct___a_c_k_not_connected_to_alexa_info__t_aa416da82ae82fc3baf3081e5730a038e}{IsDistressBeaconing}}: 1;}
+\DoxyCodeLine{60 \}}
+\DoxyCodeLine{61 \mbox{\hyperlink{ack_8h_af347b7b81c831f5c61e397373aade386}{ACKNotConnectedToAlexaInfo\_t}};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{comment}{// Type for ACK\_GetStatus.}}
+\DoxyCodeLine{64 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct___a_c_k_status__t}{\_ACKStatus\_t}}}
+\DoxyCodeLine{65 \{}
+\DoxyCodeLine{66     \textcolor{comment}{// Local time. Values are -\/1 if time on the Connectivity Module is not valid.}}
+\DoxyCodeLine{67     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct___a_c_k_status__t_a005ff216a26587315347b87a12261ee4}{HH}};}
+\DoxyCodeLine{68     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct___a_c_k_status__t_acd92a84e7b99ef1a47bb960edb9f4096}{MM}};}
+\DoxyCodeLine{69     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct___a_c_k_status__t_a1fcd02933094a6d2ba233eb2f2f2123b}{SS}};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{comment}{// Posix epoch, seconds. Zero if time on the Connectivity Module is not valid.}}
+\DoxyCodeLine{72     uint32\_t \mbox{\hyperlink{struct___a_c_k_status__t_a9292b6cdfee92bc447d3d1fc8971120a}{EpochSeconds}};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{comment}{// Connectivity status.}}
+\DoxyCodeLine{75     \mbox{\hyperlink{ack_8h_a7e7a7b4857df9bbe8b45a9db9704a8a1}{ACKAlexaConnectivityState\_t}} \mbox{\hyperlink{struct___a_c_k_status__t_ae8793a7dbaa5cefc822ec73ceb19dd69}{ConnectivityState}};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{comment}{// Extra connectivity state information.}}
+\DoxyCodeLine{78     \textcolor{comment}{// This union should be interpreted based on the value of ConnectivityState.}}
+\DoxyCodeLine{79     \textcolor{keyword}{union}}
+\DoxyCodeLine{80     \{}
+\DoxyCodeLine{81         \mbox{\hyperlink{struct___a_c_k_setup_mode_info__t}{ACKSetupModeInfo\_t}} \mbox{\hyperlink{struct___a_c_k_status__t_a1f0fd1c23fd1a1b976eae1a20e780849}{InSetupMode}};}
+\DoxyCodeLine{82         \mbox{\hyperlink{struct___a_c_k_not_connected_to_alexa_info__t}{ACKNotConnectedToAlexaInfo\_t}} \mbox{\hyperlink{struct___a_c_k_status__t_af5db62f24859a431dab5080a539ab7a5}{NotConnectedToAlexa}};}
+\DoxyCodeLine{83     \}}
+\DoxyCodeLine{84     \mbox{\hyperlink{struct___a_c_k_status__t_a39ec287bccc67c5631d57de16a033241}{SubStateInfo}};}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{comment}{// Connectivity-\/related error code, e.g. to display on a device's LEDs, etc.}}
+\DoxyCodeLine{87     \mbox{\hyperlink{acp_8pb_8h_ae6f8026825d41585855cda559cb4a3bf}{acp\_response\_error\_codes}} \mbox{\hyperlink{struct___a_c_k_status__t_ae3a205a6f2ab04446f057807a9929b84}{ErrorCode}};}
+\DoxyCodeLine{88 \}}
+\DoxyCodeLine{89 \mbox{\hyperlink{ack_8h_acf23a6b191b92fcf2a1408217e622d1d}{ACKStatus\_t}};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{comment}{// Call this before calling any other core routines.}}
+\DoxyCodeLine{92 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack_8h_aae9040db2c96c06eb4285664e3c30289}{ACK\_Initialize}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{comment}{// Retrieves the status of the connectivity module.}}
+\DoxyCodeLine{95 \textcolor{comment}{// Status includes the current time, connectivity state, and an error code e.g. to display on a device's}}
+\DoxyCodeLine{96 \textcolor{comment}{// front panel.}}
+\DoxyCodeLine{97 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack_8h_a400ff4fa8977361c07eeddfa7e893eaa}{ACK\_GetStatus}}(\mbox{\hyperlink{struct___a_c_k_status__t}{ACKStatus\_t}}* pStatus);}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{comment}{// Retrieves an approximate Posix epoch time, which is the number of elapsed milliseconds since 1 Jan 1970}}
+\DoxyCodeLine{100 \textcolor{comment}{// at midnight UTC. Calling this does not cause traffic to/from the Connectivity Module; this value is}}
+\DoxyCodeLine{101 \textcolor{comment}{// calculated locally based on information periodically received from the Connectivity Module during your}}
+\DoxyCodeLine{102 \textcolor{comment}{// calls to ACK\_Process.}}
+\DoxyCodeLine{103 \textcolor{comment}{// This value is approximate but is accurate enough for use as the sample time for properties being added}}
+\DoxyCodeLine{104 \textcolor{comment}{// to an outbound event. The default behavior if you don't set a time for those is to use the value from}}
+\DoxyCodeLine{105 \textcolor{comment}{// this routine.}}
+\DoxyCodeLine{106 uint64\_t \mbox{\hyperlink{ack_8h_a95bf27bc180b29b72829ccad635581bc}{ACK\_GetApproximateTime}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{comment}{// You must implement this routine.}}
+\DoxyCodeLine{109 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack_8h_a4b2ad30555b360e7ae90e005f86e414e}{ACKUser\_OnReportStateDirective}}(int32\_t correlationId);}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \textcolor{comment}{// Routines to interact with the ACK Connectivity Module hardware.}}
+\DoxyCodeLine{112 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack_8h_ace81d75482296a1f2e4e8599384457f1}{ACK\_IsHostInterruptAsserted}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{113 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack_8h_af325dfcae84f6e90ae8167177aa177a0}{ACK\_ResetConnectivityModule}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{comment}{// Main routine for processing ACK events and lifecycle.}}
+\DoxyCodeLine{116 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack_8h_afed6bbe3d50accf45341fc1317be07b6}{ACK\_Process}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \textcolor{comment}{// ACK connectivity module lifecycle states. Besides being used to guide logic flows in this app, this}}
+\DoxyCodeLine{119 \textcolor{comment}{// can be used to display info to the user, e.g. light a wifi icon when connected to Alexa, flash "{}setup"{}}}
+\DoxyCodeLine{120 \textcolor{comment}{// when in setup mode, etc.}}
+\DoxyCodeLine{121 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92}{\_ACKLifecycleState\_t}}}
+\DoxyCodeLine{122 \{}
+\DoxyCodeLine{123     \textcolor{comment}{// Initial lifecycle when the HMCU application starts up. There's an immediate transition to UNAVAILABLE}}
+\DoxyCodeLine{124     \textcolor{comment}{// while the HMCU and ACK Connectivity Module finish booting and initializing.}}
+\DoxyCodeLine{125     \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92a0eca8bf1be7be1b53e3897ef38e13661}{ACK\_LIFECYCLE\_INITIAL}},}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127     \textcolor{comment}{// The ACK Connectivity Module is not available. This is the state after we've rebooted}}
+\DoxyCodeLine{128     \textcolor{comment}{// the ACK Connectivity Module (and at startup, since the first thing we do is reboot it).}}
+\DoxyCodeLine{129     \textcolor{comment}{// In this state we can (and must) still call ProcessEventIfAvailable, because transitioning}}
+\DoxyCodeLine{130     \textcolor{comment}{// out of this state requires us receiving the module-\/booted event. However we cannot successfully call}}
+\DoxyCodeLine{131     \textcolor{comment}{// ACK\_GetStatus() in this state.}}
+\DoxyCodeLine{132     \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92a29675884f8c4bb272e2f0b41b87d03fd}{ACK\_LIFECYCLE\_UNAVAILABLE}},}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134     \textcolor{comment}{// The ACK Connectivity Module finished booting (or rebooting). This results in this code sending}}
+\DoxyCodeLine{135     \textcolor{comment}{// host configuration info to the ACK Connectivity Module, if it hasn't already been sent since entering}}
+\DoxyCodeLine{136     \textcolor{comment}{// this state.}}
+\DoxyCodeLine{137     \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92a1b1a03cb9e269236c522b3890887ee12}{ACK\_LIFECYCLE\_BOOTED}},}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139     \textcolor{comment}{// We successfully initiated a factory reset, which is in progress.}}
+\DoxyCodeLine{140     \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92abfebab6d1a3a73ea544467217bf71c89}{ACK\_LIFECYCLE\_FACTORY\_RESET\_IN\_PROGRESS}},}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142     \textcolor{comment}{// The ACK Module is not registered but the setup process has timed out or is not running.}}
+\DoxyCodeLine{143     \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92a6fbd669158e520f0a15dc6fb1ef1dd82}{ACK\_LIFECYCLE\_NOT\_REGISTERED}},}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145     \textcolor{comment}{// The ACK Module is in setup mode.}}
+\DoxyCodeLine{146     \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92a0e8c100ac5d96c62a9758873d9fd89a3}{ACK\_LIFECYCLE\_IN\_SETUP\_MODE}},}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     \textcolor{comment}{// This state can exist in a few scenarios:}}
+\DoxyCodeLine{149     \textcolor{comment}{// (1) The ACK Module is fully configured but not connected to Alexa, for example because wifi is down.}}
+\DoxyCodeLine{150     \textcolor{comment}{// (2) The device didn't finish a factory reset cycle before power was lost. In this case the user can}}
+\DoxyCodeLine{151     \textcolor{comment}{//     try factory reset again.}}
+\DoxyCodeLine{152     \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92a8807f97b84cb3652e9b212ac638578a6}{ACK\_LIFECYCLE\_NOT\_CONNECTED\_TO\_ALEXA}},}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154     \textcolor{comment}{// The ACK module is fully configured and is connected to Alexa.}}
+\DoxyCodeLine{155     \mbox{\hyperlink{ack_8h_a2eac8804f47440778e378022d31b9c92a41760468e3503fa74e5d69f28a31ee3e}{ACK\_LIFECYCLE\_CONNECTED\_TO\_ALEXA}}}
+\DoxyCodeLine{156 \}}
+\DoxyCodeLine{157 \mbox{\hyperlink{ack_8h_a9f5494ec59175fccf803f24959dc24c9}{ACKLifecycleState\_t}};}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \textcolor{comment}{// Union of extra state information. Interpretation depends on the current life cycle state.}}
+\DoxyCodeLine{160 \textcolor{keyword}{typedef} \textcolor{keyword}{union }\mbox{\hyperlink{union___a_c_k_lifecycle_sub_state_info__t}{\_ACKLifecycleSubStateInfo\_t}}}
+\DoxyCodeLine{161 \{}
+\DoxyCodeLine{162     \textcolor{comment}{// For lifecycle state ACK\_LIFECYCLE\_IN\_SETUP\_MODE.}}
+\DoxyCodeLine{163     \mbox{\hyperlink{struct___a_c_k_setup_mode_info__t}{ACKSetupModeInfo\_t}} \mbox{\hyperlink{union___a_c_k_lifecycle_sub_state_info__t_a46b07ce9b53a3c7975265fbd4f686f7e}{InSetupMode}};}
+\DoxyCodeLine{164     \mbox{\hyperlink{struct___a_c_k_not_connected_to_alexa_info__t}{ACKNotConnectedToAlexaInfo\_t}} \mbox{\hyperlink{union___a_c_k_lifecycle_sub_state_info__t_a50b11bcd6632c6bcffaada1151921078}{NotConnectedToAlexa}};}
+\DoxyCodeLine{165 \}}
+\DoxyCodeLine{166 \mbox{\hyperlink{ack_8h_acb7ecc4a4672b3caec9e11369747985c}{ACKLifecycleSubStateInfo\_t}};}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168 \textcolor{keyword}{extern} \mbox{\hyperlink{ack_8h_a9f5494ec59175fccf803f24959dc24c9}{ACKLifecycleState\_t}} \mbox{\hyperlink{ack_8h_a8270e26b9717f45b4002c22eb24af775}{ACK\_LifecycleState}};}
+\DoxyCodeLine{169 \textcolor{keyword}{extern} \mbox{\hyperlink{union___a_c_k_lifecycle_sub_state_info__t}{ACKLifecycleSubStateInfo\_t}} \mbox{\hyperlink{ack_8h_a82d8f8e81bb18b989753d4fa9a207879}{ACK\_LifecycleSubStateInfo}};}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171 \textcolor{comment}{// Converts a property ordinal to a bit.}}
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#define ACK\_PROPERTY\_BIT(x) (1 << (x))}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174 \textcolor{comment}{// Type for bitfield to represent multiple properties.}}
+\DoxyCodeLine{175 \textcolor{keyword}{typedef} uint32\_t \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKPropertiesBits\_t}};}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 \textcolor{comment}{// Predefined value for 'all properties'.}}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#define ACK\_EVENT\_ALL\_PROPERTIES ((ACKPropertiesBits\_t)(-\/1))}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \textcolor{comment}{// Entry in an array that maps Alexa capabilities to a routine in an ACK HMCU application that adds}}
+\DoxyCodeLine{181 \textcolor{comment}{// properties to an outbound event being constructed. If this is for a compound device (ACK\_COMPOUND\_DEVICE}}
+\DoxyCodeLine{182 \textcolor{comment}{// is set) then you also need to set which endpoint a property belongs to.}}
+\DoxyCodeLine{183 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct___a_c_k_property_table_entry__t}{\_ACKPropertyTableEntry\_t}}}
+\DoxyCodeLine{184 \{}
+\DoxyCodeLine{185 \textcolor{preprocessor}{\#ifdef ACK\_COMPOUND\_DEVICE}}
+\DoxyCodeLine{186     uint16\_t EndpointId;}
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{188     \textcolor{comment}{// An application-\/specific value. Passed to the AddProperties routine.}}
+\DoxyCodeLine{189     uint32\_t \mbox{\hyperlink{struct___a_c_k_property_table_entry__t_a507edf42ced934d88a12fa544c08da4c}{PropertyOrdinal}};}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191     \textcolor{comment}{// NULL terminates the map.}}
+\DoxyCodeLine{192     \textcolor{comment}{// propertyFlags is a combination of ACK\_PROPERTY\_xxx flags from ack\_types.h.}}
+\DoxyCodeLine{193     bool (*\mbox{\hyperlink{struct___a_c_k_property_table_entry__t_aa27caf4f8dfc06beafe82c7b0f617c15}{AddPropertiesRoutine}})(uint32\_t propertyOrdinal, \textcolor{keywordtype}{unsigned} propertyFlags);}
+\DoxyCodeLine{194 \}}
+\DoxyCodeLine{195 \mbox{\hyperlink{ack_8h_ad222373de1c685d0c3efbbf8910a83f0}{ACKPropertyTableEntry\_t}};}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197 \textcolor{comment}{// You must have a variable in your application with this name. An entry with a NULL AddPropertiesRoutine}}
+\DoxyCodeLine{198 \textcolor{comment}{// terminates the array.}}
+\DoxyCodeLine{199 \textcolor{keyword}{extern} \mbox{\hyperlink{struct___a_c_k_property_table_entry__t}{ACKPropertyTableEntry\_t}} \mbox{\hyperlink{ack_8h_a4d0652b73a39ed6abae348e4e40398fd}{ACKUser\_PropertyTable}}[];}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201 \textcolor{comment}{// ACK\_CompleteDirectiveWith* routines are used to supply a response to a directive. You typically call these}}
+\DoxyCodeLine{202 \textcolor{comment}{// from within an ACKUser\_On* handler callback routine, in which case the directive response is sent before}}
+\DoxyCodeLine{203 \textcolor{comment}{// ACK\_Process returns to you. If your ACKUser\_On* handler callback routine doesn't immediately know the}}
+\DoxyCodeLine{204 \textcolor{comment}{// outcome of processing a directive, you can call an ACK\_CompleteDirectiveWith* routine later, after}}
+\DoxyCodeLine{205 \textcolor{comment}{// ACK\_Process has returned. In that case, the directive response is sent immediately.}}
+\DoxyCodeLine{206 \textcolor{comment}{// Every directive requires exactly one response. If you don't call an ACK\_CompleteDirectiveWith* routine for}}
+\DoxyCodeLine{207 \textcolor{comment}{// a given directive, Alexa will inform the end user of an error. Calling ACK\_CompleteDirectiveWith* more}}
+\DoxyCodeLine{208 \textcolor{comment}{// than once for a given directive will produce undefined behavior.}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210 \textcolor{comment}{// Tells Alexa that you completed processing a directive successfully, by sending a directive response}}
+\DoxyCodeLine{211 \textcolor{comment}{// containing the properties identified by responsePropertiesBits. If changeReportPropertiesBits is non-\/0,}}
+\DoxyCodeLine{212 \textcolor{comment}{// an Alexa change report is sent indicating that the properties designated in changeReportPropertiesBits}}
+\DoxyCodeLine{213 \textcolor{comment}{// changed as a result of processing the directive. (For convenience a property can appear in both}}
+\DoxyCodeLine{214 \textcolor{comment}{// responsePropertiesBits and changeReportPropertiesBits, but is effectively removed from}}
+\DoxyCodeLine{215 \textcolor{comment}{// responsePropertiesBits for the purposes of creating the change report.)}}
+\DoxyCodeLine{216 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack_8h_a70b1229eb62b4786993f087bcdd11742}{ACK\_CompleteDirectiveWithSuccess}}(}
+\DoxyCodeLine{217     int32\_t correlationId,}
+\DoxyCodeLine{218     \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKPropertiesBits\_t}} responsePropertiesBits,}
+\DoxyCodeLine{219     \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKPropertiesBits\_t}} changeReportPropertiesBits);}
+\DoxyCodeLine{220 }
+\DoxyCodeLine{221 \textcolor{comment}{// Tells Alexa that you could not complete processing a directive.}}
+\DoxyCodeLine{222 \textcolor{comment}{// If there is a more specific routine for the error you want to send (see below) you must use that routine}}
+\DoxyCodeLine{223 \textcolor{comment}{// instead of this one.}}
+\DoxyCodeLine{224 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack_8h_a7faf09765377b7b9c4df757954d4bfd1}{ACK\_CompleteDirectiveWithSimpleError}}(}
+\DoxyCodeLine{225     int32\_t correlationId,}
+\DoxyCodeLine{226     \mbox{\hyperlink{ack__generated__alexa_8h_a960daf9ec3a0306117891417dea624a5}{ack\_alexa\_error\_type}} error,}
+\DoxyCodeLine{227     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* pOptionalMessage);}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229 \textcolor{comment}{// Tells Alexa that you could not complete processing a directive because a value was out of range.}}
+\DoxyCodeLine{230 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack_8h_a74d46c74841230909fd4035aec451300}{ACK\_CompleteDirectiveWithOutOfRangeError}}(}
+\DoxyCodeLine{231     int32\_t correlationId,}
+\DoxyCodeLine{232     \textcolor{keywordtype}{float} minimum,}
+\DoxyCodeLine{233     \textcolor{keywordtype}{float} maximum,}
+\DoxyCodeLine{234     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* pOptionalMessage);}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236 \textcolor{comment}{// Tells Alexa that you could not complete processing a directive because a temperature value was}}
+\DoxyCodeLine{237 \textcolor{comment}{// out of range.}}
+\DoxyCodeLine{238 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack_8h_a7064de8838156d25443855f48ab0b524}{ACK\_CompleteDirectiveWithTemperatureOutOfRangeError}}(}
+\DoxyCodeLine{239     int32\_t correlationId,}
+\DoxyCodeLine{240     \mbox{\hyperlink{ack__generated__temperature_8h_ad0d517afea334399e7384fa8a2aa0f5a}{ack\_temperature\_scale}} scale,}
+\DoxyCodeLine{241     \textcolor{keywordtype}{float} minimum,}
+\DoxyCodeLine{242     \textcolor{keywordtype}{float} maximum,}
+\DoxyCodeLine{243     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* pOptionalMessage);}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245 \textcolor{comment}{// Tells Alexa that you could not complete processing a directive due to the current device mode.}}
+\DoxyCodeLine{246 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack_8h_acc0268aa9ea53f98006fdaa5711c2c77}{ACK\_CompleteDirectiveWithNotSupportedInCurrentModeError}}(}
+\DoxyCodeLine{247     int32\_t correlationId,}
+\DoxyCodeLine{248     \mbox{\hyperlink{ack__generated__alexa_8h_a999a6c37da63149958949d11e629c88d}{ack\_alexa\_device\_mode}} mode,}
+\DoxyCodeLine{249     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* pOptionalMessage);}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251 \textcolor{comment}{// Sends the state of all of your device properties to Alexa.}}
+\DoxyCodeLine{252 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack_8h_a036c1fc7a4008c350a8210d9a015329d}{ACK\_CompleteStateReportWithSuccess}}(int32\_t correlationId);}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254 \textcolor{comment}{// Sends an Alexa change report, indicating that the state of one or more of your properties changed.}}
+\DoxyCodeLine{255 \textcolor{comment}{// The changedPropertiesBits value tells Alexa which properties actually changed. The otherPropertiesBits}}
+\DoxyCodeLine{256 \textcolor{comment}{// value tells Alexa the state of properties that didn't themselves change, but which are related to}}
+\DoxyCodeLine{257 \textcolor{comment}{// properties that did change.}}
+\DoxyCodeLine{258 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack_8h_aa4ff3e98ff4c415ab6984c9b7a8099a0}{ACK\_SendChangeReport}}(}
+\DoxyCodeLine{259     \mbox{\hyperlink{ack__generated__alexa_8h_a860c0b4dd21471dc0b640e8b54580719}{ack\_alexa\_change\_report\_cause\_type}} cause,}
+\DoxyCodeLine{260     \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKPropertiesBits\_t}} changedProperiesBits,}
+\DoxyCodeLine{261     \mbox{\hyperlink{ack_8h_a4c70b06ca5d7725d3ec0c6248000b257}{ACKPropertiesBits\_t}} otherPropertiesBits);}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263 \textcolor{comment}{// Parameters associated with directives.}}
+\DoxyCodeLine{264 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct___a_c_k_directive_params__t}{\_ACKDirectiveParams\_t}}}
+\DoxyCodeLine{265 \{}
+\DoxyCodeLine{266     \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}} \mbox{\hyperlink{struct___a_c_k_directive_params__t_ad86a2be9eecd5cd4f688a276c691573a}{PayloadObject}};}
+\DoxyCodeLine{267     int32\_t \mbox{\hyperlink{struct___a_c_k_directive_params__t_abdeac7fe46fef0cfa5212a89c4798f8a}{CorrelationId}};}
+\DoxyCodeLine{268     uint32\_t \mbox{\hyperlink{struct___a_c_k_directive_params__t_a430c91f910e230ff5cf6e7a22d0abd86}{Instance}};}
+\DoxyCodeLine{269     \mbox{\hyperlink{ack__generated__ack_8h_a61c4574433cc1a7fb91919f1257d2992}{ack\_namespace}} \mbox{\hyperlink{struct___a_c_k_directive_params__t_abf86a30219390296263d77c5f7c2f500}{Namespace}};}
+\DoxyCodeLine{270     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct___a_c_k_directive_params__t_a1823320ac597ed3522b2bc2ff5fa4591}{Name}};}
+\DoxyCodeLine{271 \}}
+\DoxyCodeLine{272 \mbox{\hyperlink{ack_8h_a2d6b333100bb548196c3088556ac22ff}{ACKDirectiveParams\_t}};}
+\DoxyCodeLine{273 }
+\DoxyCodeLine{274 \textcolor{comment}{// An application can provide its own handling for capabilities. To do this, it puts}}
+\DoxyCodeLine{275 \textcolor{comment}{//}}
+\DoxyCodeLine{276 \textcolor{comment}{//  \#define ACK\_OTHER\_CAPABILITY}}
+\DoxyCodeLine{277 \textcolor{comment}{//}}
+\DoxyCodeLine{278 \textcolor{comment}{// in its ack\_user\_config.h. This requires the application to implement ACKUser\_OnDirective, to which directives in}}
+\DoxyCodeLine{279 \textcolor{comment}{// unhandled namespaces are delivered. It also makes ACK\_AddProperty available to the application to add properties}}
+\DoxyCodeLine{280 \textcolor{comment}{// in artibtary namespaces to event messages (see ACKUser\_PropertyTable above).}}
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#ifdef ACK\_OTHER\_CAPABILITY}}
+\DoxyCodeLine{282 }
+\DoxyCodeLine{283 \textcolor{keywordtype}{void} ACKUser\_OnDirective(\textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_directive_params__t}{ACKDirectiveParams\_t}}* pDirectiveParams);}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{285 \textcolor{keywordtype}{bool} ACK\_AddProperty(}
+\DoxyCodeLine{286     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_state_common__t}{ACKStateCommon\_t}}* pCommon,}
+\DoxyCodeLine{287     \mbox{\hyperlink{ack__generated__ack_8h_a61c4574433cc1a7fb91919f1257d2992}{ack\_namespace}} propertyNamespace,}
+\DoxyCodeLine{288     \textcolor{keyword}{const} uint32\_t* pPropertyInstance,}
+\DoxyCodeLine{289     \textcolor{keywordtype}{int} propertyName,}
+\DoxyCodeLine{290     \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pPropertyObject);}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{292 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ACK\_OTHER\_CAPABILITY}}
+\DoxyCodeLine{293 }
+\DoxyCodeLine{294 \textcolor{preprocessor}{\#ifdef ACK\_COMPOUND\_DEVICE}}
+\DoxyCodeLine{295 \textcolor{comment}{// Returns an endpoint id of a directive if present.}}
+\DoxyCodeLine{296 \textcolor{comment}{// Must be called within the ACKUser\_On* handler.}}
+\DoxyCodeLine{297 uint16\_t ACK\_GetEndpointId(int32\_t correlationId);}
+\DoxyCodeLine{298 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{301 \}}
+\DoxyCodeLine{302 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_H\_\_}}
+
+\end{DoxyCode}

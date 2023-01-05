@@ -1,0 +1,55 @@
+\hypertarget{ack__user__config_8h_source}{}\doxysection{ack\+\_\+user\+\_\+config.\+h}
+\mbox{\hyperlink{ack__user__config_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{9 \textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright 2018-\/2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * }}
+\DoxyCodeLine{12 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{13 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{14 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{15 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{16 \textcolor{comment}{ */}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{comment}{/*}}
+\DoxyCodeLine{19 \textcolor{comment}{    Note: this application is a sample only. It may omit functionality that would be required in a}}
+\DoxyCodeLine{20 \textcolor{comment}{    real device. The application's source code is structured to maximize illustrative utility, and not}}
+\DoxyCodeLine{21 \textcolor{comment}{    to suggest a reference design for any category of device or to provide a definitive framework for}}
+\DoxyCodeLine{22 \textcolor{comment}{    a device's firmware.}}
+\DoxyCodeLine{23 \textcolor{comment}{*/}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{comment}{/*}}
+\DoxyCodeLine{26 \textcolor{comment}{    }}
+\DoxyCodeLine{27 \textcolor{comment}{*/}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#ifndef \_\_ACK\_USER\_CONFIG\_H\_\_}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define \_\_ACK\_USER\_CONFIG\_H\_\_}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{comment}{// Debug print behavior. Leave ACK\_DEBUG\_PRINT\_LEVEL undefined for no debug printing.}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define ACK\_DEBUG\_PRINT\_LEVEL ACK\_DEBUG\_PRINT\_LEVEL\_INFO}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{comment}{// Size of buffer from which memory blocks are allocated during processing.}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define ACK\_MEMORY\_POOL\_SIZE 1024}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{comment}{// Turn on to enable asserts in ack functions.}}
+\DoxyCodeLine{39 \textcolor{comment}{// Recommend leaving off in production to save space.}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define ACK\_ENABLE\_ASSERT}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{comment}{// Alexa capabilities and other ACK features to support.}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define ACK\_POWER\_CONTROLLER}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define ACK\_BRIGHTNESS\_CONTROLLER}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{comment}{// Enable support for the Host MCU sample applications LED pin in the platform-\/specific implementation.}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define ACK\_SAMPLE\_APPLICATIONS\_LED\_PIN}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define ACK\_SAMPLE\_APPLICATIONS\_GPIO\_PIN\_1}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{comment}{// Prevent 'stock' empty implementations of some of the device-\/specific routine in ack\_user\_device.c}}
+\DoxyCodeLine{51 \textcolor{comment}{// so we can supply our own.}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define ACK\_NO\_ACKUSER\_DOESUSERWANT}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define ACK\_NO\_ACKUSER\_ONLIFECYCLESTATECHANGE}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define ACK\_EXPERIMENTAL}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def \_\_ACK\_USER\_CONFIG\_H\_\_}}
+
+\end{DoxyCode}

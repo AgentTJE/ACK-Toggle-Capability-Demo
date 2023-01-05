@@ -1,0 +1,46 @@
+\hypertarget{ack__core__time__interval_8h_source}{}\doxysection{ack\+\_\+core\+\_\+time\+\_\+interval.\+h}
+\label{ack__core__time__interval_8h_source}\index{src/ack\_core\_time\_interval.h@{src/ack\_core\_time\_interval.h}}
+\mbox{\hyperlink{ack__core__time__interval_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_CORE\_TIME\_INTERVAL\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_CORE\_TIME\_INTERVAL\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack_8h}{ack.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{18 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__time__interval_8h_abadf4e6b098e2273245d8518096b2df4}{TimeIntervalSave}}(}
+\DoxyCodeLine{23     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pTo,}
+\DoxyCodeLine{24     \textcolor{keywordtype}{unsigned} member,}
+\DoxyCodeLine{25     uint64\_t startTime, \textcolor{comment}{// epoch ms}}
+\DoxyCodeLine{26     uint64\_t endTime,}
+\DoxyCodeLine{27     uint64\_t durationMilliseconds);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__time__interval_8h_af042e209ed43fa6eeab3f88ba17d8dce}{TimeIntervalLoad}}(}
+\DoxyCodeLine{30     \textcolor{keyword}{const} \mbox{\hyperlink{struct___a_c_k_doc_container__t}{ACKDocContainer\_t}}* pFrom,}
+\DoxyCodeLine{31     \textcolor{keywordtype}{unsigned} member,}
+\DoxyCodeLine{32     uint64\_t* pStartTime, \textcolor{comment}{// epoch ms}}
+\DoxyCodeLine{33     uint64\_t* pEndTime,}
+\DoxyCodeLine{34     uint64\_t* pDurationMilliseconds);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{37 \}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ndef \_\_ACK\_CORE\_TIME\_INTERVAL\_H\_\_}}
+
+\end{DoxyCode}

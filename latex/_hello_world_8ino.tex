@@ -1,0 +1,214 @@
+\hypertarget{_hello_world_8ino}{}\doxysection{Hello\+World.\+ino File Reference}
+\label{_hello_world_8ino}\index{HelloWorld.ino@{HelloWorld.ino}}
+
+
+this file contains the setup entrypoint and the loop logic for the hello world ack example.  
+
+
+{\ttfamily \#include \char`\"{}src/ack\+\_\+user\+\_\+platform.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Hello\+World\+\_\+\+Alexa.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Hello\+World\+\_\+\+Hardware.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for Hello\+World.\+ino\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world_8ino__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_hello_world_8ino_a90dff6edb205f9482f8d2a7002f450ef}{LONG\+\_\+\+PRESS\+\_\+\+DURATION\+\_\+\+MILLISECONDS}}~(20 $\ast$ 1000)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{_hello_world_8ino_a29db5040646c2042eb041daf23cb27c2}{\+\_\+\+Power\+Button\+Action}} \mbox{\hyperlink{_hello_world_8ino_a0d0549860eeb2fbd8d7d63a581ab2065}{Power\+Button\+Action}}
+\item 
+typedef enum \mbox{\hyperlink{_hello_world_8ino_af73377f933670f5b0f9f6cdd9005849b}{\+\_\+\+Lifecycle\+Lifecycle\+Button\+Action}} \mbox{\hyperlink{_hello_world_8ino_a57fc5fb1f96b3614e0a48767d7d1a448}{Lifecycle\+Button\+Action}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_hello_world_8ino_a29db5040646c2042eb041daf23cb27c2}{\+\_\+\+Power\+Button\+Action}} \{ \mbox{\hyperlink{_hello_world_8ino_a29db5040646c2042eb041daf23cb27c2a30050629f8511fa6e0175c035883233b}{POWER\+\_\+\+BUTTON\+\_\+\+ACTION\+\_\+\+NONE}}
+, \mbox{\hyperlink{_hello_world_8ino_a29db5040646c2042eb041daf23cb27c2aa413aa7bf3a65ac95d7c80b2a83c4f06}{POWER\+\_\+\+BUTTON\+\_\+\+ACTION\+\_\+\+RELEASED}}
+ \}
+\item 
+enum \mbox{\hyperlink{_hello_world_8ino_af73377f933670f5b0f9f6cdd9005849b}{\+\_\+\+Lifecycle\+Lifecycle\+Button\+Action}} \{ \mbox{\hyperlink{_hello_world_8ino_af73377f933670f5b0f9f6cdd9005849ba1ffc788c6c2a254f53a768fc8dcd8fc4}{LIFECYCLE\+\_\+\+BUTTON\+\_\+\+ACTION\+\_\+\+NONE}}
+, \mbox{\hyperlink{_hello_world_8ino_af73377f933670f5b0f9f6cdd9005849ba38c3440abfd19068c20623ed6dcd5a8f}{LIFECYCLE\+\_\+\+BUTTON\+\_\+\+ACTION\+\_\+\+RELEASED}}
+, \mbox{\hyperlink{_hello_world_8ino_af73377f933670f5b0f9f6cdd9005849ba5627d0328ac4c7f333cd20aba794d559}{LIFECYCLE\+\_\+\+BUTTON\+\_\+\+ACTION\+\_\+\+LONG\+\_\+\+PRESSED}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{_hello_world_8ino_a0d0549860eeb2fbd8d7d63a581ab2065}{Power\+Button\+Action}} \mbox{\hyperlink{_hello_world_8ino_af1caca86045d07dee04dd60855a6c5a7}{Get\+Power\+Button\+Action}} (void)
+\item 
+static \mbox{\hyperlink{_hello_world_8ino_a57fc5fb1f96b3614e0a48767d7d1a448}{Lifecycle\+Button\+Action}} \mbox{\hyperlink{_hello_world_8ino_a846dfdd6700acd4c64eeed5de5822f03}{Get\+Lifecycle\+Button\+Action}} (void)
+\item 
+void \mbox{\hyperlink{_hello_world_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}{setup}} (void)
+\item 
+void \mbox{\hyperlink{_hello_world_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}{loop}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+this file contains the setup entrypoint and the loop logic for the hello world ack example. 
+
+\begin{DoxyAuthor}{Author}
+Tom England 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2/22/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_hello_world_8ino_a90dff6edb205f9482f8d2a7002f450ef}\label{_hello_world_8ino_a90dff6edb205f9482f8d2a7002f450ef}} 
+\index{HelloWorld.ino@{HelloWorld.ino}!LONG\_PRESS\_DURATION\_MILLISECONDS@{LONG\_PRESS\_DURATION\_MILLISECONDS}}
+\index{LONG\_PRESS\_DURATION\_MILLISECONDS@{LONG\_PRESS\_DURATION\_MILLISECONDS}!HelloWorld.ino@{HelloWorld.ino}}
+\doxysubsubsection{\texorpdfstring{LONG\_PRESS\_DURATION\_MILLISECONDS}{LONG\_PRESS\_DURATION\_MILLISECONDS}}
+{\footnotesize\ttfamily \#define LONG\+\_\+\+PRESS\+\_\+\+DURATION\+\_\+\+MILLISECONDS~(20 $\ast$ 1000)}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_hello_world_8ino_a57fc5fb1f96b3614e0a48767d7d1a448}\label{_hello_world_8ino_a57fc5fb1f96b3614e0a48767d7d1a448}} 
+\index{HelloWorld.ino@{HelloWorld.ino}!LifecycleButtonAction@{LifecycleButtonAction}}
+\index{LifecycleButtonAction@{LifecycleButtonAction}!HelloWorld.ino@{HelloWorld.ino}}
+\doxysubsubsection{\texorpdfstring{LifecycleButtonAction}{LifecycleButtonAction}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_hello_world_8ino_af73377f933670f5b0f9f6cdd9005849b}{\+\_\+\+Lifecycle\+Lifecycle\+Button\+Action}} \mbox{\hyperlink{_hello_world_8ino_a57fc5fb1f96b3614e0a48767d7d1a448}{Lifecycle\+Button\+Action}}}
+
+\mbox{\Hypertarget{_hello_world_8ino_a0d0549860eeb2fbd8d7d63a581ab2065}\label{_hello_world_8ino_a0d0549860eeb2fbd8d7d63a581ab2065}} 
+\index{HelloWorld.ino@{HelloWorld.ino}!PowerButtonAction@{PowerButtonAction}}
+\index{PowerButtonAction@{PowerButtonAction}!HelloWorld.ino@{HelloWorld.ino}}
+\doxysubsubsection{\texorpdfstring{PowerButtonAction}{PowerButtonAction}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_hello_world_8ino_a29db5040646c2042eb041daf23cb27c2}{\+\_\+\+Power\+Button\+Action}} \mbox{\hyperlink{_hello_world_8ino_a0d0549860eeb2fbd8d7d63a581ab2065}{Power\+Button\+Action}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_hello_world_8ino_af73377f933670f5b0f9f6cdd9005849b}\label{_hello_world_8ino_af73377f933670f5b0f9f6cdd9005849b}} 
+\index{HelloWorld.ino@{HelloWorld.ino}!\_LifecycleLifecycleButtonAction@{\_LifecycleLifecycleButtonAction}}
+\index{\_LifecycleLifecycleButtonAction@{\_LifecycleLifecycleButtonAction}!HelloWorld.ino@{HelloWorld.ino}}
+\doxysubsubsection{\texorpdfstring{\_LifecycleLifecycleButtonAction}{\_LifecycleLifecycleButtonAction}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_hello_world_8ino_af73377f933670f5b0f9f6cdd9005849b}{\+\_\+\+Lifecycle\+Lifecycle\+Button\+Action}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LIFECYCLE\_BUTTON\_ACTION\_NONE@{LIFECYCLE\_BUTTON\_ACTION\_NONE}!HelloWorld.ino@{HelloWorld.ino}}\index{HelloWorld.ino@{HelloWorld.ino}!LIFECYCLE\_BUTTON\_ACTION\_NONE@{LIFECYCLE\_BUTTON\_ACTION\_NONE}}}\mbox{\Hypertarget{_hello_world_8ino_af73377f933670f5b0f9f6cdd9005849ba1ffc788c6c2a254f53a768fc8dcd8fc4}\label{_hello_world_8ino_af73377f933670f5b0f9f6cdd9005849ba1ffc788c6c2a254f53a768fc8dcd8fc4}} 
+LIFECYCLE\+\_\+\+BUTTON\+\_\+\+ACTION\+\_\+\+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LIFECYCLE\_BUTTON\_ACTION\_RELEASED@{LIFECYCLE\_BUTTON\_ACTION\_RELEASED}!HelloWorld.ino@{HelloWorld.ino}}\index{HelloWorld.ino@{HelloWorld.ino}!LIFECYCLE\_BUTTON\_ACTION\_RELEASED@{LIFECYCLE\_BUTTON\_ACTION\_RELEASED}}}\mbox{\Hypertarget{_hello_world_8ino_af73377f933670f5b0f9f6cdd9005849ba38c3440abfd19068c20623ed6dcd5a8f}\label{_hello_world_8ino_af73377f933670f5b0f9f6cdd9005849ba38c3440abfd19068c20623ed6dcd5a8f}} 
+LIFECYCLE\+\_\+\+BUTTON\+\_\+\+ACTION\+\_\+\+RELEASED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LIFECYCLE\_BUTTON\_ACTION\_LONG\_PRESSED@{LIFECYCLE\_BUTTON\_ACTION\_LONG\_PRESSED}!HelloWorld.ino@{HelloWorld.ino}}\index{HelloWorld.ino@{HelloWorld.ino}!LIFECYCLE\_BUTTON\_ACTION\_LONG\_PRESSED@{LIFECYCLE\_BUTTON\_ACTION\_LONG\_PRESSED}}}\mbox{\Hypertarget{_hello_world_8ino_af73377f933670f5b0f9f6cdd9005849ba5627d0328ac4c7f333cd20aba794d559}\label{_hello_world_8ino_af73377f933670f5b0f9f6cdd9005849ba5627d0328ac4c7f333cd20aba794d559}} 
+LIFECYCLE\+\_\+\+BUTTON\+\_\+\+ACTION\+\_\+\+LONG\+\_\+\+PRESSED&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{_hello_world_8ino_a29db5040646c2042eb041daf23cb27c2}\label{_hello_world_8ino_a29db5040646c2042eb041daf23cb27c2}} 
+\index{HelloWorld.ino@{HelloWorld.ino}!\_PowerButtonAction@{\_PowerButtonAction}}
+\index{\_PowerButtonAction@{\_PowerButtonAction}!HelloWorld.ino@{HelloWorld.ino}}
+\doxysubsubsection{\texorpdfstring{\_PowerButtonAction}{\_PowerButtonAction}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_hello_world_8ino_a29db5040646c2042eb041daf23cb27c2}{\+\_\+\+Power\+Button\+Action}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{POWER\_BUTTON\_ACTION\_NONE@{POWER\_BUTTON\_ACTION\_NONE}!HelloWorld.ino@{HelloWorld.ino}}\index{HelloWorld.ino@{HelloWorld.ino}!POWER\_BUTTON\_ACTION\_NONE@{POWER\_BUTTON\_ACTION\_NONE}}}\mbox{\Hypertarget{_hello_world_8ino_a29db5040646c2042eb041daf23cb27c2a30050629f8511fa6e0175c035883233b}\label{_hello_world_8ino_a29db5040646c2042eb041daf23cb27c2a30050629f8511fa6e0175c035883233b}} 
+POWER\+\_\+\+BUTTON\+\_\+\+ACTION\+\_\+\+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{POWER\_BUTTON\_ACTION\_RELEASED@{POWER\_BUTTON\_ACTION\_RELEASED}!HelloWorld.ino@{HelloWorld.ino}}\index{HelloWorld.ino@{HelloWorld.ino}!POWER\_BUTTON\_ACTION\_RELEASED@{POWER\_BUTTON\_ACTION\_RELEASED}}}\mbox{\Hypertarget{_hello_world_8ino_a29db5040646c2042eb041daf23cb27c2aa413aa7bf3a65ac95d7c80b2a83c4f06}\label{_hello_world_8ino_a29db5040646c2042eb041daf23cb27c2aa413aa7bf3a65ac95d7c80b2a83c4f06}} 
+POWER\+\_\+\+BUTTON\+\_\+\+ACTION\+\_\+\+RELEASED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_hello_world_8ino_a846dfdd6700acd4c64eeed5de5822f03}\label{_hello_world_8ino_a846dfdd6700acd4c64eeed5de5822f03}} 
+\index{HelloWorld.ino@{HelloWorld.ino}!GetLifecycleButtonAction@{GetLifecycleButtonAction}}
+\index{GetLifecycleButtonAction@{GetLifecycleButtonAction}!HelloWorld.ino@{HelloWorld.ino}}
+\doxysubsubsection{\texorpdfstring{GetLifecycleButtonAction()}{GetLifecycleButtonAction()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{_hello_world_8ino_a57fc5fb1f96b3614e0a48767d7d1a448}{Lifecycle\+Button\+Action}} Get\+Lifecycle\+Button\+Action (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world_8ino_a846dfdd6700acd4c64eeed5de5822f03_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{_hello_world_8ino_a846dfdd6700acd4c64eeed5de5822f03_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world_8ino_af1caca86045d07dee04dd60855a6c5a7}\label{_hello_world_8ino_af1caca86045d07dee04dd60855a6c5a7}} 
+\index{HelloWorld.ino@{HelloWorld.ino}!GetPowerButtonAction@{GetPowerButtonAction}}
+\index{GetPowerButtonAction@{GetPowerButtonAction}!HelloWorld.ino@{HelloWorld.ino}}
+\doxysubsubsection{\texorpdfstring{GetPowerButtonAction()}{GetPowerButtonAction()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{_hello_world_8ino_a0d0549860eeb2fbd8d7d63a581ab2065}{Power\+Button\+Action}} Get\+Power\+Button\+Action (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world_8ino_af1caca86045d07dee04dd60855a6c5a7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{_hello_world_8ino_af1caca86045d07dee04dd60855a6c5a7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}\label{_hello_world_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}} 
+\index{HelloWorld.ino@{HelloWorld.ino}!loop@{loop}}
+\index{loop@{loop}!HelloWorld.ino@{HelloWorld.ino}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+This is the main application loop, which calls both Alexa\+\_\+loop and some other stuff. \begin{DoxyAuthor}{Author}
+Tom England 
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_hello_world_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}\label{_hello_world_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}} 
+\index{HelloWorld.ino@{HelloWorld.ino}!setup@{setup}}
+\index{setup@{setup}!HelloWorld.ino@{HelloWorld.ino}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_hello_world_8ino_a7dfd9b79bc5a37d7df40207afbc5431f_cgraph}
+\end{center}
+\end{figure}

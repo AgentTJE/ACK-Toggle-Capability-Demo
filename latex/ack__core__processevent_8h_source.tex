@@ -1,0 +1,56 @@
+\hypertarget{ack__core__processevent_8h_source}{}\doxysection{ack\+\_\+core\+\_\+processevent.\+h}
+\label{ack__core__processevent_8h_source}\index{src/ack\_core\_processevent.h@{src/ack\_core\_processevent.h}}
+\mbox{\hyperlink{ack__core__processevent_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef \_\_ACK\_PROCESSEVENT\_H\_\_}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define \_\_ACK\_PROCESSEVENT\_H\_\_}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__types_8h}{ack\_types.h}}"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{16 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{comment}{// Processes an event from the connectivity module if one is available.}}
+\DoxyCodeLine{21 \textcolor{comment}{// If no event is available, returns immediately with ACK\_NO\_ERROR.}}
+\DoxyCodeLine{22 \textcolor{comment}{// If the return value is ACK\_NO\_ERROR, an event may or may not have been processed. The caller}}
+\DoxyCodeLine{23 \textcolor{comment}{// must maintain state to determine whether a reply event is to be sent on a subsequent pass}}
+\DoxyCodeLine{24 \textcolor{comment}{// through the main loop.}}
+\DoxyCodeLine{25 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__core__processevent_8h_a190f3183cf8b4e595d5acdab3f8bb027}{ProcessEventIfAvailable}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{comment}{// Information about inbound event processing state.}}
+\DoxyCodeLine{28 \textcolor{keyword}{typedef} \textcolor{keyword}{union }\mbox{\hyperlink{union___a_c_k_inbound_event_info__t}{\_ACKInboundEventInfo\_t}}}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{keyword}{struct}}
+\DoxyCodeLine{31     \{}
+\DoxyCodeLine{32         \textcolor{comment}{// 1 if currently nested inside ProcessEventIfAvailable.}}
+\DoxyCodeLine{33         \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{union___a_c_k_inbound_event_info__t_a8e2f778e524a007b7d563ed06e7f96cb}{Processing}} : 1;}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35         \textcolor{comment}{// 1 if most recent call to ProcessEventIfAvailable processed a directive.}}
+\DoxyCodeLine{36         \textcolor{keywordtype}{unsigned} \mbox{\hyperlink{union___a_c_k_inbound_event_info__t_affad1499614934effada02efbf20f334}{ProcessedDirective}} : 1;}
+\DoxyCodeLine{37     \}}
+\DoxyCodeLine{38     \mbox{\hyperlink{union___a_c_k_inbound_event_info__t_a2fe23f56a2da546afef33a73a4de43c1}{Bits}};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     uint8\_t \mbox{\hyperlink{union___a_c_k_inbound_event_info__t_a6afb370d6eea95c0a60f309d2ad7b6ec}{All}};}
+\DoxyCodeLine{41 \}}
+\DoxyCodeLine{42 \mbox{\hyperlink{ack__core__processevent_8h_aa1c9b1dff3a4454cba32f1c89ffeac24}{ACKInboundEventInfo\_t}};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{extern} \mbox{\hyperlink{union___a_c_k_inbound_event_info__t}{ACKInboundEventInfo\_t}} \mbox{\hyperlink{ack__core__processevent_8h_a001efeacf18851bc7e9dda9fe2c4e323}{g\_inboundEventInfo}};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{47 \}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ndef \_\_ACK\_PROCESSEVENT\_H\_\_}}
+
+\end{DoxyCode}

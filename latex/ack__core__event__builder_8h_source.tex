@@ -1,0 +1,77 @@
+\hypertarget{ack__core__event__builder_8h_source}{}\doxysection{ack\+\_\+core\+\_\+event\+\_\+builder.\+h}
+\label{ack__core__event__builder_8h_source}\index{src/ack\_core\_event\_builder.h@{src/ack\_core\_event\_builder.h}}
+\mbox{\hyperlink{ack__core__event__builder_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright 2018-\/2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * }}
+\DoxyCodeLine{4 \textcolor{comment}{ * You may not use this file except in compliance with the terms and conditions set forth in the}}
+\DoxyCodeLine{5 \textcolor{comment}{ * accompanying LICENSE.TXT file. THESE MATERIALS ARE PROVIDED ON AN "{}AS IS"{} BASIS. AMAZON SPECIFICALLY}}
+\DoxyCodeLine{6 \textcolor{comment}{ * DISCLAIMS, WITH RESPECT TO THESE MATERIALS, ALL WARRANTIES, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING}}
+\DoxyCodeLine{7 \textcolor{comment}{ * THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-\/INFRINGEMENT.}}
+\DoxyCodeLine{8 \textcolor{comment}{ */}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack_8h}{ack.h}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ack__generated__ack_8h}{ack\_generated\_ack.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#ifndef \_\_ACK\_EVENT\_BUILDER\_H\_\_}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define \_\_ACK\_EVENT\_BUILDER\_H\_\_}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{18 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{comment}{// Diagnostics. Enabled if assertions are enabled.}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#ifdef ACK\_ENABLE\_ASSERT}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define ACK\_EVENT\_BUILDER\_DIAG}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#undef ACK\_EVENT\_BUILDER\_DIAG}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#if defined(ACK\_EVENT\_BUILDER\_DIAG) \&\& !defined(ACK\_ENABLE\_ASSERT)}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#error Cannot have ACK\_EVENT\_BUILDER\_DIAG without ACK\_ENABLE\_ASSERT}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define EVENT\_FLAGS\_NONE 0}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define EVENT\_FLAG\_CAN\_HAVE\_PROPERTIES 0x01}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define EVENT\_FLAG\_CAN\_HAVE\_CHANGE\_REPORT\_PAYLOAD\_PROPERTIES 0x02}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define EVENT\_FLAG\_NO\_CONTEXT 0x04}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{comment}{// Begins tracking the building of an event.}}
+\DoxyCodeLine{38 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__event__builder_8h_a1a527884abc1659164b1c2cf231bbc40}{EventBuilderStart}}(}
+\DoxyCodeLine{39     int32\_t correlationId,}
+\DoxyCodeLine{40     \mbox{\hyperlink{ack__generated__ack_8h_a61c4574433cc1a7fb91919f1257d2992}{ack\_namespace}} eventNamespace,}
+\DoxyCodeLine{41     \textcolor{keywordtype}{unsigned} eventName,}
+\DoxyCodeLine{42     uint32\_t instance,}
+\DoxyCodeLine{43     \textcolor{keywordtype}{unsigned} flags);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{comment}{// Ends tracking the building of an event.}}
+\DoxyCodeLine{46 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__core__event__builder_8h_a673a280ae959291b76d817aed824f707}{EventBuilderEnd}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{comment}{// Send a completed event, after EventBuilderStart and adding any properties. This routine releases memory}}
+\DoxyCodeLine{49 \textcolor{comment}{// that was being used to build the event, even if a failure error is returned, so there is no need to call}}
+\DoxyCodeLine{50 \textcolor{comment}{// EventBuilderEnd in case EventBuilderSend fails.}}
+\DoxyCodeLine{51 \mbox{\hyperlink{ack__types_8h_a2469e04467f17ba2fdf41a19f3b0a1be}{ACKError\_t}} \mbox{\hyperlink{ack__core__event__builder_8h_a3222f1fb0e26fcd488c2d2d61aeaf816}{EventBuilderSend}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#ifdef ACK\_EVENT\_BUILDER\_DIAG}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{comment}{// Diagnostic to determine whether adding a property to the event being built is allowed.}}
+\DoxyCodeLine{56 \textcolor{keywordtype}{void} \mbox{\hyperlink{ack__core__event__builder_8h_ac714110d30a33e480615c5d3ce3a4c94}{EventBuilderCheckCanAddProperty}}(\textcolor{keywordtype}{bool} changeReportPayloadProperty);}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define ACK\_CHECK\_CAN\_ADD\_PROPERTY\_TO\_EVENT(b) EventBuilderCheckCanAddProperty(b)}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{keywordtype}{bool} \mbox{\hyperlink{ack__core__event__builder_8h_ab1061645c39f82af656a30c877b6fd61}{EventBuilderIsEventBeingBuilt}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define ACK\_CHECK\_CAN\_ADD\_PROPERTY\_TO\_EVENT(b)}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// def ACK\_EVENT\_BUILDER\_DIAG}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{68 \}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ndef \_\_ACK\_EVENT\_BUILDER\_H\_\_}}
+
+\end{DoxyCode}

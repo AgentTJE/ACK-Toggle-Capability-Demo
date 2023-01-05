@@ -1,0 +1,26 @@
+var ack__core__heaplet_8c =
+[
+    [ "ALIGN_DOWN", "ack__core__heaplet_8c.html#aaa8e71b218e01b2943e3055455995faf", null ],
+    [ "ALIGN_DOWN_PTR", "ack__core__heaplet_8c.html#ab66bd47680f364eb6f04e9ac69c73d56", null ],
+    [ "ALIGN_UP", "ack__core__heaplet_8c.html#a04a456d585519093d9fcd6a6e66afa50", null ],
+    [ "ALIGN_UP_PTR", "ack__core__heaplet_8c.html#adae89cebf14757863a65a525e65f5f87", null ],
+    [ "FIRST_BLOCK_BASE", "ack__core__heaplet_8c.html#ae571fa178ac8f38eced6f4e459e49526", null ],
+    [ "HEAPLET_SETSIZE_FLAG_IGNORE_HIGH_WATER_MARK", "ack__core__heaplet_8c.html#a030c5627b297d6cfc3d6be86b88f1b43", null ],
+    [ "Dump_", "ack__core__heaplet_8c.html#a09a3106369140a8b58ea6ec67d0adca5", null ],
+    [ "FindBlock_", "ack__core__heaplet_8c.html#a769a3d7a3cf5cab9082db30abec15ec4", null ],
+    [ "HeapletAccess", "ack__core__heaplet_8c.html#ac03ca341b0f9018dfa4da4d43480649b", null ],
+    [ "HeapletAssertBlocksInUse", "ack__core__heaplet_8c.html#a2757129891774ac1761e19be3aa74707", null ],
+    [ "HeapletFree", "ack__core__heaplet_8c.html#a249ef4b78b976c6a6e8e598d50797525", null ],
+    [ "HeapletGetBlock", "ack__core__heaplet_8c.html#a730050a2e6334a227124ea943b0eff59", null ],
+    [ "HeapletGetBlocksInUse", "ack__core__heaplet_8c.html#af689b2b6caafad5ba9f3dcbe72d40a30", null ],
+    [ "HeapletGetSize", "ack__core__heaplet_8c.html#a36c319ccd1905503c6689fce340e558f", null ],
+    [ "HeapletInit", "ack__core__heaplet_8c.html#abf737e83acbcfe011f683e8889ec5e12", null ],
+    [ "HeapletInjectSetSizeFailure", "ack__core__heaplet_8c.html#a9f4d54de616a3a1dc358012432924612", null ],
+    [ "HeapletSetSize", "ack__core__heaplet_8c.html#a757199e9939e4598279cc950ef3c10dc", null ],
+    [ "HeapletSetToLargestPossibleSize", "ack__core__heaplet_8c.html#a48f91fa0d3acaf3a6d4a720587158056", null ],
+    [ "SetSize_", "ack__core__heaplet_8c.html#ac8a2da1393edaf2822f06b5a1443b566", null ],
+    [ "g_maximumHeapletConsumed", "ack__core__heaplet_8c.html#a62329f79eb4f51f76c5db1120ee3b5ee", null ],
+    [ "sg_buffer", "ack__core__heaplet_8c.html#aeb0d4a8b3777c50da37b836bc29614af", null ],
+    [ "sg_failureTag", "ack__core__heaplet_8c.html#a9de54e98c8b264118b9413fb3a65ebc1", null ],
+    [ "sg_pBufferUsedEnd", "ack__core__heaplet_8c.html#ac039c8623aa49ceef5d21609a330f81a", null ]
+];

@@ -1,0 +1,121 @@
+\hypertarget{ack__circularbuffer_8h}{}\doxysection{src/ack\+\_\+circularbuffer.h File Reference}
+\label{ack__circularbuffer_8h}\index{src/ack\_circularbuffer.h@{src/ack\_circularbuffer.h}}
+{\ttfamily \#include \char`\"{}ack\+\_\+user\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for ack\+\_\+circularbuffer.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=323pt]{ack__circularbuffer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{ack__circularbuffer_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct___a_c_k_circular_buffer__t}{\+\_\+\+ACKCircular\+Buffer\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ack__circularbuffer_8h_a67cdd087e42f40dedac5de87b73020db}{ACK\+\_\+\+CIRCULAR\+\_\+\+BUFFER\+\_\+\+SIZE}}~32
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699}{\+\_\+\+ACKCircular\+Buffer\+State\+\_\+t}} \mbox{\hyperlink{ack__circularbuffer_8h_ad2d674f34d5e4dd14b6b75eceee79c60}{ACKCircular\+Buffer\+State\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{struct___a_c_k_circular_buffer__t}{\+\_\+\+ACKCircular\+Buffer\+\_\+t}} \mbox{\hyperlink{ack__circularbuffer_8h_a9a22a25e414f0aa11a178477345be02d}{ACKCircular\+Buffer\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699}{\+\_\+\+ACKCircular\+Buffer\+State\+\_\+t}} \{ \mbox{\hyperlink{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699aaedb2a641e413008f47c0f5d8e5ea130}{Circular\+Buffer\+\_\+\+Empty}}
+, \mbox{\hyperlink{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699a1e551082ad602a73801f3a9b93cfd985}{Circular\+Buffer\+\_\+\+Full}}
+, \mbox{\hyperlink{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699a0cb5716de5b3a7ee3608b53a1a7e0abd}{Circular\+Buffer\+\_\+\+Partial}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ack__circularbuffer_8h_a3cf023d703733ef875eac265a2419df0}{ACK\+\_\+\+Initialize\+Circular\+Buffer}} (volatile \mbox{\hyperlink{ack__circularbuffer_8h_a9a22a25e414f0aa11a178477345be02d}{ACKCircular\+Buffer\+\_\+t}} $\ast$p\+Circular\+Buffer)
+\item 
+bool \mbox{\hyperlink{ack__circularbuffer_8h_ab716a6183eddd7132b586514ea67272c}{ACK\+\_\+\+Insert\+Into\+Circular\+Buffer}} (volatile \mbox{\hyperlink{ack__circularbuffer_8h_a9a22a25e414f0aa11a178477345be02d}{ACKCircular\+Buffer\+\_\+t}} $\ast$p\+Circular\+Buffer, uint8\+\_\+t x)
+\item 
+bool \mbox{\hyperlink{ack__circularbuffer_8h_a24a81939f28246599661513e96f00db6}{ACK\+\_\+\+Read\+From\+Circular\+Buffer}} (volatile \mbox{\hyperlink{ack__circularbuffer_8h_a9a22a25e414f0aa11a178477345be02d}{ACKCircular\+Buffer\+\_\+t}} $\ast$p\+Circular\+Buffer, uint8\+\_\+t $\ast$pX)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ack__circularbuffer_8h_a67cdd087e42f40dedac5de87b73020db}\label{ack__circularbuffer_8h_a67cdd087e42f40dedac5de87b73020db}} 
+\index{ack\_circularbuffer.h@{ack\_circularbuffer.h}!ACK\_CIRCULAR\_BUFFER\_SIZE@{ACK\_CIRCULAR\_BUFFER\_SIZE}}
+\index{ACK\_CIRCULAR\_BUFFER\_SIZE@{ACK\_CIRCULAR\_BUFFER\_SIZE}!ack\_circularbuffer.h@{ack\_circularbuffer.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_CIRCULAR\_BUFFER\_SIZE}{ACK\_CIRCULAR\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define ACK\+\_\+\+CIRCULAR\+\_\+\+BUFFER\+\_\+\+SIZE~32}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ack__circularbuffer_8h_a9a22a25e414f0aa11a178477345be02d}\label{ack__circularbuffer_8h_a9a22a25e414f0aa11a178477345be02d}} 
+\index{ack\_circularbuffer.h@{ack\_circularbuffer.h}!ACKCircularBuffer\_t@{ACKCircularBuffer\_t}}
+\index{ACKCircularBuffer\_t@{ACKCircularBuffer\_t}!ack\_circularbuffer.h@{ack\_circularbuffer.h}}
+\doxysubsubsection{\texorpdfstring{ACKCircularBuffer\_t}{ACKCircularBuffer\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___a_c_k_circular_buffer__t}{\+\_\+\+ACKCircular\+Buffer\+\_\+t}} \mbox{\hyperlink{ack__circularbuffer_8h_a9a22a25e414f0aa11a178477345be02d}{ACKCircular\+Buffer\+\_\+t}}}
+
+\mbox{\Hypertarget{ack__circularbuffer_8h_ad2d674f34d5e4dd14b6b75eceee79c60}\label{ack__circularbuffer_8h_ad2d674f34d5e4dd14b6b75eceee79c60}} 
+\index{ack\_circularbuffer.h@{ack\_circularbuffer.h}!ACKCircularBufferState\_t@{ACKCircularBufferState\_t}}
+\index{ACKCircularBufferState\_t@{ACKCircularBufferState\_t}!ack\_circularbuffer.h@{ack\_circularbuffer.h}}
+\doxysubsubsection{\texorpdfstring{ACKCircularBufferState\_t}{ACKCircularBufferState\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699}{\+\_\+\+ACKCircular\+Buffer\+State\+\_\+t}} \mbox{\hyperlink{ack__circularbuffer_8h_ad2d674f34d5e4dd14b6b75eceee79c60}{ACKCircular\+Buffer\+State\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699}\label{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699}} 
+\index{ack\_circularbuffer.h@{ack\_circularbuffer.h}!\_ACKCircularBufferState\_t@{\_ACKCircularBufferState\_t}}
+\index{\_ACKCircularBufferState\_t@{\_ACKCircularBufferState\_t}!ack\_circularbuffer.h@{ack\_circularbuffer.h}}
+\doxysubsubsection{\texorpdfstring{\_ACKCircularBufferState\_t}{\_ACKCircularBufferState\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699}{\+\_\+\+ACKCircular\+Buffer\+State\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CircularBuffer\_Empty@{CircularBuffer\_Empty}!ack\_circularbuffer.h@{ack\_circularbuffer.h}}\index{ack\_circularbuffer.h@{ack\_circularbuffer.h}!CircularBuffer\_Empty@{CircularBuffer\_Empty}}}\mbox{\Hypertarget{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699aaedb2a641e413008f47c0f5d8e5ea130}\label{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699aaedb2a641e413008f47c0f5d8e5ea130}} 
+Circular\+Buffer\+\_\+\+Empty&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CircularBuffer\_Full@{CircularBuffer\_Full}!ack\_circularbuffer.h@{ack\_circularbuffer.h}}\index{ack\_circularbuffer.h@{ack\_circularbuffer.h}!CircularBuffer\_Full@{CircularBuffer\_Full}}}\mbox{\Hypertarget{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699a1e551082ad602a73801f3a9b93cfd985}\label{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699a1e551082ad602a73801f3a9b93cfd985}} 
+Circular\+Buffer\+\_\+\+Full&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CircularBuffer\_Partial@{CircularBuffer\_Partial}!ack\_circularbuffer.h@{ack\_circularbuffer.h}}\index{ack\_circularbuffer.h@{ack\_circularbuffer.h}!CircularBuffer\_Partial@{CircularBuffer\_Partial}}}\mbox{\Hypertarget{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699a0cb5716de5b3a7ee3608b53a1a7e0abd}\label{ack__circularbuffer_8h_a00b2de605292ab53db7ca2c4b9d9c699a0cb5716de5b3a7ee3608b53a1a7e0abd}} 
+Circular\+Buffer\+\_\+\+Partial&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__circularbuffer_8h_a3cf023d703733ef875eac265a2419df0}\label{ack__circularbuffer_8h_a3cf023d703733ef875eac265a2419df0}} 
+\index{ack\_circularbuffer.h@{ack\_circularbuffer.h}!ACK\_InitializeCircularBuffer@{ACK\_InitializeCircularBuffer}}
+\index{ACK\_InitializeCircularBuffer@{ACK\_InitializeCircularBuffer}!ack\_circularbuffer.h@{ack\_circularbuffer.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_InitializeCircularBuffer()}{ACK\_InitializeCircularBuffer()}}
+{\footnotesize\ttfamily void ACK\+\_\+\+Initialize\+Circular\+Buffer (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{ack__circularbuffer_8h_a9a22a25e414f0aa11a178477345be02d}{ACKCircular\+Buffer\+\_\+t}} $\ast$}]{p\+Circular\+Buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ack__circularbuffer_8h_ab716a6183eddd7132b586514ea67272c}\label{ack__circularbuffer_8h_ab716a6183eddd7132b586514ea67272c}} 
+\index{ack\_circularbuffer.h@{ack\_circularbuffer.h}!ACK\_InsertIntoCircularBuffer@{ACK\_InsertIntoCircularBuffer}}
+\index{ACK\_InsertIntoCircularBuffer@{ACK\_InsertIntoCircularBuffer}!ack\_circularbuffer.h@{ack\_circularbuffer.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_InsertIntoCircularBuffer()}{ACK\_InsertIntoCircularBuffer()}}
+{\footnotesize\ttfamily bool ACK\+\_\+\+Insert\+Into\+Circular\+Buffer (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{ack__circularbuffer_8h_a9a22a25e414f0aa11a178477345be02d}{ACKCircular\+Buffer\+\_\+t}} $\ast$}]{p\+Circular\+Buffer,  }\item[{uint8\+\_\+t}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ack__circularbuffer_8h_a24a81939f28246599661513e96f00db6}\label{ack__circularbuffer_8h_a24a81939f28246599661513e96f00db6}} 
+\index{ack\_circularbuffer.h@{ack\_circularbuffer.h}!ACK\_ReadFromCircularBuffer@{ACK\_ReadFromCircularBuffer}}
+\index{ACK\_ReadFromCircularBuffer@{ACK\_ReadFromCircularBuffer}!ack\_circularbuffer.h@{ack\_circularbuffer.h}}
+\doxysubsubsection{\texorpdfstring{ACK\_ReadFromCircularBuffer()}{ACK\_ReadFromCircularBuffer()}}
+{\footnotesize\ttfamily bool ACK\+\_\+\+Read\+From\+Circular\+Buffer (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{ack__circularbuffer_8h_a9a22a25e414f0aa11a178477345be02d}{ACKCircular\+Buffer\+\_\+t}} $\ast$}]{p\+Circular\+Buffer,  }\item[{uint8\+\_\+t $\ast$}]{pX }\end{DoxyParamCaption})}
+

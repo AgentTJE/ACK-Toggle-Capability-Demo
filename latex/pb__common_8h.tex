@@ -1,0 +1,104 @@
+\hypertarget{pb__common_8h}{}\doxysection{src/pb\+\_\+common.h File Reference}
+\label{pb__common_8h}\index{src/pb\_common.h@{src/pb\_common.h}}
+{\ttfamily \#include \char`\"{}pb.\+h\char`\"{}}\newline
+Include dependency graph for pb\+\_\+common.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{pb__common_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__common_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structpb__field__iter__s}{pb\+\_\+field\+\_\+iter\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structpb__field__iter__s}{pb\+\_\+field\+\_\+iter\+\_\+s}} \mbox{\hyperlink{pb__common_8h_a52cc1f1483fba378e5af59eae9eda6fc}{pb\+\_\+field\+\_\+iter\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{pb__common_8h_aa407d47d99724ee32121046b2d1f4a43}{pb\+\_\+field\+\_\+iter\+\_\+begin}} (\mbox{\hyperlink{pb__common_8h_a52cc1f1483fba378e5af59eae9eda6fc}{pb\+\_\+field\+\_\+iter\+\_\+t}} $\ast$iter, const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$fields, void $\ast$dest\+\_\+struct)
+\item 
+bool \mbox{\hyperlink{pb__common_8h_a2abc532c22fe4e9e72ca8c35807721a5}{pb\+\_\+field\+\_\+iter\+\_\+next}} (\mbox{\hyperlink{pb__common_8h_a52cc1f1483fba378e5af59eae9eda6fc}{pb\+\_\+field\+\_\+iter\+\_\+t}} $\ast$iter)
+\item 
+bool \mbox{\hyperlink{pb__common_8h_ab39eff37c2f2f79b751ee724cb1776b3}{pb\+\_\+field\+\_\+iter\+\_\+find}} (\mbox{\hyperlink{pb__common_8h_a52cc1f1483fba378e5af59eae9eda6fc}{pb\+\_\+field\+\_\+iter\+\_\+t}} $\ast$iter, uint32\+\_\+t tag)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{pb__common_8h_a52cc1f1483fba378e5af59eae9eda6fc}\label{pb__common_8h_a52cc1f1483fba378e5af59eae9eda6fc}} 
+\index{pb\_common.h@{pb\_common.h}!pb\_field\_iter\_t@{pb\_field\_iter\_t}}
+\index{pb\_field\_iter\_t@{pb\_field\_iter\_t}!pb\_common.h@{pb\_common.h}}
+\doxysubsubsection{\texorpdfstring{pb\_field\_iter\_t}{pb\_field\_iter\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structpb__field__iter__s}{pb\+\_\+field\+\_\+iter\+\_\+s}} \mbox{\hyperlink{pb__common_8h_a52cc1f1483fba378e5af59eae9eda6fc}{pb\+\_\+field\+\_\+iter\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pb__common_8h_aa407d47d99724ee32121046b2d1f4a43}\label{pb__common_8h_aa407d47d99724ee32121046b2d1f4a43}} 
+\index{pb\_common.h@{pb\_common.h}!pb\_field\_iter\_begin@{pb\_field\_iter\_begin}}
+\index{pb\_field\_iter\_begin@{pb\_field\_iter\_begin}!pb\_common.h@{pb\_common.h}}
+\doxysubsubsection{\texorpdfstring{pb\_field\_iter\_begin()}{pb\_field\_iter\_begin()}}
+{\footnotesize\ttfamily bool pb\+\_\+field\+\_\+iter\+\_\+begin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb__common_8h_a52cc1f1483fba378e5af59eae9eda6fc}{pb\+\_\+field\+\_\+iter\+\_\+t}} $\ast$}]{iter,  }\item[{const \mbox{\hyperlink{pb_8h_ad55e030e1d2ef325cad3ba3512fdc6ba}{pb\+\_\+field\+\_\+t}} $\ast$}]{fields,  }\item[{void $\ast$}]{dest\+\_\+struct }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__common_8h_aa407d47d99724ee32121046b2d1f4a43_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__common_8h_ab39eff37c2f2f79b751ee724cb1776b3}\label{pb__common_8h_ab39eff37c2f2f79b751ee724cb1776b3}} 
+\index{pb\_common.h@{pb\_common.h}!pb\_field\_iter\_find@{pb\_field\_iter\_find}}
+\index{pb\_field\_iter\_find@{pb\_field\_iter\_find}!pb\_common.h@{pb\_common.h}}
+\doxysubsubsection{\texorpdfstring{pb\_field\_iter\_find()}{pb\_field\_iter\_find()}}
+{\footnotesize\ttfamily bool pb\+\_\+field\+\_\+iter\+\_\+find (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb__common_8h_a52cc1f1483fba378e5af59eae9eda6fc}{pb\+\_\+field\+\_\+iter\+\_\+t}} $\ast$}]{iter,  }\item[{uint32\+\_\+t}]{tag }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__common_8h_ab39eff37c2f2f79b751ee724cb1776b3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__common_8h_ab39eff37c2f2f79b751ee724cb1776b3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pb__common_8h_a2abc532c22fe4e9e72ca8c35807721a5}\label{pb__common_8h_a2abc532c22fe4e9e72ca8c35807721a5}} 
+\index{pb\_common.h@{pb\_common.h}!pb\_field\_iter\_next@{pb\_field\_iter\_next}}
+\index{pb\_field\_iter\_next@{pb\_field\_iter\_next}!pb\_common.h@{pb\_common.h}}
+\doxysubsubsection{\texorpdfstring{pb\_field\_iter\_next()}{pb\_field\_iter\_next()}}
+{\footnotesize\ttfamily bool pb\+\_\+field\+\_\+iter\+\_\+next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pb__common_8h_a52cc1f1483fba378e5af59eae9eda6fc}{pb\+\_\+field\+\_\+iter\+\_\+t}} $\ast$}]{iter }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=307pt]{pb__common_8h_a2abc532c22fe4e9e72ca8c35807721a5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pb__common_8h_a2abc532c22fe4e9e72ca8c35807721a5_icgraph}
+\end{center}
+\end{figure}

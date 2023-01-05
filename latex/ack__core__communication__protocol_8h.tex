@@ -1,0 +1,206 @@
+\hypertarget{ack__core__communication__protocol_8h}{}\doxysection{src/ack\+\_\+core\+\_\+communication\+\_\+protocol.h File Reference}
+\label{ack__core__communication__protocol_8h}\index{src/ack\_core\_communication\_protocol.h@{src/ack\_core\_communication\_protocol.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for ack\+\_\+core\+\_\+communication\+\_\+protocol.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{ack__core__communication__protocol_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__communication__protocol_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct___acp_request__t}{\+\_\+\+Acp\+Request\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct___acp_ack__t}{\+\_\+\+Acp\+Ack\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct___acp_response_header__t}{\+\_\+\+Acp\+Response\+Header\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ack__core__communication__protocol_8h_a8658f21ca97d27614e509d462526b0e8}{ACP\+\_\+\+PROTOCOL\+\_\+\+MAJOR\+\_\+\+VERSION}}~1
+\item 
+\#define \mbox{\hyperlink{ack__core__communication__protocol_8h_a469f56976c9c8a0097f81c8f53e6fa83}{ACP\+\_\+\+PROTOCOL\+\_\+\+MINOR\+\_\+\+VERSION}}~0
+\item 
+\#define \mbox{\hyperlink{ack__core__communication__protocol_8h_a6419cf434c17c01c32c79331c91a6d14}{ACP\+\_\+\+REQUEST\+\_\+\+HDR\+\_\+\+BYTES}}~\{\textquotesingle{}$\sim$\textquotesingle{}, 0x\+D4, \textquotesingle{}$\ast$\textquotesingle{}, 0x94, \textquotesingle{}J\textquotesingle{}\}
+\item 
+\#define \mbox{\hyperlink{ack__core__communication__protocol_8h_a8c0c71b52362f6c4ea9c151eaebaf959}{ACP\+\_\+\+REQUEST\+\_\+\+HDR\+\_\+\+LEN}}~5
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58}{\+\_\+\+Acp\+Value\+\_\+t}} \mbox{\hyperlink{ack__core__communication__protocol_8h_a7645091dcac4af8fb45c519565014f0a}{Acp\+Value\+\_\+t}}
+\item 
+typedef enum \mbox{\hyperlink{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5f}{\+\_\+\+Acp\+Request\+Type\+\_\+t}} \mbox{\hyperlink{ack__core__communication__protocol_8h_a6fcc29395dd32c2a6acac6d165ceed31}{Acp\+Request\+Type\+\_\+t}}
+\item 
+typedef PACKED\+\_\+\+STRUCT2 struct \mbox{\hyperlink{struct___acp_ack__t}{\+\_\+\+Acp\+Ack\+\_\+t}} \mbox{\hyperlink{ack__core__communication__protocol_8h_ab7c7e7c35041c83f1832502979f8a6e3}{Acp\+Ack\+\_\+t}}
+\item 
+typedef PACKED\+\_\+\+STRUCT2 struct \mbox{\hyperlink{struct___acp_response_header__t}{\+\_\+\+Acp\+Response\+Header\+\_\+t}} \mbox{\hyperlink{ack__core__communication__protocol_8h_a7a4bc0fcd660bb6b699a0e4d15b71c24}{Acp\+Response\+Header\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58}{\+\_\+\+Acp\+Value\+\_\+t}} \{ \newline
+\mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58ad0e82025d1d7818215e7d91c9c4765b5}{ACK\+\_\+\+ACP\+\_\+\+NO\+\_\+\+ERROR}} = 0
+, \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58a8990415afa2567c3f5e6947ad5c98b41}{ACK\+\_\+\+ACP\+\_\+\+DECODE\+\_\+\+ERROR}} = 1
+, \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58aadc29f7b6b7eb2e9cfa8188816d40183}{ACK\+\_\+\+ACP\+\_\+\+ENCODE\+\_\+\+ERROR}} = 2
+, \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58a218b2196e063ef67f2be1162ba988d87}{ACK\+\_\+\+ACP\+\_\+\+NO\+\_\+\+PENDING\+\_\+\+EVENT}} = 3
+, \newline
+\mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58aa5e8aee7ddc5c2ab21b1a0f7b0ef9026}{ACK\+\_\+\+ACP\+\_\+\+EXCEEDED\+\_\+\+MAX\+\_\+\+MESSAGE\+\_\+\+SIZE}} = 4
+, \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58ae3b5c1a07520a2d7591435c3d89a31ea}{ACK\+\_\+\+ACP\+\_\+\+NO\+\_\+\+RESPONSE}} = 5
+, \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58a2272a05718bdb56baee03665393fd823}{ACK\+\_\+\+ACP\+\_\+\+INVALID\+\_\+\+REQUEST}} = 6
+, \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58a5bcaf9f74b4e9ba68032088073225de2}{ACK\+\_\+\+ACP\+\_\+\+INVALID\+\_\+\+CHECKSUM}} = 7
+, \newline
+\mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58affa87b190b631de1bad6a0613eb0f4cd}{ACK\+\_\+\+ACP\+\_\+\+INTERNAL\+\_\+\+ERROR}} = 8
+ \}
+\item 
+enum \mbox{\hyperlink{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5f}{\+\_\+\+Acp\+Request\+Type\+\_\+t}} \{ \mbox{\hyperlink{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5faad38e4d13b0742c5dab9c5dbb5f4c0d4}{ACP\+\_\+\+REQUEST\+\_\+\+WRITE\+\_\+\+CMD}}
+, \mbox{\hyperlink{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5fa4881e4c8f8674c6b071b23b098a85f3e}{ACP\+\_\+\+REQUEST\+\_\+\+READ\+\_\+\+RESPONSE\+\_\+\+HEADER}}
+, \mbox{\hyperlink{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5faaf83f69a712908e5b50973f2a2c3638b}{ACP\+\_\+\+REQUEST\+\_\+\+READ\+\_\+\+RESPONSE\+\_\+\+BODY}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+BEGIN\+\_\+\+PACKED\+\_\+\+STRUCT typedef PACKED\+\_\+\+STRUCT2 struct \mbox{\hyperlink{struct___acp_request__t}{\+\_\+\+Acp\+Request\+\_\+t}} \mbox{\hyperlink{ack__core__communication__protocol_8h_a644888b8774c10acbec8f7a668f602da}{Acp\+Request\+\_\+t}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ack__core__communication__protocol_8h_a8658f21ca97d27614e509d462526b0e8}\label{ack__core__communication__protocol_8h_a8658f21ca97d27614e509d462526b0e8}} 
+\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!ACP\_PROTOCOL\_MAJOR\_VERSION@{ACP\_PROTOCOL\_MAJOR\_VERSION}}
+\index{ACP\_PROTOCOL\_MAJOR\_VERSION@{ACP\_PROTOCOL\_MAJOR\_VERSION}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}
+\doxysubsubsection{\texorpdfstring{ACP\_PROTOCOL\_MAJOR\_VERSION}{ACP\_PROTOCOL\_MAJOR\_VERSION}}
+{\footnotesize\ttfamily \#define ACP\+\_\+\+PROTOCOL\+\_\+\+MAJOR\+\_\+\+VERSION~1}
+
+\mbox{\Hypertarget{ack__core__communication__protocol_8h_a469f56976c9c8a0097f81c8f53e6fa83}\label{ack__core__communication__protocol_8h_a469f56976c9c8a0097f81c8f53e6fa83}} 
+\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!ACP\_PROTOCOL\_MINOR\_VERSION@{ACP\_PROTOCOL\_MINOR\_VERSION}}
+\index{ACP\_PROTOCOL\_MINOR\_VERSION@{ACP\_PROTOCOL\_MINOR\_VERSION}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}
+\doxysubsubsection{\texorpdfstring{ACP\_PROTOCOL\_MINOR\_VERSION}{ACP\_PROTOCOL\_MINOR\_VERSION}}
+{\footnotesize\ttfamily \#define ACP\+\_\+\+PROTOCOL\+\_\+\+MINOR\+\_\+\+VERSION~0}
+
+\mbox{\Hypertarget{ack__core__communication__protocol_8h_a6419cf434c17c01c32c79331c91a6d14}\label{ack__core__communication__protocol_8h_a6419cf434c17c01c32c79331c91a6d14}} 
+\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!ACP\_REQUEST\_HDR\_BYTES@{ACP\_REQUEST\_HDR\_BYTES}}
+\index{ACP\_REQUEST\_HDR\_BYTES@{ACP\_REQUEST\_HDR\_BYTES}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}
+\doxysubsubsection{\texorpdfstring{ACP\_REQUEST\_HDR\_BYTES}{ACP\_REQUEST\_HDR\_BYTES}}
+{\footnotesize\ttfamily \#define ACP\+\_\+\+REQUEST\+\_\+\+HDR\+\_\+\+BYTES~\{\textquotesingle{}$\sim$\textquotesingle{}, 0x\+D4, \textquotesingle{}$\ast$\textquotesingle{}, 0x94, \textquotesingle{}J\textquotesingle{}\}}
+
+\mbox{\Hypertarget{ack__core__communication__protocol_8h_a8c0c71b52362f6c4ea9c151eaebaf959}\label{ack__core__communication__protocol_8h_a8c0c71b52362f6c4ea9c151eaebaf959}} 
+\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!ACP\_REQUEST\_HDR\_LEN@{ACP\_REQUEST\_HDR\_LEN}}
+\index{ACP\_REQUEST\_HDR\_LEN@{ACP\_REQUEST\_HDR\_LEN}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}
+\doxysubsubsection{\texorpdfstring{ACP\_REQUEST\_HDR\_LEN}{ACP\_REQUEST\_HDR\_LEN}}
+{\footnotesize\ttfamily \#define ACP\+\_\+\+REQUEST\+\_\+\+HDR\+\_\+\+LEN~5}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ack__core__communication__protocol_8h_ab7c7e7c35041c83f1832502979f8a6e3}\label{ack__core__communication__protocol_8h_ab7c7e7c35041c83f1832502979f8a6e3}} 
+\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!AcpAck\_t@{AcpAck\_t}}
+\index{AcpAck\_t@{AcpAck\_t}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}
+\doxysubsubsection{\texorpdfstring{AcpAck\_t}{AcpAck\_t}}
+{\footnotesize\ttfamily typedef PACKED\+\_\+\+STRUCT2 struct \mbox{\hyperlink{struct___acp_ack__t}{\+\_\+\+Acp\+Ack\+\_\+t}} \mbox{\hyperlink{ack__core__communication__protocol_8h_ab7c7e7c35041c83f1832502979f8a6e3}{Acp\+Ack\+\_\+t}}}
+
+\mbox{\Hypertarget{ack__core__communication__protocol_8h_a6fcc29395dd32c2a6acac6d165ceed31}\label{ack__core__communication__protocol_8h_a6fcc29395dd32c2a6acac6d165ceed31}} 
+\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!AcpRequestType\_t@{AcpRequestType\_t}}
+\index{AcpRequestType\_t@{AcpRequestType\_t}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}
+\doxysubsubsection{\texorpdfstring{AcpRequestType\_t}{AcpRequestType\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5f}{\+\_\+\+Acp\+Request\+Type\+\_\+t}} \mbox{\hyperlink{ack__core__communication__protocol_8h_a6fcc29395dd32c2a6acac6d165ceed31}{Acp\+Request\+Type\+\_\+t}}}
+
+\mbox{\Hypertarget{ack__core__communication__protocol_8h_a7a4bc0fcd660bb6b699a0e4d15b71c24}\label{ack__core__communication__protocol_8h_a7a4bc0fcd660bb6b699a0e4d15b71c24}} 
+\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!AcpResponseHeader\_t@{AcpResponseHeader\_t}}
+\index{AcpResponseHeader\_t@{AcpResponseHeader\_t}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}
+\doxysubsubsection{\texorpdfstring{AcpResponseHeader\_t}{AcpResponseHeader\_t}}
+{\footnotesize\ttfamily typedef PACKED\+\_\+\+STRUCT2 struct \mbox{\hyperlink{struct___acp_response_header__t}{\+\_\+\+Acp\+Response\+Header\+\_\+t}} \mbox{\hyperlink{ack__core__communication__protocol_8h_a7a4bc0fcd660bb6b699a0e4d15b71c24}{Acp\+Response\+Header\+\_\+t}}}
+
+\mbox{\Hypertarget{ack__core__communication__protocol_8h_a7645091dcac4af8fb45c519565014f0a}\label{ack__core__communication__protocol_8h_a7645091dcac4af8fb45c519565014f0a}} 
+\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!AcpValue\_t@{AcpValue\_t}}
+\index{AcpValue\_t@{AcpValue\_t}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}
+\doxysubsubsection{\texorpdfstring{AcpValue\_t}{AcpValue\_t}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58}{\+\_\+\+Acp\+Value\+\_\+t}} \mbox{\hyperlink{ack__core__communication__protocol_8h_a7645091dcac4af8fb45c519565014f0a}{Acp\+Value\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5f}\label{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5f}} 
+\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!\_AcpRequestType\_t@{\_AcpRequestType\_t}}
+\index{\_AcpRequestType\_t@{\_AcpRequestType\_t}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}
+\doxysubsubsection{\texorpdfstring{\_AcpRequestType\_t}{\_AcpRequestType\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5f}{\+\_\+\+Acp\+Request\+Type\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACP\_REQUEST\_WRITE\_CMD@{ACP\_REQUEST\_WRITE\_CMD}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!ACP\_REQUEST\_WRITE\_CMD@{ACP\_REQUEST\_WRITE\_CMD}}}\mbox{\Hypertarget{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5faad38e4d13b0742c5dab9c5dbb5f4c0d4}\label{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5faad38e4d13b0742c5dab9c5dbb5f4c0d4}} 
+ACP\+\_\+\+REQUEST\+\_\+\+WRITE\+\_\+\+CMD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACP\_REQUEST\_READ\_RESPONSE\_HEADER@{ACP\_REQUEST\_READ\_RESPONSE\_HEADER}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!ACP\_REQUEST\_READ\_RESPONSE\_HEADER@{ACP\_REQUEST\_READ\_RESPONSE\_HEADER}}}\mbox{\Hypertarget{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5fa4881e4c8f8674c6b071b23b098a85f3e}\label{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5fa4881e4c8f8674c6b071b23b098a85f3e}} 
+ACP\+\_\+\+REQUEST\+\_\+\+READ\+\_\+\+RESPONSE\+\_\+\+HEADER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACP\_REQUEST\_READ\_RESPONSE\_BODY@{ACP\_REQUEST\_READ\_RESPONSE\_BODY}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!ACP\_REQUEST\_READ\_RESPONSE\_BODY@{ACP\_REQUEST\_READ\_RESPONSE\_BODY}}}\mbox{\Hypertarget{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5faaf83f69a712908e5b50973f2a2c3638b}\label{ack__core__communication__protocol_8h_aadd11aa80652ea28aef6558e5686ee5faaf83f69a712908e5b50973f2a2c3638b}} 
+ACP\+\_\+\+REQUEST\+\_\+\+READ\+\_\+\+RESPONSE\+\_\+\+BODY&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58}\label{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58}} 
+\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!\_AcpValue\_t@{\_AcpValue\_t}}
+\index{\_AcpValue\_t@{\_AcpValue\_t}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}
+\doxysubsubsection{\texorpdfstring{\_AcpValue\_t}{\_AcpValue\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58}{\+\_\+\+Acp\+Value\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_ACP\_NO\_ERROR@{ACK\_ACP\_NO\_ERROR}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!ACK\_ACP\_NO\_ERROR@{ACK\_ACP\_NO\_ERROR}}}\mbox{\Hypertarget{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58ad0e82025d1d7818215e7d91c9c4765b5}\label{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58ad0e82025d1d7818215e7d91c9c4765b5}} 
+ACK\+\_\+\+ACP\+\_\+\+NO\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_ACP\_DECODE\_ERROR@{ACK\_ACP\_DECODE\_ERROR}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!ACK\_ACP\_DECODE\_ERROR@{ACK\_ACP\_DECODE\_ERROR}}}\mbox{\Hypertarget{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58a8990415afa2567c3f5e6947ad5c98b41}\label{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58a8990415afa2567c3f5e6947ad5c98b41}} 
+ACK\+\_\+\+ACP\+\_\+\+DECODE\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_ACP\_ENCODE\_ERROR@{ACK\_ACP\_ENCODE\_ERROR}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!ACK\_ACP\_ENCODE\_ERROR@{ACK\_ACP\_ENCODE\_ERROR}}}\mbox{\Hypertarget{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58aadc29f7b6b7eb2e9cfa8188816d40183}\label{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58aadc29f7b6b7eb2e9cfa8188816d40183}} 
+ACK\+\_\+\+ACP\+\_\+\+ENCODE\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_ACP\_NO\_PENDING\_EVENT@{ACK\_ACP\_NO\_PENDING\_EVENT}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!ACK\_ACP\_NO\_PENDING\_EVENT@{ACK\_ACP\_NO\_PENDING\_EVENT}}}\mbox{\Hypertarget{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58a218b2196e063ef67f2be1162ba988d87}\label{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58a218b2196e063ef67f2be1162ba988d87}} 
+ACK\+\_\+\+ACP\+\_\+\+NO\+\_\+\+PENDING\+\_\+\+EVENT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_ACP\_EXCEEDED\_MAX\_MESSAGE\_SIZE@{ACK\_ACP\_EXCEEDED\_MAX\_MESSAGE\_SIZE}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!ACK\_ACP\_EXCEEDED\_MAX\_MESSAGE\_SIZE@{ACK\_ACP\_EXCEEDED\_MAX\_MESSAGE\_SIZE}}}\mbox{\Hypertarget{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58aa5e8aee7ddc5c2ab21b1a0f7b0ef9026}\label{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58aa5e8aee7ddc5c2ab21b1a0f7b0ef9026}} 
+ACK\+\_\+\+ACP\+\_\+\+EXCEEDED\+\_\+\+MAX\+\_\+\+MESSAGE\+\_\+\+SIZE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_ACP\_NO\_RESPONSE@{ACK\_ACP\_NO\_RESPONSE}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!ACK\_ACP\_NO\_RESPONSE@{ACK\_ACP\_NO\_RESPONSE}}}\mbox{\Hypertarget{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58ae3b5c1a07520a2d7591435c3d89a31ea}\label{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58ae3b5c1a07520a2d7591435c3d89a31ea}} 
+ACK\+\_\+\+ACP\+\_\+\+NO\+\_\+\+RESPONSE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_ACP\_INVALID\_REQUEST@{ACK\_ACP\_INVALID\_REQUEST}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!ACK\_ACP\_INVALID\_REQUEST@{ACK\_ACP\_INVALID\_REQUEST}}}\mbox{\Hypertarget{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58a2272a05718bdb56baee03665393fd823}\label{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58a2272a05718bdb56baee03665393fd823}} 
+ACK\+\_\+\+ACP\+\_\+\+INVALID\+\_\+\+REQUEST&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_ACP\_INVALID\_CHECKSUM@{ACK\_ACP\_INVALID\_CHECKSUM}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!ACK\_ACP\_INVALID\_CHECKSUM@{ACK\_ACP\_INVALID\_CHECKSUM}}}\mbox{\Hypertarget{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58a5bcaf9f74b4e9ba68032088073225de2}\label{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58a5bcaf9f74b4e9ba68032088073225de2}} 
+ACK\+\_\+\+ACP\+\_\+\+INVALID\+\_\+\+CHECKSUM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK\_ACP\_INTERNAL\_ERROR@{ACK\_ACP\_INTERNAL\_ERROR}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!ACK\_ACP\_INTERNAL\_ERROR@{ACK\_ACP\_INTERNAL\_ERROR}}}\mbox{\Hypertarget{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58affa87b190b631de1bad6a0613eb0f4cd}\label{ack__core__communication__protocol_8h_a3740a8ab365ba964084af9adcf19de58affa87b190b631de1bad6a0613eb0f4cd}} 
+ACK\+\_\+\+ACP\+\_\+\+INTERNAL\+\_\+\+ERROR&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ack__core__communication__protocol_8h_a644888b8774c10acbec8f7a668f602da}\label{ack__core__communication__protocol_8h_a644888b8774c10acbec8f7a668f602da}} 
+\index{ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}!AcpRequest\_t@{AcpRequest\_t}}
+\index{AcpRequest\_t@{AcpRequest\_t}!ack\_core\_communication\_protocol.h@{ack\_core\_communication\_protocol.h}}
+\doxysubsubsection{\texorpdfstring{AcpRequest\_t}{AcpRequest\_t}}
+{\footnotesize\ttfamily BEGIN\+\_\+\+PACKED\+\_\+\+STRUCT typedef PACKED\+\_\+\+STRUCT2 struct \mbox{\hyperlink{struct___acp_request__t}{\+\_\+\+Acp\+Request\+\_\+t}} Acp\+Request\+\_\+t}
+

@@ -1,0 +1,74 @@
+\hypertarget{ack__core__crc32_8c}{}\doxysection{src/ack\+\_\+core\+\_\+crc32.c File Reference}
+\label{ack__core__crc32_8c}\index{src/ack\_core\_crc32.c@{src/ack\_core\_crc32.c}}
+{\ttfamily \#include \char`\"{}ack\+\_\+crc32.\+h\char`\"{}}\newline
+Include dependency graph for ack\+\_\+core\+\_\+crc32.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{ack__core__crc32_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ack__core__crc32_8c_a291845c3d39d8dc8a9468a76c69b3256}{FLASH\+\_\+\+READ\+\_\+\+DWORD}}(x)~($\ast$(uint32\+\_\+t$\ast$)(x))
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{ack__core__crc32_8c_a47cfd19f90134298ba2426ab819e7055}{ACK\+\_\+\+Calculate\+Crc32}} (const void $\ast$p\+Data, size\+\_\+t length)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const uint32\+\_\+t \mbox{\hyperlink{ack__core__crc32_8c_a6e5772aae14633e10b39f7b3ad49113e}{crc32\+Table}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ack__core__crc32_8c_a291845c3d39d8dc8a9468a76c69b3256}\label{ack__core__crc32_8c_a291845c3d39d8dc8a9468a76c69b3256}} 
+\index{ack\_core\_crc32.c@{ack\_core\_crc32.c}!FLASH\_READ\_DWORD@{FLASH\_READ\_DWORD}}
+\index{FLASH\_READ\_DWORD@{FLASH\_READ\_DWORD}!ack\_core\_crc32.c@{ack\_core\_crc32.c}}
+\doxysubsubsection{\texorpdfstring{FLASH\_READ\_DWORD}{FLASH\_READ\_DWORD}}
+{\footnotesize\ttfamily \#define FLASH\+\_\+\+READ\+\_\+\+DWORD(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~($\ast$(uint32\+\_\+t$\ast$)(x))}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ack__core__crc32_8c_a47cfd19f90134298ba2426ab819e7055}\label{ack__core__crc32_8c_a47cfd19f90134298ba2426ab819e7055}} 
+\index{ack\_core\_crc32.c@{ack\_core\_crc32.c}!ACK\_CalculateCrc32@{ACK\_CalculateCrc32}}
+\index{ACK\_CalculateCrc32@{ACK\_CalculateCrc32}!ack\_core\_crc32.c@{ack\_core\_crc32.c}}
+\doxysubsubsection{\texorpdfstring{ACK\_CalculateCrc32()}{ACK\_CalculateCrc32()}}
+{\footnotesize\ttfamily uint32\+\_\+t ACK\+\_\+\+Calculate\+Crc32 (\begin{DoxyParamCaption}\item[{const void $\ast$}]{p\+Data,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+\begin{DoxySeeAlso}{See also}
+\href{http://forum.arduino.cc/index.php?topic=91179.0}{\texttt{ http\+://forum.\+arduino.\+cc/index.\+php?topic=91179.\+0}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ack__core__crc32_8c_a47cfd19f90134298ba2426ab819e7055_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ack__core__crc32_8c_a6e5772aae14633e10b39f7b3ad49113e}\label{ack__core__crc32_8c_a6e5772aae14633e10b39f7b3ad49113e}} 
+\index{ack\_core\_crc32.c@{ack\_core\_crc32.c}!crc32Table@{crc32Table}}
+\index{crc32Table@{crc32Table}!ack\_core\_crc32.c@{ack\_core\_crc32.c}}
+\doxysubsubsection{\texorpdfstring{crc32Table}{crc32Table}}
+{\footnotesize\ttfamily const uint32\+\_\+t crc32\+Table\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    0x00000000, 0x1db71064, 0x3b6e20c8, 0x26d930ac,}
+\DoxyCodeLine{    0x76dc4190, 0x6b6b51f4, 0x4db26158, 0x5005713c,}
+\DoxyCodeLine{    0xedb88320, 0xf00f9344, 0xd6d6a3e8, 0xcb61b38c,}
+\DoxyCodeLine{    0x9b64c2b0, 0x86d3d2d4, 0xa00ae278, 0xbdbdf21c}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

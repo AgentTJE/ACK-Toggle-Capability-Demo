@@ -19,14 +19,14 @@
     to suggest a reference design for any category of device or to provide a definitive framework for
     a device's firmware.
 
-    ACK_HW_PIN_SAMPLE_APPLICATIONS_LED(pin  8) is the LED light representing global power o(indicating 1 of the other 2 lights is still on).
-    ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_1(pin 9) is the global power button.
+    ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_7 is the LED light representing global power o(indicating 1 of the other 2 lights is still on).
+    ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_14 is the global power button.
 
-    ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_2(pin 10) is the left LED light.
-    ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_6(pin 11) is the left LED light power button.
+    ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_8 is the left LED light.
+    ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_15 is the left LED light power button.
 
-    ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_4(pin 12) is the right LED light.
-    ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_5(pin 13) is the right LED light power button.
+    ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_9 is the right LED light.
+    ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_16 is the right LED light power button.
 */
 
 #include "src/ack_user_platform.h"
@@ -47,19 +47,18 @@ int32_t g_brightness = MAXIMUM_BRIGHTNESS; // Brightness */
 void Hardware_SetPowerState(bool powerOn)
 {
     g_power = powerOn;
-    ACKPlatform_WriteDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_LED, powerOn);
+    ACKPlatform_WriteDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_7, powerOn);
 }
 
 bool Hardware_IsPowerOn(void)
 {
-    /* return ACKPlatform_ReadDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_LED); */
     return g_power;
 }
 
 bool Hardware_IsPowerToggleButtonDown(void)
 {
     // Read the state of the power button
-    bool powerButtonPressed = ACKPlatform_ReadDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_1);
+    bool powerButtonPressed = ACKPlatform_ReadDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_14);
 
     // Return the power button state
     return powerButtonPressed;
@@ -70,18 +69,17 @@ bool Hardware_IsPowerToggleButtonDown(void)
 void Hardware_SetLeftSidePowerState(bool leftSidePowerOn)
 {
     g_leftSidePower = leftSidePowerOn;
-    ACKPlatform_WriteDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_2, leftSidePowerOn);
+    ACKPlatform_WriteDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_8, leftSidePowerOn);
 }
 
 bool Hardware_IsLeftSidePowerOn(void)
 {
-    /* return ACKPlatform_ReadDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_2); */
     return g_leftSidePower;
 }
 
 bool Hardware_IsLeftSidePowerToggleButtonDown(void)
 {
-    return ACKPlatform_ReadDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_6);
+    return ACKPlatform_ReadDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_15);
 }
 
 
@@ -89,18 +87,17 @@ bool Hardware_IsLeftSidePowerToggleButtonDown(void)
 void Hardware_SetRightSidePowerState(bool rightSidePowerOn)
 {
     g_rightSidePower = rightSidePowerOn;
-    ACKPlatform_WriteDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_4, rightSidePowerOn);
+    ACKPlatform_WriteDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_9, rightSidePowerOn);
 }
 
 bool Hardware_IsRightSidePowerOn(void)
 {
-    /* return ACKPlatform_ReadDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_4); */
     return g_rightSidePower;
 }
 
 bool Hardware_IsRightSidePowerToggleButtonDown(void)
 {
-    return ACKPlatform_ReadDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_5);
+    return ACKPlatform_ReadDigitalPin(ACK_HW_PIN_SAMPLE_APPLICATIONS_GPIO_16);
 }
 
 

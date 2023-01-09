@@ -57,6 +57,10 @@ static void ProcessSetRightSideToggleDirective(int32_t correlationId, bool state
 #define TOGGLE_INSTANCE_LEFT_STATE 12
 #define TOGGLE_INSTANCE_RIGHT_STATE 13
 
+#define POWER_STATE_PROPERTY 1
+#define TOGGLE_LEFT_STATE_PROPERTY 2
+#define TOGGLE_RIGHT_STATE_PROPERTY 3
+
 // Required table that maps properties to routines in our code that populate an outgoing event such as
 // a directive response, state report, or change report.
 ACKPropertyTableEntry_t ACKUser_PropertyTable[] = 

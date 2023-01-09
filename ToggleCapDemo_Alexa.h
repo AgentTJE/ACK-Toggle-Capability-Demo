@@ -28,10 +28,6 @@ extern "C"
 {
 #endif
 
-#define POWER_STATE_PROPERTY 1
-#define TOGGLE_LEFT_STATE_PROPERTY 2
-#define TOGGLE_RIGHT_STATE_PROPERTY 3
-
 void Alexa_Setup(void);
 void Alexa_Loop(void);
 void Alexa_SendChangeReportDueToLocalControl(void);

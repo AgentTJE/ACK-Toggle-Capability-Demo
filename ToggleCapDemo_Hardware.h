@@ -52,12 +52,12 @@ void Hardware_SetRightSidePowerState(bool rightSidePowerOn);
 bool Hardware_IsRightSidePowerOn(void);
 bool Hardware_IsRightSidePowerToggleButtonDown(void);
 
-void Hardware_TurnMasterOn(void);
+/* void Hardware_TurnMasterOn(void);
 void Hardware_TurnMasterOff(void);
 void Hardware_TurnLeftSideOn(void);
 void Hardware_TurnLeftSideOff(void);
 void Hardware_TurnRightSideOn(void);
-void Hardware_TurnRightSideOff(void);
+void Hardware_TurnRightSideOff(void); */
 
 // Added for ACK.
 void Hardware_SetConnectivityLedState(HardwareConnectivityLedState state);

@@ -88,8 +88,6 @@ void loop(void)
     powerButtonAction = GetPowerButtonAction();
     if (BUTTON_ACTION_RELEASED == powerButtonAction)
     {
-        ACKPropertiesBits_t changedPropertiesBits = 0;
-        changedPropertiesBits |= ACK_PROPERTY_BIT(POWER_STATE_PROPERTY);
         // Toggle power state, and tell Alexa about the state change.
 
         Hardware_SetPowerState(!Hardware_IsPowerOn());
@@ -98,12 +96,10 @@ void loop(void)
         {
             if(!Hardware_IsLeftSidePowerOn())
             {
-                changedPropertiesBits |= ACK_PROPERTY_BIT(TOGGLE_LEFT_STATE_PROPERTY);
                 Hardware_SetLeftSidePowerState(true);
             }
             if(!Hardware_IsRightSidePowerOn())
             {
-                changedPropertiesBits |= ACK_PROPERTY_BIT(TOGGLE_RIGHT_STATE_PROPERTY);
                 Hardware_SetRightSidePowerState(true);
             }
         }
@@ -111,30 +107,21 @@ void loop(void)
         {
             if(Hardware_IsLeftSidePowerOn())
             {
-                changedPropertiesBits |= ACK_PROPERTY_BIT(TOGGLE_LEFT_STATE_PROPERTY);
                 Hardware_SetLeftSidePowerState(false);
             }
             if(Hardware_IsRightSidePowerOn())
             {
-                changedPropertiesBits |= ACK_PROPERTY_BIT(TOGGLE_RIGHT_STATE_PROPERTY);
                 Hardware_SetRightSidePowerState(false);
             }
         }
 
         Alexa_SendChangeReportDueToLocalControl();
 
-        // ACK_SendChangeReport(
-        // ack_alexa_change_report_cause_type_physical_interaction,
-        // changedPropertiesBits,
-        // 0);
-
     }
 
     leftSidePowerButtonAction = GetLeftSidePowerButtonAction();
     if (BUTTON_ACTION_RELEASED == leftSidePowerButtonAction)
     {
-        ACKPropertiesBits_t changedPropertiesBits = 0;
-        changedPropertiesBits |= ACK_PROPERTY_BIT(TOGGLE_LEFT_STATE_PROPERTY);
 
         // Toggle power state, and tell Alexa about the state change.
         Hardware_SetLeftSidePowerState(!Hardware_IsLeftSidePowerOn());
@@ -143,7 +130,6 @@ void loop(void)
         {
             if(!Hardware_IsPowerOn())
             {
-                changedPropertiesBits |= ACK_PROPERTY_BIT(POWER_STATE_PROPERTY);
                 Hardware_SetPowerState(true);
             }
         }
@@ -153,26 +139,16 @@ void loop(void)
             {
                 if(Hardware_IsPowerOn())
                 {
-                    changedPropertiesBits |= ACK_PROPERTY_BIT(POWER_STATE_PROPERTY);
                     Hardware_SetPowerState(false);
                 }
             }
         }
         Alexa_SendChangeReportDueToLocalControl();
-
-        // ACK_SendChangeReport(
-        // ack_alexa_change_report_cause_type_physical_interaction,
-        // changedPropertiesBits,
-        // 0);
     }
 
     rightSidePowerButtonAction = GetRightSidePowerButtonAction();
     if (BUTTON_ACTION_RELEASED == rightSidePowerButtonAction)
     {
-
-        ACKPropertiesBits_t changedPropertiesBits = 0;
-        changedPropertiesBits |= ACK_PROPERTY_BIT(TOGGLE_LEFT_STATE_PROPERTY);
-
         // Toggle power state, and tell Alexa about the state change.
         Hardware_SetRightSidePowerState(!Hardware_IsRightSidePowerOn());
 
@@ -180,7 +156,6 @@ void loop(void)
         {
             if(!Hardware_IsPowerOn())
             {
-                changedPropertiesBits |= ACK_PROPERTY_BIT(POWER_STATE_PROPERTY);
                 Hardware_SetPowerState(true);
             }
         }
@@ -190,17 +165,11 @@ void loop(void)
             {
                 if(Hardware_IsPowerOn())
                 {
-                    changedPropertiesBits |= ACK_PROPERTY_BIT(POWER_STATE_PROPERTY);
                     Hardware_SetPowerState(false);
                 }
             }
         }
         Alexa_SendChangeReportDueToLocalControl();
-
-        // ACK_SendChangeReport(
-        // ack_alexa_change_report_cause_type_physical_interaction,
-        // changedPropertiesBits,
-        // 0);
     }
 
     lifecycleButtonAction = GetLifecycleButtonAction();

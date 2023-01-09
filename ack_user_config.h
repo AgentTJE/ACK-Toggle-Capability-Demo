@@ -44,14 +44,12 @@
 #define ACK_TOGGLE_CONTROLLER
 
 // Enable support for the Host MCU sample applications LED pin in the platform-specific implementation.
-#define ACK_SAMPLE_APPLICATIONS_LED_PIN
-#define ACK_SAMPLE_APPLICATIONS_GPIO_PIN_1
-#define ACK_SAMPLE_APPLICATIONS_GPIO_PIN_2
-/* #define ACK_SAMPLE_APPLICATIONS_GPIO_PIN_3 */
-#define ACK_SAMPLE_APPLICATIONS_GPIO_PIN_4
-#define ACK_SAMPLE_APPLICATIONS_GPIO_PIN_5
-#define ACK_SAMPLE_APPLICATIONS_GPIO_PIN_6
-
+#define ACK_SAMPLE_APPLICATIONS_GPIO_PIN_7
+#define ACK_SAMPLE_APPLICATIONS_GPIO_PIN_8
+#define ACK_SAMPLE_APPLICATIONS_GPIO_PIN_9
+#define ACK_SAMPLE_APPLICATIONS_GPIO_PIN_14
+#define ACK_SAMPLE_APPLICATIONS_GPIO_PIN_15
+#define ACK_SAMPLE_APPLICATIONS_GPIO_PIN_16
 
 // Prevent 'stock' empty implementations of some of the device-specific routine in ack_user_device.c
 // so we can supply our own.
